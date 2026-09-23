@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="英文字卡">
+  <meta name="theme-color" content="#6366f1">
+  <link rel="manifest" href="manifest.json">
+  <link rel="apple-touch-icon" href="icon.png">
+  <title>英文字卡 App</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --primary: #6366f1;
+      --bg: #0f0f13;
+      --card-bg: #1a1a24;
+      --text: #f1f1f5;
+      --muted: #8b8b9e;
+      --border: #2a2a3a;
+      --green: #22c55e;
+      --red: #ef4444;
+      --radius: 20px;
+      --safe-top: env(safe-area-inset-top, 0px);
+      --safe-bottom: env(safe-area-inset-bottom, 16px);
+    }
+
+    html, body {
+      height: 100%; width: 100%;
+      background: var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans TC', sans-serif;
+      overflow: hidden;
+      -webkit-tap-highlight-color: transparent;
+      -webkit-touch-callout: none;
+      user-select: none;
+    }
+
+    #app { display: flex; flex-direction: column; height: 100vh; height: 100dvh; }
+
+    /* Top Bar */
+    #top-bar {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: calc(var(--safe-top) + 14px) 18px 12px;
+      background: var(--bg);
+      border-bottom: 1px solid var(--border);
+      flex-shrink: 0;
+    }
+    #top-bar h1 { font-size: 1rem; font-weight: 700; }
+    .mode-toggle { display: flex; gap: 4px; background: var(--card-bg); border-radius: 12px; padding: 3px; }
+    .mode-btn {
+      padding: 6px 14px; border-radius: 9px; font-size: 0.75rem; font-weight: 700;
+      border: none; cursor: pointer; transition: all 0.2s;
+      background: transparent; color: var(--muted);
+    }
+    .mode-btn.active { background: var(--primary); color: #fff; }
+
+    /* Progress */
+    #progress-wrap { padding: 10px 18px 8px; flex-shrink: 0; }
+    .progress-row { display: flex; justify-content: space-between; font-size: 0.72rem; color: var(--muted); margin-bottom: 5px; }
+    .progress-bar-bg { height: 3px; background: var(--border); border-radius: 999px; }
+    .progress-bar-fill { height: 100%; background: var(--primary); border-radius: 999px; transition: width 0.4s ease; }
+
+    /* Screens */
+    .screen { display: none; flex: 1; flex-direction: column; overflow: hidden; min-height: 0; }
+    .screen.active { display: flex; }
+
+    /* ══ QUIZ MODE ══ */
+    #quiz-scores { display: flex; gap: 8px; padding: 0 18px 10px; flex-shrink: 0; }
+    .score-box {
+      flex: 1; background: var(--card-bg); border-radius: 14px;
+      padding: 10px 6px; text-align: center; border: 1px solid var(--border);
+    }
+    .score-box .s-label { font-size: 0.6rem; color: var(--muted); font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; }
+    .score-box .s-num { font-size: 1.6rem; font-weight: 800; margin-top: 2px; }
+    .score-box.green .s-num { color: var(--green); }
+    .score-box.red .s-num { color: var(--red); }
+
+    #quiz-card-area {
+      flex: 1; display: flex; align-items: center; justify-content: center;
+      padding: 0 18px; perspective: 1200px; min-height: 0;
+    }
+    .flip-wrapper { width: 100%; max-width: 420px; height: 220px; position: relative; }
+    .flip-inner {
+      width: 100%; height: 100%; position: relative;
+      transform-style: preserve-3d;
+      transition: transform 0.5s cubic-bezier(.4,0,.2,1);
+    }
+    .flip-inner.flipped { transform: rotateY(180deg); }
+    .flip-face {
+      position: absolute; width: 100%; height: 100%;
+      backface-visibility: hidden; -webkit-backface-visibility: hidden;
+      border-radius: var(--radius);
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      padding: 24px 20px; text-align: center;
+    }
+    .flip-front { background: var(--card-bg); border: 1px solid var(--border); }
+    .flip-back { background: linear-gradient(135deg, #1e1b4b 0%, #1a1a30 100%); border: 1.5px solid rgba(99,102,241,0.5); transform: rotateY(180deg); }
+
+    .flip-badge {
+      font-size: 0.62rem; font-weight: 700; letter-spacing: 0.07em;
+      padding: 3px 12px; border-radius: 999px;
+      background: rgba(99,102,241,0.15); color: #818cf8;
+      margin-bottom: 12px; text-transform: uppercase;
+    }
+    .flip-word { font-size: 1.9rem; font-weight: 800; line-height: 1.2; color: var(--text); word-break: break-word; }
+    .flip-hint { font-size: 0.68rem; color: var(--muted); margin-top: 12px; }
+    .flip-meaning { font-size: 1rem; font-weight: 600; line-height: 1.55; color: var(--text); }
+    .flip-ex { font-size: 0.74rem; color: var(--muted); margin-top: 8px; line-height: 1.5; font-style: italic; }
+
+    #swipe-hint { text-align: center; font-size: 0.68rem; color: var(--muted); padding: 6px 0; flex-shrink: 0; }
+
+    #quiz-actions { padding: 10px 18px; flex-shrink: 0; display: flex; flex-direction: column; gap: 9px;
+      padding-bottom: max(10px, var(--safe-bottom)); }
+    #btn-flip {
+      width: 100%; padding: 15px;
+      background: var(--primary); color: #fff;
+      border: none; border-radius: 16px; font-size: 0.95rem; font-weight: 700;
+      cursor: pointer;
+    }
+    #btn-flip:active { opacity: 0.85; }
+    .judge-row { display: none; gap: 9px; }
+    .judge-row.show { display: flex; }
+    .judge-btn {
+      flex: 1; padding: 14px; border: 1.5px solid; border-radius: 16px;
+      font-size: 0.88rem; font-weight: 700; cursor: pointer;
+      background: transparent; transition: background 0.15s;
+    }
+    .judge-btn.know { border-color: var(--green); color: var(--green); }
+    .judge-btn.know:active { background: rgba(34,197,94,0.12); }
+    .judge-btn.dunno { border-color: var(--red); color: var(--red); }
+    .judge-btn.dunno:active { background: rgba(239,68,68,0.12); }
+
+    /* ══ STUDY MODE ══ */
+    #study-scroll { flex: 1; overflow-y: auto; -webkit-overflow-scrolling: touch; padding: 0 18px; }
+    .study-card { background: var(--card-bg); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; margin-bottom: 16px; }
+    .s-top { padding: 20px 20px 14px; border-bottom: 1px solid var(--border); display: flex; align-items: flex-start; justify-content: space-between; gap: 10px; }
+    .s-word { font-size: 1.9rem; font-weight: 800; line-height: 1.2; flex: 1; word-break: break-word; }
+    .s-pos { font-size: 0.62rem; font-weight: 700; letter-spacing: 0.06em; padding: 4px 10px; border-radius: 999px; white-space: nowrap; margin-top: 6px; }
+    .s-block { padding: 14px 20px; border-bottom: 1px solid var(--border); }
+    .s-block:last-child { border-bottom: none; }
+    .s-section-label { font-size: 0.62rem; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 7px; }
+    .s-meaning { font-size: 1rem; font-weight: 600; line-height: 1.6; }
+    .s-en { font-size: 0.84rem; font-style: italic; color: var(--text); line-height: 1.6; background: rgba(99,102,241,0.08); border-left: 3px solid var(--primary); padding: 10px 14px; border-radius: 0 10px 10px 0; margin-bottom: 8px; }
+    .s-zh { font-size: 0.8rem; color: var(--muted); padding-left: 4px; line-height: 1.5; }
+
+    #study-nav { display: flex; gap: 9px; padding: 10px 18px; flex-shrink: 0;
+      padding-bottom: max(10px, var(--safe-bottom)); border-top: 1px solid var(--border); }
+    .nav-btn {
+      padding: 14px 16px; border-radius: 14px; font-weight: 700; border: 1.5px solid var(--border);
+      background: var(--card-bg); color: var(--text); font-size: 0.88rem; cursor: pointer;
+      white-space: nowrap;
+    }
+    .nav-btn.primary { flex: 1; background: var(--primary); border-color: var(--primary); color: #fff; }
+    .nav-btn:disabled { opacity: 0.3; cursor: not-allowed; }
+    .nav-btn:not(:disabled):active { opacity: 0.8; transform: scale(0.97); }
+
+    /* Tab Bar */
+    #tab-bar {
+      display: flex; background: var(--card-bg); border-top: 1px solid var(--border);
+      padding-bottom: var(--safe-bottom); flex-shrink: 0;
+    }
+    .tab-btn {
+      flex: 1; display: flex; flex-direction: column; align-items: center;
+      padding: 9px 0 6px; gap: 3px;
+      background: none; border: none; cursor: pointer; color: var(--muted);
+      font-size: 0.6rem; font-weight: 700; letter-spacing: 0.02em; transition: color 0.2s;
+    }
+    .tab-icon { font-size: 1.4rem; }
+    .tab-btn.active { color: var(--primary); }
+
+    /* Finish Overlay */
+    #finish-overlay {
+      display: none; position: fixed; inset: 0; background: rgba(15,15,19,0.97);
+      flex-direction: column; align-items: center; justify-content: center;
+      z-index: 100; padding: 32px; text-align: center;
+    }
+    #finish-overlay.show { display: flex; }
+    .fin-emoji { font-size: 4rem; margin-bottom: 14px; }
+    .fin-title { font-size: 1.6rem; font-weight: 800; margin-bottom: 8px; }
+    .fin-msg { color: var(--muted); font-size: 0.88rem; margin-bottom: 28px; line-height: 1.7; white-space: pre-line; }
+    .fin-btns { display: flex; flex-direction: column; gap: 10px; width: 100%; max-width: 320px; }
+    .fin-btn { padding: 15px; border-radius: 14px; font-weight: 700; font-size: 0.95rem; cursor: pointer; border: none; }
+    .fin-btn:active { opacity: 0.8; }
+    .fin-btn.primary { background: var(--primary); color: #fff; }
+    .fin-btn.secondary { background: var(--card-bg); color: var(--text); border: 1.5px solid var(--border); }
+
+    /* Install banner */
+    #install-banner {
+      display: none; position: fixed; bottom: 80px; left: 12px; right: 12px;
+      background: var(--primary); color: #fff; border-radius: 16px; padding: 14px 16px;
+      z-index: 200; box-shadow: 0 8px 32px rgba(99,102,241,0.45);
+    }
+    #install-banner.show { display: block; }
+    .ib-title { font-size: 0.88rem; font-weight: 700; margin-bottom: 2px; }
+    .ib-sub { font-size: 0.72rem; opacity: 0.85; margin-bottom: 10px; }
+    .ib-btns { display: flex; gap: 8px; }
+    .ib-btn { padding: 8px 16px; border-radius: 10px; font-size: 0.8rem; font-weight: 700; cursor: pointer; border: none; }
+    .ib-btn.yes { background: #fff; color: var(--primary); }
+    .ib-btn.no { background: rgba(255,255,255,0.2); color: #fff; }
+
+    /* Animations */
+    @keyframes cardIn { from { opacity: 0; transform: translateX(24px); } to { opacity: 1; transform: translateX(0); } }
+    @keyframes popAnim { 0%,100%{transform:scale(1)} 50%{transform:scale(1.05)} }
+    @keyframes shakeAnim { 0%,100%{transform:translateX(0)} 25%{transform:translateX(-9px)} 75%{transform:translateX(9px)} }
+    .anim-in { animation: cardIn 0.28s ease; }
+    .anim-pop { animation: popAnim 0.28s ease; }
+    .anim-shake { animation: shakeAnim 0.32s ease; }
+  </style>
+</head>
+<body>
+<div id="app">
+  <div id="top-bar">
+    <h1>📚 Eddy 英文字卡</h1>
+    <div class="mode-toggle">
+      <button class="mode-btn active" id="mode-quiz-btn" onclick="switchMode('quiz')">🃏 抽考</button>
+      <button class="mode-btn" id="mode-study-btn" onclick="switchMode('study')">📖 背誦</button>
+    </div>
+  </div>
+
+  <div id="progress-wrap">
+    <div class="progress-row">
+      <span id="prog-label">第 1 張，共 73 張</span>
+      <span id="prog-pct">1%</span>
+    </div>
+    <div class="progress-bar-bg"><div class="progress-bar-fill" id="prog-fill" style="width:1.4%"></div></div>
+  </div>
+
+  <!-- QUIZ -->
+  <div class="screen active" id="screen-quiz">
+    <div id="quiz-scores">
+      <div class="score-box green"><div class="s-label">✅ 認識</div><div class="s-num" id="q-know">0</div></div>
+      <div class="score-box red"><div class="s-label">❌ 不熟</div><div class="s-num" id="q-dunno">0</div></div>
+      <div class="score-box"><div class="s-label">🔀 剩餘</div><div class="s-num" id="q-remain">73</div></div>
+    </div>
+    <div id="quiz-card-area">
+      <div class="flip-wrapper" id="flip-wrapper">
+        <div class="flip-inner" id="flip-inner">
+          <div class="flip-face flip-front" onclick="doFlip()">
+            <div class="flip-badge" id="q-badge">字彙</div>
+            <div class="flip-word" id="q-word"></div>
+            <div class="flip-hint">輕觸或點「翻面」查看答案 👆</div>
+          </div>
+          <div class="flip-face flip-back">
+            <div class="flip-meaning" id="q-meaning"></div>
+            <div class="flip-ex" id="q-ex"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="swipe-hint">← 左滑不熟 &nbsp;｜&nbsp; 右滑認識 →</div>
+    <div id="quiz-actions">
+      <button id="btn-flip" onclick="doFlip()">翻面看答案</button>
+      <div class="judge-row" id="judge-row">
+        <button class="judge-btn dunno" onclick="judge(false)">← 還不熟</button>
+        <button class="judge-btn know" onclick="judge(true)">認識！→</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- STUDY -->
+  <div class="screen" id="screen-study">
+    <div id="study-scroll">
+      <div class="study-card" id="study-card">
+        <div class="s-top">
+          <div class="s-word" id="s-word"></div>
+          <div class="s-pos" id="s-pos"></div>
+        </div>
+        <div class="s-block">
+          <div class="s-section-label">📌 中文意思</div>
+          <div class="s-meaning" id="s-meaning"></div>
+        </div>
+        <div class="s-block">
+          <div class="s-section-label">💬 例句</div>
+          <div class="s-en" id="s-en"></div>
+          <div class="s-zh" id="s-zh"></div>
+        </div>
+      </div>
+    </div>
+    <div id="study-nav">
+      <button class="nav-btn" id="s-prev" onclick="studyNav(-1)">← 上一張</button>
+      <button class="nav-btn primary" id="s-next" onclick="studyNav(1)">下一張 →</button>
+    </div>
+  </div>
+
+  <div id="tab-bar">
+    <button class="tab-btn active" id="tab-quiz" onclick="switchMode('quiz')">
+      <span class="tab-icon">🃏</span>隨機抽考
+    </button>
+    <button class="tab-btn" id="tab-study" onclick="switchMode('study')">
+      <span class="tab-icon">📖</span>完整背誦
+    </button>
+    <button class="tab-btn" onclick="onShuffle()">
+      <span class="tab-icon">🔀</span>重新洗牌
+    </button>
+  </div>
+</div>
+
+<!-- Finish -->
+<div id="finish-overlay">
+  <div class="fin-emoji" id="fin-emoji">🎉</div>
+  <div class="fin-title">完成！</div>
+  <div class="fin-msg" id="fin-msg"></div>
+  <div class="fin-btns">
+    <button class="fin-btn secondary" id="fin-retry" onclick="retryWrong()">再練不熟的</button>
+    <button class="fin-btn primary" onclick="restartAll()">重新開始</button>
+  </div>
+</div>
+
+<!-- Install Banner -->
+<div id="install-banner">
+  <div class="ib-title">📲 安裝到手機主畫面</div>
+  <div class="ib-sub">像 App 一樣快速啟動，支援離線使用</div>
+  <div class="ib-btns">
+    <button class="ib-btn yes" id="ib-yes">立即安裝</button>
+    <button class="ib-btn no" onclick="document.getElementById('install-banner').classList.remove('show')">下次再說</button>
+  </div>
+</div>
+
+<script>
+// ─── Data ────────────────────────────────────────────────────────────────────
+const CARDS = [
+  ["position","n. 位置；職位；姿勢","She applied for a marketing position at the company.","她應徵了那家公司的行銷職位。"],
+  ["dermatologist","n. 皮膚科醫師","I made an appointment with a dermatologist about my skin rash.","我因為皮膚疹預約了皮膚科醫師。"],
+  ["in no time","副詞片語 — 很快；立刻","The update finished in no time.","更新很快就完成了。"],
+  ["filler","n. 填充詞；贅詞","Try to replace fillers such as 'um' with a short pause.","試著用短暫停頓取代像 um 這樣的填充詞。"],
+  ["Pretty good, you?","口語 — 還不錯，你呢？","Pretty good, you? How has your morning been?","還不錯，你呢？你今天早上過得如何？"],
+  ["Solid day so far.","口語 — 到目前為止今天過得挺順利","Solid day so far. I finished everything on my list.","到目前為止今天過得挺順利，我完成了清單上的所有事情。"],
+  ["Can't complain.","口語 — 沒什麼好抱怨的；還不錯","Can't complain. Work has been busy but manageable.","沒什麼好抱怨的，工作雖忙但還能應付。"],
+  ["Not bad at all.","口語 — 一點也不差；相當不錯","The new phone is not bad at all for the price.","以這個價格來說，這支手機相當不錯。"],
+  ["I'm doing alright.","口語 — 我過得還可以","I'm doing alright, although this week has been busy.","我過得還可以，雖然這星期很忙。"],
+  ["domestic flight","名詞片語 — 國內線航班","We took a domestic flight from Taipei to Kaohsiung.","我們搭乘國內線航班從台北前往高雄。"],
+  ["flip","v. 翻轉；迅速翻動","You can flip the foldable phone open with one hand.","你可以用一隻手把摺疊手機翻開。"],
+  ["strap","n. 帶子；背帶","Make sure the luggage strap is secure before your flight.","搭機前請確認行李束帶已固定好。"],
+  ["old version","名詞片語 — 舊版本","The old version of the app no longer receives updates.","這個應用程式的舊版本已不再收到更新。"],
+  ["outdated","adj. 過時的；已淘汰的","This charging cable will soon become outdated.","這條充電線很快就會過時。"],
+  ["lifespan","n. 使用壽命；壽命","Good charging habits can extend a phone's lifespan.","良好的充電習慣可以延長手機的使用壽命。"],
+  ["upgrade","n./v. 升級；提升","I plan to upgrade my phone when the battery becomes unreliable.","當電池變得不可靠時，我打算升級手機。"],
+  ["connecting flight","名詞片語 — 轉接航班；轉機航班","I have a connecting flight in Singapore.","我要在新加坡轉機。"],
+  ["change planes","動詞片語 — 換機；轉搭另一架飛機","We need to change planes before reaching Sydney.","我們抵達雪梨前需要換機。"],
+  ["final destination","名詞片語 — 最終目的地","Melbourne is our final destination.","墨爾本是我們的最終目的地。"],
+  ["layover","n. 轉機停留時間","Our layover is long enough to change terminals.","我們的轉機時間足夠換航廈。"],
+  ["transfer to","動詞片語 — 轉乘至；轉到","I need to transfer to my next flight in Tokyo.","我需要在東京轉乘下一班飛機。"],
+  ["change terminals","動詞片語 — 更換航廈","Allow extra time if you need to change terminals.","如果需要更換航廈，請預留額外時間。"],
+  ["boarding pass","名詞片語 — 登機證","Keep your boarding pass ready at the gate.","在登機門請準備好登機證。"],
+  ["departure gate","名詞片語 — 登機門；出發閘口","The departure gate changed from B6 to B12.","登機門從 B6 改成了 B12。"],
+  ["checked baggage","名詞片語 — 託運行李","Your checked baggage will be transferred automatically.","你的託運行李會自動轉運。"],
+  ["check through","片語動詞 — 將行李直掛到最終目的地","The airline checked my baggage through to London.","航空公司將我的行李直掛到倫敦。"],
+  ["smooth connection","名詞片語 — 順利的轉機過程","I hope you have a smooth connection in Seoul.","希望你在首爾轉機順利。"],
+  ["check in","片語動詞 — 辦理報到；登機報到","We need to check in two hours before departure.","我們需要在起飛前兩小時辦理報到。"],
+  ["get on","片語動詞 — 登上交通工具","Passengers can get on the plane after their group is called.","旅客可以在叫到自己的組別後登機。"],
+  ["get off","片語動詞 — 離開交通工具；下車","We got off the plane and followed the transfer signs.","我們下飛機後依照轉機指示前進。"],
+  ["head to","片語動詞 — 前往；朝向","After landing, head to the transfer desk.","降落後，請前往轉機櫃檯。"],
+  ["stop over","片語動詞 — 旅途中短暫停留","We stopped over in Bangkok on the way to Europe.","我們前往歐洲途中在曼谷短暫停留。"],
+  ["set off","片語動詞 — 出發；啟程","We set off for the airport before sunrise.","我們在日出前啟程前往機場。"],
+  ["unveil","v. 首次公開；發表","Apple unveiled its latest phone lineup at the event.","Apple 在發表會上公開了最新手機系列。"],
+  ["lineup","n. 產品陣容；一組人或事物","The new lineup includes three premium models.","新產品陣容包含三款高階機型。"],
+  ["shortage","n. 短缺；不足","A memory-chip shortage pushed phone prices higher.","記憶體晶片短缺推高了手機價格。"],
+  ["feature","n. 特色；功能","Focus tracking is a useful camera feature.","焦點追蹤是一項實用的相機功能。"],
+  ["rival","n. 競爭對手","The company wants to catch up with its AI rivals.","該公司希望追上人工智慧領域的競爭對手。"],
+  ["preorder","n. 預購訂單；預購","The foldable phone will be available for preorder in October.","這款摺疊手機將於十月開放預購。"],
+  ["foldable model","名詞片語 — 摺疊式機型","The foldable model opens to reveal a larger screen.","這款摺疊式機型展開後會顯示更大的螢幕。"],
+  ["take over from","片語動詞 — 接替某人的職位","The new CEO took over from his predecessor in September.","新任執行長在九月接替了前任。"],
+  ["latest generation","名詞片語 — 最新一代","The latest generation offers longer battery life.","最新一代提供更長的電池續航力。"],
+  ["display","n. 顯示器；螢幕","The device has the largest display ever offered on an iPhone.","這款裝置配備了 iPhone 歷來最大的顯示器。"],
+  ["divide the screen","動詞片語 — 分割螢幕","Users can divide the screen between two apps.","使用者可以將螢幕分給兩個應用程式使用。"],
+  ["compare products","動詞片語 — 比較產品","A larger screen makes it easier to compare products.","較大的螢幕讓比較產品更容易。"],
+  ["previous generation","名詞片語 — 上一代","The new model costs more than the previous generation.","新機型比上一代更昂貴。"],
+  ["memory chip","名詞片語 — 記憶體晶片","The global shortage of memory chips affected prices.","全球記憶體晶片短缺影響了價格。"],
+  ["battery life","名詞片語 — 電池續航力；電池壽命","The Pro model has significantly better battery life.","Pro 機型的電池續航力明顯更好。"],
+  ["charge to 50%","動詞片語 — 充電至百分之五十","The phone can charge to 50% in about 15 minutes.","這支手機大約十五分鐘可以充電至百分之五十。"],
+  ["cinematic effect","名詞片語 — 電影感效果","Users can add a cinematic effect after recording.","使用者可以在錄影後加入電影感效果。"],
+  ["focus-tracking","n./adj. 焦點追蹤","The focus-tracking feature follows a moving child.","焦點追蹤功能會跟隨移動中的孩子。"],
+  ["moving subject","名詞片語 — 移動中的拍攝主體","The camera stayed focused on the moving subject.","相機持續對焦在移動中的拍攝主體上。"],
+  ["privacy and security","名詞片語 — 隱私與安全","Apple emphasizes privacy and security in its AI features.","Apple 強調其人工智慧功能的隱私與安全。"],
+  ["set apart from","片語動詞 — 使與眾不同；區別於","Strong privacy controls may set the phone apart from rivals.","強大的隱私控制可能使這支手機與競爭對手有所區別。"],
+  ["release","n./v. 發售；發布","The phone's release is scheduled for September 18.","這支手機預計於九月十八日發售。"],
+  ["fresh","adj. 精神飽滿的；清新的","You look fresh and energetic today.","你今天看起來精神飽滿、充滿活力。"],
+  ["room for improvement","名詞片語 — 改進空間","My pronunciation is clearer, but there is still room for improvement.","我的發音更清楚了，但仍有改進空間。"],
+  ["gain","v. 獲得；增進","I've gained a lot of knowledge from my courses.","我從課程中獲得了很多知識。"],
+  ["period","n. 一段時期；期間","The first period of the semester is usually demanding.","學期的第一段時期通常很吃力。"],
+  ["busy period","名詞片語 — 忙碌時期","September is a busy period for many students.","九月對許多學生來說是忙碌時期。"],
+  ["full of excitement","形容詞片語 — 充滿興奮與期待","I was full of excitement when the new semester began.","新學期開始時，我充滿興奮與期待。"],
+  ["acquire","v. 習得；獲得","It takes time to acquire a new skill.","習得一項新技能需要時間。"],
+  ["mixed emotions","名詞片語 — 百感交集；矛盾的感受","I had mixed emotions about taking four courses.","對於修四門課，我感到百感交集。"],
+  ["on time","副詞片語 — 準時；在預定時間","The class started on time at eight.","課程在八點準時開始。"],
+  ["in time","副詞片語 — 及時；在太遲之前","I arrived in time to join the class.","我及時抵達並參加了課程。"],
+  ["the early bird catches the worm","諺語 — 早起的鳥兒有蟲吃；先下手為強","I register early because the early bird catches the worm.","我會提早報名，因為早起的鳥兒有蟲吃。"],
+  ["mutual friends","名詞片語 — 共同朋友","We met through mutual friends.","我們是透過共同朋友認識的。"],
+  ["emotional stress","名詞片語 — 情緒壓力","Talking to a close friend can reduce emotional stress.","和親近的朋友談話可以減輕情緒壓力。"],
+  ["stress-relieving","adj. 舒緩壓力的","Walking after class is a stress-relieving habit.","下課後散步是一個紓壓的習慣。"],
+  ["carry a burden","動詞片語 — 承受負擔","You do not have to carry the burden alone.","你不必獨自承受這份負擔。"],
+  ["go hand in hand","動詞片語 — 相輔相成；密切相關","Personality and communication skills often go hand in hand.","人格特質與溝通能力往往相輔相成。"],
+  ["tell apart","片語動詞 — 分辨；區分","It is hard to tell the twins apart.","這對雙胞胎很難分辨。"],
+  ["keep a secret","動詞片語 — 保守秘密","I always try to keep a friend's secret.","我總是盡力替朋友保守秘密。"],
+  ["private","adj. 私人的；不公開的","Please keep this information private.","請將這項資訊保密。"],
+  ["trustworthy","adj. 值得信賴的","A trustworthy friend does not share your secrets.","值得信賴的朋友不會洩露你的秘密。"],
+  ["responsible","adj. 負責任的","Being responsible helps others trust you.","負責任會讓別人更信任你。"],
+  ["trust","n./v. 信任","Trust takes time to build and seconds to lose.","信任需要時間建立，卻可能在幾秒內失去。"],
+  ["privacy","n. 隱私","We should respect other people's privacy.","我們應該尊重他人的隱私。"],
+  ["confidential","adj. 機密的；保密的","The interview notes are confidential.","面試筆記屬於機密資料。"],
+  ["keep someone's confidence","動詞片語 — 替某人保守秘密","She trusted me to keep her confidence.","她信任我能替她保守秘密。"]
+];
+// [word, meaning, enEx, zhEx]
+
+// ─── State ────────────────────────────────────────────────────────────────────
+let qDeck=[], qIdx=0, qKnow=0, qDunno=0, qFlipped=false, wrongCards=[];
+let sIdx=0;
+let mode='quiz';
+
+const shuffle = a => { const b=[...a]; for(let i=b.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[b[i],b[j]]=[b[j],b[i]];}return b; };
+
+// ─── Progress ─────────────────────────────────────────────────────────────────
+function setProgress(idx, total) {
+  const pct = Math.round(((idx+1)/total)*100);
+  document.getElementById('prog-label').textContent = `第 ${idx+1} 張，共 ${total} 張`;
+  document.getElementById('prog-pct').textContent = `${pct}%`;
+  document.getElementById('prog-fill').style.width = `${pct}%`;
+}
+
+// ─── Quiz ─────────────────────────────────────────────────────────────────────
+function initQuiz(cards) {
+  qDeck=shuffle(cards); qIdx=0; qKnow=0; qDunno=0; wrongCards=[];
+  document.getElementById('finish-overlay').classList.remove('show');
+  updateScores(); showQCard();
+}
+function showQCard() {
+  if(qIdx>=qDeck.length){showFinish();return;}
+  const [word,meaning,enEx]=qDeck[qIdx];
+  document.getElementById('q-badge').textContent = meaning.split('—')[0].trim() || '字彙';
+  document.getElementById('q-word').textContent = word;
+  document.getElementById('q-meaning').textContent = meaning.includes('—') ? meaning.split('—')[1].trim() : meaning;
+  document.getElementById('q-ex').textContent = enEx ? `"${enEx}"` : '';
+  qFlipped=false;
+  document.getElementById('flip-inner').classList.remove('flipped');
+  document.getElementById('btn-flip').style.display='';
+  document.getElementById('judge-row').classList.remove('show');
+  setProgress(qIdx, qDeck.length);
+  const w=document.getElementById('flip-wrapper');
+  w.classList.remove('anim-in','anim-pop','anim-shake'); void w.offsetWidth; w.classList.add('anim-in');
+}
+function doFlip() {
+  if(qFlipped)return;
+  qFlipped=true;
+  document.getElementById('flip-inner').classList.add('flipped');
+  setTimeout(()=>{
+    document.getElementById('btn-flip').style.display='none';
+    document.getElementById('judge-row').classList.add('show');
+  },280);
+}
+function judge(knew) {
+  const w=document.getElementById('flip-wrapper');
+  if(knew){ qKnow++; w.classList.remove('anim-pop'); void w.offsetWidth; w.classList.add('anim-pop'); }
+  else { qDunno++; wrongCards.push(qDeck[qIdx]); w.classList.remove('anim-shake'); void w.offsetWidth; w.classList.add('anim-shake'); }
+  updateScores(); qIdx++;
+  setTimeout(showQCard, 310);
+}
+function updateScores() {
+  document.getElementById('q-know').textContent=qKnow;
+  document.getElementById('q-dunno').textContent=qDunno;
+  document.getElementById('q-remain').textContent=Math.max(0,qDeck.length-qIdx);
+}
+function showFinish() {
+  const total=qKnow+qDunno, pct=total?Math.round(qKnow/total*100):0;
+  const emoji=pct>=90?'🏆':pct>=70?'🎯':pct>=50?'💪':'📚';
+  document.getElementById('fin-emoji').textContent=emoji;
+  document.getElementById('fin-msg').textContent=`認識 ${qKnow} / ${total} 個（${pct}%）\n${wrongCards.length>0?`還有 ${wrongCards.length} 個需要加強`:'全部掌握！太厲害了 🎉'}`;
+  document.getElementById('fin-retry').style.display=wrongCards.length?'':'none';
+  document.getElementById('finish-overlay').classList.add('show');
+}
+function retryWrong(){ document.getElementById('finish-overlay').classList.remove('show'); initQuiz(wrongCards.length?wrongCards:CARDS); }
+function restartAll(){ document.getElementById('finish-overlay').classList.remove('show'); initQuiz(CARDS); }
+
+// ─── Study ────────────────────────────────────────────────────────────────────
+function showSCard() {
+  const [word,meaning,enEx,zhEx]=CARDS[sIdx];
+  document.getElementById('s-word').textContent=word;
+  const posLabel=meaning.split('—')[0].trim();
+  document.getElementById('s-pos').textContent=posLabel||'字彙';
+  document.getElementById('s-meaning').textContent=meaning.includes('—')?meaning.split('—')[1].trim():meaning;
+  document.getElementById('s-en').textContent=enEx?`"${enEx}"`:''
+  document.getElementById('s-zh').textContent=zhEx?`→ ${zhEx}`:'';
+  document.getElementById('s-prev').disabled=sIdx===0;
+  document.getElementById('s-next').textContent=sIdx===CARDS.length-1?'回到第一張 ↩':'下一張 →';
+  setProgress(sIdx,CARDS.length);
+  document.getElementById('study-scroll').scrollTop=0;
+  const c=document.getElementById('study-card');
+  c.classList.remove('anim-in'); void c.offsetWidth; c.classList.add('anim-in');
+}
+function studyNav(d) {
+  const n=sIdx+d;
+  sIdx=n<0?0:n>=CARDS.length?0:n;
+  showSCard();
+}
+
+// ─── Mode Switch ──────────────────────────────────────────────────────────────
+function switchMode(m) {
+  mode=m;
+  ['quiz','study'].forEach(x=>{
+    document.getElementById(`screen-${x}`).classList.toggle('active',x===m);
+    document.getElementById(`mode-${x}-btn`).classList.toggle('active',x===m);
+    document.getElementById(`tab-${x}`).classList.toggle('active',x===m);
+  });
+  if(m==='study') showSCard();
+  else setProgress(qIdx,qDeck.length);
+}
+function onShuffle() {
+  if(mode==='quiz') initQuiz(CARDS);
+  else { const s=shuffle(CARDS); sIdx=0; CARDS.splice(0,CARDS.length,...s); showSCard(); }
+}
+
+// ─── Swipe Gestures ───────────────────────────────────────────────────────────
+let tx=0, ty=0;
+document.getElementById('quiz-card-area').addEventListener('touchstart',e=>{tx=e.touches[0].clientX;ty=e.touches[0].clientY;},{passive:true});
+document.getElementById('quiz-card-area').addEventListener('touchend',e=>{
+  if(!qFlipped)return;
+  const dx=e.changedTouches[0].clientX-tx, dy=e.changedTouches[0].clientY-ty;
+  if(Math.abs(dx)>Math.abs(dy)&&Math.abs(dx)>55) judge(dx>0);
+},{passive:true});
+
+document.getElementById('study-scroll').addEventListener('touchstart',e=>{tx=e.touches[0].clientX;},{passive:true});
+document.getElementById('study-scroll').addEventListener('touchend',e=>{
+  const dx=e.changedTouches[0].clientX-tx;
+  if(Math.abs(dx)>65) studyNav(dx>0?-1:1);
+},{passive:true});
+
+// ─── Keyboard ─────────────────────────────────────────────────────────────────
+document.addEventListener('keydown',e=>{
+  if(mode==='quiz'){ if(e.key===' ') doFlip(); if(e.key==='ArrowRight') qFlipped&&judge(true); if(e.key==='ArrowLeft') qFlipped&&judge(false); }
+  if(mode==='study'){ if(e.key==='ArrowRight') studyNav(1); if(e.key==='ArrowLeft') studyNav(-1); }
+});
+
+// ─── PWA Install ──────────────────────────────────────────────────────────────
+let dp;
+window.addEventListener('beforeinstallprompt',e=>{
+  e.preventDefault(); dp=e;
+  setTimeout(()=>document.getElementById('install-banner').classList.add('show'),3000);
+});
+document.getElementById('ib-yes').addEventListener('click',async()=>{
+  document.getElementById('install-banner').classList.remove('show');
+  if(dp){dp.prompt();await dp.userChoice;dp=null;}
+});
+
+// ─── Service Worker ───────────────────────────────────────────────────────────
+if('serviceWorker' in navigator) navigator.serviceWorker.register('sw.js');
+
+// ─── Init ─────────────────────────────────────────────────────────────────────
+initQuiz(CARDS);
+showSCard();
+</script>
+</body>
+</html>
