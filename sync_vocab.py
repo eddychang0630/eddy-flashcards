@@ -35,8 +35,8 @@ def read_vocab():
     date_counts = defaultdict(int)
 
     for row in ws.iter_rows(min_row=2, values_only=True):
-        cols = (list(row) + [None] * 15)[:11]
-        date, no, word, meaning, pos, syn_en, syn_zh, ant_en, ant_zh, ex_en, ex_zh = cols
+        cols = (list(row) + [None] * 16)[:16]
+        date, no, word, meaning, pos, syn_en, syn_zh, ant_en, ant_zh, ex_en, ex_zh, _, _, _, _, forms = cols
 
         # 驗證日期格式
         if not date or not word:
@@ -71,6 +71,7 @@ def read_vocab():
             clean(ant_en),      # 8  反義詞（英）
             clean(ant_zh),      # 9  反義詞（中）
             date_str[:10],      # 10 課程日期 YYYY-MM-DD
+            clean(forms),       # 11 字形變化 (Excel P 欄)
         ]
         cards.append(card)
         date_counts[date_str[:10]] += 1

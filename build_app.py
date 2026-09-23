@@ -15,6 +15,10 @@ with open(JSON_FILE, encoding="utf-8") as f:
 # Gather unique dates in order
 dates = []
 for c in cards:
+    # Pad to 12 elements to avoid index out of range if missing word forms
+    while len(c) < 12:
+        c.append("")
+        
     d = c[10]
     if d and d not in dates:
         dates.append(d)
@@ -202,23 +206,24 @@ HTML = f"""<!DOCTYPE html>
     }}
     .s-phonetic {{
       display: block; font-size: 0.8rem; color: #818cf8;
-      font-family: 'Courier New', monospace; margin-top: 4px;
+      font-family: 'Courier New', monospace; margin-top: 4px; margin-bottom: 10px;
     }}
-    .s-meta-row {{
-      display: flex; align-items: center; justify-content: space-between;
-      margin-top: 7px; gap: 8px; flex-wrap: wrap;
+    .s-meta-col {{
+      display: flex; flex-direction: column; gap: 8px; margin-top: 6px;
     }}
-    .s-pos-meaning {{ display: flex; align-items: center; gap: 7px; flex: 1; min-width: 0; }}
     .s-pos {{
-      font-size: 0.6rem; font-weight: 700; letter-spacing: 0.06em;
-      padding: 2px 8px; border-radius: 999px; white-space: nowrap; flex-shrink: 0;
+      font-size: 0.65rem; font-weight: 700; letter-spacing: 0.06em;
+      padding: 4px 10px; border-radius: 6px; white-space: nowrap; align-self: flex-start; display: inline-block;
     }}
-    .s-meaning-inline {{ font-size: 0.86rem; font-weight: 600; color: var(--text); line-height: 1.3; }}
+    .s-meaning-inline {{ font-size: 0.95rem; font-weight: 600; color: var(--text); line-height: 1.4; display: block; }}
     /* Date badge on study card */
     .s-date-badge {{
-      font-size: 0.58rem; font-weight: 700; padding: 2px 8px; border-radius: 999px;
-      background: rgba(99,102,241,0.12); color: #818cf8; white-space: nowrap; flex-shrink: 0;
+      font-size: 0.6rem; font-weight: 700; padding: 4px 8px; border-radius: 6px;
+      background: rgba(99,102,241,0.12); color: #818cf8; white-space: nowrap; align-self: flex-start; display: inline-block;
     }}
+
+    /* Word Forms */
+    .s-forms {{ font-size: 0.82rem; color: var(--text); line-height: 1.5; background: rgba(255,255,255,0.04); padding: 10px; border-radius: 8px; border: 1px solid var(--border); margin-bottom: 8px; }}
 
     /* Blocks */
     .s-block {{ padding: 11px 18px; border-bottom: 1px solid var(--border); }}
@@ -357,13 +362,15 @@ HTML = f"""<!DOCTYPE html>
         <div class="s-header">
           <span class="s-word" id="s-word"></span>
           <span class="s-phonetic" id="s-phonetic"></span>
-          <div class="s-meta-row">
-            <div class="s-pos-meaning">
-              <span class="s-pos" id="s-pos"></span>
-              <span class="s-meaning-inline" id="s-meaning"></span>
-            </div>
+          <div class="s-meta-col">
+            <span class="s-pos" id="s-pos"></span>
+            <span class="s-meaning-inline" id="s-meaning"></span>
             <span class="s-date-badge" id="s-date-badge">📅 —</span>
           </div>
+        </div>
+        <div class="s-block" id="s-forms-block" style="display:none;">
+          <div class="s-section-label">🔄 字形變化 (Word Forms)</div>
+          <div class="s-forms" id="s-forms"></div>
         </div>
         <div class="s-block">
           <div class="s-section-label">💬 例句</div>
@@ -565,6 +572,15 @@ function showSCard() {{
 
   // Date badge
   document.getElementById('s-date-badge').textContent=c[10]?`📅 ${{c[10]}}` :'';
+
+  // Word Forms
+  const formsBlock = document.getElementById('s-forms-block');
+  if(c[11] && c[11] !== '—') {{
+    formsBlock.style.display = 'block';
+    document.getElementById('s-forms').textContent = c[11];
+  }} else {{
+    formsBlock.style.display = 'none';
+  }}
 
   // Synonyms
   const setField=(id,val)=>{{
