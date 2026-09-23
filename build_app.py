@@ -5,7 +5,7 @@ build_app.py — 從 vocab_data.json 生成完整的 index.html
 import json
 from pathlib import Path
 
-APP_DIR   = Path(r"C:\Users\echang11\OneDrive - Lenovo\Desktop\英文\app")
+APP_DIR   = Path(__file__).resolve().parent
 JSON_FILE = APP_DIR / "vocab_data.json"
 OUT_HTML  = APP_DIR / "index.html"
 

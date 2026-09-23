@@ -12,6 +12,10 @@
 3. 自動 git commit + push 到 GitHub Pages
 """
 
+import argparse
+import os
+import sys
+
 import openpyxl
 import json
 import re
@@ -19,15 +23,24 @@ import subprocess
 from pathlib import Path
 from collections import defaultdict
 
+for stream in (sys.stdout, sys.stderr):
+    if hasattr(stream, "reconfigure"):
+        stream.reconfigure(encoding="utf-8", errors="replace")
+
 # ── 路徑設定 ──────────────────────────────────────────────────────────────────
-EXCEL_PATH = r"G:\我的雲端硬碟\2026 English class 整理重點\Master_Vocabulary_Tracker.xlsx"
-APP_DIR    = r"C:\Users\echang11\OneDrive - Lenovo\Desktop\英文\app"
-INDEX_HTML = str(Path(APP_DIR) / "index.html")
+DEFAULT_EXCEL_PATH = Path(
+    os.environ.get(
+        "ENGLISH_CLASS_EXCEL",
+        r"G:\我的雲端硬碟\2026 English class 整理重點\Master_Vocabulary_Tracker.xlsx",
+    )
+)
+APP_DIR = Path(__file__).resolve().parent
+INDEX_HTML = APP_DIR / "index.html"
 
 # ── 讀取 Excel ────────────────────────────────────────────────────────────────
-def read_vocab():
+def read_vocab(excel_path=DEFAULT_EXCEL_PATH):
     print("📖 讀取 Excel 單字庫...")
-    wb = openpyxl.load_workbook(EXCEL_PATH)
+    wb = openpyxl.load_workbook(Path(excel_path))
     ws = wb.active
 
     cards = []
@@ -81,6 +94,7 @@ def read_vocab():
     for d in sorted(date_counts):
         print(f"   {d}：{date_counts[d]} 個單字")
 
+    wb.close()
     return cards, dict(date_counts)
 
 # ── 生成 JavaScript CARDS 陣列字串 ────────────────────────────────────────────
@@ -92,9 +106,9 @@ def generate_cards_js(cards):
     return "\n".join(lines)
 
 # ── 更新 index.html ───────────────────────────────────────────────────────────
-def update_html(cards):
+def update_html(cards, index_html=INDEX_HTML):
     print("\n✏️  更新 index.html...")
-    with open(INDEX_HTML, "r", encoding="utf-8") as f:
+    with open(index_html, "r", encoding="utf-8") as f:
         html = f.read()
 
     cards_js = generate_cards_js(cards)
@@ -108,7 +122,7 @@ def update_html(cards):
         print("❌ 找不到 CARDS 陣列，請確認 index.html 格式")
         return False
 
-    with open(INDEX_HTML, "w", encoding="utf-8") as f:
+    with open(index_html, "w", encoding="utf-8") as f:
         f.write(html)
     return True
 
@@ -130,26 +144,45 @@ def git_push(cards, date_counts):
     print(f"   https://eddychang0630.github.io/eddy-flashcards/")
 
 # ── 主程式 ────────────────────────────────────────────────────────────────────
-if __name__ == "__main__":
+def build_parser():
+    parser = argparse.ArgumentParser(description="同步 Excel 單字到英文字卡 App")
+    parser.add_argument(
+        "--excel",
+        type=Path,
+        default=DEFAULT_EXCEL_PATH,
+        help="Master_Vocabulary_Tracker.xlsx 路徑",
+    )
+    return parser
+
+
+def main(argv=None):
+    args = build_parser().parse_args(argv)
     print("=" * 50)
     print("  英文字卡同步工具 v1.0")
     print("=" * 50)
 
     try:
-        cards, date_counts = read_vocab()
+        cards, date_counts = read_vocab(args.excel)
         if not cards:
             print("❌ 沒有讀到任何單字，請確認 Excel 路徑正確")
-            exit(1)
+            return 1
 
         if update_html(cards):
             git_push(cards, date_counts)
             print("\n🎉 同步完成！")
+            return 0
         else:
             print("\n❌ 同步失敗，請確認 index.html 格式")
+            return 1
 
     except FileNotFoundError as e:
         print(f"\n❌ 找不到檔案：{e}")
         print("   請確認 Excel 路徑是否正確，且 Google Drive 已同步")
+        return 1
     except Exception as e:
         print(f"\n❌ 發生錯誤：{e}")
         raise
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())
