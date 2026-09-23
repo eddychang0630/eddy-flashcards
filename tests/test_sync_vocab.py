@@ -74,6 +74,7 @@ class SyncVocabularyTest(unittest.TestCase):
         with tempfile.TemporaryDirectory() as temp_dir:
             index_path = Path(temp_dir) / "index.html"
             index_path.write_text(
+                '<div id="date-bar"></div>\n'
                 "<script>\nconst CARDS = [];\n</script>\n",
                 encoding="utf-8",
             )
@@ -99,6 +100,36 @@ class SyncVocabularyTest(unittest.TestCase):
         self.assertIn('"Noun\\nphrase"', html)
         self.assertIn('"Syn\\nMeaning"', html)
         self.assertNotIn('"Noun\nphrase"', html)
+
+    def test_update_html_rebuilds_date_filters_and_counts(self):
+        with tempfile.TemporaryDirectory() as temp_dir:
+            index_path = Path(temp_dir) / "index.html"
+            index_path.write_text(
+                """      <div id="date-bar">
+    <button id="dpill-all">全部 (999)</button>
+  </div>
+<script>
+const CARDS = [];
+</script>
+""",
+                encoding="utf-8",
+            )
+            cards = [
+                ["one", "", "n.", "一", "", "", "", "", "", "", "2026-09-23", ""],
+                ["two", "", "n.", "二", "", "", "", "", "", "", "2026-09-23", ""],
+                ["three", "", "n.", "三", "", "", "", "", "", "", "2026-09-24", ""],
+            ]
+
+            updated = sync_vocab.update_html(cards, index_path)
+            html = index_path.read_text(encoding="utf-8")
+
+        self.assertTrue(updated)
+        self.assertIn("全部 (3)", html)
+        self.assertIn("09/23 (2)", html)
+        self.assertIn("09/24 (1)", html)
+        self.assertIn('id="dpill-2026-09-24"', html)
+        self.assertNotIn("全部 (999)", html)
+        self.assertIn('\n  <div id="date-bar">\n', "\n" + html)
 
 
 if __name__ == "__main__":

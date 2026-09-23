@@ -110,6 +110,27 @@ def generate_cards_js(cards):
     lines.append("];")
     return "\n".join(lines)
 
+
+def generate_date_bar_html(cards):
+    date_counts = defaultdict(int)
+    for card in cards:
+        date_counts[card[10]] += 1
+
+    lines = [
+        '  <div id="date-bar">',
+        '    <button class="dpill active" onclick="setDateFilter(\'\')" '
+        f'id="dpill-all">全部 ({len(cards)})</button>',
+    ]
+    for date, count in date_counts.items():
+        label = f"{date[5:7]}/{date[8:10]}"
+        lines.append(
+            '    <button class="dpill" '
+            f'onclick="setDateFilter(\'{date}\')" id="dpill-{date}">'
+            f"{label} ({count})</button>"
+        )
+    lines.append("  </div>")
+    return "\n".join(lines)
+
 # ── 更新 index.html ───────────────────────────────────────────────────────────
 def update_html(cards, index_html=INDEX_HTML):
     print("\n✏️  更新 index.html...")
@@ -117,6 +138,21 @@ def update_html(cards, index_html=INDEX_HTML):
         html = f.read()
 
     cards_js = generate_cards_js(cards)
+
+    date_bar_pattern = r'^[ \t]*<div id="date-bar">.*?</div>'
+    date_bar_flags = re.DOTALL | re.MULTILINE
+    if re.search(date_bar_pattern, html, flags=date_bar_flags):
+        date_bar_html = generate_date_bar_html(cards)
+        html = re.sub(
+            date_bar_pattern,
+            lambda _match: date_bar_html,
+            html,
+            count=1,
+            flags=date_bar_flags,
+        )
+    else:
+        print("❌ 找不到日期篩選列，請確認 index.html 格式")
+        return False
 
     # 替換 const CARDS = [...] 區塊
     pattern = r"const CARDS = \[.*?\];"
