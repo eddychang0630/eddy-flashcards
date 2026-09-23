@@ -61,6 +61,11 @@ def read_vocab(excel_path=DEFAULT_EXCEL_PATH):
         word_str = str(word).strip()
         if not word_str:
             continue
+        if word_str.casefold() in {
+            "english word",
+            "英文單字 (english word)",
+        }:
+            continue
 
         # 去重複（大小寫不敏感）
         word_key = word_str.lower()
@@ -116,7 +121,7 @@ def update_html(cards, index_html=INDEX_HTML):
     # 替換 const CARDS = [...] 區塊
     pattern = r"const CARDS = \[.*?\];"
     if re.search(pattern, html, flags=re.DOTALL):
-        html = re.sub(pattern, cards_js, html, flags=re.DOTALL)
+        html = re.sub(pattern, lambda _match: cards_js, html, flags=re.DOTALL)
         print(f"✅ 成功替換 CARDS 陣列（{len(cards)} 筆）")
     else:
         print("❌ 找不到 CARDS 陣列，請確認 index.html 格式")
