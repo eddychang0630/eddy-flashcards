@@ -37,7 +37,22 @@
       padding: calc(var(--safe-top) + 12px) 16px 10px;
       background: var(--bg); border-bottom: 1px solid var(--border); flex-shrink: 0;
     }
-    #top-bar h1 { font-size: 0.95rem; font-weight: 700; white-space: nowrap; }
+    #top-bar h1 {
+      min-width: 0; overflow: hidden; text-overflow: ellipsis;
+      font-size: 0.95rem; font-weight: 700; white-space: nowrap;
+    }
+    .top-actions { display: flex; align-items: center; gap: 6px; flex-shrink: 0; }
+    .refresh-btn {
+      width: 32px; height: 32px; flex: 0 0 32px;
+      display: grid; place-items: center;
+      border: 1px solid var(--border); border-radius: 9px;
+      background: var(--card-bg); color: var(--text); cursor: pointer;
+    }
+    .refresh-btn span { display: block; font-size: 1.2rem; line-height: 1; }
+    .refresh-btn:active { background: var(--border); }
+    .refresh-btn:disabled { opacity: 0.65; cursor: wait; }
+    .refresh-btn.is-refreshing span { animation: refreshSpin 0.7s linear infinite; }
+    @keyframes refreshSpin { to { transform: rotate(360deg); } }
     .mode-toggle { display: flex; gap: 3px; background: var(--card-bg); border-radius: 12px; padding: 3px; }
     .mode-btn {
       padding: 5px 12px; border-radius: 9px; font-size: 0.72rem; font-weight: 700;
@@ -247,9 +262,14 @@
 <div id="app">
   <div id="top-bar">
     <h1>📚 Eddy 英文字卡</h1>
-    <div class="mode-toggle">
-      <button class="mode-btn active" id="mode-quiz-btn" onclick="switchMode('quiz')">🃏 抽考</button>
-      <button class="mode-btn" id="mode-study-btn" onclick="switchMode('study')">📖 背誦</button>
+    <div class="top-actions">
+      <button class="refresh-btn" id="app-refresh-btn" type="button" onclick="refreshApp()" aria-label="重新整理 App" title="重新整理 App">
+        <span aria-hidden="true">↻</span>
+      </button>
+      <div class="mode-toggle">
+        <button class="mode-btn active" id="mode-quiz-btn" onclick="switchMode('quiz')">🃏 抽考</button>
+        <button class="mode-btn" id="mode-study-btn" onclick="switchMode('study')">📖 背誦</button>
+      </div>
     </div>
   </div>
 
@@ -947,6 +967,27 @@ document.addEventListener('keydown',e=>{
     if(e.key==='ArrowLeft')studyNav(-1);
   }
 });
+
+// ─── App Refresh ──────────────────────────────────────────────────────────────
+async function refreshApp() {
+  const button = document.getElementById('app-refresh-btn');
+  if(button.disabled) return;
+
+  button.disabled = true;
+  button.classList.add('is-refreshing');
+  button.setAttribute('aria-busy', 'true');
+
+  try {
+    if('serviceWorker' in navigator) {
+      const registration = await navigator.serviceWorker.getRegistration();
+      if(registration) await registration.update();
+    }
+  } catch(error) {
+    console.warn('App refresh update check failed:', error);
+  } finally {
+    window.location.reload();
+  }
+}
 
 // ─── Service Worker ───────────────────────────────────────────────────────────
 if('serviceWorker' in navigator) {

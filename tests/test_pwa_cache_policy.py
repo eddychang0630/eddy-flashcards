@@ -20,6 +20,18 @@ class PwaCachePolicyTest(unittest.TestCase):
         self.assertIn("updateViaCache: 'none'", builder)
         self.assertIn("registration.update()", builder)
 
+    def test_manual_refresh_button_updates_worker_before_reloading(self):
+        index = (ROOT / "index.html").read_text(encoding="utf-8")
+        builder = (ROOT / "build_app.py").read_text(encoding="utf-8")
+
+        for source in (index, builder):
+            self.assertIn('id="app-refresh-btn"', source)
+            self.assertIn('aria-label="重新整理 App"', source)
+            self.assertIn("async function refreshApp()", source)
+            self.assertIn("await registration.update()", source)
+            self.assertIn("window.location.reload()", source)
+            self.assertIn("is-refreshing", source)
+
 
 if __name__ == "__main__":
     unittest.main()
