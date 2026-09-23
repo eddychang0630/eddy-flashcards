@@ -12,7 +12,6 @@
   <title>英文字卡 App</title>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
     :root {
       --primary: #6366f1;
       --bg: #0f0f13;
@@ -22,11 +21,11 @@
       --border: #2a2a3a;
       --green: #22c55e;
       --red: #ef4444;
+      --yellow: #f59e0b;
       --radius: 20px;
       --safe-top: env(safe-area-inset-top, 0px);
       --safe-bottom: env(safe-area-inset-bottom, 16px);
     }
-
     html, body {
       height: 100%; width: 100%;
       background: var(--bg);
@@ -37,23 +36,21 @@
       -webkit-touch-callout: none;
       user-select: none;
     }
-
     #app { display: flex; flex-direction: column; height: 100vh; height: 100dvh; }
 
     /* Top Bar */
     #top-bar {
       display: flex; align-items: center; justify-content: space-between;
       padding: calc(var(--safe-top) + 14px) 18px 12px;
-      background: var(--bg);
-      border-bottom: 1px solid var(--border);
+      background: var(--bg); border-bottom: 1px solid var(--border);
       flex-shrink: 0;
     }
-    #top-bar h1 { font-size: 1rem; font-weight: 700; }
+    #top-bar h1 { font-size: 1rem; font-weight: 700; white-space: nowrap; }
     .mode-toggle { display: flex; gap: 4px; background: var(--card-bg); border-radius: 12px; padding: 3px; }
     .mode-btn {
       padding: 6px 14px; border-radius: 9px; font-size: 0.75rem; font-weight: 700;
       border: none; cursor: pointer; transition: all 0.2s;
-      background: transparent; color: var(--muted);
+      background: transparent; color: var(--muted); white-space: nowrap;
     }
     .mode-btn.active { background: var(--primary); color: #fff; }
 
@@ -78,11 +75,12 @@
     .score-box.green .s-num { color: var(--green); }
     .score-box.red .s-num { color: var(--red); }
 
+    /* Flip Card */
     #quiz-card-area {
       flex: 1; display: flex; align-items: center; justify-content: center;
       padding: 0 18px; perspective: 1200px; min-height: 0;
     }
-    .flip-wrapper { width: 100%; max-width: 420px; height: 220px; position: relative; }
+    .flip-wrapper { width: 100%; max-width: 420px; height: 210px; position: relative; }
     .flip-inner {
       width: 100%; height: 100%; position: relative;
       transform-style: preserve-3d;
@@ -92,41 +90,50 @@
     .flip-face {
       position: absolute; width: 100%; height: 100%;
       backface-visibility: hidden; -webkit-backface-visibility: hidden;
-      border-radius: var(--radius);
-      display: flex; flex-direction: column; align-items: center; justify-content: center;
-      padding: 24px 20px; text-align: center;
+      border-radius: var(--radius); padding: 20px;
+      display: flex; flex-direction: column; justify-content: center;
     }
-    .flip-front { background: var(--card-bg); border: 1px solid var(--border); }
-    .flip-back { background: linear-gradient(135deg, #1e1b4b 0%, #1a1a30 100%); border: 1.5px solid rgba(99,102,241,0.5); transform: rotateY(180deg); }
+    .flip-front { background: var(--card-bg); border: 1px solid var(--border); cursor: pointer; }
+    .flip-back { background: linear-gradient(135deg,#1e1b4b,#1a1a30); border: 1.5px solid rgba(99,102,241,0.5); transform: rotateY(180deg); }
 
+    /* Front card: word layout */
     .flip-badge {
-      font-size: 0.62rem; font-weight: 700; letter-spacing: 0.07em;
-      padding: 3px 12px; border-radius: 999px;
+      font-size: 0.6rem; font-weight: 700; letter-spacing: 0.07em;
+      padding: 3px 10px; border-radius: 999px;
       background: rgba(99,102,241,0.15); color: #818cf8;
-      margin-bottom: 12px; text-transform: uppercase;
+      margin-bottom: 8px; align-self: flex-start; text-transform: uppercase;
     }
-    .flip-word { font-size: 1.9rem; font-weight: 800; line-height: 1.2; color: var(--text); word-break: break-word; }
-    .flip-hint { font-size: 0.68rem; color: var(--muted); margin-top: 12px; }
-    .flip-meaning { font-size: 1rem; font-weight: 600; line-height: 1.55; color: var(--text); }
-    .flip-ex { font-size: 0.74rem; color: var(--muted); margin-top: 8px; line-height: 1.5; font-style: italic; }
+    /* ★ KEY FIX: single line, auto-shrink font */
+    .flip-word {
+      font-weight: 800; line-height: 1.1; color: var(--text);
+      white-space: nowrap; overflow: hidden;
+      /* JS will set font-size dynamically */
+    }
+    .flip-phonetic { font-size: 0.78rem; color: #818cf8; margin-top: 4px; font-family: monospace; }
+    .flip-hint { font-size: 0.67rem; color: var(--muted); margin-top: 10px; }
 
-    #swipe-hint { text-align: center; font-size: 0.68rem; color: var(--muted); padding: 6px 0; flex-shrink: 0; }
+    /* Back card */
+    .flip-back-content { display: flex; flex-direction: column; gap: 6px; }
+    .flip-pos-tag { font-size: 0.65rem; font-weight: 700; color: #818cf8; text-transform: uppercase; letter-spacing: 0.06em; }
+    .flip-meaning { font-size: 0.95rem; font-weight: 600; line-height: 1.4; color: var(--text); }
+    .flip-ex { font-size: 0.73rem; color: var(--muted); font-style: italic; line-height: 1.4; margin-top: 4px; }
 
-    #quiz-actions { padding: 10px 18px; flex-shrink: 0; display: flex; flex-direction: column; gap: 9px;
-      padding-bottom: max(10px, var(--safe-bottom)); }
+    #swipe-hint { text-align: center; font-size: 0.67rem; color: var(--muted); padding: 5px 0; flex-shrink: 0; }
+
+    #quiz-actions {
+      padding: 10px 18px; flex-shrink: 0; display: flex; flex-direction: column; gap: 9px;
+      padding-bottom: max(10px, var(--safe-bottom));
+    }
     #btn-flip {
-      width: 100%; padding: 15px;
-      background: var(--primary); color: #fff;
-      border: none; border-radius: 16px; font-size: 0.95rem; font-weight: 700;
-      cursor: pointer;
+      width: 100%; padding: 15px; background: var(--primary); color: #fff;
+      border: none; border-radius: 16px; font-size: 0.95rem; font-weight: 700; cursor: pointer;
     }
     #btn-flip:active { opacity: 0.85; }
     .judge-row { display: none; gap: 9px; }
     .judge-row.show { display: flex; }
     .judge-btn {
       flex: 1; padding: 14px; border: 1.5px solid; border-radius: 16px;
-      font-size: 0.88rem; font-weight: 700; cursor: pointer;
-      background: transparent; transition: background 0.15s;
+      font-size: 0.88rem; font-weight: 700; cursor: pointer; background: transparent;
     }
     .judge-btn.know { border-color: var(--green); color: var(--green); }
     .judge-btn.know:active { background: rgba(34,197,94,0.12); }
@@ -135,23 +142,60 @@
 
     /* ══ STUDY MODE ══ */
     #study-scroll { flex: 1; overflow-y: auto; -webkit-overflow-scrolling: touch; padding: 0 18px; }
-    .study-card { background: var(--card-bg); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; margin-bottom: 16px; }
-    .s-top { padding: 20px 20px 14px; border-bottom: 1px solid var(--border); display: flex; align-items: flex-start; justify-content: space-between; gap: 10px; }
-    .s-word { font-size: 1.9rem; font-weight: 800; line-height: 1.2; flex: 1; word-break: break-word; }
-    .s-pos { font-size: 0.62rem; font-weight: 700; letter-spacing: 0.06em; padding: 4px 10px; border-radius: 999px; white-space: nowrap; margin-top: 6px; }
-    .s-block { padding: 14px 20px; border-bottom: 1px solid var(--border); }
-    .s-block:last-child { border-bottom: none; }
-    .s-section-label { font-size: 0.62rem; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 7px; }
-    .s-meaning { font-size: 1rem; font-weight: 600; line-height: 1.6; }
-    .s-en { font-size: 0.84rem; font-style: italic; color: var(--text); line-height: 1.6; background: rgba(99,102,241,0.08); border-left: 3px solid var(--primary); padding: 10px 14px; border-radius: 0 10px 10px 0; margin-bottom: 8px; }
-    .s-zh { font-size: 0.8rem; color: var(--muted); padding-left: 4px; line-height: 1.5; }
 
-    #study-nav { display: flex; gap: 9px; padding: 10px 18px; flex-shrink: 0;
-      padding-bottom: max(10px, var(--safe-bottom)); border-top: 1px solid var(--border); }
+    .study-card { background: var(--card-bg); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; margin-bottom: 20px; }
+
+    /* ★ KEY FIX: word header layout — each element on its own line */
+    .s-header { padding: 18px 18px 14px; border-bottom: 1px solid var(--border); }
+
+    /* Word: single line, font auto-shrinks via JS */
+    .s-word {
+      font-weight: 800; line-height: 1.15; color: var(--text);
+      white-space: nowrap; overflow: hidden;
+      display: block; width: 100%;
+    }
+    /* Phonetic: own line */
+    .s-phonetic {
+      display: block; font-size: 0.82rem; color: #818cf8;
+      font-family: 'Courier New', monospace; margin-top: 5px; line-height: 1;
+    }
+    /* POS + Chinese meaning: own line */
+    .s-pos-row { display: flex; align-items: center; gap: 8px; margin-top: 8px; }
+    .s-pos {
+      font-size: 0.62rem; font-weight: 700; letter-spacing: 0.06em;
+      padding: 3px 9px; border-radius: 999px; white-space: nowrap; flex-shrink: 0;
+    }
+    .s-meaning-inline { font-size: 0.88rem; font-weight: 600; color: var(--text); line-height: 1.4; }
+
+    /* Sections */
+    .s-block { padding: 12px 18px; border-bottom: 1px solid var(--border); }
+    .s-block:last-child { border-bottom: none; }
+    .s-section-label { font-size: 0.6rem; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 7px; }
+    .s-en { font-size: 0.83rem; font-style: italic; color: var(--text); line-height: 1.55; background: rgba(99,102,241,0.08); border-left: 3px solid var(--primary); padding: 9px 13px; border-radius: 0 10px 10px 0; margin-bottom: 7px; }
+    .s-zh { font-size: 0.79rem; color: var(--muted); padding-left: 4px; line-height: 1.5; }
+
+    /* Synonyms / Antonyms */
+    .syn-ant-grid { display: flex; gap: 8px; }
+    .syn-box, .ant-box {
+      flex: 1; border-radius: 12px; padding: 9px 11px;
+    }
+    .syn-box { background: rgba(34,197,94,0.07); border: 1px solid rgba(34,197,94,0.25); }
+    .ant-box { background: rgba(239,68,68,0.07); border: 1px solid rgba(239,68,68,0.25); }
+    .syn-ant-title { font-size: 0.6rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.07em; margin-bottom: 5px; }
+    .syn-box .syn-ant-title { color: var(--green); }
+    .ant-box .syn-ant-title { color: var(--red); }
+    .syn-ant-en { font-size: 0.75rem; color: var(--text); font-weight: 600; line-height: 1.4; }
+    .syn-ant-zh { font-size: 0.7rem; color: var(--muted); margin-top: 3px; line-height: 1.4; }
+    .no-data { font-size: 0.72rem; color: var(--muted); font-style: italic; }
+
+    /* Navigation */
+    #study-nav {
+      display: flex; gap: 9px; padding: 10px 18px; flex-shrink: 0;
+      padding-bottom: max(10px, var(--safe-bottom)); border-top: 1px solid var(--border);
+    }
     .nav-btn {
       padding: 14px 16px; border-radius: 14px; font-weight: 700; border: 1.5px solid var(--border);
-      background: var(--card-bg); color: var(--text); font-size: 0.88rem; cursor: pointer;
-      white-space: nowrap;
+      background: var(--card-bg); color: var(--text); font-size: 0.88rem; cursor: pointer; white-space: nowrap;
     }
     .nav-btn.primary { flex: 1; background: var(--primary); border-color: var(--primary); color: #fff; }
     .nav-btn:disabled { opacity: 0.3; cursor: not-allowed; }
@@ -164,9 +208,8 @@
     }
     .tab-btn {
       flex: 1; display: flex; flex-direction: column; align-items: center;
-      padding: 9px 0 6px; gap: 3px;
-      background: none; border: none; cursor: pointer; color: var(--muted);
-      font-size: 0.6rem; font-weight: 700; letter-spacing: 0.02em; transition: color 0.2s;
+      padding: 9px 0 6px; gap: 3px; background: none; border: none; cursor: pointer;
+      color: var(--muted); font-size: 0.6rem; font-weight: 700; transition: color 0.2s;
     }
     .tab-icon { font-size: 1.4rem; }
     .tab-btn.active { color: var(--primary); }
@@ -183,31 +226,16 @@
     .fin-msg { color: var(--muted); font-size: 0.88rem; margin-bottom: 28px; line-height: 1.7; white-space: pre-line; }
     .fin-btns { display: flex; flex-direction: column; gap: 10px; width: 100%; max-width: 320px; }
     .fin-btn { padding: 15px; border-radius: 14px; font-weight: 700; font-size: 0.95rem; cursor: pointer; border: none; }
-    .fin-btn:active { opacity: 0.8; }
     .fin-btn.primary { background: var(--primary); color: #fff; }
     .fin-btn.secondary { background: var(--card-bg); color: var(--text); border: 1.5px solid var(--border); }
 
-    /* Install banner */
-    #install-banner {
-      display: none; position: fixed; bottom: 80px; left: 12px; right: 12px;
-      background: var(--primary); color: #fff; border-radius: 16px; padding: 14px 16px;
-      z-index: 200; box-shadow: 0 8px 32px rgba(99,102,241,0.45);
-    }
-    #install-banner.show { display: block; }
-    .ib-title { font-size: 0.88rem; font-weight: 700; margin-bottom: 2px; }
-    .ib-sub { font-size: 0.72rem; opacity: 0.85; margin-bottom: 10px; }
-    .ib-btns { display: flex; gap: 8px; }
-    .ib-btn { padding: 8px 16px; border-radius: 10px; font-size: 0.8rem; font-weight: 700; cursor: pointer; border: none; }
-    .ib-btn.yes { background: #fff; color: var(--primary); }
-    .ib-btn.no { background: rgba(255,255,255,0.2); color: #fff; }
-
     /* Animations */
-    @keyframes cardIn { from { opacity: 0; transform: translateX(24px); } to { opacity: 1; transform: translateX(0); } }
-    @keyframes popAnim { 0%,100%{transform:scale(1)} 50%{transform:scale(1.05)} }
-    @keyframes shakeAnim { 0%,100%{transform:translateX(0)} 25%{transform:translateX(-9px)} 75%{transform:translateX(9px)} }
-    .anim-in { animation: cardIn 0.28s ease; }
-    .anim-pop { animation: popAnim 0.28s ease; }
-    .anim-shake { animation: shakeAnim 0.32s ease; }
+    @keyframes cardIn { from { opacity: 0; transform: translateX(20px); } to { opacity: 1; transform: translateX(0); } }
+    @keyframes popAnim { 0%,100%{transform:scale(1)} 50%{transform:scale(1.04)} }
+    @keyframes shakeAnim { 0%,100%{transform:translateX(0)} 25%{transform:translateX(-8px)} 75%{transform:translateX(8px)} }
+    .anim-in { animation: cardIn 0.26s ease; }
+    .anim-pop { animation: popAnim 0.26s ease; }
+    .anim-shake { animation: shakeAnim 0.3s ease; }
   </style>
 </head>
 <body>
@@ -222,18 +250,18 @@
 
   <div id="progress-wrap">
     <div class="progress-row">
-      <span id="prog-label">第 1 張，共 73 張</span>
+      <span id="prog-label">第 1 張，共 80 張</span>
       <span id="prog-pct">1%</span>
     </div>
-    <div class="progress-bar-bg"><div class="progress-bar-fill" id="prog-fill" style="width:1.4%"></div></div>
+    <div class="progress-bar-bg"><div class="progress-bar-fill" id="prog-fill" style="width:1.25%"></div></div>
   </div>
 
-  <!-- QUIZ -->
+  <!-- QUIZ SCREEN -->
   <div class="screen active" id="screen-quiz">
     <div id="quiz-scores">
       <div class="score-box green"><div class="s-label">✅ 認識</div><div class="s-num" id="q-know">0</div></div>
       <div class="score-box red"><div class="s-label">❌ 不熟</div><div class="s-num" id="q-dunno">0</div></div>
-      <div class="score-box"><div class="s-label">🔀 剩餘</div><div class="s-num" id="q-remain">73</div></div>
+      <div class="score-box"><div class="s-label">🔀 剩餘</div><div class="s-num" id="q-remain">80</div></div>
     </div>
     <div id="quiz-card-area">
       <div class="flip-wrapper" id="flip-wrapper">
@@ -241,16 +269,20 @@
           <div class="flip-face flip-front" onclick="doFlip()">
             <div class="flip-badge" id="q-badge">字彙</div>
             <div class="flip-word" id="q-word"></div>
-            <div class="flip-hint">輕觸或點「翻面」查看答案 👆</div>
+            <div class="flip-phonetic" id="q-phonetic"></div>
+            <div class="flip-hint">輕觸翻面 👆 &nbsp;·&nbsp; 翻後左滑不熟 / 右滑認識</div>
           </div>
           <div class="flip-face flip-back">
-            <div class="flip-meaning" id="q-meaning"></div>
-            <div class="flip-ex" id="q-ex"></div>
+            <div class="flip-back-content">
+              <div class="flip-pos-tag" id="q-pos-tag"></div>
+              <div class="flip-meaning" id="q-meaning"></div>
+              <div class="flip-ex" id="q-ex"></div>
+            </div>
           </div>
         </div>
       </div>
     </div>
-    <div id="swipe-hint">← 左滑不熟 &nbsp;｜&nbsp; 右滑認識 →</div>
+    <div id="swipe-hint">← 左滑「不熟」&nbsp;｜&nbsp;「認識」右滑 →</div>
     <div id="quiz-actions">
       <button id="btn-flip" onclick="doFlip()">翻面看答案</button>
       <div class="judge-row" id="judge-row">
@@ -260,22 +292,40 @@
     </div>
   </div>
 
-  <!-- STUDY -->
+  <!-- STUDY SCREEN -->
   <div class="screen" id="screen-study">
     <div id="study-scroll">
       <div class="study-card" id="study-card">
-        <div class="s-top">
-          <div class="s-word" id="s-word"></div>
-          <div class="s-pos" id="s-pos"></div>
+        <!-- Header: word / phonetic / meaning each on own line -->
+        <div class="s-header">
+          <span class="s-word" id="s-word"></span>
+          <span class="s-phonetic" id="s-phonetic"></span>
+          <div class="s-pos-row">
+            <span class="s-pos" id="s-pos"></span>
+            <span class="s-meaning-inline" id="s-meaning"></span>
+          </div>
         </div>
+        <!-- Example -->
         <div class="s-block">
-          <div class="s-section-label">📌 中文意思</div>
-          <div class="s-meaning" id="s-meaning"></div>
-        </div>
-        <div class="s-block">
-          <div class="s-section-label">💬 例句</div>
+          <div class="s-section-label">💬 英文例句</div>
           <div class="s-en" id="s-en"></div>
           <div class="s-zh" id="s-zh"></div>
+        </div>
+        <!-- Synonyms & Antonyms -->
+        <div class="s-block" id="s-syn-ant-block">
+          <div class="s-section-label">🔗 近義詞 / 反義詞</div>
+          <div class="syn-ant-grid">
+            <div class="syn-box">
+              <div class="syn-ant-title">近義詞 Synonyms</div>
+              <div class="syn-ant-en" id="s-syn-en"></div>
+              <div class="syn-ant-zh" id="s-syn-zh"></div>
+            </div>
+            <div class="ant-box">
+              <div class="syn-ant-title">反義詞 Antonyms</div>
+              <div class="syn-ant-en" id="s-ant-en"></div>
+              <div class="syn-ant-zh" id="s-ant-zh"></div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -298,7 +348,6 @@
   </div>
 </div>
 
-<!-- Finish -->
 <div id="finish-overlay">
   <div class="fin-emoji" id="fin-emoji">🎉</div>
   <div class="fin-title">完成！</div>
@@ -309,107 +358,129 @@
   </div>
 </div>
 
-<!-- Install Banner -->
-<div id="install-banner">
-  <div class="ib-title">📲 安裝到手機主畫面</div>
-  <div class="ib-sub">像 App 一樣快速啟動，支援離線使用</div>
-  <div class="ib-btns">
-    <button class="ib-btn yes" id="ib-yes">立即安裝</button>
-    <button class="ib-btn no" onclick="document.getElementById('install-banner').classList.remove('show')">下次再說</button>
-  </div>
-</div>
-
 <script>
-// ─── Data ────────────────────────────────────────────────────────────────────
+// ─── Data Format ─────────────────────────────────────────────────────────────
+// [word, posLabel, meaning, phonetic, enEx, zhEx, synEn, synZh, antEn, antZh]
+// synEn/antEn: English synonyms/antonyms  |  synZh/antZh: Chinese equivalents
+// Use "" for phonetic on phrases; use "—" when no synonym/antonym exists
+
 const CARDS = [
-  ["position","n. 位置；職位；姿勢","She applied for a marketing position at the company.","她應徵了那家公司的行銷職位。"],
-  ["dermatologist","n. 皮膚科醫師","I made an appointment with a dermatologist about my skin rash.","我因為皮膚疹預約了皮膚科醫師。"],
-  ["in no time","副詞片語 — 很快；立刻","The update finished in no time.","更新很快就完成了。"],
-  ["filler","n. 填充詞；贅詞","Try to replace fillers such as 'um' with a short pause.","試著用短暫停頓取代像 um 這樣的填充詞。"],
-  ["Pretty good, you?","口語 — 還不錯，你呢？","Pretty good, you? How has your morning been?","還不錯，你呢？你今天早上過得如何？"],
-  ["Solid day so far.","口語 — 到目前為止今天過得挺順利","Solid day so far. I finished everything on my list.","到目前為止今天過得挺順利，我完成了清單上的所有事情。"],
-  ["Can't complain.","口語 — 沒什麼好抱怨的；還不錯","Can't complain. Work has been busy but manageable.","沒什麼好抱怨的，工作雖忙但還能應付。"],
-  ["Not bad at all.","口語 — 一點也不差；相當不錯","The new phone is not bad at all for the price.","以這個價格來說，這支手機相當不錯。"],
-  ["I'm doing alright.","口語 — 我過得還可以","I'm doing alright, although this week has been busy.","我過得還可以，雖然這星期很忙。"],
-  ["domestic flight","名詞片語 — 國內線航班","We took a domestic flight from Taipei to Kaohsiung.","我們搭乘國內線航班從台北前往高雄。"],
-  ["flip","v. 翻轉；迅速翻動","You can flip the foldable phone open with one hand.","你可以用一隻手把摺疊手機翻開。"],
-  ["strap","n. 帶子；背帶","Make sure the luggage strap is secure before your flight.","搭機前請確認行李束帶已固定好。"],
-  ["old version","名詞片語 — 舊版本","The old version of the app no longer receives updates.","這個應用程式的舊版本已不再收到更新。"],
-  ["outdated","adj. 過時的；已淘汰的","This charging cable will soon become outdated.","這條充電線很快就會過時。"],
-  ["lifespan","n. 使用壽命；壽命","Good charging habits can extend a phone's lifespan.","良好的充電習慣可以延長手機的使用壽命。"],
-  ["upgrade","n./v. 升級；提升","I plan to upgrade my phone when the battery becomes unreliable.","當電池變得不可靠時，我打算升級手機。"],
-  ["connecting flight","名詞片語 — 轉接航班；轉機航班","I have a connecting flight in Singapore.","我要在新加坡轉機。"],
-  ["change planes","動詞片語 — 換機；轉搭另一架飛機","We need to change planes before reaching Sydney.","我們抵達雪梨前需要換機。"],
-  ["final destination","名詞片語 — 最終目的地","Melbourne is our final destination.","墨爾本是我們的最終目的地。"],
-  ["layover","n. 轉機停留時間","Our layover is long enough to change terminals.","我們的轉機時間足夠換航廈。"],
-  ["transfer to","動詞片語 — 轉乘至；轉到","I need to transfer to my next flight in Tokyo.","我需要在東京轉乘下一班飛機。"],
-  ["change terminals","動詞片語 — 更換航廈","Allow extra time if you need to change terminals.","如果需要更換航廈，請預留額外時間。"],
-  ["boarding pass","名詞片語 — 登機證","Keep your boarding pass ready at the gate.","在登機門請準備好登機證。"],
-  ["departure gate","名詞片語 — 登機門；出發閘口","The departure gate changed from B6 to B12.","登機門從 B6 改成了 B12。"],
-  ["checked baggage","名詞片語 — 託運行李","Your checked baggage will be transferred automatically.","你的託運行李會自動轉運。"],
-  ["check through","片語動詞 — 將行李直掛到最終目的地","The airline checked my baggage through to London.","航空公司將我的行李直掛到倫敦。"],
-  ["smooth connection","名詞片語 — 順利的轉機過程","I hope you have a smooth connection in Seoul.","希望你在首爾轉機順利。"],
-  ["check in","片語動詞 — 辦理報到；登機報到","We need to check in two hours before departure.","我們需要在起飛前兩小時辦理報到。"],
-  ["get on","片語動詞 — 登上交通工具","Passengers can get on the plane after their group is called.","旅客可以在叫到自己的組別後登機。"],
-  ["get off","片語動詞 — 離開交通工具；下車","We got off the plane and followed the transfer signs.","我們下飛機後依照轉機指示前進。"],
-  ["head to","片語動詞 — 前往；朝向","After landing, head to the transfer desk.","降落後，請前往轉機櫃檯。"],
-  ["stop over","片語動詞 — 旅途中短暫停留","We stopped over in Bangkok on the way to Europe.","我們前往歐洲途中在曼谷短暫停留。"],
-  ["set off","片語動詞 — 出發；啟程","We set off for the airport before sunrise.","我們在日出前啟程前往機場。"],
-  ["unveil","v. 首次公開；發表","Apple unveiled its latest phone lineup at the event.","Apple 在發表會上公開了最新手機系列。"],
-  ["lineup","n. 產品陣容；一組人或事物","The new lineup includes three premium models.","新產品陣容包含三款高階機型。"],
-  ["shortage","n. 短缺；不足","A memory-chip shortage pushed phone prices higher.","記憶體晶片短缺推高了手機價格。"],
-  ["feature","n. 特色；功能","Focus tracking is a useful camera feature.","焦點追蹤是一項實用的相機功能。"],
-  ["rival","n. 競爭對手","The company wants to catch up with its AI rivals.","該公司希望追上人工智慧領域的競爭對手。"],
-  ["preorder","n. 預購訂單；預購","The foldable phone will be available for preorder in October.","這款摺疊手機將於十月開放預購。"],
-  ["foldable model","名詞片語 — 摺疊式機型","The foldable model opens to reveal a larger screen.","這款摺疊式機型展開後會顯示更大的螢幕。"],
-  ["take over from","片語動詞 — 接替某人的職位","The new CEO took over from his predecessor in September.","新任執行長在九月接替了前任。"],
-  ["latest generation","名詞片語 — 最新一代","The latest generation offers longer battery life.","最新一代提供更長的電池續航力。"],
-  ["display","n. 顯示器；螢幕","The device has the largest display ever offered on an iPhone.","這款裝置配備了 iPhone 歷來最大的顯示器。"],
-  ["divide the screen","動詞片語 — 分割螢幕","Users can divide the screen between two apps.","使用者可以將螢幕分給兩個應用程式使用。"],
-  ["compare products","動詞片語 — 比較產品","A larger screen makes it easier to compare products.","較大的螢幕讓比較產品更容易。"],
-  ["previous generation","名詞片語 — 上一代","The new model costs more than the previous generation.","新機型比上一代更昂貴。"],
-  ["memory chip","名詞片語 — 記憶體晶片","The global shortage of memory chips affected prices.","全球記憶體晶片短缺影響了價格。"],
-  ["battery life","名詞片語 — 電池續航力；電池壽命","The Pro model has significantly better battery life.","Pro 機型的電池續航力明顯更好。"],
-  ["charge to 50%","動詞片語 — 充電至百分之五十","The phone can charge to 50% in about 15 minutes.","這支手機大約十五分鐘可以充電至百分之五十。"],
-  ["cinematic effect","名詞片語 — 電影感效果","Users can add a cinematic effect after recording.","使用者可以在錄影後加入電影感效果。"],
-  ["focus-tracking","n./adj. 焦點追蹤","The focus-tracking feature follows a moving child.","焦點追蹤功能會跟隨移動中的孩子。"],
-  ["moving subject","名詞片語 — 移動中的拍攝主體","The camera stayed focused on the moving subject.","相機持續對焦在移動中的拍攝主體上。"],
-  ["privacy and security","名詞片語 — 隱私與安全","Apple emphasizes privacy and security in its AI features.","Apple 強調其人工智慧功能的隱私與安全。"],
-  ["set apart from","片語動詞 — 使與眾不同；區別於","Strong privacy controls may set the phone apart from rivals.","強大的隱私控制可能使這支手機與競爭對手有所區別。"],
-  ["release","n./v. 發售；發布","The phone's release is scheduled for September 18.","這支手機預計於九月十八日發售。"],
-  ["fresh","adj. 精神飽滿的；清新的","You look fresh and energetic today.","你今天看起來精神飽滿、充滿活力。"],
-  ["room for improvement","名詞片語 — 改進空間","My pronunciation is clearer, but there is still room for improvement.","我的發音更清楚了，但仍有改進空間。"],
-  ["gain","v. 獲得；增進","I've gained a lot of knowledge from my courses.","我從課程中獲得了很多知識。"],
-  ["period","n. 一段時期；期間","The first period of the semester is usually demanding.","學期的第一段時期通常很吃力。"],
-  ["busy period","名詞片語 — 忙碌時期","September is a busy period for many students.","九月對許多學生來說是忙碌時期。"],
-  ["full of excitement","形容詞片語 — 充滿興奮與期待","I was full of excitement when the new semester began.","新學期開始時，我充滿興奮與期待。"],
-  ["acquire","v. 習得；獲得","It takes time to acquire a new skill.","習得一項新技能需要時間。"],
-  ["mixed emotions","名詞片語 — 百感交集；矛盾的感受","I had mixed emotions about taking four courses.","對於修四門課，我感到百感交集。"],
-  ["on time","副詞片語 — 準時；在預定時間","The class started on time at eight.","課程在八點準時開始。"],
-  ["in time","副詞片語 — 及時；在太遲之前","I arrived in time to join the class.","我及時抵達並參加了課程。"],
-  ["the early bird catches the worm","諺語 — 早起的鳥兒有蟲吃；先下手為強","I register early because the early bird catches the worm.","我會提早報名，因為早起的鳥兒有蟲吃。"],
-  ["mutual friends","名詞片語 — 共同朋友","We met through mutual friends.","我們是透過共同朋友認識的。"],
-  ["emotional stress","名詞片語 — 情緒壓力","Talking to a close friend can reduce emotional stress.","和親近的朋友談話可以減輕情緒壓力。"],
-  ["stress-relieving","adj. 舒緩壓力的","Walking after class is a stress-relieving habit.","下課後散步是一個紓壓的習慣。"],
-  ["carry a burden","動詞片語 — 承受負擔","You do not have to carry the burden alone.","你不必獨自承受這份負擔。"],
-  ["go hand in hand","動詞片語 — 相輔相成；密切相關","Personality and communication skills often go hand in hand.","人格特質與溝通能力往往相輔相成。"],
-  ["tell apart","片語動詞 — 分辨；區分","It is hard to tell the twins apart.","這對雙胞胎很難分辨。"],
-  ["keep a secret","動詞片語 — 保守秘密","I always try to keep a friend's secret.","我總是盡力替朋友保守秘密。"],
-  ["private","adj. 私人的；不公開的","Please keep this information private.","請將這項資訊保密。"],
-  ["trustworthy","adj. 值得信賴的","A trustworthy friend does not share your secrets.","值得信賴的朋友不會洩露你的秘密。"],
-  ["responsible","adj. 負責任的","Being responsible helps others trust you.","負責任會讓別人更信任你。"],
-  ["trust","n./v. 信任","Trust takes time to build and seconds to lose.","信任需要時間建立，卻可能在幾秒內失去。"],
-  ["privacy","n. 隱私","We should respect other people's privacy.","我們應該尊重他人的隱私。"],
-  ["confidential","adj. 機密的；保密的","The interview notes are confidential.","面試筆記屬於機密資料。"],
-  ["keep someone's confidence","動詞片語 — 替某人保守秘密","She trusted me to keep her confidence.","她信任我能替她保守秘密。"]
+  ["position","/pəˈzɪʃən/","n.","位置；職位；姿勢","She applied for a marketing position at the company.","她應徵了那家公司的行銷職位。","location, role, post","位置、角色、職務","—","—"],
+  ["dermatologist","/ˌdɜːrməˈtɒlədʒɪst/","n.","皮膚科醫師","I made an appointment with a dermatologist about my skin rash.","我因為皮膚疹預約了皮膚科醫師。","skin specialist","皮膚科醫師","general practitioner","一般科醫師"],
+  ["in no time","","副詞片語","很快；立刻","The update finished in no time.","更新很快就完成了。","quickly, immediately, at once","很快、立刻","slowly, eventually","緩慢地、最終"],
+  ["filler","/ˈfɪlər/","n.","填充詞；贅詞","Try to replace fillers such as 'um' with a short pause.","試著用短暫停頓取代像 um 這樣的填充詞。","placeholder, padding word","佔位詞","key word, content word","關鍵字、實詞"],
+  ["Pretty good, you?","","口語","還不錯，你呢？","Pretty good, you? How has your morning been?","還不錯，你呢？你今天早上過得如何？","Not bad, you? / How about you?","還不錯，你呢？","—","—"],
+  ["Solid day so far.","","口語","今天到目前為止過得不錯","Solid day so far. I finished everything on my list.","到目前為止今天過得挺順利。","Good day so far. / Productive day.","今天還蠻順的。","Rough day. / Bad day.","今天很難熬。"],
+  ["Can't complain.","","口語","沒什麼好抱怨的；還不錯","Can't complain. Work has been busy but manageable.","沒什麼好抱怨的，工作雖忙但還能應付。","Not bad. / Pretty good.","還不錯。","Could be better. / It's been rough.","還可以更好。"],
+  ["Not bad at all.","","口語","一點也不差；相當不錯","The new phone is not bad at all for the price.","以這個價格來說，這支手機相當不錯。","Pretty good. / Quite impressive.","相當不錯。","Terrible. / Awful.","很糟糕。"],
+  ["I'm doing alright.","","口語","我過得還可以","I'm doing alright, although this week has been busy.","我過得還可以，雖然這星期很忙。","I'm fine. / I'm okay. / Not bad.","我還不錯。","I'm struggling. / I'm exhausted.","我很掙扎。"],
+  ["domestic flight","","名詞片語","國內線航班","We took a domestic flight from Taipei to Kaohsiung.","我們搭乘國內線航班從台北前往高雄。","internal flight, local flight","國內航班","international flight","國際航班"],
+  ["flip","/flɪp/","v.","翻轉；迅速翻動","You can flip the foldable phone open with one hand.","你可以用一隻手把摺疊手機翻開。","turn over, rotate, toss","翻轉、旋轉","keep still, remain fixed","保持不動"],
+  ["strap","/stræp/","n.","帶子；背帶","Make sure the luggage strap is secure before your flight.","搭機前請確認行李束帶已固定好。","belt, band, tie","帶子、繫帶","—","—"],
+  ["old version","","名詞片語","舊版本","The old version of the app no longer receives updates.","這個應用程式的舊版本已不再收到更新。","previous version, outdated version","舊版、過時版本","new version, latest version","新版、最新版本"],
+  ["outdated","/ˌaʊtˈdeɪtɪd/","adj.","過時的；已淘汰的","This charging cable will soon become outdated.","這條充電線很快就會過時。","obsolete, old-fashioned, out-of-date","過時的、老舊的","current, up-to-date, modern","現代的、最新的"],
+  ["lifespan","/ˈlaɪfspæn/","n.","使用壽命；壽命","Good charging habits can extend a phone's lifespan.","良好的充電習慣可以延長手機的使用壽命。","lifetime, longevity, durability","壽命、耐久性","—","—"],
+  ["upgrade","/ˈʌpɡreɪd/","n./v.","升級；提升","I plan to upgrade my phone when the battery becomes unreliable.","當電池變得不可靠時，我打算升級手機。","improve, enhance, update","改善、提升、更新","downgrade, degrade","降級、降低"],
+  ["connecting flight","","名詞片語","轉機航班","I have a connecting flight in Singapore.","我要在新加坡轉機。","transit flight, transfer flight","轉機航班","direct flight, nonstop flight","直飛航班"],
+  ["change planes","","動詞片語","換機；轉搭另一架飛機","We need to change planes before reaching Sydney.","我們抵達雪梨前需要換機。","transfer, switch flights","轉機","take a direct flight","直飛"],
+  ["final destination","","名詞片語","最終目的地","Melbourne is our final destination.","墨爾本是我們的最終目的地。","end point, ultimate goal","終點、最終目標","starting point, origin","起點、出發地"],
+  ["layover","/ˈleɪoʊvər/","n.","轉機停留時間","Our layover is long enough to change terminals.","我們的轉機時間足夠換航廈。","stopover, transit, connection","中途停留、轉機","direct route","直飛路線"],
+  ["transfer to","","動詞片語","轉乘至；轉到","I need to transfer to my next flight in Tokyo.","我需要在東京轉乘下一班飛機。","switch to, connect to","轉換到、連接到","depart from, originate at","從...出發"],
+  ["change terminals","","動詞片語","更換航廈","Allow extra time if you need to change terminals.","如果需要更換航廈，請預留額外時間。","switch terminals","換航廈","stay in same terminal","留在同一航廈"],
+  ["boarding pass","","名詞片語","登機證","Keep your boarding pass ready at the gate.","在登機門請準備好登機證。","boarding card, ticket","登機票、登機憑證","—","—"],
+  ["departure gate","","名詞片語","登機門；出發閘口","The departure gate changed from B6 to B12.","登機門從 B6 改成了 B12。","boarding gate, gate","登機門","arrival gate","入境閘口"],
+  ["checked baggage","","名詞片語","託運行李","Your checked baggage will be transferred automatically.","你的託運行李會自動轉運。","hold luggage, registered luggage","託運行李","carry-on, hand luggage","手提行李"],
+  ["check through","","片語動詞","將行李直掛到最終目的地","The airline checked my baggage through to London.","航空公司將我的行李直掛到倫敦。","tag through, transfer baggage","行李直掛","recheck baggage","重新辦理行李報到"],
+  ["smooth connection","","名詞片語","順利的轉機過程","I hope you have a smooth connection in Seoul.","希望你在首爾轉機順利。","easy transfer, seamless transit","順暢的轉機","tight connection, missed connection","緊湊的轉機、誤機"],
+  ["check in","","片語動詞","辦理報到；登機報到","We need to check in two hours before departure.","我們需要在起飛前兩小時辦理報到。","register, sign in","辦理報到、登記","check out","辦理退房/退場"],
+  ["get on","","片語動詞","登上交通工具","Passengers can get on the plane after their group is called.","旅客可以在叫到自己的組別後登機。","board, hop on, embark","登上、搭乘","get off, disembark","下車、離開"],
+  ["get off","","片語動詞","離開交通工具；下車","We got off the plane and followed the transfer signs.","我們下飛機後依照轉機指示前進。","disembark, alight, exit","下車、離開","get on, board","登上、搭乘"],
+  ["head to","","片語動詞","前往；朝向","After landing, head to the transfer desk.","降落後，請前往轉機櫃檯。","go to, proceed to, make for","前往","leave, depart from","離開"],
+  ["stop over","","片語動詞","旅途中短暫停留","We stopped over in Bangkok on the way to Europe.","我們前往歐洲途中在曼谷短暫停留。","lay over, break the journey","中途停留","continue nonstop","直達、不停留"],
+  ["set off","","片語動詞","出發；啟程","We set off for the airport before sunrise.","我們在日出前啟程前往機場。","depart, leave, start out","出發、啟程","arrive, return","抵達、返回"],
+  ["unveil","/ʌnˈveɪl/","v.","首次公開；發表","Apple unveiled its latest phone lineup at the event.","Apple 在發表會上公開了最新手機系列。","reveal, introduce, announce, launch","揭露、宣布、發布","conceal, hide, cover up","隱藏、掩蓋"],
+  ["lineup","/ˈlaɪnʌp/","n.","產品陣容；一系列","The new lineup includes three premium models.","新產品陣容包含三款高階機型。","range, series, collection, roster","系列、陣容","—","—"],
+  ["shortage","/ˈʃɔːrtɪdʒ/","n.","短缺；不足","A memory-chip shortage pushed phone prices higher.","記憶體晶片短缺推高了手機價格。","lack, scarcity, deficiency, deficit","缺乏、短缺","surplus, abundance, excess","過剩、充裕"],
+  ["feature","/ˈfiːtʃər/","n.","特色；功能","Focus tracking is a useful camera feature.","焦點追蹤是一項實用的相機功能。","characteristic, function, capability","特色、功能","flaw, defect, bug","缺陷、瑕疵"],
+  ["rival","/ˈraɪvəl/","n.","競爭對手","The company wants to catch up with its AI rivals.","該公司希望追上人工智慧領域的競爭對手。","competitor, opponent, contender","競爭者、對手","ally, partner, teammate","盟友、夥伴"],
+  ["preorder","/priːˈɔːrdər/","n./v.","預購；預訂","The foldable phone will be available for preorder in October.","這款摺疊手機將於十月開放預購。","advance order, reservation","預訂","—","—"],
+  ["foldable model","","名詞片語","摺疊式機型","The foldable model opens to reveal a larger screen.","這款摺疊式機型展開後會顯示更大的螢幕。","flip phone, folding device","摺疊款式","standard model, bar phone","一般款式"],
+  ["take over from","","片語動詞","接替某人的職位","The new CEO took over from his predecessor in September.","新任執行長在九月接替了前任。","succeed, replace, take the place of","接替、取代","hand over to, pass on to","移交給"],
+  ["latest generation","","名詞片語","最新一代","The latest generation offers longer battery life.","最新一代提供更長的電池續航力。","newest generation, current model","最新一代、當代機型","previous generation, older model","上一代、舊機型"],
+  ["display","/dɪˈspleɪ/","n.","顯示器；螢幕","The device has the largest display ever offered on an iPhone.","這款裝置配備了 iPhone 歷來最大的顯示器。","screen, monitor, panel","螢幕、面板","—","—"],
+  ["divide the screen","","動詞片語","分割螢幕","Users can divide the screen between two apps.","使用者可以將螢幕分給兩個應用程式使用。","split the screen, share the screen","分割螢幕","full screen, maximize","全螢幕"],
+  ["compare products","","動詞片語","比較產品","A larger screen makes it easier to compare products.","較大的螢幕讓比較產品更容易。","evaluate, review, assess","比較、評估","—","—"],
+  ["previous generation","","名詞片語","上一代","The new model costs more than the previous generation.","新機型比上一代更昂貴。","older generation, last model","上一代、舊款","latest generation, new model","最新一代、新款"],
+  ["memory chip","","名詞片語","記憶體晶片","The global shortage of memory chips affected prices.","全球記憶體晶片短缺影響了價格。","RAM chip, storage chip","記憶體、儲存晶片","—","—"],
+  ["battery life","","名詞片語","電池續航力；電池壽命","The Pro model has significantly better battery life.","Pro 機型的電池續航力明顯更好。","battery duration, standby time","電池壽命、待機時間","—","—"],
+  ["charge to 50%","","動詞片語","充電至百分之五十","The phone can charge to 50% in about 15 minutes.","這支手機大約十五分鐘可以充電至百分之五十。","half charge, partial charge","充至一半","fully charge, charge to 100%","充飽電"],
+  ["cinematic effect","","名詞片語","電影感效果","Users can add a cinematic effect after recording.","使用者可以在錄影後加入電影感效果。","film effect, movie-style effect","電影感","—","—"],
+  ["focus-tracking","","n./adj.","焦點追蹤","The focus-tracking feature follows a moving child.","焦點追蹤功能會跟隨移動中的孩子。","autofocus tracking, subject tracking","主體追蹤、對焦追蹤","fixed focus","固定焦距"],
+  ["moving subject","","名詞片語","移動中的拍攝主體","The camera stayed focused on the moving subject.","相機持續對焦在移動中的拍攝主體上。","dynamic subject, active target","移動中的主體","still subject, stationary object","靜止的主體"],
+  ["privacy and security","","名詞片語","隱私與安全","Apple emphasizes privacy and security in its AI features.","Apple 強調其人工智慧功能的隱私與安全。","data protection, confidentiality","資料保護、保密性","exposure, vulnerability","暴露、資安漏洞"],
+  ["set apart from","","片語動詞","使與眾不同；區別於","Strong privacy controls may set the phone apart from rivals.","強大的隱私控制可能使這支手機與競爭對手有所區別。","distinguish from, differentiate from","與...有所區別","blend in with, be similar to","與...相似"],
+  ["release","/rɪˈliːs/","n./v.","發售；發布","The phone's release is scheduled for September 18.","這支手機預計於九月十八日發售。","launch, introduce, publish","發布、推出","withdraw, recall","撤回、召回"],
+  ["fresh","/freʃ/","adj.","精神飽滿的；清新的","You look fresh and energetic today.","你今天看起來精神飽滿、充滿活力。","energetic, lively, vibrant","精神飽滿的、有活力的","tired, exhausted, worn-out","疲憊的、精疲力竭的"],
+  ["room for improvement","","名詞片語","改進空間","My pronunciation is clearer, but there is still room for improvement.","我的發音更清楚了，但仍有改進空間。","potential, scope for growth","成長空間、進步空間","perfection, flawlessness","完美、無懈可擊"],
+  ["gain","/ɡeɪn/","v.","獲得；增進","I've gained a lot of knowledge from my courses.","我從課程中獲得了很多知識。","obtain, acquire, achieve, earn","獲得、習得","lose, forfeit","失去、喪失"],
+  ["period","/ˈpɪəriəd/","n.","一段時期；期間","The first period of the semester is usually demanding.","學期的第一段時期通常很吃力。","phase, stage, era, time","時期、階段","—","—"],
+  ["busy period","","名詞片語","忙碌時期","September is a busy period for many students.","九月對許多學生來說是忙碌時期。","peak season, rush period","旺季、尖峰期","quiet period, off-peak","淡季、離峰期"],
+  ["full of excitement","","形容詞片語","充滿興奮與期待","I was full of excitement when the new semester began.","新學期開始時，我充滿興奮與期待。","thrilled, eager, exhilarated","興奮的、熱切的","bored, indifferent, unenthusiastic","無聊的、漠然的"],
+  ["acquire","/əˈkwaɪər/","v.","習得；獲得","It takes time to acquire a new skill.","習得一項新技能需要時間。","gain, obtain, learn, develop","獲得、習得","lose, give up, abandon","失去、放棄"],
+  ["mixed emotions","","名詞片語","百感交集；矛盾的感受","I had mixed emotions about taking four courses.","對於修四門課，我感到百感交集。","conflicted feelings, bittersweet","複雜的感受","clear feelings, pure joy","純粹的感受"],
+  ["on time","","副詞片語","準時；在預定時間","The class started on time at eight.","課程在八點準時開始。","punctually, promptly","準時地","late, behind schedule","遲到、落後進度"],
+  ["in time","","副詞片語","及時；在太遲之前","I arrived in time to join the class.","我及時抵達並參加了課程。","before it's too late, not too late","及時地","too late, after the deadline","太遲了"],
+  ["the early bird catches the worm","","諺語","早起的鳥兒有蟲吃；先下手為強","I register early because the early bird catches the worm.","我會提早報名，因為早起的鳥兒有蟲吃。","first come, first served","先到先得","—","—"],
+  ["mutual friends","","名詞片語","共同朋友","We met through mutual friends.","我們是透過共同朋友認識的。","shared friends, common acquaintances","共同認識的朋友","strangers","陌生人"],
+  ["emotional stress","","名詞片語","情緒壓力","Talking to a close friend can reduce emotional stress.","和親近的朋友談話可以減輕情緒壓力。","mental strain, psychological pressure","心理壓力、精神負擔","emotional calm, peace of mind","情緒平靜、內心平和"],
+  ["stress-relieving","/stres rɪˈliːvɪŋ/","adj.","舒緩壓力的","Walking after class is a stress-relieving habit.","下課後散步是一個紓壓的習慣。","relaxing, soothing, calming","放鬆的、舒緩的","stressful, anxiety-inducing","造成壓力的、引發焦慮的"],
+  ["carry a burden","","動詞片語","承受負擔","You do not have to carry the burden alone.","你不必獨自承受這份負擔。","bear a weight, shoulder a load","承受重擔","be free of worry, be unburdened","無憂無慮、卸下重擔"],
+  ["go hand in hand","","動詞片語","相輔相成；密切相關","Personality and communication skills often go hand in hand.","人格特質與溝通能力往往相輔相成。","complement each other, be interrelated","相輔相成","conflict, clash, contradict","衝突、矛盾"],
+  ["tell apart","","片語動詞","分辨；區分","It is hard to tell the twins apart.","這對雙胞胎很難分辨。","distinguish, differentiate, tell the difference","區分、辨別","confuse, mix up","搞混、混淆"],
+  ["keep a secret","","動詞片語","保守秘密","I always try to keep a friend's secret.","我總是盡力替朋友保守秘密。","stay quiet, maintain confidentiality","保密、保持沉默","reveal a secret, spill the beans","洩露秘密、說溜嘴"],
+  ["private","/ˈpraɪvɪt/","adj.","私人的；不公開的","Please keep this information private.","請將這項資訊保密。","personal, confidential, secret","私人的、保密的","public, open, shared","公開的、公共的"],
+  ["trustworthy","/ˈtrʌstwɜːrði/","adj.","值得信賴的","A trustworthy friend does not share your secrets.","值得信賴的朋友不會洩露你的秘密。","reliable, dependable, honest","可靠的、誠實的","untrustworthy, unreliable, dishonest","不可靠的、不誠實的"],
+  ["responsible","/rɪˈspɒnsɪbl/","adj.","負責任的","Being responsible helps others trust you.","負責任會讓別人更信任你。","accountable, dependable, dutiful","負責任的、盡職的","irresponsible, careless, negligent","不負責任的、粗心的"],
+  ["trust","/trʌst/","n./v.","信任","Trust takes time to build and seconds to lose.","信任需要時間建立，卻可能在幾秒內失去。","faith, confidence, belief","信任、信賴","distrust, suspicion, doubt","不信任、懷疑"],
+  ["privacy","/ˈprɪvəsi/","n.","隱私","We should respect other people's privacy.","我們應該尊重他人的隱私。","confidentiality, personal space","隱私、個人空間","publicity, exposure","公開、曝光"],
+  ["confidential","/ˌkɒnfɪˈdenʃəl/","adj.","機密的；保密的","The interview notes are confidential.","面試筆記屬於機密資料。","classified, secret, private","機密的、保密的","public, open, disclosed","公開的、公之於眾的"],
+  ["keep someone's confidence","","動詞片語","替某人保守秘密","She trusted me to keep her confidence.","她信任我能替她保守秘密。","keep a secret, stay silent","為某人保密","betray, disclose, reveal","背叛、洩露秘密"]
 ];
-// [word, meaning, enEx, zhEx]
+// Index: 0=word, 1=phonetic, 2=posLabel, 3=meaning, 4=enEx, 5=zhEx, 6=synEn, 7=synZh, 8=antEn, 9=antZh
+
+// ─── Font size helper — keeps word on ONE line ────────────────────────────────
+function fitWordFont(el, word) {
+  const len = word.length;
+  let size;
+  if (len <= 6)       size = '2.1rem';
+  else if (len <= 9)  size = '1.85rem';
+  else if (len <= 12) size = '1.55rem';
+  else if (len <= 16) size = '1.25rem';
+  else if (len <= 22) size = '1.05rem';
+  else if (len <= 30) size = '0.88rem';
+  else                size = '0.75rem';
+  el.style.fontSize = size;
+}
+
+// ─── POS colour helper ────────────────────────────────────────────────────────
+function posStyle(posLabel) {
+  const p = posLabel.trim().toLowerCase();
+  if (p.startsWith('n.'))    return { bg:'rgba(59,130,246,0.15)',  color:'#60a5fa' };
+  if (p.startsWith('v.'))    return { bg:'rgba(34,197,94,0.15)',   color:'#4ade80' };
+  if (p.startsWith('adj.'))  return { bg:'rgba(234,179,8,0.15)',   color:'#fbbf24' };
+  if (p.includes('片語') || p.includes('phrasal')) return { bg:'rgba(168,85,247,0.15)', color:'#c084fc' };
+  if (p.includes('名詞片語')) return { bg:'rgba(59,130,246,0.12)', color:'#93c5fd' };
+  if (p.includes('動詞片語')) return { bg:'rgba(34,197,94,0.12)',  color:'#86efac' };
+  if (p.includes('口語'))    return { bg:'rgba(236,72,153,0.15)',  color:'#f472b6' };
+  if (p.includes('諺語'))    return { bg:'rgba(20,184,166,0.15)',  color:'#2dd4bf' };
+  if (p.includes('副詞'))    return { bg:'rgba(251,146,60,0.15)',  color:'#fb923c' };
+  return { bg:'rgba(148,163,184,0.15)', color:'#94a3b8' };
+}
 
 // ─── State ────────────────────────────────────────────────────────────────────
 let qDeck=[], qIdx=0, qKnow=0, qDunno=0, qFlipped=false, wrongCards=[];
 let sIdx=0;
 let mode='quiz';
-
 const shuffle = a => { const b=[...a]; for(let i=b.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[b[i],b[j]]=[b[j],b[i]];}return b; };
 
 // ─── Progress ─────────────────────────────────────────────────────────────────
@@ -417,7 +488,7 @@ function setProgress(idx, total) {
   const pct = Math.round(((idx+1)/total)*100);
   document.getElementById('prog-label').textContent = `第 ${idx+1} 張，共 ${total} 張`;
   document.getElementById('prog-pct').textContent = `${pct}%`;
-  document.getElementById('prog-fill').style.width = `${pct}%`;
+  document.getElementById('prog-fill').style.width = `${Math.max(pct,1)}%`;
 }
 
 // ─── Quiz ─────────────────────────────────────────────────────────────────────
@@ -428,16 +499,27 @@ function initQuiz(cards) {
 }
 function showQCard() {
   if(qIdx>=qDeck.length){showFinish();return;}
-  const [word,meaning,enEx]=qDeck[qIdx];
-  document.getElementById('q-badge').textContent = meaning.split('—')[0].trim() || '字彙';
-  document.getElementById('q-word').textContent = word;
-  document.getElementById('q-meaning').textContent = meaning.includes('—') ? meaning.split('—')[1].trim() : meaning;
-  document.getElementById('q-ex').textContent = enEx ? `"${enEx}"` : '';
+  const c=qDeck[qIdx];
+  // [0]=word [1]=phonetic [2]=pos [3]=meaning [4]=enEx [5]=zhEx
+  const wordEl=document.getElementById('q-word');
+  wordEl.textContent=c[0];
+  fitWordFont(wordEl, c[0]);
+
+  const phonEl=document.getElementById('q-phonetic');
+  phonEl.textContent=c[1]||'';
+  phonEl.style.display=c[1]?'block':'none';
+
+  document.getElementById('q-badge').textContent=c[2]||'字彙';
+  document.getElementById('q-pos-tag').textContent=c[2];
+  document.getElementById('q-meaning').textContent=c[3];
+  document.getElementById('q-ex').textContent=c[4]?`"${c[4]}"` : '';
+
   qFlipped=false;
   document.getElementById('flip-inner').classList.remove('flipped');
   document.getElementById('btn-flip').style.display='';
   document.getElementById('judge-row').classList.remove('show');
   setProgress(qIdx, qDeck.length);
+
   const w=document.getElementById('flip-wrapper');
   w.classList.remove('anim-in','anim-pop','anim-shake'); void w.offsetWidth; w.classList.add('anim-in');
 }
@@ -452,10 +534,16 @@ function doFlip() {
 }
 function judge(knew) {
   const w=document.getElementById('flip-wrapper');
-  if(knew){ qKnow++; w.classList.remove('anim-pop'); void w.offsetWidth; w.classList.add('anim-pop'); }
-  else { qDunno++; wrongCards.push(qDeck[qIdx]); w.classList.remove('anim-shake'); void w.offsetWidth; w.classList.add('anim-shake'); }
+  if(knew){
+    qKnow++;
+    w.classList.remove('anim-pop'); void w.offsetWidth; w.classList.add('anim-pop');
+  } else {
+    qDunno++;
+    wrongCards.push(qDeck[qIdx]);
+    w.classList.remove('anim-shake'); void w.offsetWidth; w.classList.add('anim-shake');
+  }
   updateScores(); qIdx++;
-  setTimeout(showQCard, 310);
+  setTimeout(showQCard, 320);
 }
 function updateScores() {
   document.getElementById('q-know').textContent=qKnow;
@@ -466,7 +554,7 @@ function showFinish() {
   const total=qKnow+qDunno, pct=total?Math.round(qKnow/total*100):0;
   const emoji=pct>=90?'🏆':pct>=70?'🎯':pct>=50?'💪':'📚';
   document.getElementById('fin-emoji').textContent=emoji;
-  document.getElementById('fin-msg').textContent=`認識 ${qKnow} / ${total} 個（${pct}%）\n${wrongCards.length>0?`還有 ${wrongCards.length} 個需要加強`:'全部掌握！太厲害了 🎉'}`;
+  document.getElementById('fin-msg').textContent=`認識 ${qKnow} / ${total} 個（${pct}%）\n${wrongCards.length>0?`還有 ${wrongCards.length} 個需要加強！`:'全部掌握，太厲害了 🎉'}`;
   document.getElementById('fin-retry').style.display=wrongCards.length?'':'none';
   document.getElementById('finish-overlay').classList.add('show');
 }
@@ -475,19 +563,51 @@ function restartAll(){ document.getElementById('finish-overlay').classList.remov
 
 // ─── Study ────────────────────────────────────────────────────────────────────
 function showSCard() {
-  const [word,meaning,enEx,zhEx]=CARDS[sIdx];
-  document.getElementById('s-word').textContent=word;
-  const posLabel=meaning.split('—')[0].trim();
-  document.getElementById('s-pos').textContent=posLabel||'字彙';
-  document.getElementById('s-meaning').textContent=meaning.includes('—')?meaning.split('—')[1].trim():meaning;
-  document.getElementById('s-en').textContent=enEx?`"${enEx}"`:''
-  document.getElementById('s-zh').textContent=zhEx?`→ ${zhEx}`:'';
+  const c=CARDS[sIdx];
+  // [0]=word [1]=phonetic [2]=pos [3]=meaning [4]=enEx [5]=zhEx [6]=synEn [7]=synZh [8]=antEn [9]=antZh
+
+  // Word — single line, auto font
+  const wordEl=document.getElementById('s-word');
+  wordEl.textContent=c[0];
+  fitWordFont(wordEl, c[0]);
+
+  // Phonetic — own line
+  const phonEl=document.getElementById('s-phonetic');
+  phonEl.textContent=c[1]||'';
+  phonEl.style.display=c[1]?'block':'none';
+
+  // POS badge
+  const posEl=document.getElementById('s-pos');
+  posEl.textContent=c[2];
+  const st=posStyle(c[2]);
+  posEl.style.background=st.bg; posEl.style.color=st.color;
+
+  // Meaning
+  document.getElementById('s-meaning').textContent=c[3];
+
+  // Example
+  document.getElementById('s-en').textContent=c[4]?`"${c[4]}"` : '';
+  document.getElementById('s-zh').textContent=c[5]?`→ ${c[5]}` : '';
+
+  // Synonyms
+  const synEn=c[6]||'', antEn=c[8]||'';
+  document.getElementById('s-syn-en').textContent=synEn==='—'?'':synEn;
+  document.getElementById('s-syn-zh').textContent=(c[7]&&c[7]!=='—')?c[7]:'';
+  document.getElementById('s-ant-en').textContent=antEn==='—'?'':antEn;
+  document.getElementById('s-ant-zh').textContent=(c[9]&&c[9]!=='—')?c[9]:'';
+
+  // If both no data, show "—"
+  if(synEn==='—'||!synEn){ document.getElementById('s-syn-en').innerHTML='<span class="no-data">—</span>'; }
+  if(antEn==='—'||!antEn){ document.getElementById('s-ant-en').innerHTML='<span class="no-data">—</span>'; }
+
+  // Navigation
   document.getElementById('s-prev').disabled=sIdx===0;
   document.getElementById('s-next').textContent=sIdx===CARDS.length-1?'回到第一張 ↩':'下一張 →';
-  setProgress(sIdx,CARDS.length);
+  setProgress(sIdx, CARDS.length);
+
   document.getElementById('study-scroll').scrollTop=0;
-  const c=document.getElementById('study-card');
-  c.classList.remove('anim-in'); void c.offsetWidth; c.classList.add('anim-in');
+  const card=document.getElementById('study-card');
+  card.classList.remove('anim-in'); void card.offsetWidth; card.classList.add('anim-in');
 }
 function studyNav(d) {
   const n=sIdx+d;
@@ -495,7 +615,7 @@ function studyNav(d) {
   showSCard();
 }
 
-// ─── Mode Switch ──────────────────────────────────────────────────────────────
+// ─── Mode / Shuffle ───────────────────────────────────────────────────────────
 function switchMode(m) {
   mode=m;
   ['quiz','study'].forEach(x=>{
@@ -504,22 +624,21 @@ function switchMode(m) {
     document.getElementById(`tab-${x}`).classList.toggle('active',x===m);
   });
   if(m==='study') showSCard();
-  else setProgress(qIdx,qDeck.length);
+  else setProgress(qIdx, qDeck.length);
 }
 function onShuffle() {
   if(mode==='quiz') initQuiz(CARDS);
-  else { const s=shuffle(CARDS); sIdx=0; CARDS.splice(0,CARDS.length,...s); showSCard(); }
+  else { sIdx=0; showSCard(); }
 }
 
-// ─── Swipe Gestures ───────────────────────────────────────────────────────────
-let tx=0, ty=0;
-document.getElementById('quiz-card-area').addEventListener('touchstart',e=>{tx=e.touches[0].clientX;ty=e.touches[0].clientY;},{passive:true});
+// ─── Touch Swipe ──────────────────────────────────────────────────────────────
+let tx=0;
+document.getElementById('quiz-card-area').addEventListener('touchstart',e=>{tx=e.touches[0].clientX;},{passive:true});
 document.getElementById('quiz-card-area').addEventListener('touchend',e=>{
   if(!qFlipped)return;
-  const dx=e.changedTouches[0].clientX-tx, dy=e.changedTouches[0].clientY-ty;
-  if(Math.abs(dx)>Math.abs(dy)&&Math.abs(dx)>55) judge(dx>0);
+  const dx=e.changedTouches[0].clientX-tx;
+  if(Math.abs(dx)>55) judge(dx>0);
 },{passive:true});
-
 document.getElementById('study-scroll').addEventListener('touchstart',e=>{tx=e.touches[0].clientX;},{passive:true});
 document.getElementById('study-scroll').addEventListener('touchend',e=>{
   const dx=e.changedTouches[0].clientX-tx;
@@ -528,19 +647,15 @@ document.getElementById('study-scroll').addEventListener('touchend',e=>{
 
 // ─── Keyboard ─────────────────────────────────────────────────────────────────
 document.addEventListener('keydown',e=>{
-  if(mode==='quiz'){ if(e.key===' ') doFlip(); if(e.key==='ArrowRight') qFlipped&&judge(true); if(e.key==='ArrowLeft') qFlipped&&judge(false); }
-  if(mode==='study'){ if(e.key==='ArrowRight') studyNav(1); if(e.key==='ArrowLeft') studyNav(-1); }
-});
-
-// ─── PWA Install ──────────────────────────────────────────────────────────────
-let dp;
-window.addEventListener('beforeinstallprompt',e=>{
-  e.preventDefault(); dp=e;
-  setTimeout(()=>document.getElementById('install-banner').classList.add('show'),3000);
-});
-document.getElementById('ib-yes').addEventListener('click',async()=>{
-  document.getElementById('install-banner').classList.remove('show');
-  if(dp){dp.prompt();await dp.userChoice;dp=null;}
+  if(mode==='quiz'){
+    if(e.key===' ') doFlip();
+    if(e.key==='ArrowRight'&&qFlipped) judge(true);
+    if(e.key==='ArrowLeft'&&qFlipped) judge(false);
+  }
+  if(mode==='study'){
+    if(e.key==='ArrowRight') studyNav(1);
+    if(e.key==='ArrowLeft') studyNav(-1);
+  }
 });
 
 // ─── Service Worker ───────────────────────────────────────────────────────────
