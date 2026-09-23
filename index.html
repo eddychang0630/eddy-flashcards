@@ -949,7 +949,12 @@ document.addEventListener('keydown',e=>{
 });
 
 // ─── Service Worker ───────────────────────────────────────────────────────────
-if('serviceWorker' in navigator) navigator.serviceWorker.register('sw.js');
+if('serviceWorker' in navigator) {
+  navigator.serviceWorker
+    .register('sw.js', { updateViaCache: 'none' })
+    .then(registration => registration.update())
+    .catch(error => console.warn('Service Worker update failed:', error));
+}
 
 // ─── Init ─────────────────────────────────────────────────────────────────────
 initQuiz(filteredCards);

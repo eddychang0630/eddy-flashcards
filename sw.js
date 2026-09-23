@@ -1,4 +1,4 @@
-const CACHE_NAME = 'eddy-flashcard-v1';
+const CACHE_NAME = 'eddy-flashcard-v2';
 const urlsToCache = [
   './',
   './index.html',
@@ -10,23 +10,40 @@ const urlsToCache = [
 self.addEventListener('install', event => {
   event.waitUntil(
     caches.open(CACHE_NAME)
-      .then(cache => {
-        return cache.addAll(urlsToCache);
-      })
+      .then(cache => cache.addAll(urlsToCache))
+      .then(() => self.skipWaiting())
   );
 });
 
-// 攔截請求並提供快取資源 (支援離線使用)
+// Always check the network for the app shell so a new deployment is visible.
 self.addEventListener('fetch', event => {
-  event.respondWith(
-    caches.match(event.request)
-      .then(response => {
-        // 如果在快取中找到匹配的請求，則回傳快取的版本
-        if (response) {
+  const request = event.request;
+  if (request.method !== 'GET') return;
+
+  const url = new URL(request.url);
+  const isAppPage = request.mode === 'navigate' || (
+    url.origin === self.location.origin &&
+    (url.pathname.endsWith('/') || url.pathname.endsWith('/index.html'))
+  );
+
+  if (isAppPage) {
+    event.respondWith(
+      fetch(request)
+        .then(response => {
+          if (response.ok) {
+            const copy = response.clone();
+            caches.open(CACHE_NAME).then(cache => cache.put(request, copy));
+          }
           return response;
-        }
-        return fetch(event.request);
-      })
+        })
+        .catch(() => caches.match(request)
+          .then(response => response || caches.match('./index.html')))
+    );
+    return;
+  }
+
+  event.respondWith(
+    caches.match(request).then(response => response || fetch(request))
   );
 });
 
@@ -34,14 +51,14 @@ self.addEventListener('fetch', event => {
 self.addEventListener('activate', event => {
   const cacheWhitelist = [CACHE_NAME];
   event.waitUntil(
-    caches.keys().then(cacheNames => {
-      return Promise.all(
+    caches.keys()
+      .then(cacheNames => Promise.all(
         cacheNames.map(cacheName => {
           if (cacheWhitelist.indexOf(cacheName) === -1) {
             return caches.delete(cacheName);
           }
         })
-      );
-    })
+      ))
+      .then(() => self.clients.claim())
   );
 });
