@@ -277,7 +277,7 @@
 
   <!-- Date Filter Bar -->
   <div id="date-bar">
-    <button class="dpill active" onclick="setDateFilter('')" id="dpill-all">全部 (341)</button>
+    <button class="dpill active" onclick="setDateFilter('')" id="dpill-all">全部 (359)</button>
     <button class="dpill" onclick="setDateFilter('2026-06-25')" id="dpill-2026-06-25">06/25 (18)</button>
     <button class="dpill" onclick="setDateFilter('2026-06-29')" id="dpill-2026-06-29">06/29 (19)</button>
     <button class="dpill" onclick="setDateFilter('2026-06-22')" id="dpill-2026-06-22">06/22 (11)</button>
@@ -288,6 +288,7 @@
     <button class="dpill" onclick="setDateFilter('2026-09-14')" id="dpill-2026-09-14">09/14 (48)</button>
     <button class="dpill" onclick="setDateFilter('2026-09-17')" id="dpill-2026-09-17">09/17 (47)</button>
     <button class="dpill" onclick="setDateFilter('2026-09-21')" id="dpill-2026-09-21">09/21 (51)</button>
+    <button class="dpill" onclick="setDateFilter('2026-09-24')" id="dpill-2026-09-24">09/24 (18)</button>
   </div>
 
   <!-- Progress -->
@@ -750,6 +751,24 @@ const CARDS = [
   ["privacy and security", "", "Noun phrase", "隱私與安全", "Apple emphasizes privacy and security in its AI features.", "Apple 強調其人工智慧功能的隱私與安全。", "data protection, confidentiality", "資料保護、保密性", "exposure and vulnerability", "資料暴露與弱點", "2026-09-21", ""],
   ["set apart from", "", "Phrasal verb", "使與眾不同；區別於", "Strong privacy controls may set the phone apart from rivals.", "強大的隱私控制可能使這支手機與競爭對手有所區別。", "distinguish from, differentiate from", "與……區分、使不同", "blend in with", "與……融為一體", "2026-09-21", ""],
   ["release", "", "Noun / Verb", "發售；發布", "The phone's release is scheduled for September 18.", "這支手機預計於九月十八日發售。", "launch, issue", "推出、發行", "withdraw, cancel", "撤回、取消", "2026-09-21", "Noun: release; Verb forms: releases, released, releasing"],
+  ["multitask", "", "Verb", "同時處理多項工作", "I can multitask when the tasks are simple.", "工作簡單時，我可以同時處理多件事。", "juggle tasks", "同時兼顧多項工作", "focus on one task", "專注單一工作", "2026-09-24", "Verb: multitask, multitasks, multitasked, multitasking; Noun: multitasking, multitasker"],
+  ["multitasking", "", "Noun", "一心多用；同時處理多項工作", "Multitasking can make it harder to concentrate.", "一心多用可能讓人更難專心。", "doing several tasks at once", "同時做多件事", "single-tasking", "一次專注一件事", "2026-09-24", "Noun: multitasking; Verb: multitask, multitasks, multitasked, multitasking"],
+  ["monotasker", "", "Noun", "一次專注一件事的人", "A monotasker finishes one task before starting another.", "單工工作者會先完成一件事，再開始另一件。", "single-tasker", "單工工作者", "multitasker", "同時處理多事的人", "2026-09-24", "Noun: monotasker, monotaskers, monotasking"],
+  ["prioritize", "", "Verb", "優先處理；排定優先順序", "We should prioritize important tasks.", "我們應該優先處理重要工作。", "rank, put first", "排序、優先處理", "deprioritize", "降低優先順序", "2026-09-24", "Verb: prioritize, prioritizes, prioritized, prioritizing; Noun: priority, prioritization; Adjective: prioritized"],
+  ["overwhelmed", "", "Adjective", "不堪負荷的；壓力很大的", "I felt overwhelmed by all my classes.", "我因為課程太多而感到不堪負荷。", "overloaded, swamped", "負荷過重、忙不過來", "calm, in control", "平靜、可掌控的", "2026-09-24", "Verb: overwhelm, overwhelms, overwhelmed, overwhelming; Adjective: overwhelmed, overwhelming; Adverb: overwhelmingly"],
+  ["take on", "", "Phrasal verb", "接下工作或責任", "I can't take on another project this week.", "這週我不能再接另一個專案。", "accept, undertake", "接受、承擔", "turn down", "拒絕", "2026-09-24", ""],
+  ["keep up with", "", "Phrasal verb", "跟上進度", "It's hard to keep up with several courses.", "要跟上好幾門課的進度很不容易。", "stay on pace with", "跟上步調", "fall behind", "落後", "2026-09-24", ""],
+  ["focus on", "", "Phrasal verb", "專注於", "Please focus on one task at a time.", "請一次專注一件事。", "concentrate on", "集中注意力於", "ignore", "忽視", "2026-09-24", ""],
+  ["work through", "", "Phrasal verb", "逐步處理或解決", "Let's work through the problem together.", "我們一起逐步解決問題。", "resolve step by step", "逐步解決", "avoid", "迴避", "2026-09-24", ""],
+  ["latest model", "", "Noun phrase", "最新機型", "He always wants the latest model.", "他總是想要最新機型。", "newest version", "最新版本", "older model", "舊機型", "2026-09-24", ""],
+  ["version", "", "Noun", "版本", "Which version of the phone do you use?", "你用的是哪個版本的手機？", "edition, variant", "版本、變體", "—", "—", "2026-09-24", "Noun: version, versions"],
+  ["as I mentioned earlier", "", "Expression", "如我先前提到的", "As I mentioned earlier, price matters to me.", "如我先前提到的，價格對我很重要。", "as I said before", "如我之前所說", "—", "—", "2026-09-24", ""],
+  ["bilingual", "", "Adjective", "會說兩種語言的", "She is bilingual in English and Mandarin.", "她會說英語和華語兩種語言。", "speaking two languages", "會使用兩種語言的", "monolingual", "只會一種語言的", "2026-09-24", "Adjective: bilingual; Noun: bilingual, bilingualism; Adverb: bilingually"],
+  ["trilingual", "", "Adjective", "會說三種語言的", "A trilingual learner can communicate in three languages.", "會三種語言的學習者能用三種語言溝通。", "speaking three languages", "會使用三種語言的", "—", "—", "2026-09-24", "Adjective: trilingual; Noun: trilingual, trilingualism"],
+  ["multilingual", "", "Adjective", "會說多種語言的", "The class included multilingual students.", "這堂課有會說多種語言的學生。", "speaking several languages", "會使用數種語言的", "monolingual", "只會一種語言的", "2026-09-24", "Adjective: multilingual; Noun: multilingualism"],
+  ["polyglot", "", "Noun", "通曉多種語言的人", "A polyglot enjoys learning new languages.", "多語者喜歡學習新語言。", "multilingual speaker", "多語者", "monolingual speaker", "單語者", "2026-09-24", "Noun: polyglot, polyglots; Adjective: polyglot"],
+  ["hyperpolyglot", "", "Noun", "會非常多種語言的人", "A hyperpolyglot may speak six or more languages.", "超級多語者可能會說六種以上的語言。", "speaker of many languages", "會許多種語言的人", "—", "—", "2026-09-24", "Noun: hyperpolyglot, hyperpolyglots"],
+  ["I'm all ears", "", "Idiom", "我洗耳恭聽", "Tell me your idea; I'm all ears.", "告訴我你的想法，我洗耳恭聽。", "I'm listening", "我正在聽", "—", "—", "2026-09-24", ""],
 ];
 
 // ─── Helpers ──────────────────────────────────────────────────────────────────
