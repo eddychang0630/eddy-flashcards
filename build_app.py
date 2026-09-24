@@ -320,8 +320,8 @@ HTML = f"""<!DOCTYPE html>
         <span aria-hidden="true">↻</span>
       </button>
       <div class="mode-toggle">
-        <button class="mode-btn active" id="mode-quiz-btn" onclick="switchMode('quiz')">🃏 抽考</button>
-        <button class="mode-btn" id="mode-study-btn" onclick="switchMode('study')">📖 背誦</button>
+        <button class="mode-btn" id="mode-quiz-btn" onclick="switchMode('quiz')">🃏 抽考</button>
+        <button class="mode-btn active" id="mode-study-btn" onclick="switchMode('study')">📖 背誦</button>
       </div>
     </div>
   </div>
@@ -341,7 +341,7 @@ HTML = f"""<!DOCTYPE html>
   </div>
 
   <!-- QUIZ SCREEN -->
-  <div class="screen active" id="screen-quiz">
+  <div class="screen" id="screen-quiz">
     <div id="quiz-scores">
       <div class="score-box green"><div class="s-label">✅ 認識</div><div class="s-num" id="q-know">0</div></div>
       <div class="score-box red">  <div class="s-label">❌ 不熟</div><div class="s-num" id="q-dunno">0</div></div>
@@ -378,7 +378,7 @@ HTML = f"""<!DOCTYPE html>
   </div>
 
   <!-- STUDY SCREEN -->
-  <div class="screen" id="screen-study">
+  <div class="screen active" id="screen-study">
     <div id="study-scroll">
       <div class="study-card" id="study-card">
         <div class="s-header">
@@ -423,10 +423,10 @@ HTML = f"""<!DOCTYPE html>
   </div>
 
   <div id="tab-bar">
-    <button class="tab-btn active" id="tab-quiz" onclick="switchMode('quiz')">
+    <button class="tab-btn" id="tab-quiz" onclick="switchMode('quiz')">
       <span class="tab-icon">🃏</span>隨機抽考
     </button>
-    <button class="tab-btn" id="tab-study" onclick="switchMode('study')">
+    <button class="tab-btn active" id="tab-study" onclick="switchMode('study')">
       <span class="tab-icon">📖</span>完整背誦
     </button>
     <button class="tab-btn" onclick="onShuffle()">
@@ -485,7 +485,7 @@ let filteredCards = [...CARDS];
 
 let qDeck=[], qIdx=0, qKnow=0, qDunno=0, qFlipped=false, wrongCards=[];
 let sIdx=0;
-let mode='quiz';
+let mode='study';
 
 // ─── Date Filter ──────────────────────────────────────────────────────────────
 function setDateFilter(date) {{
