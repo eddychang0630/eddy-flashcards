@@ -1,8 +1,12 @@
-const CACHE_NAME = 'eddy-flashcard-v2';
+const CACHE_NAME = 'eddy-flashcard-v3';
 const urlsToCache = [
   './',
   './index.html',
   './manifest.json',
+  './icon-192-v2.png',
+  './icon-512-v2.png',
+  './apple-touch-icon-v2.png',
+  './favicon-v2.ico',
   'https://www.gstatic.com/antigravity/web/dev/tailwindcss.min.js'
 ];
 
