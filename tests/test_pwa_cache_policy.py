@@ -11,7 +11,7 @@ class PwaCachePolicyTest(unittest.TestCase):
         index = (ROOT / "index.html").read_text(encoding="utf-8")
         builder = (ROOT / "build_app.py").read_text(encoding="utf-8")
 
-        self.assertIn("eddy-flashcard-v3", worker)
+        self.assertIn("eddy-flashcard-v4", worker)
         self.assertIn("self.skipWaiting()", worker)
         self.assertIn("self.clients.claim()", worker)
         self.assertIn("request.mode === 'navigate'", worker)

@@ -1,4 +1,4 @@
-const CACHE_NAME = 'eddy-flashcard-v3';
+const CACHE_NAME = 'eddy-flashcard-v4';
 const urlsToCache = [
   './',
   './index.html',
@@ -6,8 +6,7 @@ const urlsToCache = [
   './icon-192-v2.png',
   './icon-512-v2.png',
   './apple-touch-icon-v2.png',
-  './favicon-v2.ico',
-  'https://www.gstatic.com/antigravity/web/dev/tailwindcss.min.js'
+  './favicon-v2.ico'
 ];
 
 // 安裝 Service Worker 並快取資源
@@ -25,6 +24,28 @@ self.addEventListener('fetch', event => {
   if (request.method !== 'GET') return;
 
   const url = new URL(request.url);
+  const isAudio = url.origin === self.location.origin && url.pathname.includes('/audio/') && url.pathname.endsWith('.mp3');
+  if (isAudio) {
+    const cacheKey = new Request(url.href);
+    event.respondWith(
+      caches.open(CACHE_NAME).then(async cache => {
+        const cached = await cache.match(cacheKey);
+        if (cached) return cached;
+        const response = await fetch(request);
+        if (response.ok && response.status === 200) {
+          event.waitUntil(cache.put(cacheKey, response.clone()));
+        } else if (response.status === 206) {
+          event.waitUntil(
+            fetch(cacheKey).then(full => {
+              if (full.ok && full.status === 200) return cache.put(cacheKey, full.clone());
+            }).catch(() => {})
+          );
+        }
+        return response;
+      })
+    );
+    return;
+  }
   const isAppPage = request.mode === 'navigate' || (
     url.origin === self.location.origin &&
     (url.pathname.endsWith('/') || url.pathname.endsWith('/index.html'))

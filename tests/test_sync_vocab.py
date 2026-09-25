@@ -1,6 +1,7 @@
 import tempfile
 import unittest
 from pathlib import Path
+from unittest.mock import patch
 
 from openpyxl import Workbook
 
@@ -11,6 +12,17 @@ ROOT = Path(__file__).resolve().parents[1]
 
 
 class SyncVocabularyTest(unittest.TestCase):
+    def test_audio_failure_blocks_html_update_and_deployment(self):
+        cards = [["word", "", "Noun", "中文", "Example sentence.", "翻譯", "", "", "", "", "2026-09-25", ""]]
+        with patch.object(sync_vocab, "read_vocab", return_value=(cards, {"2026-09-25": 1})), \
+             patch.object(sync_vocab, "prepare_audio", side_effect=RuntimeError("audio failed")), \
+             patch.object(sync_vocab, "update_html") as update, \
+             patch.object(sync_vocab, "git_push") as push:
+            with self.assertRaisesRegex(RuntimeError, "audio failed"):
+                sync_vocab.main(["--excel", "unused.xlsx"])
+        update.assert_not_called()
+        push.assert_not_called()
+
     def test_uses_portable_app_path_and_accepts_excel_argument(self):
         self.assertEqual(ROOT, Path(sync_vocab.APP_DIR))
         args = sync_vocab.build_parser().parse_args(["--excel", "custom.xlsx"])

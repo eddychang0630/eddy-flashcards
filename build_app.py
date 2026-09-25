@@ -176,10 +176,29 @@ HTML = f"""<!DOCTYPE html>
       background: rgba(99,102,241,0.15); color: #818cf8;
       margin-bottom: 7px; align-self: flex-start;
     }}
+    .flip-word-row, .s-word-row, .example-audio-row {{
+      display: flex; align-items: center; gap: 8px; min-width: 0;
+    }}
     .flip-word {{
       font-weight: 800; line-height: 1.1; color: var(--text);
-      white-space: nowrap; overflow: hidden;
+      white-space: nowrap; overflow: hidden; min-width: 0; flex: 1;
     }}
+    .audio-btn {{
+      width: 40px; height: 40px; flex: 0 0 40px; display: grid; place-items: center;
+      border: 1px solid var(--border); border-radius: 8px;
+      background: rgba(99,102,241,0.12); color: var(--text);
+      font-size: 1.05rem; cursor: pointer; touch-action: manipulation;
+    }}
+    .audio-btn:active, .audio-btn.playing {{
+      background: var(--primary); border-color: var(--primary); color: #fff;
+    }}
+    .audio-btn:disabled, .audio-btn[hidden] {{ display: none; }}
+    .audio-status {{
+      position: fixed; z-index: 20; bottom: 80px; left: 16px; right: 16px;
+      padding: 10px; text-align: center; background: var(--card-bg);
+      border: 1px solid var(--border); border-radius: 8px; color: var(--text);
+    }}
+    .audio-status:empty {{ display: none; }}
     .flip-phonetic {{ font-size: 0.74rem; color: #818cf8; margin-top: 3px; font-family: monospace; }}
     .flip-hint {{ font-size: 0.63rem; color: var(--muted); margin-top: 8px; }}
     .flip-date-tag {{ font-size: 0.58rem; color: var(--muted); margin-top: 4px; }}
@@ -187,7 +206,7 @@ HTML = f"""<!DOCTYPE html>
     .flip-back-content {{ display: flex; flex-direction: column; gap: 5px; }}
     .flip-pos-tag {{ font-size: 0.62rem; font-weight: 700; color: #818cf8; text-transform: uppercase; }}
     .flip-meaning {{ font-size: 0.92rem; font-weight: 600; line-height: 1.35; color: var(--text); }}
-    .flip-ex {{ font-size: 0.7rem; color: var(--muted); font-style: italic; line-height: 1.4; margin-top: 3px; }}
+    .flip-ex {{ font-size: 0.7rem; color: var(--muted); font-style: italic; line-height: 1.4; margin-top: 3px; flex: 1; }}
 
     #swipe-hint {{ text-align: center; font-size: 0.64rem; color: var(--muted); padding: 4px 0; flex-shrink: 0; }}
 
@@ -219,7 +238,7 @@ HTML = f"""<!DOCTYPE html>
     .s-header {{ padding: 16px 18px 12px; border-bottom: 1px solid var(--border); }}
     .s-word {{
       font-weight: 800; line-height: 1.15; color: var(--text);
-      white-space: nowrap; overflow: hidden; display: block; width: 100%;
+      white-space: nowrap; overflow: hidden; display: block; min-width: 0; flex: 1;
     }}
     .s-phonetic {{
       display: block; font-size: 0.8rem; color: #818cf8;
@@ -246,7 +265,7 @@ HTML = f"""<!DOCTYPE html>
     .s-block {{ padding: 11px 18px; border-bottom: 1px solid var(--border); }}
     .s-block:last-child {{ border-bottom: none; }}
     .s-section-label {{ font-size: 0.58rem; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 6px; }}
-    .s-en {{ font-size: 0.82rem; font-style: italic; color: var(--text); line-height: 1.5; background: rgba(99,102,241,0.08); border-left: 3px solid var(--primary); padding: 8px 12px; border-radius: 0 10px 10px 0; margin-bottom: 6px; }}
+    .s-en {{ font-size: 0.82rem; font-style: italic; color: var(--text); line-height: 1.5; background: rgba(99,102,241,0.08); border-left: 3px solid var(--primary); padding: 8px 12px; border-radius: 0 8px 8px 0; margin-bottom: 6px; min-width: 0; flex: 1; }}
     .s-zh {{ font-size: 0.77rem; color: var(--muted); padding-left: 4px; line-height: 1.5; }}
 
     /* Synonyms / Antonyms */
@@ -352,7 +371,10 @@ HTML = f"""<!DOCTYPE html>
         <div class="flip-inner" id="flip-inner">
           <div class="flip-face flip-front" onclick="doFlip()">
             <div class="flip-badge" id="q-badge">字彙</div>
-            <div class="flip-word" id="q-word"></div>
+            <div class="flip-word-row">
+              <div class="flip-word" id="q-word"></div>
+              <button class="audio-btn" id="q-word-audio" type="button" onclick="playCardAudio(event, 'q-word-audio')" aria-label="播放單字發音" title="播放單字發音">▶</button>
+            </div>
             <div class="flip-phonetic" id="q-phonetic"></div>
             <div class="flip-hint">輕觸翻面 👆 翻後左滑不熟 / 右滑認識</div>
             <div class="flip-date-tag" id="q-date-tag"></div>
@@ -361,7 +383,10 @@ HTML = f"""<!DOCTYPE html>
             <div class="flip-back-content">
               <div class="flip-pos-tag" id="q-pos-tag"></div>
               <div class="flip-meaning" id="q-meaning"></div>
-              <div class="flip-ex" id="q-ex"></div>
+              <div class="example-audio-row">
+                <div class="flip-ex" id="q-ex"></div>
+                <button class="audio-btn" id="q-example-audio" type="button" onclick="playCardAudio(event, 'q-example-audio')" aria-label="播放例句發音" title="播放例句發音">▶</button>
+              </div>
             </div>
           </div>
         </div>
@@ -382,7 +407,10 @@ HTML = f"""<!DOCTYPE html>
     <div id="study-scroll">
       <div class="study-card" id="study-card">
         <div class="s-header">
-          <span class="s-word" id="s-word"></span>
+          <div class="s-word-row">
+            <span class="s-word" id="s-word"></span>
+            <button class="audio-btn" id="s-word-audio" type="button" onclick="playCardAudio(event, 's-word-audio')" aria-label="播放單字發音" title="播放單字發音">▶</button>
+          </div>
           <span class="s-phonetic" id="s-phonetic"></span>
           <div class="s-meta-col">
             <span class="s-pos" id="s-pos"></span>
@@ -396,7 +424,10 @@ HTML = f"""<!DOCTYPE html>
         </div>
         <div class="s-block">
           <div class="s-section-label">💬 例句</div>
-          <div class="s-en" id="s-en"></div>
+          <div class="example-audio-row">
+            <div class="s-en" id="s-en"></div>
+            <button class="audio-btn" id="s-example-audio" type="button" onclick="playCardAudio(event, 's-example-audio')" aria-label="播放例句發音" title="播放例句發音">▶</button>
+          </div>
           <div class="s-zh" id="s-zh"></div>
         </div>
         <div class="s-block">
@@ -422,6 +453,7 @@ HTML = f"""<!DOCTYPE html>
     </div>
   </div>
 
+  <div class="audio-status" id="audio-status" role="status" aria-live="polite"></div>
   <div id="tab-bar">
     <button class="tab-btn" id="tab-quiz" onclick="switchMode('quiz')">
       <span class="tab-icon">🃏</span>隨機抽考
@@ -447,8 +479,8 @@ HTML = f"""<!DOCTYPE html>
 
 <script>
 // ─── CARDS Data ───────────────────────────────────────────────────────────────
-// Format: [word, phonetic, pos, meaning, enEx, zhEx, synEn, synZh, antEn, antZh, classDate]
-//           0       1       2     3       4     5     6      7      8      9        10
+// Format: [word, phonetic, pos, meaning, enEx, zhEx, synEn, synZh,
+//          antEn, antZh, classDate, wordForms, wordAudio, exampleAudio]
 {CARDS_JS}
 
 // ─── Helpers ──────────────────────────────────────────────────────────────────
@@ -486,6 +518,60 @@ let filteredCards = [...CARDS];
 let qDeck=[], qIdx=0, qKnow=0, qDunno=0, qFlipped=false, wrongCards=[];
 let sIdx=0;
 let mode='study';
+let activeAudio=null, activeAudioButton=null, audioErrorTimer=0;
+
+function stopCardAudio() {{
+  if(activeAudio) {{
+    activeAudio.pause();
+    activeAudio.onended=null;
+    activeAudio.onerror=null;
+    activeAudio=null;
+  }}
+  if(activeAudioButton) {{
+    activeAudioButton.textContent='▶';
+    activeAudioButton.classList.remove('playing');
+    activeAudioButton.setAttribute('aria-pressed','false');
+    activeAudioButton.title=activeAudioButton.getAttribute('aria-label');
+    activeAudioButton=null;
+  }}
+}}
+
+function setAudioButton(id, path) {{
+  const button=document.getElementById(id);
+  button.dataset.audioPath=path||'';
+  button.disabled=!path;
+  button.hidden=!path;
+}}
+
+function showAudioError() {{
+  const status=document.getElementById('audio-status');
+  status.textContent='音檔載入失敗，請重新整理後再試。';
+  clearTimeout(audioErrorTimer);
+  audioErrorTimer=setTimeout(()=>{{status.textContent='';}},3500);
+}}
+
+function playCardAudio(event, buttonId) {{
+  event.preventDefault();
+  event.stopPropagation();
+  const button=document.getElementById(buttonId);
+  const path=button.dataset.audioPath;
+  if(!path) return;
+  if(activeAudioButton===button) {{ stopCardAudio(); return; }}
+  stopCardAudio();
+  const audio=new Audio(path);
+  activeAudio=audio;
+  activeAudioButton=button;
+  button.textContent='■';
+  button.classList.add('playing');
+  button.setAttribute('aria-pressed','true');
+  button.title='停止播放';
+  audio.onended=()=>{{ if(activeAudio===audio) stopCardAudio(); }};
+  audio.onerror=()=>{{ if(activeAudio===audio) {{stopCardAudio();showAudioError();}} }};
+  const playing=audio.play();
+  if(playing && playing.catch) playing.catch(()=>{{
+    if(activeAudio===audio) {{stopCardAudio();showAudioError();}}
+  }});
+}}
 
 // ─── Date Filter ──────────────────────────────────────────────────────────────
 function setDateFilter(date) {{
@@ -520,6 +606,7 @@ function initQuiz(cards) {{
 }}
 function showQCard() {{
   if(qIdx>=qDeck.length){{showFinish();return;}}
+  stopCardAudio();
   const c=qDeck[qIdx];
   const wordEl=document.getElementById('q-word');
   wordEl.textContent=c[0]; fitWordFont(wordEl,c[0]);
@@ -531,6 +618,8 @@ function showQCard() {{
   document.getElementById('q-pos-tag').textContent=c[2]||'';
   document.getElementById('q-meaning').textContent=c[3]||'';
   document.getElementById('q-ex').textContent=c[4]?`"${{c[4]}}"` :'';
+  setAudioButton('q-word-audio',c[12]);
+  setAudioButton('q-example-audio',c[13]);
   document.getElementById('q-date-tag').textContent=c[10]?`📅 ${{c[10]}}` :'';
 
   qFlipped=false;
@@ -552,6 +641,7 @@ function doFlip() {{
   }},280);
 }}
 function judge(knew) {{
+  stopCardAudio();
   const w=document.getElementById('flip-wrapper');
   if(knew){{ qKnow++; w.classList.remove('anim-pop'); void w.offsetWidth; w.classList.add('anim-pop'); }}
   else    {{ qDunno++; wrongCards.push(qDeck[qIdx]); w.classList.remove('anim-shake'); void w.offsetWidth; w.classList.add('anim-shake'); }}
@@ -564,6 +654,7 @@ function updateScores() {{
   document.getElementById('q-remain').textContent=Math.max(0,qDeck.length-qIdx);
 }}
 function showFinish() {{
+  stopCardAudio();
   const total=qKnow+qDunno, pct=total?Math.round(qKnow/total*100):0;
   const emoji=pct>=90?'🏆':pct>=70?'🎯':pct>=50?'💪':'📚';
   document.getElementById('fin-emoji').textContent=emoji;
@@ -576,6 +667,7 @@ function restartAll() {{ document.getElementById('finish-overlay').classList.rem
 
 // ─── Study ────────────────────────────────────────────────────────────────────
 function showSCard() {{
+  stopCardAudio();
   const c=filteredCards[sIdx];
   const wordEl=document.getElementById('s-word');
   wordEl.textContent=c[0]; fitWordFont(wordEl,c[0]);
@@ -590,6 +682,8 @@ function showSCard() {{
 
   document.getElementById('s-meaning').textContent=c[3]||'';
   document.getElementById('s-en').textContent=c[4]?`"${{c[4]}}"` :'';
+  setAudioButton('s-word-audio',c[12]);
+  setAudioButton('s-example-audio',c[13]);
   document.getElementById('s-zh').textContent=c[5]?`→ ${{c[5]}}` :'';
 
   // Date badge
@@ -629,6 +723,7 @@ function studyNav(d) {{
 
 // ─── Mode / Shuffle ───────────────────────────────────────────────────────────
 function switchMode(m) {{
+  stopCardAudio();
   mode=m;
   ['quiz','study'].forEach(x=>{{
     document.getElementById(`screen-${{x}}`).classList.toggle('active',x===m);
@@ -707,5 +802,5 @@ showSCard();
 with open(OUT_HTML, "w", encoding="utf-8") as f:
     f.write(HTML)
 
-print(f"✅ Generated index.html with {len(cards)} cards and {len(dates)} date filters")
+print(f"Generated index.html with {len(cards)} cards and {len(dates)} date filters")
 print(f"   Output: {OUT_HTML}")

@@ -38,7 +38,7 @@ class AppIconTest(unittest.TestCase):
 
     def test_worker_preloads_current_icon_assets(self):
         worker = (ROOT / "sw.js").read_text(encoding="utf-8")
-        self.assertIn("eddy-flashcard-v3", worker)
+        self.assertIn("eddy-flashcard-v4", worker)
         for name in (*ICONS, "favicon-v2.ico"):
             self.assertIn(name, worker)
 

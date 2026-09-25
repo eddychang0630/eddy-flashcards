@@ -6,11 +6,14 @@
     "識字的；有讀寫能力的",
     "Most of the population is literate.",
     "大部分人口都識字。",
-    "",
-    "",
-    "",
-    "",
-    "2026-06-25"
+    "educated, able to read and write",
+    "受過教育的；有讀寫能力的",
+    "illiterate",
+    "不識字的",
+    "2026-06-25",
+    "Noun: literacy; Adjective: literate",
+    "audio/f0eb016f5ac8376edf55.mp3",
+    "audio/1e5379802c7582f51cff.mp3"
   ],
   [
     "illiterate",
@@ -19,11 +22,14 @@
     "文盲的；不識字的",
     "He is functionally illiterate.",
     "他在實用上等同於文盲。",
-    "",
-    "",
-    "",
-    "",
-    "2026-06-25"
+    "nonliterate, unable to read or write",
+    "不識字的；無法讀寫的",
+    "literate",
+    "有讀寫能力的",
+    "2026-06-25",
+    "Noun: illiteracy; Adjective: illiterate",
+    "audio/26064d45bffc18122f41.mp3",
+    "audio/1fbbf941776adfa3149c.mp3"
   ],
   [
     "early bird",
@@ -32,11 +38,14 @@
     "早起的人",
     "She's always been an early bird.",
     "她一直都是個早起的人。",
+    "early riser, morning person",
+    "早起的人；晨型人",
+    "night owl",
+    "夜貓子；習慣晚睡的人",
+    "2026-06-25",
     "",
-    "",
-    "",
-    "",
-    "2026-06-25"
+    "audio/b43c5043d27e6e5448e9.mp3",
+    "audio/78985fd8a5f195fb6894.mp3"
   ],
   [
     "morning lark",
@@ -47,9 +56,12 @@
     "晨型人在早上最活躍。",
     "early bird",
     "早起的人",
+    "night owl",
+    "夜貓子；習慣晚睡的人",
+    "2026-06-25",
     "",
-    "",
-    "2026-06-25"
+    "audio/ab0e3803075fc4b9d144.mp3",
+    "audio/4cc706fa020dfb5404e9.mp3"
   ],
   [
     "night owl",
@@ -58,11 +70,14 @@
     "熬夜的人 (夜貓子)",
     "I'm a night owl, so I like to work late at night.",
     "我是個夜貓子，所以我喜歡在深夜工作。",
-    "",
-    "",
+    "night person, late sleeper",
+    "夜型人；習慣晚睡的人",
     "early bird",
     "早起的人",
-    "2026-06-25"
+    "2026-06-25",
+    "",
+    "audio/b08c24ef2d565eedfebb.mp3",
+    "audio/1354c56a2e29334edae6.mp3"
   ],
   [
     "miracle morning",
@@ -71,11 +86,14 @@
     "創造奇蹟的早晨",
     "The miracle morning routine changed my life.",
     "創造奇蹟的早晨作息改變了我的一生。",
+    "morning routine, early-morning routine",
+    "晨間例行活動；早晨習慣",
+    "—",
+    "—",
+    "2026-06-25",
     "",
-    "",
-    "",
-    "",
-    "2026-06-25"
+    "audio/646514b7658f39b4828c.mp3",
+    "audio/1ee1965a2d9ef1f82522.mp3"
   ],
   [
     "craving",
@@ -84,11 +102,14 @@
     "強烈渴望",
     "I'm craving pizza and something sweet.",
     "我超想吃披薩和甜食。",
-    "",
-    "",
-    "",
-    "",
-    "2026-06-25"
+    "urge, longing, desire",
+    "強烈慾望；渴望",
+    "aversion",
+    "厭惡；反感",
+    "2026-06-25",
+    "Noun: craving; Verb: crave, craves, craved, craving",
+    "audio/431aeeac5911bd8f5c29.mp3",
+    "audio/52d43f4e7c2d2e4aa0a2.mp3"
   ],
   [
     "get up",
@@ -97,11 +118,14 @@
     "起床",
     "I usually get up at 5:30 a.m. on weekdays.",
     "平日我通常早上 5:30 起床。",
+    "rise, get out of bed",
+    "起床；從床上起身",
+    "lie down, go to bed",
+    "躺下；上床睡覺",
+    "2026-06-25",
     "",
-    "",
-    "",
-    "",
-    "2026-06-25"
+    "audio/09541fb709a6bc6de25b.mp3",
+    "audio/f614aff8f5903ab00146.mp3"
   ],
   [
     "wake up",
@@ -110,11 +134,14 @@
     "醒來",
     "I wake up feeling refreshed every morning.",
     "我每天早上醒來都覺得神清氣爽。",
+    "awaken, rouse",
+    "醒來；喚醒",
+    "fall asleep",
+    "入睡",
+    "2026-06-25",
     "",
-    "",
-    "",
-    "",
-    "2026-06-25"
+    "audio/a887baf61333a88c530e.mp3",
+    "audio/77341f00edfe864e6838.mp3"
   ],
   [
     "stay up",
@@ -123,11 +150,14 @@
     "熬夜",
     "I try not to stay up too late.",
     "我盡量不熬夜太晚。",
+    "remain awake, stay awake",
+    "保持清醒；熬夜",
+    "go to bed, turn in",
+    "上床睡覺",
+    "2026-06-25",
     "",
-    "",
-    "",
-    "",
-    "2026-06-25"
+    "audio/be3cb8423e3f4ca67deb.mp3",
+    "audio/93d79ad056675beb2f0a.mp3"
   ],
   [
     "cut down on",
@@ -136,11 +166,14 @@
     "減少...的量",
     "I cut down on screen time before bed.",
     "我減少了睡前看螢幕的時間。",
+    "reduce, limit",
+    "減少；限制",
+    "increase, use more of",
+    "增加；使用更多",
+    "2026-06-25",
     "",
-    "",
-    "",
-    "",
-    "2026-06-25"
+    "audio/44adb843f902b484a5c2.mp3",
+    "audio/0340185c93ea4e5aae17.mp3"
   ],
   [
     "give it a try",
@@ -149,11 +182,14 @@
     "嘗試看看",
     "You should give getting up early a try.",
     "你應該試著早起看看。",
+    "try, give it a shot",
+    "試試看；嘗試一下",
+    "—",
+    "—",
+    "2026-06-25",
     "",
-    "",
-    "",
-    "",
-    "2026-06-25"
+    "audio/09f62b43f5e73135451a.mp3",
+    "audio/2b379bae01ba1ffbb439.mp3"
   ],
   [
     "genetics",
@@ -164,9 +200,12 @@
     "這項研究探討了基因對罹患心臟病風險的影響。",
     "heredity",
     "遺傳",
-    "",
-    "",
-    "2026-06-25"
+    "—",
+    "—",
+    "2026-06-25",
+    "Adjective: genetic; Adverb: genetically; Noun: geneticist",
+    "audio/b0458a08bc04d5fcc9e0.mp3",
+    "audio/679895d632d345daeec7.mp3"
   ],
   [
     "ethnicity",
@@ -177,9 +216,12 @@
     "該研究發現，獲得醫療保健的機會因人們的種族而有很大差異。",
     "race, background",
     "種族/背景",
-    "",
-    "",
-    "2026-06-25"
+    "—",
+    "—",
+    "2026-06-25",
+    "Adjective: ethnic; Adverb: ethnically",
+    "audio/5ccf6719558efa7af625.mp3",
+    "audio/9b8e19bb0f5f8638a68b.mp3"
   ],
   [
     "microbe",
@@ -190,9 +232,12 @@
     "微生物是超過34億年前出現在地球上的首批生命形式之一。",
     "microorganism, germ",
     "微生物/細菌",
-    "",
-    "",
-    "2026-06-25"
+    "—",
+    "—",
+    "2026-06-25",
+    "Noun: microbe; Adjective: microbial",
+    "audio/88b9362184a37009b730.mp3",
+    "audio/032b165faa1f0cd07949.mp3"
   ],
   [
     "immune system",
@@ -203,9 +248,12 @@
     "研究發現，泡菜可能有益於消化系統、心臟和免疫系統。",
     "defense mechanism",
     "防禦機制",
+    "—",
+    "—",
+    "2026-06-25",
     "",
-    "",
-    "2026-06-25"
+    "audio/f90361186e038fdb2247.mp3",
+    "audio/d41512cf05156e9db347.mp3"
   ],
   [
     "heritage",
@@ -216,9 +264,12 @@
     "新法律禁止遊客坐在噴泉旁，旨在幫助保護羅馬的文化遺產。",
     "legacy, tradition",
     "遺產/傳統",
-    "",
-    "",
-    "2026-06-25"
+    "—",
+    "—",
+    "2026-06-25",
+    "Verb: inherit; Noun: heritage, inheritance; Adjective: hereditary, inherited",
+    "audio/49bc8f09f940d1e25d77.mp3",
+    "audio/d567399a07dbfdfefee8.mp3"
   ],
   [
     "marker",
@@ -229,9 +280,12 @@
     "留任率是工作場所滿意度的一個良好指標。",
     "indicator, sign",
     "指標/標誌",
-    "",
-    "",
-    "2026-06-25"
+    "—",
+    "—",
+    "2026-06-25",
+    "Verb: mark; Noun: marking; Adjective: marked",
+    "audio/e5dab8a23ce9dee1509e.mp3",
+    "audio/c73174146fe82d40af59.mp3"
   ],
   [
     "cornerstone",
@@ -242,9 +296,12 @@
     "信任是任何健康關係的基石。",
     "foundation",
     "基礎",
-    "",
-    "",
-    "2026-06-29"
+    "—",
+    "—",
+    "2026-06-29",
+    "—",
+    "audio/02af95c14b5d045c1c72.mp3",
+    "audio/abc106379ce1be118119.mp3"
   ],
   [
     "I stand corrected",
@@ -255,9 +312,12 @@
     "關於截止日期你是對的。我承認我錯了。",
     "I admit I am wrong",
     "我承認我錯了",
+    "—",
+    "—",
+    "2026-06-29",
     "",
-    "",
-    "2026-06-29"
+    "audio/62c8ad90653a9e70297b.mp3",
+    "audio/f51973aa3b478161719b.mp3"
   ],
   [
     "lame excuse",
@@ -270,7 +330,10 @@
     "牽強的藉口",
     "valid reason",
     "正當理由",
-    "2026-06-29"
+    "2026-06-29",
+    "",
+    "audio/0abb0bf6100d74cc9f0d.mp3",
+    "audio/681c709e358d8b358237.mp3"
   ],
   [
     "valid excuse",
@@ -283,7 +346,10 @@
     "好理由",
     "lame excuse",
     "爛藉口",
-    "2026-06-29"
+    "2026-06-29",
+    "",
+    "audio/feab90fd5fdc19a4f537.mp3",
+    "audio/7ebc8e9152126eea172a.mp3"
   ],
   [
     "habitual mistakes",
@@ -296,7 +362,10 @@
     "重複的錯誤",
     "isolated incident",
     "單一事件",
-    "2026-06-29"
+    "2026-06-29",
+    "",
+    "audio/177c0fccc12e8c8f064e.mp3",
+    "audio/661129e46347d6f6a469.mp3"
   ],
   [
     "rebuild",
@@ -309,7 +378,10 @@
     "重建",
     "destroy",
     "破壞",
-    "2026-06-29"
+    "2026-06-29",
+    "Verb: rebuild; Noun: rebuilding; Past: rebuilt; Past participle: rebuilt; Present participle: rebuilding",
+    "audio/f3dc0d4a53751f243b6c.mp3",
+    "audio/b1e885de0f016c65ffca.mp3"
   ],
   [
     "ever since",
@@ -320,9 +392,12 @@
     "我 2020 年搬到這裡，從那之後就一直很喜歡這地方。",
     "from then on",
     "從那時起",
+    "—",
+    "—",
+    "2026-06-29",
     "",
-    "",
-    "2026-06-29"
+    "audio/ada5934d3e16a2d8a27c.mp3",
+    "audio/7889ebd7fc447c9e2383.mp3"
   ],
   [
     "wise",
@@ -335,7 +410,10 @@
     "聰明的",
     "foolish, stupid",
     "愚蠢的",
-    "2026-06-29"
+    "2026-06-29",
+    "Noun: wisdom; Adverb: wisely; Adjective: wiser, wisest",
+    "audio/e70931662ebba132883f.mp3",
+    "audio/b8325a23ef369435bdaf.mp3"
   ],
   [
     "count on",
@@ -348,7 +426,10 @@
     "依賴",
     "doubt, distrust",
     "懷疑/不信任",
-    "2026-06-29"
+    "2026-06-29",
+    "",
+    "audio/a8ec30c210f2a0e5c0ba.mp3",
+    "audio/154e925b219836b3f860.mp3"
   ],
   [
     "own up to",
@@ -361,7 +442,10 @@
     "承認",
     "deny, cover up",
     "否認/掩飾",
-    "2026-06-29"
+    "2026-06-29",
+    "",
+    "audio/5673a0d54b250ad6fa09.mp3",
+    "audio/e975d7d36f2ba0b41cd3.mp3"
   ],
   [
     "make up for",
@@ -374,7 +458,10 @@
     "補償",
     "deprive",
     "剝奪",
-    "2026-06-29"
+    "2026-06-29",
+    "",
+    "audio/e2e0a4d30c00e6a462d4.mp3",
+    "audio/900f6ce291ae94685a0c.mp3"
   ],
   [
     "open up",
@@ -387,7 +474,10 @@
     "分享/傾吐",
     "close off",
     "封閉",
-    "2026-06-29"
+    "2026-06-29",
+    "",
+    "audio/693c0a731b767dec9c4a.mp3",
+    "audio/a6d855a5974fc7377830.mp3"
   ],
   [
     "follow through on",
@@ -400,7 +490,10 @@
     "完成/執行",
     "give up, quit",
     "放棄",
-    "2026-06-29"
+    "2026-06-29",
+    "",
+    "audio/8a40d8b0194c899f935c.mp3",
+    "audio/1a6f17cda72ada15b52e.mp3"
   ],
   [
     "excuse",
@@ -411,9 +504,12 @@
     "他又錯過了一次會議，並給了一個塞車的薄弱藉口。",
     "reason, pretext",
     "理由，藉口",
-    "",
-    "",
-    "2026-06-29"
+    "—",
+    "—",
+    "2026-06-29",
+    "Verb: excuse; Adjective: excusable, inexcusable; Adverb: excusably",
+    "audio/5faa43652da7e09667c1.mp3",
+    "audio/21f2a0c51e6d49cfa3ee.mp3"
   ],
   [
     "blame",
@@ -426,7 +522,10 @@
     "指控，過錯",
     "forgive, praise",
     "原諒，讚美",
-    "2026-06-29"
+    "2026-06-29",
+    "Noun: blame; Adjective: blameless; Adverb: blamelessly",
+    "audio/ba11fa670fb001fc57b0.mp3",
+    "audio/8a9f25b5b252a93f6899.mp3"
   ],
   [
     "trust",
@@ -439,7 +538,10 @@
     "相信，信心",
     "distrust, doubt",
     "不信任，懷疑",
-    "2026-06-29"
+    "2026-06-29",
+    "Noun: trust; Verb: trust; Adjective: trusting, trustworthy, trusted",
+    "audio/aa3ce1b5a723a0469c5d.mp3",
+    "audio/bef33843d5e3054b86a7.mp3"
   ],
   [
     "accountability",
@@ -452,7 +554,10 @@
     "責任",
     "irresponsibility",
     "不負責任",
-    "2026-06-29"
+    "2026-06-29",
+    "Adjective: accountable; Adverb: accountably; Noun: accountability",
+    "audio/a8c885e2a1597eda2400.mp3",
+    "audio/1b871e5dc88af19c6cfd.mp3"
   ],
   [
     "morale",
@@ -463,9 +568,12 @@
     "每週的午餐會議對我們團隊的士氣很有幫助。",
     "spirit, enthusiasm",
     "精神，熱情",
-    "",
-    "",
-    "2026-06-29"
+    "—",
+    "—",
+    "2026-06-29",
+    "—",
+    "audio/4856010ceb440264fe70.mp3",
+    "audio/48b0d937d0fd2c52d730.mp3"
   ],
   [
     "culture",
@@ -476,22 +584,12 @@
     "我的辦公室文化非常輕鬆。",
     "customs, traditions",
     "習俗，傳統",
-    "",
-    "",
-    "2026-06-29"
-  ],
-  [
-    "英文單字 (English Word)",
-    "",
-    "單字詞性\n(POS)",
-    "中文解釋 (Meaning)",
-    "英文例句 (Example)",
-    "中文翻譯 (Translation)",
-    "同義詞 (Synonyms)",
-    "同義詞中文 (Syn\nMeaning)",
-    "反義詞 (Antonyms)",
-    "反義詞中文 (Ant\nMeaning)",
-    "2026-06-22"
+    "—",
+    "—",
+    "2026-06-29",
+    "Verb: cultivate; Adjective: cultural, cultured; Adverb: culturally; Noun: cultivation",
+    "audio/819cfbb7428fc4811bed.mp3",
+    "audio/7d68df9aa2158f664b13.mp3"
   ],
   [
     "Once in a while",
@@ -504,7 +602,10 @@
     "偶爾，有時",
     "frequently, always",
     "經常，總是",
-    "2026-06-22"
+    "2026-06-22",
+    "",
+    "audio/ce6e46cd2ff1322b7832.mp3",
+    "audio/fb724ea7049446d07971.mp3"
   ],
   [
     "experience",
@@ -517,7 +618,10 @@
     "背景，知識",
     "inexperience",
     "無經驗",
-    "2026-06-22"
+    "2026-06-22",
+    "Verb: experience; Adjective: experienced, experiential; Adverb: experientially",
+    "audio/29463c4b714459328d99.mp3",
+    "audio/b3bccb048900432330f0.mp3"
   ],
   [
     "dermatologist",
@@ -530,7 +634,10 @@
     "皮膚專科醫生",
     "N/A",
     "N/A",
-    "2026-06-22"
+    "2026-06-22",
+    "Noun: dermatology; Adjective: dermatological; Adverb: dermatologically",
+    "audio/bbb21c08ff1a70bd95af.mp3",
+    "audio/56e4c0f45909aca05681.mp3"
   ],
   [
     "Reference Library",
@@ -543,7 +650,10 @@
     "檔案室，閱覽室",
     "N/A",
     "N/A",
-    "2026-06-22"
+    "2026-06-22",
+    "",
+    "audio/8f574ddef87073b55bca.mp3",
+    "audio/5d47db6b026b49e76435.mp3"
   ],
   [
     "Lending Library",
@@ -556,7 +666,10 @@
     "公共圖書館",
     "N/A",
     "N/A",
-    "2026-06-22"
+    "2026-06-22",
+    "",
+    "audio/f740cfbbbcc14078e70e.mp3",
+    "audio/6087e12c4e4a3f3c9be2.mp3"
   ],
   [
     "flexibility",
@@ -569,7 +682,10 @@
     "適應性，可調節性",
     "rigidity, inflexibility",
     "僵化，缺乏彈性",
-    "2026-06-22"
+    "2026-06-22",
+    "Adjective: flexible, inflexible; Adverb: flexibly, inflexibly; Noun: flexibility",
+    "audio/027d8ef86db2a25f3220.mp3",
+    "audio/fa727365a67d0d4dbfa2.mp3"
   ],
   [
     "challenge",
@@ -582,7 +698,10 @@
     "困難，考驗",
     "ease, advantage",
     "容易，優勢",
-    "2026-06-22"
+    "2026-06-22",
+    "Verb: challenge; Adjective: challenging, challenged; Noun: challenger",
+    "audio/e08c345ff01a990d42c5.mp3",
+    "audio/17fe44d12fa3f30d6a48.mp3"
   ],
   [
     "budget",
@@ -595,7 +714,10 @@
     "財務計畫，津貼",
     "N/A",
     "N/A",
-    "2026-06-22"
+    "2026-06-22",
+    "Verb: budget; Adjective: budgetary; Noun: budgeting",
+    "audio/3021f29853ed78263e12.mp3",
+    "audio/3656a6d23486ee0750d8.mp3"
   ],
   [
     "stress",
@@ -608,7 +730,10 @@
     "壓力，緊張",
     "relaxation, calmness",
     "放鬆，平靜",
-    "2026-06-22"
+    "2026-06-22",
+    "Verb: stress; Adjective: stressful, stressed; Adverb: stressfully; Noun: stressor",
+    "audio/9c341d3dbe44e28e73ca.mp3",
+    "audio/096626d738c72307e866.mp3"
   ],
   [
     "work-life balance",
@@ -621,7 +746,10 @@
     "生活型態平衡",
     "overwork",
     "過度工作",
-    "2026-06-22"
+    "2026-06-22",
+    "",
+    "audio/35ad5a7f8c9617bcc320.mp3",
+    "audio/ce06ae110c6b3ab48321.mp3"
   ],
   [
     "cap",
@@ -634,7 +762,10 @@
     "限制，最大值",
     "minimum, floor",
     "最小值，底線",
-    "2026-06-22"
+    "2026-06-22",
+    "Verb: cap; Adjective: capped; Noun: capping",
+    "audio/93b271b595e90b98c0cb.mp3",
+    "audio/466d085fcac1207fdba3.mp3"
   ],
   [
     "scorcher",
@@ -647,7 +778,10 @@
     "非常炎熱的一天、熱浪",
     "chilly day",
     "涼爽的一天",
-    "2026-07-06"
+    "2026-07-06",
+    "Verb: scorch; Noun: scorcher, scorching; Adjective: scorching",
+    "audio/b0e03532b10b78ebaab0.mp3",
+    "audio/223e31cf168407988c21.mp3"
   ],
   [
     "scorching hot",
@@ -660,7 +794,10 @@
     "滾燙的、極熱的",
     "freezing cold",
     "冰冷的",
-    "2026-07-06"
+    "2026-07-06",
+    "",
+    "audio/7787fad63141dad1589b.mp3",
+    "audio/23aa4458bf1d7594b1fa.mp3"
   ],
   [
     "typhoon",
@@ -673,7 +810,10 @@
     "熱帶風暴、氣旋",
     "calm weather",
     "平靜的天氣",
-    "2026-07-06"
+    "2026-07-06",
+    "—",
+    "audio/068750f844ae32cebfb6.mp3",
+    "audio/8458b8bb4193d82975e0.mp3"
   ],
   [
     "super typhoon",
@@ -686,7 +826,10 @@
     "強烈颱風、嚴重風暴",
     "weak storm",
     "弱颱、較弱的風暴",
-    "2026-07-06"
+    "2026-07-06",
+    "",
+    "audio/f9b1529fff4294925f38.mp3",
+    "audio/7eb3c0dcd84b3f5c1fcf.mp3"
   ],
   [
     "approach",
@@ -699,7 +842,10 @@
     "接近、朝某處移動",
     "leave, depart",
     "離開、出發",
-    "2026-07-06"
+    "2026-07-06",
+    "Noun: approach, approachability; Verb: approach; Adjective: approachable",
+    "audio/33516f3a58e3ccd422fa.mp3",
+    "audio/28f3cb814eb43166fd77.mp3"
   ],
   [
     "pass through",
@@ -712,7 +858,10 @@
     "穿過、通過",
     "avoid, bypass",
     "避開、繞過",
-    "2026-07-06"
+    "2026-07-06",
+    "",
+    "audio/677302828fa1fdf5ca1b.mp3",
+    "audio/254e8b18492c0d6ea625.mp3"
   ],
   [
     "preventive measure",
@@ -725,7 +874,10 @@
     "預防措施、防護",
     "risk, exposure",
     "風險、暴露",
-    "2026-07-06"
+    "2026-07-06",
+    "",
+    "audio/61b941260e0e77d6128f.mp3",
+    "audio/7ddc72564a798665d0d3.mp3"
   ],
   [
     "sunscreen",
@@ -736,9 +888,12 @@
     "我擦了防曬乳，但皮膚還是變紅了。",
     "sunblock",
     "防曬乳、防曬霜",
-    "",
-    "",
-    "2026-07-06"
+    "—",
+    "—",
+    "2026-07-06",
+    "—",
+    "audio/1423f05a1c74b566af9b.mp3",
+    "audio/c671e367093cc59f706d.mp3"
   ],
   [
     "sunburn",
@@ -749,9 +904,12 @@
     "我打了五個小時高爾夫後曬傷了。",
     "burn from the sun",
     "曬傷",
-    "",
-    "",
-    "2026-07-06"
+    "—",
+    "—",
+    "2026-07-06",
+    "Verb: sunburn; Adjective: sunburned, sunburnt",
+    "audio/aaadaff1ff7234693bb5.mp3",
+    "audio/4c5272e2ace4cddec387.mp3"
   ],
   [
     "ophthalmologist",
@@ -762,9 +920,12 @@
     "因為眼睛痛，所以我去看了眼科醫生。",
     "eye specialist, eye doctor",
     "眼科專家、眼科醫生",
-    "",
-    "",
-    "2026-07-06"
+    "—",
+    "—",
+    "2026-07-06",
+    "Noun: ophthalmology; Adjective: ophthalmologic, ophthalmological",
+    "audio/0b1caaaf5c24c8cb242e.mp3",
+    "audio/7d25d782cfefde16cac3.mp3"
   ],
   [
     "eye doctor",
@@ -775,9 +936,12 @@
     "我上週去看了眼科醫生。",
     "ophthalmologist",
     "眼科醫生",
+    "—",
+    "—",
+    "2026-07-06",
     "",
-    "",
-    "2026-07-06"
+    "audio/5c15f3badce5cbf43f2c.mp3",
+    "audio/81fcb60734e7c1b9df70.mp3"
   ],
   [
     "eye strain",
@@ -790,7 +954,10 @@
     "眼睛疲勞、視覺疲勞",
     "rested eyes",
     "休息好的眼睛",
-    "2026-07-06"
+    "2026-07-06",
+    "",
+    "audio/11eb90d5a2d3cf27d808.mp3",
+    "audio/81592fddfdfe97a4bd95.mp3"
   ],
   [
     "screen quality",
@@ -803,7 +970,10 @@
     "螢幕品質、顯示品質",
     "poor display",
     "不佳的顯示效果",
-    "2026-07-06"
+    "2026-07-06",
+    "",
+    "audio/f458e7fe6c0e679d9aca.mp3",
+    "audio/1844482f131ecdfce619.mp3"
   ],
   [
     "replace A with B",
@@ -816,7 +986,10 @@
     "把 A 換成 B、改用 B",
     "keep A",
     "保留 A",
-    "2026-07-06"
+    "2026-07-06",
+    "",
+    "audio/f3a9c14d52001a6b5ff5.mp3",
+    "audio/758e06b6c115daa17016.mp3"
   ],
   [
     "light packer",
@@ -829,7 +1002,10 @@
     "輕裝旅行者、極簡旅行者",
     "heavy packer",
     "行李帶很多的人",
-    "2026-07-06"
+    "2026-07-06",
+    "",
+    "audio/454168d1886bddfa4972.mp3",
+    "audio/51a6e3c901645f13cd46.mp3"
   ],
   [
     "heavy packer",
@@ -842,7 +1018,10 @@
     "過度打包的人、行李帶很多的人",
     "light packer",
     "輕裝旅行者",
-    "2026-07-06"
+    "2026-07-06",
+    "",
+    "audio/60ac42b3a81f54b2f2d8.mp3",
+    "audio/d1fc9b49184bf7c8684e.mp3"
   ],
   [
     "take a trip abroad",
@@ -855,7 +1034,10 @@
     "出國旅行、到海外旅遊",
     "stay local",
     "留在本地",
-    "2026-07-06"
+    "2026-07-06",
+    "",
+    "audio/3837469e52216e8a0115.mp3",
+    "audio/99c3a30455e2f9e51e1b.mp3"
   ],
   [
     "look up",
@@ -868,7 +1050,10 @@
     "查詢、研究；欣賞、敬佩",
     "ignore; look down on",
     "忽視；看不起",
-    "2026-07-06"
+    "2026-07-06",
+    "",
+    "audio/d249b9b4cbec80446bca.mp3",
+    "audio/c8478e044a7aa8ad8551.mp3"
   ],
   [
     "idolize",
@@ -881,7 +1066,10 @@
     "崇拜、仰慕",
     "dislike, criticize",
     "不喜歡、批評",
-    "2026-07-06"
+    "2026-07-06",
+    "Noun: idol, idolization; Verb: idolize, idolizes, idolized, idolizing; Adjective: idolized",
+    "audio/4eac43bda035da42f2a5.mp3",
+    "audio/3853c582e5f1fb2808df.mp3"
   ],
   [
     "admire",
@@ -894,7 +1082,10 @@
     "尊敬、敬佩",
     "disrespect",
     "不尊重",
-    "2026-07-06"
+    "2026-07-06",
+    "Noun: admiration, admirer; Adjective: admirable, admired; Adverb: admirably",
+    "audio/7d811b27b2228b7b3200.mp3",
+    "audio/e41642f1128dc55534a9.mp3"
   ],
   [
     "set off",
@@ -907,7 +1098,10 @@
     "離開、出發",
     "arrive",
     "抵達",
-    "2026-07-06"
+    "2026-07-06",
+    "",
+    "audio/15432f2e991ab541ff4b.mp3",
+    "audio/b66cc3b741baa23a44cc.mp3"
   ],
   [
     "from the get-go",
@@ -920,7 +1114,10 @@
     "從一開始、從起初",
     "at the end",
     "在最後",
-    "2026-07-06"
+    "2026-07-06",
+    "",
+    "audio/f90c1b0e10479ce49e5c.mp3",
+    "audio/5b1e5d80ba282c31e838.mp3"
   ],
   [
     "check in",
@@ -933,7 +1130,10 @@
     "報到、登記",
     "check out",
     "退房、辦理離開手續",
-    "2026-07-06"
+    "2026-07-06",
+    "",
+    "audio/a10cae28ddb452998d0a.mp3",
+    "audio/93d5b8968d3a3e831a75.mp3"
   ],
   [
     "pick up",
@@ -946,7 +1146,10 @@
     "接、取、收集",
     "drop off",
     "放下、送下車",
-    "2026-07-06"
+    "2026-07-06",
+    "",
+    "audio/0f7cfb2272d8d3f7c322.mp3",
+    "audio/3afd91709facf4b5265b.mp3"
   ],
   [
     "head to",
@@ -959,7 +1162,10 @@
     "前往、朝某處移動",
     "leave from",
     "離開某地",
-    "2026-07-06"
+    "2026-07-06",
+    "",
+    "audio/2df005208199e8422f4a.mp3",
+    "audio/5d08121d1a63c2e822e7.mp3"
   ],
   [
     "split the expenses",
@@ -972,7 +1178,10 @@
     "分攤費用、共同負擔成本",
     "pay alone",
     "獨自支付",
-    "2026-07-06"
+    "2026-07-06",
+    "",
+    "audio/5aa2663b78159df98bc3.mp3",
+    "audio/84dcb27a787538566610.mp3"
   ],
   [
     "unforgettable memories",
@@ -985,7 +1194,10 @@
     "難忘回憶、持久的回憶",
     "forgettable moments",
     "容易忘記的時刻",
-    "2026-07-06"
+    "2026-07-06",
+    "",
+    "audio/f24142e303ee9fcab936.mp3",
+    "audio/b9a87c6d70b5c72157a4.mp3"
   ],
   [
     "reminisce",
@@ -998,7 +1210,10 @@
     "回想、懷念",
     "forget",
     "忘記",
-    "2026-07-06"
+    "2026-07-06",
+    "Verb: reminisce; Noun: reminiscence; Adjective: reminiscent",
+    "audio/51fc11208d39afb5f2f6.mp3",
+    "audio/a59b94647d9dbdc49550.mp3"
   ],
   [
     "inhale",
@@ -1011,7 +1226,10 @@
     "吸氣",
     "exhale",
     "吐氣",
-    "2026-07-06"
+    "2026-07-06",
+    "Noun: inhalation, inhaler; Adjective: inhaled; Past: inhaled; Past participle: inhaled; Present participle: inhaling",
+    "audio/3d2ae87506edb625536d.mp3",
+    "audio/23ea560674f1d94ab726.mp3"
   ],
   [
     "exhale",
@@ -1024,7 +1242,10 @@
     "吐氣",
     "inhale",
     "吸氣",
-    "2026-07-06"
+    "2026-07-06",
+    "Noun: exhalation; Adjective: exhaled; Past: exhaled; Past participle: exhaled; Present participle: exhaling",
+    "audio/27f0e9aea06d0b9c8ee5.mp3",
+    "audio/b1863888ac1fcfab1f82.mp3"
   ],
   [
     "relationship",
@@ -1037,7 +1258,10 @@
     "關係、連結",
     "disconnection",
     "斷開、沒有連結",
-    "2026-07-06"
+    "2026-07-06",
+    "Verb: relate; Noun: relation, relationship; Adjective: related, relational; Adverb: relationally",
+    "audio/e25616e68e90eba4c244.mp3",
+    "audio/e6b4147389c9dd43c5b6.mp3"
   ],
   [
     "memory",
@@ -1050,7 +1274,10 @@
     "記憶、回憶",
     "forgetfulness",
     "健忘、遺忘",
-    "2026-07-06"
+    "2026-07-06",
+    "Verb: memorize; Noun: memory, memorization; Adjective: memorable; Adverb: memorably",
+    "audio/bacfdabbf7ff29b8d65b.mp3",
+    "audio/03ea8a962223908d3eb9.mp3"
   ],
   [
     "recall",
@@ -1063,7 +1290,10 @@
     "記得、回想起",
     "forget",
     "忘記",
-    "2026-07-06"
+    "2026-07-06",
+    "Noun: recall; Verb: recall, recalls, recalled, recalling",
+    "audio/f3400f517c0ca6ecd355.mp3",
+    "audio/6c2f4f1ce204948b7a07.mp3"
   ],
   [
     "identify",
@@ -1076,7 +1306,10 @@
     "辨認、識別",
     "confuse",
     "混淆",
-    "2026-07-06"
+    "2026-07-06",
+    "Noun: identity, identification; Verb: identify, identifies, identified, identifying; Adjective: identifiable, identified",
+    "audio/2a1e24833125077f02b6.mp3",
+    "audio/4e32fe3be3489be9c25a.mp3"
   ],
   [
     "accuracy",
@@ -1089,7 +1322,10 @@
     "正確性、精準度",
     "inaccuracy",
     "不準確",
-    "2026-07-06"
+    "2026-07-06",
+    "Noun: accuracy; Adjective: accurate; Adverb: accurately",
+    "audio/61c12be085a28f58a1bc.mp3",
+    "audio/6c635e310305710b845b.mp3"
   ],
   [
     "speak aloud",
@@ -1102,7 +1338,10 @@
     "大聲說出來",
     "read silently",
     "默讀",
-    "2026-07-06"
+    "2026-07-06",
+    "",
+    "audio/04542e9b0efee240f798.mp3",
+    "audio/4e2081e710570ada078d.mp3"
   ],
   [
     "write down",
@@ -1115,7 +1354,10 @@
     "寫下、記錄",
     "erase",
     "擦掉、刪除",
-    "2026-07-06"
+    "2026-07-06",
+    "",
+    "audio/5bee9930c9a42629d34a.mp3",
+    "audio/75e0720936dc4ea68b30.mp3"
   ],
   [
     "recognize",
@@ -1128,7 +1370,10 @@
     "認出、辨認",
     "misidentify",
     "誤認、辨認錯誤",
-    "2026-07-06"
+    "2026-07-06",
+    "Noun: recognition; Verb: recognize, recognizes, recognized, recognizing; Adjective: recognizable, recognized",
+    "audio/a91f952dc12ad5928ad4.mp3",
+    "audio/a2f4e598fd4a35d7e392.mp3"
   ],
   [
     "How should I put this?",
@@ -1139,9 +1384,12 @@
     "我該怎麼說呢？我需要更多時間準備。",
     "How should I say this?, How can I explain this?",
     "我該怎麼說？；我該怎麼解釋？",
+    "—",
+    "—",
+    "2026-07-09",
     "",
-    "",
-    "2026-07-09"
+    "audio/e4e9bf2b7f876281ff73.mp3",
+    "audio/36fdcf54668d0d22efad.mp3"
   ],
   [
     "What I'm trying to say is...",
@@ -1152,9 +1400,12 @@
     "我想表達的是，我需要專注在數學課上。",
     "What I mean is..., Let me rephrase that",
     "我的意思是...；讓我換個說法",
+    "—",
+    "—",
+    "2026-07-09",
     "",
-    "",
-    "2026-07-09"
+    "audio/cfcc6c3e4363e239c94c.mp3",
+    "audio/23f5acd00ae52c8fff6d.mp3"
   ],
   [
     "I'm finished",
@@ -1167,7 +1418,10 @@
     "我完成了；我已經做完了",
     "I'm not finished yet",
     "我還沒完成",
-    "2026-07-09"
+    "2026-07-09",
+    "",
+    "audio/e1a2ca4fcd1c754af6c5.mp3",
+    "audio/68a4fc74bfde24eb21d2.mp3"
   ],
   [
     "I finished",
@@ -1180,7 +1434,10 @@
     "我完成了；我把它做完了",
     "I didn't finish",
     "我沒有完成",
-    "2026-07-09"
+    "2026-07-09",
+    "",
+    "audio/bff24ad22ecb75b9dea0.mp3",
+    "audio/2332f34a902012d37dd4.mp3"
   ],
   [
     "body odor",
@@ -1193,7 +1450,10 @@
     "身體氣味",
     "fragrance, pleasant scent",
     "香氣；好聞的氣味",
-    "2026-07-09"
+    "2026-07-09",
+    "",
+    "audio/db74ecdcde255f0f9bf1.mp3",
+    "audio/5b89fc18d4d34c7a0112.mp3"
   ],
   [
     "fragrance",
@@ -1206,7 +1466,10 @@
     "香味；芳香",
     "stench, bad smell",
     "惡臭；難聞的味道",
-    "2026-07-09"
+    "2026-07-09",
+    "Noun: fragrance; Verb: fragrance; Adjective: fragrant; Adverb: fragrantly",
+    "audio/dcc3277d49720d430a08.mp3",
+    "audio/5137265835b400bcb887.mp3"
   ],
   [
     "aroma",
@@ -1219,7 +1482,10 @@
     "氣味；香氣",
     "stench, odor",
     "臭味；異味",
-    "2026-07-09"
+    "2026-07-09",
+    "Noun: aroma; Adjective: aromatic; Adverb: aromatically",
+    "audio/db60518341982d4b8a34.mp3",
+    "audio/6625230ceabb3cb51479.mp3"
   ],
   [
     "scent",
@@ -1232,7 +1498,10 @@
     "氣味；香味",
     "odor, stink",
     "異味；臭味",
-    "2026-07-09"
+    "2026-07-09",
+    "Noun: scent; Verb: scent, scents, scented, scenting; Adjective: scented, scentless",
+    "audio/edb6567f7912062f3be2.mp3",
+    "audio/e5fc8124089d87087949.mp3"
   ],
   [
     "petrichor",
@@ -1245,7 +1514,10 @@
     "雨後泥土味",
     "dry dusty smell",
     "乾燥灰塵味",
-    "2026-07-09"
+    "2026-07-09",
+    "—",
+    "audio/3938a3a48bb9e2b9ead4.mp3",
+    "audio/b9d96a041a642f44d410.mp3"
   ],
   [
     "relocate",
@@ -1258,7 +1530,10 @@
     "搬家；轉移",
     "stay, remain",
     "留下；保持原地",
-    "2026-07-09"
+    "2026-07-09",
+    "Noun: relocation; Verb: relocate, relocates, relocated, relocating",
+    "audio/ea792ec5a256d12f9530.mp3",
+    "audio/fd9d8c4a6312c0addc7a.mp3"
   ],
   [
     "high quality of life",
@@ -1271,7 +1546,10 @@
     "良好的生活水準",
     "poor living conditions",
     "差的生活條件",
-    "2026-07-09"
+    "2026-07-09",
+    "",
+    "audio/7e5be3095244bf6d753b.mp3",
+    "audio/6a45ffcf111d9adac1db.mp3"
   ],
   [
     "employment opportunities",
@@ -1284,7 +1562,10 @@
     "工作機會；就業前景",
     "job shortage",
     "工作短缺",
-    "2026-07-09"
+    "2026-07-09",
+    "",
+    "audio/4620211926e165a86a40.mp3",
+    "audio/32555be9c722decfb16c.mp3"
   ],
   [
     "necessary preparations",
@@ -1297,7 +1578,10 @@
     "必要安排",
     "unnecessary steps",
     "不必要的步驟",
-    "2026-07-09"
+    "2026-07-09",
+    "",
+    "audio/804e7bffb8c2803c9ea0.mp3",
+    "audio/53f4301bc0fdb5e31801.mp3"
   ],
   [
     "required documents",
@@ -1310,7 +1594,10 @@
     "必要文件",
     "optional documents",
     "選填文件",
-    "2026-07-09"
+    "2026-07-09",
+    "",
+    "audio/3fb0992f1d956e07e75b.mp3",
+    "audio/27b64c907079cb23b5dc.mp3"
   ],
   [
     "English proficiency",
@@ -1323,7 +1610,10 @@
     "英文能力；語言能力",
     "limited English ability",
     "有限的英文能力",
-    "2026-07-09"
+    "2026-07-09",
+    "",
+    "audio/cde0d6e5fb030e539c40.mp3",
+    "audio/424caf11241bd55a4cd0.mp3"
   ],
   [
     "wise approach",
@@ -1336,7 +1626,10 @@
     "聰明的方法；好策略",
     "poor approach",
     "不好的做法",
-    "2026-07-09"
+    "2026-07-09",
+    "",
+    "audio/ae93164fb26f3509070a.mp3",
+    "audio/4effea95090d4676d2ca.mp3"
   ],
   [
     "neighborhood",
@@ -1347,9 +1640,12 @@
     "我正在研究不同的社區。",
     "area, district",
     "地區；區域",
-    "",
-    "",
-    "2026-07-09"
+    "—",
+    "—",
+    "2026-07-09",
+    "Noun: neighborhood, neighbor; Verb: neighbor; Adjective: neighboring",
+    "audio/b6f1e49ea3cd14f0302a.mp3",
+    "audio/54baebd75f6efe77ebb4.mp3"
   ],
   [
     "secure a job",
@@ -1362,7 +1658,10 @@
     "找到工作；獲得工作",
     "lose a job",
     "失去工作",
-    "2026-07-09"
+    "2026-07-09",
+    "",
+    "audio/547499f74acd48c88ceb.mp3",
+    "audio/68eecf78c4c05021f480.mp3"
   ],
   [
     "establish a comfortable life",
@@ -1375,7 +1674,10 @@
     "建立穩定生活",
     "live unstably",
     "生活不穩定",
-    "2026-07-09"
+    "2026-07-09",
+    "",
+    "audio/1f5f8ec66b137218c43d.mp3",
+    "audio/70cf6a4861b9e52ae0ad.mp3"
   ],
   [
     "new chapter of my life",
@@ -1388,7 +1690,10 @@
     "新開始；全新起點",
     "old routine",
     "舊的日常",
-    "2026-07-09"
+    "2026-07-09",
+    "",
+    "audio/d06f2064f0dad91fdce3.mp3",
+    "audio/e1951858ccf4269d6289.mp3"
   ],
   [
     "fill out",
@@ -1401,7 +1706,10 @@
     "完成；填入",
     "leave blank",
     "留白",
-    "2026-07-09"
+    "2026-07-09",
+    "",
+    "audio/2a49098251a22013629b.mp3",
+    "audio/83b335950d9c98c5ffd6.mp3"
   ],
   [
     "save up",
@@ -1414,7 +1722,10 @@
     "存錢；累積儲蓄",
     "spend, use up",
     "花掉；用完",
-    "2026-07-09"
+    "2026-07-09",
+    "",
+    "audio/ea85cf2dc7ff078c481b.mp3",
+    "audio/5e05fee89072ca238e96.mp3"
   ],
   [
     "settle down",
@@ -1427,7 +1738,10 @@
     "適應；安定下來",
     "move around",
     "到處搬動",
-    "2026-07-09"
+    "2026-07-09",
+    "",
+    "audio/1470e6633bba7f2ef86d.mp3",
+    "audio/472a0727f2748b38e027.mp3"
   ],
   [
     "find out",
@@ -1440,7 +1754,10 @@
     "發現；了解",
     "miss, overlook",
     "錯過；忽略",
-    "2026-07-09"
+    "2026-07-09",
+    "",
+    "audio/74f150d83c7eebd01e46.mp3",
+    "audio/bc9822dc95bcd7f0439a.mp3"
   ],
   [
     "look into",
@@ -1453,7 +1770,10 @@
     "調查；檢查",
     "ignore, overlook",
     "忽略；沒注意",
-    "2026-07-09"
+    "2026-07-09",
+    "",
+    "audio/d835db5c2d99002a05bd.mp3",
+    "audio/19c468cdba58f326ceb2.mp3"
   ],
   [
     "postpone",
@@ -1466,7 +1786,10 @@
     "延遲；推遲",
     "move up, advance",
     "提前",
-    "2026-07-09"
+    "2026-07-09",
+    "Noun: postponement; Verb: postpone, postpones, postponed, postponing",
+    "audio/2668fef4d30ff28a291f.mp3",
+    "audio/37bdd2095991088aef00.mp3"
   ],
   [
     "resume",
@@ -1479,7 +1802,10 @@
     "重新開始；繼續",
     "pause, stop",
     "暫停；停止",
-    "2026-07-09"
+    "2026-07-09",
+    "Noun: resumption; Verb: resume, resumes, resumed, resuming",
+    "audio/c004c79237e85c259331.mp3",
+    "audio/e68e6b24407a2e9d606a.mp3"
   ],
   [
     "give it a shot",
@@ -1492,7 +1818,10 @@
     "嘗試；試一試",
     "give up",
     "放棄",
-    "2026-07-09"
+    "2026-07-09",
+    "",
+    "audio/2a3a99a4cd6ceef8baae.mp3",
+    "audio/10568d843d24de1ef50e.mp3"
   ],
   [
     "risk taker",
@@ -1505,7 +1834,10 @@
     "大膽的人；敢冒險的人",
     "cautious person",
     "謹慎的人",
-    "2026-07-09"
+    "2026-07-09",
+    "",
+    "audio/cff87fbdda8933f8a100.mp3",
+    "audio/397596a4cd2943b33e9b.mp3"
   ],
   [
     "security deposit",
@@ -1518,7 +1850,10 @@
     "押金",
     "refund",
     "退款",
-    "2026-07-09"
+    "2026-07-09",
+    "",
+    "audio/dfa66842a89eabcec6be.mp3",
+    "audio/11029db2761962559b0d.mp3"
   ],
   [
     "handy",
@@ -1531,7 +1866,10 @@
     "有用的；方便的",
     "inconvenient, impractical",
     "不方便的；不實用的",
-    "2026-09-07"
+    "2026-09-07",
+    "Adjective: handy; Adverb: handily; Noun: handiness",
+    "audio/d256a3016cb860ffa90c.mp3",
+    "audio/923c8093ea8a1a608574.mp3"
   ],
   [
     "mixed emotions",
@@ -1544,7 +1882,10 @@
     "衝突的感受；複雜感受",
     "clear feelings, certainty",
     "明確的感受；確定感",
-    "2026-09-07"
+    "2026-09-07",
+    "",
+    "audio/713ef46c0f5c2ffcb8fb.mp3",
+    "audio/4c521fd6763d68b8d83e.mp3"
   ],
   [
     "fluctuation",
@@ -1557,7 +1898,10 @@
     "變化；變動",
     "stability",
     "穩定",
-    "2026-09-07"
+    "2026-09-07",
+    "Verb: fluctuate; Noun: fluctuation; Adjective: fluctuating",
+    "audio/4cfcb906a4abf67d6809.mp3",
+    "audio/1b496c78c5f3b3c67a6f.mp3"
   ],
   [
     "volatility",
@@ -1570,7 +1914,10 @@
     "不穩定；價格變動",
     "stability",
     "穩定",
-    "2026-09-07"
+    "2026-09-07",
+    "Noun: volatility; Adjective: volatile",
+    "audio/8323206030ab81828864.mp3",
+    "audio/e7176c90a06479fe2f59.mp3"
   ],
   [
     "category",
@@ -1583,7 +1930,10 @@
     "群組；種類",
     "individual item",
     "個別項目",
-    "2026-09-07"
+    "2026-09-07",
+    "Noun: category; Adjective: categorical; Adverb: categorically",
+    "audio/c493fb56542218450a87.mp3",
+    "audio/e9a2e278b5f9f32d408b.mp3"
   ],
   [
     "asset allocation",
@@ -1596,7 +1946,10 @@
     "投資分配；投資組合配置",
     "concentration",
     "集中配置",
-    "2026-09-07"
+    "2026-09-07",
+    "",
+    "audio/e1df172d351b6c44243c.mp3",
+    "audio/b73f4911e0ed18031c98.mp3"
   ],
   [
     "actual age",
@@ -1609,7 +1962,10 @@
     "真實年齡",
     "apparent age",
     "看起來的年齡",
-    "2026-09-07"
+    "2026-09-07",
+    "",
+    "audio/87b2616949c23934d6f9.mp3",
+    "audio/f19b343a7a626f849ad1.mp3"
   ],
   [
     "youthful",
@@ -1622,7 +1978,10 @@
     "看起來年輕的；有活力的",
     "aged, tired-looking",
     "老態的；看起來疲倦的",
-    "2026-09-07"
+    "2026-09-07",
+    "Noun: youth; Adjective: youthful; Adverb: youthfully",
+    "audio/bbfac99d815c9f98e4bd.mp3",
+    "audio/9cdca908e43ddad7545c.mp3"
   ],
   [
     "DNA",
@@ -1635,7 +1994,10 @@
     "遺傳物質",
     "n.a.",
     "不適用",
-    "2026-09-07"
+    "2026-09-07",
+    "—",
+    "audio/b24a5153cce0604ab75d.mp3",
+    "audio/e96d7c7e12c27aadad0f.mp3"
   ],
   [
     "deoxyribonucleic acid",
@@ -1648,7 +2010,10 @@
     "去氧核糖核酸的縮寫",
     "n.a.",
     "不適用",
-    "2026-09-07"
+    "2026-09-07",
+    "",
+    "audio/61b396b271dc7a6f7749.mp3",
+    "audio/8ea5f935898af1ccadd3.mp3"
   ],
   [
     "gene",
@@ -1661,7 +2026,10 @@
     "遺傳單位",
     "n.a.",
     "不適用",
-    "2026-09-07"
+    "2026-09-07",
+    "Noun: gene; Adjective: genetic; Adverb: genetically",
+    "audio/369169c4a683fdf6df38.mp3",
+    "audio/fd9d8c84598ba4e1b970.mp3"
   ],
   [
     "personality",
@@ -1674,7 +2042,10 @@
     "性格；氣質",
     "n.a.",
     "不適用",
-    "2026-09-07"
+    "2026-09-07",
+    "Noun: person, personality; Adjective: personal; Adverb: personally",
+    "audio/af42f65d45d84ee1d408.mp3",
+    "audio/9d96f92c85127740a451.mp3"
   ],
   [
     "psychological",
@@ -1687,7 +2058,10 @@
     "心理的；情緒的",
     "physical",
     "身體的",
-    "2026-09-07"
+    "2026-09-07",
+    "Noun: psychology, psychologist; Adjective: psychological; Adverb: psychologically",
+    "audio/a81603bc47aa3340700d.mp3",
+    "audio/690ecddfb309feb00323.mp3"
   ],
   [
     "conscious",
@@ -1700,7 +2074,10 @@
     "察覺的；留意的",
     "unconscious, unaware",
     "無意識的；未察覺的",
-    "2026-09-07"
+    "2026-09-07",
+    "Noun: consciousness; Adjective: conscious; Adverb: consciously",
+    "audio/ca004645ca1f6f402ee3.mp3",
+    "audio/636a8e714ce1b7fc6aa3.mp3"
   ],
   [
     "limitation",
@@ -1713,7 +2090,10 @@
     "限制；約束",
     "freedom, advantage",
     "自由；優勢",
-    "2026-09-07"
+    "2026-09-07",
+    "Verb: limit; Noun: limit, limitation; Adjective: limited, limitless",
+    "audio/ae982537b8318d087d08.mp3",
+    "audio/0457b8c91e31a289f683.mp3"
   ],
   [
     "adapt",
@@ -1726,7 +2106,10 @@
     "調整；習慣",
     "resist, reject",
     "抗拒；拒絕",
-    "2026-09-07"
+    "2026-09-07",
+    "Noun: adaptation, adaptability; Verb: adapt, adapts, adapted, adapting; Adjective: adaptable, adapted; Adverb: adaptably",
+    "audio/5e4ca9d5ad7c9f8a609e.mp3",
+    "audio/c2f4b6a62735514129c5.mp3"
   ],
   [
     "Blue Zone",
@@ -1739,7 +2122,10 @@
     "長壽地區",
     "n.a.",
     "不適用",
-    "2026-09-07"
+    "2026-09-07",
+    "",
+    "audio/ce358fad3ec5ecb28068.mp3",
+    "audio/df16d042ed28fe7208cf.mp3"
   ],
   [
     "well-being",
@@ -1752,7 +2138,10 @@
     "健康狀態；福祉",
     "distress",
     "痛苦；壓力",
-    "2026-09-07"
+    "2026-09-07",
+    "—",
+    "audio/5148a95355da7073263e.mp3",
+    "audio/29a7be75999fe35ccca2.mp3"
   ],
   [
     "health-related quality of life",
@@ -1765,7 +2154,10 @@
     "健康生活品質",
     "poor health condition",
     "不佳的健康狀態",
-    "2026-09-07"
+    "2026-09-07",
+    "",
+    "audio/481bad901afe49650c24.mp3",
+    "audio/3334fd7360145138fa58.mp3"
   ],
   [
     "comprise",
@@ -1778,7 +2170,10 @@
     "包含；由...構成",
     "exclude",
     "排除",
-    "2026-09-07"
+    "2026-09-07",
+    "Verb: comprise, comprises, comprised, comprising",
+    "audio/7c96597c1875aa36b55e.mp3",
+    "audio/441519af29ad2fb25e8d.mp3"
   ],
   [
     "neighboring",
@@ -1791,7 +2186,10 @@
     "附近的；相鄰的",
     "distant",
     "遙遠的",
-    "2026-09-07"
+    "2026-09-07",
+    "Noun: neighbor, neighborhood; Verb: neighbor; Adjective: neighboring",
+    "audio/bf0cd3530e9447412c6b.mp3",
+    "audio/d891f6bdd4a7ee18c48e.mp3"
   ],
   [
     "responsible",
@@ -1804,7 +2202,10 @@
     "可靠的；負責的",
     "irresponsible",
     "不負責任的",
-    "2026-09-07"
+    "2026-09-07",
+    "Noun: responsibility; Adjective: responsible; Adverb: responsibly",
+    "audio/81df2700ec21d2678976.mp3",
+    "audio/2c07a70618d1b2ce705e.mp3"
   ],
   [
     "organized",
@@ -1817,7 +2218,10 @@
     "有秩序的；有結構的",
     "disorganized",
     "沒有條理的",
-    "2026-09-07"
+    "2026-09-07",
+    "Noun: organization, organizer; Verb: organize, organizes, organized, organizing; Adjective: organized, organizational; Adverb: organizationally",
+    "audio/cf59a5b367286a424ada.mp3",
+    "audio/1bf4d759fcbf7d43d2e0.mp3"
   ],
   [
     "open to new experiences",
@@ -1830,7 +2234,10 @@
     "好奇的；願意嘗試新事物的",
     "closed-minded",
     "封閉保守的",
-    "2026-09-07"
+    "2026-09-07",
+    "",
+    "audio/a2f358bce3999c841af2.mp3",
+    "audio/dbad29b61a469bda4f9b.mp3"
   ],
   [
     "deal with",
@@ -1843,7 +2250,10 @@
     "處理；應對",
     "avoid",
     "逃避",
-    "2026-09-07"
+    "2026-09-07",
+    "",
+    "audio/15131cac57e61dc128fb.mp3",
+    "audio/e583777aae5be30af8dc.mp3"
   ],
   [
     "hobby",
@@ -1856,7 +2266,10 @@
     "休閒活動；興趣",
     "obligation",
     "義務",
-    "2026-09-07"
+    "2026-09-07",
+    "Noun: hobby, hobbyist; Plural: hobbies",
+    "audio/d3d8953c4f966a845fca.mp3",
+    "audio/285d8be28317b80c60ef.mp3"
   ],
   [
     "physical limitation",
@@ -1869,7 +2282,10 @@
     "身體上的限制",
     "physical ability",
     "身體能力",
-    "2026-09-07"
+    "2026-09-07",
+    "",
+    "audio/b353d3a057189ce93dc2.mp3",
+    "audio/204a29ccc079365a5be4.mp3"
   ],
   [
     "skip meals",
@@ -1882,7 +2298,10 @@
     "錯過用餐；沒吃飯",
     "eat regularly",
     "規律吃飯",
-    "2026-09-07"
+    "2026-09-07",
+    "",
+    "audio/30b7b5971710383a1ebc.mp3",
+    "audio/517399e2723f82a25a77.mp3"
   ],
   [
     "regularly",
@@ -1895,7 +2314,10 @@
     "持續地；例行地",
     "irregularly",
     "不規律地",
-    "2026-09-07"
+    "2026-09-07",
+    "Noun: regularity; Adjective: regular; Adverb: regularly",
+    "audio/900b782375d4ce5007a6.mp3",
+    "audio/0901a581ffce56e6778e.mp3"
   ],
   [
     "maintain energy",
@@ -1908,7 +2330,10 @@
     "保持能量；維持精力",
     "lose energy",
     "失去能量",
-    "2026-09-07"
+    "2026-09-07",
+    "",
+    "audio/a1a816ddffbc311273fd.mp3",
+    "audio/2270ba25be1feeb88699.mp3"
   ],
   [
     "productive",
@@ -1921,7 +2346,10 @@
     "有效率的；有效的",
     "unproductive",
     "沒有效率的",
-    "2026-09-07"
+    "2026-09-07",
+    "Noun: product, production, productivity; Verb: produce; Adjective: productive; Adverb: productively",
+    "audio/a9dbd2750dd7276a9026.mp3",
+    "audio/ffcf75bc3e4dfb1f05ca.mp3"
   ],
   [
     "eat up",
@@ -1934,7 +2362,10 @@
     "完成；吃光",
     "leave unfinished",
     "留下未完成",
-    "2026-09-07"
+    "2026-09-07",
+    "",
+    "audio/9c51150d3bde91fd2105.mp3",
+    "audio/15c66c0dc83a04904579.mp3"
   ],
   [
     "fill up",
@@ -1947,7 +2378,10 @@
     "滿足飢餓；變飽",
     "stay hungry",
     "保持飢餓",
-    "2026-09-07"
+    "2026-09-07",
+    "",
+    "audio/f500f92fcb885b13a39a.mp3",
+    "audio/4c45acfdb47bd3f93de1.mp3"
   ],
   [
     "warm up",
@@ -1960,7 +2394,10 @@
     "加熱；準備",
     "cool down",
     "冷卻",
-    "2026-09-07"
+    "2026-09-07",
+    "",
+    "audio/38a8a2d11af1ed281619.mp3",
+    "audio/03a0cecad9e3c9802537.mp3"
   ],
   [
     "go without",
@@ -1973,7 +2410,10 @@
     "沒有也能應付",
     "have, receive",
     "擁有；收到",
-    "2026-09-07"
+    "2026-09-07",
+    "",
+    "audio/f10b7e12d45053fd5319.mp3",
+    "audio/00076bfb783d763dcf5e.mp3"
   ],
   [
     "ample time",
@@ -1986,7 +2426,10 @@
     "很多時間",
     "insufficient time",
     "不足的時間",
-    "2026-09-10"
+    "2026-09-10",
+    "",
+    "audio/f94e5383b1c29ccf0067.mp3",
+    "audio/03de3a69ed6d3d40f286.mp3"
   ],
   [
     "procrastination",
@@ -1999,7 +2442,10 @@
     "把事情延後",
     "prompt action",
     "及時行動",
-    "2026-09-10"
+    "2026-09-10",
+    "Verb: procrastinate; Noun: procrastination, procrastinator",
+    "audio/8fa796740f11c596f9b2.mp3",
+    "audio/b155262f88a5823d9413.mp3"
   ],
   [
     "put off",
@@ -2012,7 +2458,10 @@
     "延後；延遲",
     "bring forward",
     "將時間提前",
-    "2026-09-10"
+    "2026-09-10",
+    "",
+    "audio/cdac103932e67b14f220.mp3",
+    "audio/d2ea07be86a4213cc337.mp3"
   ],
   [
     "at the last minute",
@@ -2025,7 +2474,10 @@
     "就在期限之前",
     "well in advance",
     "早早地；提前很久",
-    "2026-09-10"
+    "2026-09-10",
+    "",
+    "audio/fe2e8cf09e07cc5f8fc9.mp3",
+    "audio/94d468dac75db8b28352.mp3"
   ],
   [
     "delay",
@@ -2038,7 +2490,10 @@
     "延後；拖延",
     "advance",
     "使提前",
-    "2026-09-10"
+    "2026-09-10",
+    "Noun: delay; Verb: delay, delays, delayed, delaying; Adjective: delayed, delaying",
+    "audio/153ced033022c74a669d.mp3",
+    "audio/a8cbc6cb9be011da4b48.mp3"
   ],
   [
     "motivated",
@@ -2051,7 +2506,10 @@
     "有幹勁的；熱切的",
     "unmotivated",
     "沒有動力的",
-    "2026-09-10"
+    "2026-09-10",
+    "Verb: motivate; Noun: motivation, motivator; Adjective: motivated, motivating, motivational",
+    "audio/c7f731488b8f94cad504.mp3",
+    "audio/cd59cbb0ba6cd5380797.mp3"
   ],
   [
     "deadline",
@@ -2062,9 +2520,12 @@
     "我需要在截止期限前完成報告。",
     "due date, time limit",
     "到期日；時間限制",
-    "",
-    "",
-    "2026-09-10"
+    "—",
+    "—",
+    "2026-09-10",
+    "—",
+    "audio/fc213383e11e0eddcbc1.mp3",
+    "audio/6efed85f24c4408f1556.mp3"
   ],
   [
     "stressed",
@@ -2077,7 +2538,10 @@
     "承受壓力；緊繃的",
     "relaxed",
     "放鬆的",
-    "2026-09-10"
+    "2026-09-10",
+    "Noun: stress; Verb: stress, stresses, stressed, stressing; Adjective: stressed, stressful; Adverb: stressfully",
+    "audio/a3dbf4895fa3fa087a15.mp3",
+    "audio/1574bfcc835e8a337dc5.mp3"
   ],
   [
     "worried",
@@ -2090,7 +2554,10 @@
     "擔憂的；焦慮的",
     "unconcerned",
     "不擔心的",
-    "2026-09-10"
+    "2026-09-10",
+    "Noun: worry; Verb: worry, worries, worried, worrying; Adjective: worried, worrying",
+    "audio/35bb332aef0a75787cc7.mp3",
+    "audio/8ccd00b9d07da9af38d0.mp3"
   ],
   [
     "affect",
@@ -2101,9 +2568,12 @@
     "睡眠不足會影響我的專注力。",
     "influence, have an effect on",
     "影響；對某事產生作用",
-    "",
-    "",
-    "2026-09-10"
+    "—",
+    "—",
+    "2026-09-10",
+    "Verb: affect, affects, affected, affecting; Adjective: affected, affective",
+    "audio/271add652e049f35780e.mp3",
+    "audio/5ec30795f91143327d36.mp3"
   ],
   [
     "quality",
@@ -2114,9 +2584,12 @@
     "匆忙做事可能降低我的工作品質。",
     "standard, level of excellence",
     "水準；優良程度",
-    "",
-    "",
-    "2026-09-10"
+    "—",
+    "—",
+    "2026-09-10",
+    "Noun: quality; Adjective: qualitative; Adverb: qualitatively",
+    "audio/9ac687e48304a5ba202a.mp3",
+    "audio/fa227b4fe678d7aa1d27.mp3"
   ],
   [
     "rush through",
@@ -2129,7 +2602,10 @@
     "匆匆完成",
     "take one's time with",
     "從容仔細地處理",
-    "2026-09-10"
+    "2026-09-10",
+    "",
+    "audio/9f086203562d00372e25.mp3",
+    "audio/11579173a52eb392a257.mp3"
   ],
   [
     "make a mistake",
@@ -2142,7 +2618,10 @@
     "犯下錯誤",
     "get it right",
     "做對；答對",
-    "2026-09-10"
+    "2026-09-10",
+    "",
+    "audio/94f01469efe286bd3107.mp3",
+    "audio/8281d40ef3f6dac390e9.mp3"
   ],
   [
     "manage one's time",
@@ -2155,7 +2634,10 @@
     "安排自己的行程",
     "waste time",
     "浪費時間",
-    "2026-09-10"
+    "2026-09-10",
+    "",
+    "audio/ff9e6816fa83e24cb0c8.mp3",
+    "audio/4e86104b06e873ed7c2a.mp3"
   ],
   [
     "on time",
@@ -2168,7 +2650,10 @@
     "準時地；依預定時間",
     "late, behind schedule",
     "遲到地；落後進度",
-    "2026-09-10"
+    "2026-09-10",
+    "",
+    "audio/bd99adfd1c2ed080cf5d.mp3",
+    "audio/eabb685683f219fad1cb.mp3"
   ],
   [
     "confident",
@@ -2181,7 +2666,10 @@
     "有自信的；篤定的",
     "insecure, unsure",
     "缺乏自信的；不確定的",
-    "2026-09-10"
+    "2026-09-10",
+    "Noun: confidence; Adjective: confident; Adverb: confidently",
+    "audio/bcd44787ee5f4fcf05b5.mp3",
+    "audio/db01def9e91aeef64063.mp3"
   ],
   [
     "get around to",
@@ -2194,7 +2682,10 @@
     "終於找到時間處理",
     "keep putting off",
     "一直拖延",
-    "2026-09-10"
+    "2026-09-10",
+    "",
+    "audio/25a3760eebd9dc444ccf.mp3",
+    "audio/d7635b53996aebeab3cc.mp3"
   ],
   [
     "work on",
@@ -2205,9 +2696,12 @@
     "我需要努力改善英語發音。",
     "focus on, spend time improving",
     "專注於；花時間改善",
+    "—",
+    "—",
+    "2026-09-10",
     "",
-    "",
-    "2026-09-10"
+    "audio/6d595e72509da6875dec.mp3",
+    "audio/5a923b52b03852e377df.mp3"
   ],
   [
     "carry out",
@@ -2220,7 +2714,10 @@
     "執行；實施",
     "abandon",
     "放棄執行（情境對比）",
-    "2026-09-10"
+    "2026-09-10",
+    "",
+    "audio/04f0f388c1835fae17de.mp3",
+    "audio/6a34a796f5b4ec349ed2.mp3"
   ],
   [
     "catch up on",
@@ -2233,7 +2730,10 @@
     "補到最新進度",
     "fall behind on",
     "在某事上落後",
-    "2026-09-10"
+    "2026-09-10",
+    "",
+    "audio/25aa7c66ee9d75a862a1.mp3",
+    "audio/43c57ebe0a4be6eea633.mp3"
   ],
   [
     "accurate",
@@ -2246,7 +2746,10 @@
     "正確的；精確的",
     "inaccurate",
     "不準確的",
-    "2026-09-10"
+    "2026-09-10",
+    "Noun: accuracy; Adjective: accurate; Adverb: accurately",
+    "audio/3795e5889f2106033ad1.mp3",
+    "audio/104dbd8aff23df6a3cca.mp3"
   ],
   [
     "substantial",
@@ -2259,7 +2762,10 @@
     "相當多的；顯著的",
     "negligible, minor",
     "微不足道的；輕微的",
-    "2026-09-10"
+    "2026-09-10",
+    "Noun: substance, substantiality; Adjective: substantial; Adverb: substantially",
+    "audio/47f2ba4e1daf2c2f56b2.mp3",
+    "audio/7e34dbefc63b1100861d.mp3"
   ],
   [
     "beneficial",
@@ -2272,7 +2778,10 @@
     "有幫助的；有利的",
     "harmful, detrimental",
     "有害的；不利的",
-    "2026-09-10"
+    "2026-09-10",
+    "Noun: benefit; Verb: benefit; Adverb: beneficially",
+    "audio/d898b076f9ce3465dd8b.mp3",
+    "audio/d1dd7ca7a5a5d775b6fb.mp3"
   ],
   [
     "advisable",
@@ -2285,7 +2794,10 @@
     "受到建議的；明智的",
     "inadvisable, unwise",
     "不宜採取的；不明智的",
-    "2026-09-10"
+    "2026-09-10",
+    "Noun: advice; Verb: advise; Adjective: advisable",
+    "audio/4e12256a027e1d642a70.mp3",
+    "audio/721637a6cc372c1ce963.mp3"
   ],
   [
     "helpful",
@@ -2298,7 +2810,10 @@
     "有用的；有益的",
     "unhelpful",
     "沒有幫助的",
-    "2026-09-10"
+    "2026-09-10",
+    "Noun: help; Verb: help; Adverb: helpfully",
+    "audio/e93810b103b1ce58d80c.mp3",
+    "audio/6af5cd882f6923ce93b4.mp3"
   ],
   [
     "exactly right",
@@ -2311,7 +2826,10 @@
     "完全正確",
     "completely wrong",
     "完全錯誤",
-    "2026-09-10"
+    "2026-09-10",
+    "",
+    "audio/dfb745aff6c46c8c14a8.mp3",
+    "audio/84a6226e85e8c8cba744.mp3"
   ],
   [
     "a lot",
@@ -2324,7 +2842,10 @@
     "很多；經常（視句意）",
     "a little, rarely",
     "一點點；很少（視句意）",
-    "2026-09-10"
+    "2026-09-10",
+    "",
+    "audio/797557d9d3119b407ed4.mp3",
+    "audio/30aee3ffbe324e7f10ff.mp3"
   ],
   [
     "a good thing to do",
@@ -2337,7 +2858,10 @@
     "明智的做法",
     "a bad idea",
     "不好的主意",
-    "2026-09-10"
+    "2026-09-10",
+    "",
+    "audio/594653c07c457163c48e.mp3",
+    "audio/e250d1804de3ac010a27.mp3"
   ],
   [
     "in advance",
@@ -2350,7 +2874,10 @@
     "提前；事先",
     "at the last minute",
     "在最後一刻",
-    "2026-09-10"
+    "2026-09-10",
+    "",
+    "audio/4bd53133fa3afe46ab7c.mp3",
+    "audio/b8debdf9d2952a5e226d.mp3"
   ],
   [
     "semester",
@@ -2361,9 +2888,12 @@
     "昨天是我新學期的第二天。",
     "academic term",
     "學期",
-    "",
-    "",
-    "2026-09-10"
+    "—",
+    "—",
+    "2026-09-10",
+    "—",
+    "audio/37456206fe0b8c61f243.mp3",
+    "audio/2b4c9894ef75fcc7d60f.mp3"
   ],
   [
     "workload",
@@ -2374,9 +2904,12 @@
     "這門課的課業負擔很輕。",
     "amount of work",
     "工作份量",
-    "",
-    "",
-    "2026-09-10"
+    "—",
+    "—",
+    "2026-09-10",
+    "—",
+    "audio/ad6883460ede52dad588.mp3",
+    "audio/d4b0652d717cf1f7ec4f.mp3"
   ],
   [
     "midterm exam",
@@ -2387,9 +2920,12 @@
     "我們下個月有期中考。",
     "midterm test",
     "期中測驗",
+    "—",
+    "—",
+    "2026-09-10",
     "",
-    "",
-    "2026-09-10"
+    "audio/075786d566def28055fd.mp3",
+    "audio/3a16f40aa58c37a50942.mp3"
   ],
   [
     "approve",
@@ -2402,7 +2938,10 @@
     "授權；給予許可",
     "reject, disapprove",
     "拒絕；不贊成",
-    "2026-09-10"
+    "2026-09-10",
+    "Noun: approval; Verb: approve, approves, approved, approving; Adjective: approved, approving",
+    "audio/c4653157cc02724f9c53.mp3",
+    "audio/973f1759dd5b22ad01a5.mp3"
   ],
   [
     "fulfilled",
@@ -2415,7 +2954,10 @@
     "滿足的；知足的",
     "unfulfilled, dissatisfied",
     "未感滿足的；不滿意的",
-    "2026-09-10"
+    "2026-09-10",
+    "Verb: fulfill; Noun: fulfillment; Adjective: fulfilled, fulfilling",
+    "audio/1d6c6d9289d59c95dfca.mp3",
+    "audio/47c340433a1e42c97031.mp3"
   ],
   [
     "colleague",
@@ -2426,9 +2968,12 @@
     "我練習英語，讓自己能與同事溝通。",
     "coworker",
     "同事",
-    "",
-    "",
-    "2026-09-10"
+    "—",
+    "—",
+    "2026-09-10",
+    "—",
+    "audio/4e8b92c8e6cb5774ec6d.mp3",
+    "audio/e59b18f9321f5838404c.mp3"
   ],
   [
     "dream job",
@@ -2439,9 +2984,12 @@
     "在跨國公司工作會是我夢寐以求的工作。",
     "ideal job",
     "理想的工作",
+    "—",
+    "—",
+    "2026-09-10",
     "",
-    "",
-    "2026-09-10"
+    "audio/c4b834337182e9a511d9.mp3",
+    "audio/e58206b75b63e962b9f1.mp3"
   ],
   [
     "sufficient",
@@ -2454,7 +3002,10 @@
     "足夠的；適量的",
     "insufficient",
     "不足的",
-    "2026-09-10"
+    "2026-09-10",
+    "Noun: sufficiency; Adverb: sufficiently",
+    "audio/461422f3a5a510b3d6c1.mp3",
+    "audio/c89a1718a8ea8b92ca5c.mp3"
   ],
   [
     "insufficient",
@@ -2467,7 +3018,10 @@
     "不足的；不夠的",
     "sufficient, adequate",
     "足夠的；充足的",
-    "2026-09-10"
+    "2026-09-10",
+    "Noun: insufficiency; Adverb: insufficiently",
+    "audio/531406eb11715a38efd3.mp3",
+    "audio/573fbf3c95f4629d950c.mp3"
   ],
   [
     "suffice",
@@ -2480,7 +3034,10 @@
     "足夠；充分",
     "fall short",
     "未達需要；不足",
-    "2026-09-10"
+    "2026-09-10",
+    "Verb: suffice, suffices, sufficed, sufficing; Noun: sufficiency; Adjective: sufficient; Adverb: sufficiently",
+    "audio/bb12247ab5e8fe497657.mp3",
+    "audio/17c37f179d255df8273c.mp3"
   ],
   [
     "advisory",
@@ -2491,9 +3048,12 @@
     "她在這項專案中擔任提供建議的角色。",
     "consultative",
     "諮詢的",
-    "",
-    "",
-    "2026-09-10"
+    "—",
+    "—",
+    "2026-09-10",
+    "Noun: advice, adviser, advisor, advisory; Verb: advise; Adjective: advisory, advisable",
+    "audio/1e33c9b6f79ed70660e3.mp3",
+    "audio/37101b068f3c56eddbce.mp3"
   ],
   [
     "advisor",
@@ -2504,9 +3064,12 @@
     "我會向學業指導老師詢問這門課。",
     "adviser, consultant",
     "顧問；諮詢者",
-    "",
-    "",
-    "2026-09-10"
+    "—",
+    "—",
+    "2026-09-10",
+    "Noun: advice, adviser, advisor, advisory; Verb: advise; Adjective: advisory, advisable",
+    "audio/146928488d234c54bac0.mp3",
+    "audio/6297c93f836485c99ff3.mp3"
   ],
   [
     "carry on",
@@ -2519,7 +3082,10 @@
     "繼續；持續進行",
     "stop, quit",
     "停止；放棄",
-    "2026-09-10"
+    "2026-09-10",
+    "",
+    "audio/0cca4b6ab82377fc856a.mp3",
+    "audio/1e9b992476688bb7899d.mp3"
   ],
   [
     "anxiety",
@@ -2532,7 +3098,10 @@
     "擔憂；不安",
     "calmness",
     "平靜",
-    "2026-09-10"
+    "2026-09-10",
+    "Noun: anxiety; Adjective: anxious; Adverb: anxiously",
+    "audio/135d263627904379faf6.mp3",
+    "audio/2dae935330c87c295592.mp3"
   ],
   [
     "stressful",
@@ -2545,7 +3114,10 @@
     "要求高的；緊張的",
     "relaxing",
     "令人放鬆的",
-    "2026-09-10"
+    "2026-09-10",
+    "Noun: stress; Verb: stress; Adjective: stressful, stressed; Adverb: stressfully",
+    "audio/3f898da6e047bc99c53d.mp3",
+    "audio/bae5d3c5ccb14d3fa435.mp3"
   ],
   [
     "at the end",
@@ -2558,7 +3130,10 @@
     "在最後的部分",
     "at the beginning",
     "在開始時",
-    "2026-09-14"
+    "2026-09-14",
+    "",
+    "audio/3e930a56df6d6de80463.mp3",
+    "audio/8f4a788aa8494f7ac727.mp3"
   ],
   [
     "in the end",
@@ -2571,7 +3146,10 @@
     "最後；最終",
     "initially (time contrast)",
     "起初（時間上的對照）",
-    "2026-09-14"
+    "2026-09-14",
+    "",
+    "audio/02a90636d6a7ae449a30.mp3",
+    "audio/4434837f70fbb706fbad.mp3"
   ],
   [
     "relieve",
@@ -2584,7 +3162,10 @@
     "緩和；減輕",
     "worsen, aggravate",
     "使惡化；加重",
-    "2026-09-14"
+    "2026-09-14",
+    "Verb: relieve, relieves, relieved, relieving; Noun: relief; Adjective: relieved, relieving",
+    "audio/c8c662f4844ee52d4904.mp3",
+    "audio/612a47568f2a7c24abc1.mp3"
   ],
   [
     "relieved",
@@ -2597,7 +3178,10 @@
     "感到安心的",
     "worried, anxious",
     "擔心的；焦慮的",
-    "2026-09-14"
+    "2026-09-14",
+    "Verb: relieve; Noun: relief; Adjective: relieved, relieving",
+    "audio/165d8eadd25b6b600318.mp3",
+    "audio/498fee97d618ba21ec11.mp3"
   ],
   [
     "relief",
@@ -2610,7 +3194,10 @@
     "舒緩；安心",
     "distress",
     "痛苦；焦慮",
-    "2026-09-14"
+    "2026-09-14",
+    "Noun: relief; Verb: relieve; Adjective: relieved, relieving",
+    "audio/443c61838342d65e8118.mp3",
+    "audio/d9a31160a0069ea8101f.mp3"
   ],
   [
     "calm",
@@ -2623,7 +3210,10 @@
     "平和的；沉著的",
     "agitated, anxious",
     "激動的；焦慮的",
-    "2026-09-14"
+    "2026-09-14",
+    "Adjective: calm; Verb: calm; Noun: calmness; Adverb: calmly",
+    "audio/6195810c184788e4300a.mp3",
+    "audio/d0eb18dc28c065fb94ce.mp3"
   ],
   [
     "calm down",
@@ -2636,7 +3226,10 @@
     "放鬆；平靜下來",
     "get worked up",
     "變得激動",
-    "2026-09-14"
+    "2026-09-14",
+    "",
+    "audio/68b98b12cb6e0e26465d.mp3",
+    "audio/ece40cc3be60c8219bc3.mp3"
   ],
   [
     "precise",
@@ -2649,7 +3242,10 @@
     "精確的；具體的",
     "vague, imprecise",
     "模糊的；不精確的",
-    "2026-09-14"
+    "2026-09-14",
+    "Adjective: precise; Adverb: precisely; Noun: precision",
+    "audio/d2b414a4ec86bbd7f8d6.mp3",
+    "audio/39666b3ce9135d66cca7.mp3"
   ],
   [
     "indigenous",
@@ -2662,7 +3258,10 @@
     "原生於某地的",
     "non-native (species context)",
     "非原生的（物種語境）",
-    "2026-09-14"
+    "2026-09-14",
+    "Adjective: indigenous; Noun: indigeneity",
+    "audio/e335e6b2eb61e8aa5aae.mp3",
+    "audio/c260f9de970a7c3c40e4.mp3"
   ],
   [
     "alien",
@@ -2675,7 +3274,10 @@
     "非原生的；引入的",
     "native, indigenous",
     "原生的；本土的",
-    "2026-09-14"
+    "2026-09-14",
+    "Noun: alien, alienation; Verb: alienate; Adjective: alien, alienated",
+    "audio/45ddbb8f4dbda8744641.mp3",
+    "audio/41d22067f3383eed7784.mp3"
   ],
   [
     "non-native",
@@ -2688,7 +3290,10 @@
     "引入的；非原生的",
     "native, indigenous",
     "原生的；本土的",
-    "2026-09-14"
+    "2026-09-14",
+    "—",
+    "audio/28868ec219d835d03aed.mp3",
+    "audio/92568fd3aefa68c36a11.mp3"
   ],
   [
     "a zero-sum game",
@@ -2701,7 +3306,10 @@
     "一方得益等於另一方損失的局面",
     "a positive-sum situation",
     "總收益增加的正和局面",
-    "2026-09-14"
+    "2026-09-14",
+    "",
+    "audio/1aef4da889da766ffc78.mp3",
+    "audio/ad9367a4271cea3b8c6a.mp3"
   ],
   [
     "sightseeing",
@@ -2712,9 +3320,12 @@
     "我們吃完早餐後去觀光。",
     "touring, visiting attractions",
     "遊覽；參觀景點",
-    "",
-    "",
-    "2026-09-14"
+    "—",
+    "—",
+    "2026-09-14",
+    "Verb: sightsee; Noun: sightseeing, sightseer",
+    "audio/5b936fd4170958255df1.mp3",
+    "audio/3993635bde72411f0456.mp3"
   ],
   [
     "takeout",
@@ -2727,7 +3338,10 @@
     "外帶餐點（英式用語）",
     "dine-in food (service contrast)",
     "內用餐點（服務方式對照）",
-    "2026-09-14"
+    "2026-09-14",
+    "—",
+    "audio/880aafb2ecfa8a1841b7.mp3",
+    "audio/fbe5556248111fdf609e.mp3"
   ],
   [
     "deliver",
@@ -2740,7 +3354,10 @@
     "送來；運送",
     "collect, pick up (service contrast)",
     "領取；自取（服務方式對照）",
-    "2026-09-14"
+    "2026-09-14",
+    "Verb: deliver, delivers, delivered, delivering; Noun: delivery, deliverer; Adjective: deliverable",
+    "audio/a628c01aaf5860c760b0.mp3",
+    "audio/794256c31edd794e603b.mp3"
   ],
   [
     "local",
@@ -2753,7 +3370,10 @@
     "地區的；附近的",
     "non-local",
     "非本地的",
-    "2026-09-14"
+    "2026-09-14",
+    "Noun: locality, local; Adjective: local; Adverb: locally",
+    "audio/b92eb14ab923731f4b22.mp3",
+    "audio/7bd66f281c02815f8107.mp3"
   ],
   [
     "deal",
@@ -2766,7 +3386,10 @@
     "划算的交易；優惠",
     "rip-off (value contrast)",
     "不划算或敲竹槓的交易（價值對照）",
-    "2026-09-14"
+    "2026-09-14",
+    "Noun: deal, dealer; Verb: deal, deals, dealt, dealing",
+    "audio/d8cd73a1164ab3b61981.mp3",
+    "audio/a82f34b7963b1283d52c.mp3"
   ],
   [
     "review",
@@ -2777,9 +3400,12 @@
     "選餐廳前，我會閱讀近期評論。",
     "evaluation, assessment",
     "評估；評價",
-    "",
-    "",
-    "2026-09-14"
+    "—",
+    "—",
+    "2026-09-14",
+    "Noun: review, reviewer; Verb: review, reviews, reviewed, reviewing",
+    "audio/0a61534aa361658989ca.mp3",
+    "audio/6d51ed1b164eb8aa17aa.mp3"
   ],
   [
     "vacation",
@@ -2792,7 +3418,10 @@
     "假期；休假",
     "work (activity contrast)",
     "工作（活動上的對照）",
-    "2026-09-14"
+    "2026-09-14",
+    "Noun: vacation, vacationer; Verb: vacation",
+    "audio/390f866b7a38f833dfc9.mp3",
+    "audio/98ee433638f4b58b84a7.mp3"
   ],
   [
     "survey",
@@ -2803,9 +3432,12 @@
     "這項調查詢問成年人有關旅遊計畫的問題。",
     "poll, questionnaire study",
     "民意調查；問卷研究",
-    "",
-    "",
-    "2026-09-14"
+    "—",
+    "—",
+    "2026-09-14",
+    "Noun: survey, surveyor; Verb: survey, surveys, surveyed, surveying",
+    "audio/d79cbc8aea7dd4aa012b.mp3",
+    "audio/541351618dfdb65bc870.mp3"
   ],
   [
     "overnight trip",
@@ -2818,7 +3450,10 @@
     "包含過夜住宿的旅行",
     "day trip",
     "當天來回的旅行",
-    "2026-09-14"
+    "2026-09-14",
+    "",
+    "audio/d573ca49c616a3596b5b.mp3",
+    "audio/ec713fc4720678c7b40e.mp3"
   ],
   [
     "drive-thru",
@@ -2829,9 +3464,12 @@
     "去飯店的路上，我們使用了得來速服務。",
     "drive-through service",
     "免下車服務",
-    "",
-    "",
-    "2026-09-14"
+    "—",
+    "—",
+    "2026-09-14",
+    "—",
+    "audio/ab2d1d14c33250ad6fbb.mp3",
+    "audio/19de3b42db56073b9dd0.mp3"
   ],
   [
     "dine in",
@@ -2844,7 +3482,10 @@
     "在餐廳內用餐",
     "get takeout",
     "買外帶餐點",
-    "2026-09-14"
+    "2026-09-14",
+    "",
+    "audio/7df6dd67131c93eb0c8c.mp3",
+    "audio/ea44c75c81310d0f857e.mp3"
   ],
   [
     "local cuisine",
@@ -2855,9 +3496,12 @@
     "嘗試當地料理是旅遊體驗的一部分。",
     "regional food",
     "地方食物",
+    "—",
+    "—",
+    "2026-09-14",
     "",
-    "",
-    "2026-09-14"
+    "audio/0dd78e71f784b9b7070c.mp3",
+    "audio/03e86ebb521a15680604.mp3"
   ],
   [
     "discount",
@@ -2870,7 +3514,10 @@
     "降價",
     "surcharge",
     "額外費用；附加費",
-    "2026-09-14"
+    "2026-09-14",
+    "Noun: discount; Verb: discount, discounts, discounted, discounting; Adjective: discounted",
+    "audio/9b853c811d2c83b9a941.mp3",
+    "audio/f37ad9de9beb8302e637.mp3"
   ],
   [
     "special deal",
@@ -2881,9 +3528,12 @@
     "我們找到一個雙人優惠方案。",
     "special offer, promotion",
     "特別優惠；促銷",
+    "—",
+    "—",
+    "2026-09-14",
     "",
-    "",
-    "2026-09-14"
+    "audio/1f701ee1297545b61791.mp3",
+    "audio/b6de23b76832684c3627.mp3"
   ],
   [
     "recommend",
@@ -2896,7 +3546,10 @@
     "建議；認可推薦",
     "advise against",
     "建議不要",
-    "2026-09-14"
+    "2026-09-14",
+    "Verb: recommend, recommends, recommended, recommending; Noun: recommendation; Adjective: recommendable",
+    "audio/e24e0888a97e37d56904.mp3",
+    "audio/fe43bbcc0ddcf03b44ba.mp3"
   ],
   [
     "hotel staff",
@@ -2907,9 +3560,12 @@
     "飯店人員推薦了一家附近的咖啡店。",
     "hotel employees",
     "飯店員工",
+    "—",
+    "—",
+    "2026-09-14",
     "",
-    "",
-    "2026-09-14"
+    "audio/36b9f5df56480de61e4b.mp3",
+    "audio/1686117f6a28dbdf6bdd.mp3"
   ],
   [
     "along the way",
@@ -2920,9 +3576,12 @@
     "我們沿途嘗試了幾種當地點心。",
     "on the way, during the journey",
     "在路上；旅途中",
+    "—",
+    "—",
+    "2026-09-14",
     "",
-    "",
-    "2026-09-14"
+    "audio/38d15f50da5ebe8c084e.mp3",
+    "audio/74948dd627ab0640c8fe.mp3"
   ],
   [
     "put something first",
@@ -2935,7 +3594,10 @@
     "將某事列為優先",
     "put something last",
     "將某事放在最後考慮",
-    "2026-09-14"
+    "2026-09-14",
+    "",
+    "audio/efd105dd16ccf32d2e0f.mp3",
+    "audio/67a6180e7e1ccc5167c4.mp3"
   ],
   [
     "nearly",
@@ -2946,9 +3608,12 @@
     "接近八成的旅客想嘗試當地食物。",
     "almost, close to",
     "幾乎；接近",
-    "",
-    "",
-    "2026-09-14"
+    "—",
+    "—",
+    "2026-09-14",
+    "Adjective: near; Adverb: near, nearly; Noun: nearness; Verb: near",
+    "audio/5c5efa21079174ee6f44.mp3",
+    "audio/ae95db1c42b948c92a5e.mp3"
   ],
   [
     "eight out of ten",
@@ -2959,9 +3624,12 @@
     "我們這組有八成的人選擇同一道菜。",
     "80 percent",
     "百分之八十",
+    "—",
+    "—",
+    "2026-09-14",
     "",
-    "",
-    "2026-09-14"
+    "audio/b1164d69a4380a9dd41c.mp3",
+    "audio/ff6ee952089be331f9e3.mp3"
   ],
   [
     "have food delivered",
@@ -2974,7 +3642,10 @@
     "訂餐並請人外送",
     "pick up food oneself",
     "自己去取餐",
-    "2026-09-14"
+    "2026-09-14",
+    "",
+    "audio/471fa9d9af545e6a4604.mp3",
+    "audio/9d07c1151915d29dc1a5.mp3"
   ],
   [
     "on vacation",
@@ -2987,7 +3658,10 @@
     "在度假（英式用語）",
     "at work",
     "在工作",
-    "2026-09-14"
+    "2026-09-14",
+    "",
+    "audio/753e260082e8f2280da3.mp3",
+    "audio/7aea7a123d9dbfbcc5ae.mp3"
   ],
   [
     "a ton of",
@@ -3000,7 +3674,10 @@
     "很多；大量",
     "a small amount of",
     "少量的",
-    "2026-09-14"
+    "2026-09-14",
+    "",
+    "audio/a54a71090cb143a24732.mp3",
+    "audio/0239e1d2608a65ac6d32.mp3"
   ],
   [
     "tons of",
@@ -3013,7 +3690,10 @@
     "很多；充足的",
     "very few, very little",
     "極少（依可數或不可數名詞選擇）",
-    "2026-09-14"
+    "2026-09-14",
+    "",
+    "audio/6701dcb9481c62576294.mp3",
+    "audio/c63579b41c95ac51ef98.mp3"
   ],
   [
     "stunning",
@@ -3026,7 +3706,10 @@
     "美得令人屏息的；壯觀的",
     "unimpressive",
     "不起眼的；不令人印象深刻的",
-    "2026-09-14"
+    "2026-09-14",
+    "Verb: stun; Noun: stun, stunning; Adjective: stunning, stunned; Adverb: stunningly",
+    "audio/c9571df68bd7986479ed.mp3",
+    "audio/9dc252d95f3232c9349e.mp3"
   ],
   [
     "scenery",
@@ -3037,9 +3720,12 @@
     "搭火車旅行時，我喜歡欣賞沿途風景。",
     "landscape, natural surroundings",
     "地景；自然環境",
-    "",
-    "",
-    "2026-09-14"
+    "—",
+    "—",
+    "2026-09-14",
+    "Noun: scenery; Adjective: scenic; Adverb: scenically",
+    "audio/361476d2bf103c8c4e7f.mp3",
+    "audio/400ee6a37d3f0a117f4d.mp3"
   ],
   [
     "work out",
@@ -3050,9 +3736,12 @@
     "我星期六做了運動。",
     "exercise, train",
     "運動；訓練",
+    "—",
+    "—",
+    "2026-09-14",
     "",
-    "",
-    "2026-09-14"
+    "audio/b9c17015ed60bab83605.mp3",
+    "audio/835bd5824e29605f0d00.mp3"
   ],
   [
     "part-time job",
@@ -3065,7 +3754,10 @@
     "兼職工作",
     "full-time job",
     "全職工作",
-    "2026-09-14"
+    "2026-09-14",
+    "",
+    "audio/3cddc4ede21dc921ff44.mp3",
+    "audio/cf1f74e8d02f9789cd06.mp3"
   ],
   [
     "food delivery",
@@ -3078,7 +3770,10 @@
     "餐點配送",
     "customer pickup",
     "顧客自取",
-    "2026-09-14"
+    "2026-09-14",
+    "",
+    "audio/2c9b13573c625b346ebe.mp3",
+    "audio/606fcad58a543f85d8f5.mp3"
   ],
   [
     "take orders",
@@ -3089,9 +3784,12 @@
     "我在餐廳負責接單和製作飲料。",
     "accept orders",
     "接受訂單",
+    "—",
+    "—",
+    "2026-09-14",
     "",
-    "",
-    "2026-09-14"
+    "audio/22c76b25281a31d596ca.mp3",
+    "audio/3c6c03d6e14dac1c3425.mp3"
   ],
   [
     "hectic schedule",
@@ -3104,7 +3802,10 @@
     "忙碌的行程",
     "relaxed schedule",
     "輕鬆的行程",
-    "2026-09-14"
+    "2026-09-14",
+    "",
+    "audio/1d305fa91fcce5bf06cb.mp3",
+    "audio/9fb3fbab704bbe470750.mp3"
   ],
   [
     "grateful",
@@ -3117,7 +3818,10 @@
     "感謝的；心懷感激的",
     "ungrateful",
     "不知感恩的",
-    "2026-09-14"
+    "2026-09-14",
+    "Adverb: gratefully; Noun: gratitude",
+    "audio/b345b74d842fba535633.mp3",
+    "audio/043ca8140db4ae586c3e.mp3"
   ],
   [
     "make sure",
@@ -3128,9 +3832,12 @@
     "我會確保自己有足夠的時間上課。",
     "ensure, check",
     "確保；檢查",
+    "—",
+    "—",
+    "2026-09-14",
     "",
-    "",
-    "2026-09-14"
+    "audio/0647174472f9e54149c8.mp3",
+    "audio/955017c90890024408d3.mp3"
   ],
   [
     "find one's way",
@@ -3143,7 +3850,10 @@
     "辨明方向；找到正確路線",
     "get lost",
     "迷路",
-    "2026-09-14"
+    "2026-09-14",
+    "",
+    "audio/2ed9dd8dbc4b1f760273.mp3",
+    "audio/8d77c84fae809c4fb36e.mp3"
   ],
   [
     "price range",
@@ -3154,9 +3864,12 @@
     "你在找哪個價位的選擇？",
     "price bracket",
     "價格區間",
+    "—",
+    "—",
+    "2026-09-14",
     "",
-    "",
-    "2026-09-14"
+    "audio/6d6f3b85972774631a93.mp3",
+    "audio/3f7a704a99de756695c7.mp3"
   ],
   [
     "day off",
@@ -3169,7 +3882,10 @@
     "休息日；空閒的一天",
     "workday",
     "工作日",
-    "2026-09-14"
+    "2026-09-14",
+    "",
+    "audio/21a02f27de827ce32c74.mp3",
+    "audio/28f9791e552712352cab.mp3"
   ],
   [
     "fresh",
@@ -3182,7 +3898,10 @@
     "神清氣爽的、有活力的",
     "tired, stale",
     "疲憊的、不新鮮的",
-    "2026-09-17"
+    "2026-09-17",
+    "Adverb: freshly; Noun: freshness",
+    "audio/75eadf0ab7412923d5c4.mp3",
+    "audio/1062c7e16592062bb9d6.mp3"
   ],
   [
     "room for improvement",
@@ -3195,7 +3914,10 @@
     "可再提升的可能",
     "perfection",
     "完美",
-    "2026-09-17"
+    "2026-09-17",
+    "",
+    "audio/3b93f0422dbc014cd2ec.mp3",
+    "audio/207eec5d38d9ed55b01b.mp3"
   ],
   [
     "gain",
@@ -3208,7 +3930,10 @@
     "獲得、取得",
     "lose",
     "失去",
-    "2026-09-17"
+    "2026-09-17",
+    "Noun: gain; Adjective: gainful; Verb forms: gains, gained, gaining",
+    "audio/1a79639f89ca68683c3c.mp3",
+    "audio/35eaf43d30ed9108901a.mp3"
   ],
   [
     "period",
@@ -3219,9 +3944,12 @@
     "學期的第一段時期通常很吃力。",
     "phase, span",
     "階段、時段",
-    "",
-    "",
-    "2026-09-17"
+    "—",
+    "—",
+    "2026-09-17",
+    "Adjective: periodic; Adverb: periodically",
+    "audio/4e61ea12f7372c0425c6.mp3",
+    "audio/6bf8cfe7193910b3c3e4.mp3"
   ],
   [
     "busy period",
@@ -3234,7 +3962,10 @@
     "繁忙時段、旺季",
     "quiet period",
     "清閒時期",
-    "2026-09-17"
+    "2026-09-17",
+    "",
+    "audio/2391acb26ed11bbfd99e.mp3",
+    "audio/c47eab68ed23672f3065.mp3"
   ],
   [
     "full of excitement",
@@ -3247,7 +3978,10 @@
     "興奮的、激動的",
     "calm, bored",
     "平靜的、無聊的",
-    "2026-09-17"
+    "2026-09-17",
+    "",
+    "audio/9f0d672fe538ca8942a6.mp3",
+    "audio/8d73a706787d944c9000.mp3"
   ],
   [
     "acquire",
@@ -3260,7 +3994,10 @@
     "獲得、取得",
     "lose, relinquish",
     "失去、放棄",
-    "2026-09-17"
+    "2026-09-17",
+    "Noun: acquisition; Noun: acquirer; Verb forms: acquires, acquired, acquiring",
+    "audio/d2d902ba4e49b9a0d7a5.mp3",
+    "audio/460c9081c9669dd3b91d.mp3"
   ],
   [
     "in time",
@@ -3273,7 +4010,10 @@
     "來得及、夠早",
     "too late",
     "太遲",
-    "2026-09-17"
+    "2026-09-17",
+    "",
+    "audio/6a724ff576dee9b169a2.mp3",
+    "audio/70f08c15504358d4c692.mp3"
   ],
   [
     "the early bird catches the worm",
@@ -3284,9 +4024,12 @@
     "我會提早報名，因為早起的鳥兒有蟲吃。",
     "those who act early have an advantage",
     "提早行動的人較有優勢",
+    "—",
+    "—",
+    "2026-09-17",
     "",
-    "",
-    "2026-09-17"
+    "audio/a2db1c76a5798743f83a.mp3",
+    "audio/98097b2955c39ec34a4f.mp3"
   ],
   [
     "mutual friends",
@@ -3299,7 +4042,10 @@
     "彼此共同的朋友",
     "strangers",
     "陌生人",
-    "2026-09-17"
+    "2026-09-17",
+    "",
+    "audio/41aa16b2d1052a346634.mp3",
+    "audio/a6e47eb8ea831d782f1f.mp3"
   ],
   [
     "emotional stress",
@@ -3312,7 +4058,10 @@
     "心理負擔、情緒壓力",
     "emotional ease",
     "情緒放鬆",
-    "2026-09-17"
+    "2026-09-17",
+    "",
+    "audio/d17bbfe30bc4cc4ce905.mp3",
+    "audio/6163ce4b7ba7862b28f4.mp3"
   ],
   [
     "stress-relieving",
@@ -3325,7 +4074,10 @@
     "令人放鬆的、舒緩的",
     "stressful",
     "令人有壓力的",
-    "2026-09-17"
+    "2026-09-17",
+    "—",
+    "audio/429bacf423236b84bd48.mp3",
+    "audio/59ba2de1e32e9777513d.mp3"
   ],
   [
     "carry a burden",
@@ -3338,7 +4090,10 @@
     "承擔重擔",
     "lighten a burden",
     "減輕負擔",
-    "2026-09-17"
+    "2026-09-17",
+    "",
+    "audio/7f8819a1a289e7bb97e5.mp3",
+    "audio/9ed006f98c7001d4099f.mp3"
   ],
   [
     "go hand in hand",
@@ -3351,7 +4106,10 @@
     "緊密相連",
     "be unrelated",
     "彼此無關",
-    "2026-09-17"
+    "2026-09-17",
+    "",
+    "audio/020e7fd2dd7cbdca0492.mp3",
+    "audio/f076fade692bb03ee08a.mp3"
   ],
   [
     "tell apart",
@@ -3364,7 +4122,10 @@
     "辨別、區分",
     "confuse, mix up",
     "混淆、搞混",
-    "2026-09-17"
+    "2026-09-17",
+    "",
+    "audio/3aaaa78cf36c08a89a0c.mp3",
+    "audio/56330aebcbcf1b854e46.mp3"
   ],
   [
     "keep a secret",
@@ -3377,7 +4138,10 @@
     "保密",
     "reveal a secret",
     "洩露秘密",
-    "2026-09-17"
+    "2026-09-17",
+    "",
+    "audio/86d5b23715b085a8693c.mp3",
+    "audio/55d43f59facb4d87a82d.mp3"
   ],
   [
     "private",
@@ -3390,7 +4154,10 @@
     "個人的、機密的",
     "public",
     "公開的",
-    "2026-09-17"
+    "2026-09-17",
+    "Noun: privacy; Adverb: privately",
+    "audio/d12d1222bf747f22135b.mp3",
+    "audio/0deb5d051bca8e2c3532.mp3"
   ],
   [
     "trustworthy",
@@ -3403,7 +4170,10 @@
     "可靠的、可信賴的",
     "untrustworthy",
     "不值得信賴的",
-    "2026-09-17"
+    "2026-09-17",
+    "Noun: trustworthiness; Adverb: trustworthily",
+    "audio/acd695d6d730d570e67b.mp3",
+    "audio/50285fa36da92c4de361.mp3"
   ],
   [
     "privacy",
@@ -3416,7 +4186,10 @@
     "保密性、私人空間",
     "publicity, exposure",
     "公開、暴露",
-    "2026-09-17"
+    "2026-09-17",
+    "Adjective: private",
+    "audio/6521555f7f5a9f523872.mp3",
+    "audio/0a79be23882f0f341ff8.mp3"
   ],
   [
     "confidential",
@@ -3429,7 +4202,10 @@
     "私密的、秘密的",
     "public, disclosed",
     "公開的、已揭露的",
-    "2026-09-17"
+    "2026-09-17",
+    "Noun: confidentiality; Adverb: confidentially",
+    "audio/d32e752091750ba2c0a1.mp3",
+    "audio/2ade05eb8f03f6795914.mp3"
   ],
   [
     "keep someone's confidence",
@@ -3442,7 +4218,10 @@
     "保守某人的秘密",
     "betray someone's confidence",
     "辜負某人的信任",
-    "2026-09-17"
+    "2026-09-17",
+    "",
+    "audio/29bd3cc3457558c18c3c.mp3",
+    "audio/c50634b99f9ebb361c61.mp3"
   ],
   [
     "keep to yourself",
@@ -3455,7 +4234,10 @@
     "保密、不說出",
     "share openly",
     "坦白分享",
-    "2026-09-17"
+    "2026-09-17",
+    "",
+    "audio/e2c256a7ab3ea73a6f62.mp3",
+    "audio/700872e96bf2eab7b275.mp3"
   ],
   [
     "let out",
@@ -3468,7 +4250,10 @@
     "揭露、透露",
     "keep in, conceal",
     "隱瞞、保留",
-    "2026-09-17"
+    "2026-09-17",
+    "",
+    "audio/f30cef346df502dfeb43.mp3",
+    "audio/62c89c8d9253002c7d22.mp3"
   ],
   [
     "give away",
@@ -3481,7 +4266,10 @@
     "揭露、洩漏",
     "conceal, hide",
     "隱瞞、藏起",
-    "2026-09-17"
+    "2026-09-17",
+    "",
+    "audio/eee8c333407aac590f00.mp3",
+    "audio/2bd16d62585671f6afa0.mp3"
   ],
   [
     "stand by",
@@ -3494,7 +4282,10 @@
     "支持、忠於",
     "abandon, desert",
     "拋棄、離棄",
-    "2026-09-17"
+    "2026-09-17",
+    "",
+    "audio/3277c0f939f88970c142.mp3",
+    "audio/358bc253e037671fd053.mp3"
   ],
   [
     "good listener",
@@ -3507,7 +4298,10 @@
     "專心傾聽的人",
     "poor listener",
     "不善傾聽的人",
-    "2026-09-17"
+    "2026-09-17",
+    "",
+    "audio/4815836a85bd03e33a0c.mp3",
+    "audio/ffe489f20122942b6586.mp3"
   ],
   [
     "private information",
@@ -3520,7 +4314,10 @@
     "個人資料、機密資訊",
     "public information",
     "公開資訊",
-    "2026-09-17"
+    "2026-09-17",
+    "",
+    "audio/299f783e4a5316b0b25f.mp3",
+    "audio/6f9cf392a45beb36e7a6.mp3"
   ],
   [
     "build strong relationships",
@@ -3533,7 +4330,10 @@
     "強化人際連結",
     "damage relationships",
     "破壞關係",
-    "2026-09-17"
+    "2026-09-17",
+    "",
+    "audio/da8e8dc6dff7fd176273.mp3",
+    "audio/79dec921e379002714b0.mp3"
   ],
   [
     "impression",
@@ -3544,9 +4344,12 @@
     "我想在面試中留下好印象。",
     "perception, opinion",
     "觀感、看法",
-    "",
-    "",
-    "2026-09-17"
+    "—",
+    "—",
+    "2026-09-17",
+    "Verb: impress; Adjective: impressive; Adverb: impressively",
+    "audio/91abd715f6a70028a4ab.mp3",
+    "audio/3e91ebe58b8db9115b92.mp3"
   ],
   [
     "trait",
@@ -3557,9 +4360,12 @@
     "誠實是一項寶貴的人格特質。",
     "quality, characteristic",
     "特性、特徵",
-    "",
-    "",
-    "2026-09-17"
+    "—",
+    "—",
+    "2026-09-17",
+    "—",
+    "audio/4ddbe29d1b9b8471322b.mp3",
+    "audio/a96fd3b69b32961f16df.mp3"
   ],
   [
     "adaptability",
@@ -3572,7 +4378,10 @@
     "調適能力、靈活性",
     "inflexibility",
     "缺乏彈性",
-    "2026-09-17"
+    "2026-09-17",
+    "Adjective: adaptable; Verb: adapt; Noun: adaptation; Adverb: adaptably",
+    "audio/f39e33e5ab75f02918d4.mp3",
+    "audio/b611d8c3b3c5f52da5a9.mp3"
   ],
   [
     "motivation",
@@ -3585,7 +4394,10 @@
     "驅動力、誘因",
     "discouragement, apathy",
     "洩氣、冷漠",
-    "2026-09-17"
+    "2026-09-17",
+    "Verb: motivate; Noun: motivation, motivator; Adjective: motivated, motivating, motivational",
+    "audio/423be16c23113e614c00.mp3",
+    "audio/ff22785fc528fb936828.mp3"
   ],
   [
     "hiring manager",
@@ -3598,7 +4410,10 @@
     "招募經理",
     "job seeker",
     "求職者",
-    "2026-09-17"
+    "2026-09-17",
+    "",
+    "audio/0808587440eb522960e2.mp3",
+    "audio/ce3995928cc2fa48b746.mp3"
   ],
   [
     "applicant",
@@ -3611,7 +4426,10 @@
     "候選人、求職者",
     "employer",
     "雇主",
-    "2026-09-17"
+    "2026-09-17",
+    "Verb: apply; Noun: application, applicant; Adjective: applicable",
+    "audio/4decc8471e1533cb2d2e.mp3",
+    "audio/8b04ea2897afb4647f3f.mp3"
   ],
   [
     "hiring decision-maker",
@@ -3624,7 +4442,10 @@
     "招募人員、聘用決策者",
     "job applicant",
     "求職申請人",
-    "2026-09-17"
+    "2026-09-17",
+    "",
+    "audio/2a0a2514b73437d79723.mp3",
+    "audio/975412afc50ec67b22cd.mp3"
   ],
   [
     "rely on",
@@ -3637,7 +4458,10 @@
     "依靠、指望",
     "distrust, disregard",
     "不信任、忽視",
-    "2026-09-17"
+    "2026-09-17",
+    "",
+    "audio/a6f368d7920cd2c82aca.mp3",
+    "audio/cfa9d57709df2a3a63bb.mp3"
   ],
   [
     "small talk",
@@ -3650,7 +4474,10 @@
     "隨意交談、閒談",
     "formal discussion",
     "正式討論",
-    "2026-09-17"
+    "2026-09-17",
+    "",
+    "audio/0016bea3032b3b6ad4d4.mp3",
+    "audio/d54f9b1fd1e2a5eba7da.mp3"
   ],
   [
     "first impression",
@@ -3663,7 +4490,10 @@
     "最初印象",
     "final assessment",
     "最終評估",
-    "2026-09-17"
+    "2026-09-17",
+    "",
+    "audio/371d063ac0dcea171368.mp3",
+    "audio/0b8cee78c2a82d4fa470.mp3"
   ],
   [
     "reliability",
@@ -3676,7 +4506,10 @@
     "可靠、穩定",
     "unreliability",
     "不可靠",
-    "2026-09-17"
+    "2026-09-17",
+    "Adjective: reliable; Adverb: reliably; Verb: rely",
+    "audio/cdd421462fc760541a4b.mp3",
+    "audio/24de6ec401e1cf1d5d74.mp3"
   ],
   [
     "honesty",
@@ -3689,7 +4522,10 @@
     "真誠、正直",
     "dishonesty",
     "不誠實",
-    "2026-09-17"
+    "2026-09-17",
+    "Adjective: honest; Adverb: honestly; Noun: dishonesty",
+    "audio/b0b889c6f99858b4d995.mp3",
+    "audio/6903963608b7411bff87.mp3"
   ],
   [
     "self-motivation",
@@ -3702,7 +4538,10 @@
     "主動性、內在動力",
     "lack of initiative",
     "缺乏主動性",
-    "2026-09-17"
+    "2026-09-17",
+    "—",
+    "audio/8777d00341217c9e7bf6.mp3",
+    "audio/b27dd3a18aeab7f08b39.mp3"
   ],
   [
     "advance one's career",
@@ -3715,7 +4554,10 @@
     "在職涯上進步",
     "stall one's career",
     "使職涯停滯",
-    "2026-09-17"
+    "2026-09-17",
+    "",
+    "audio/89da1c3dbc228e549e86.mp3",
+    "audio/9debd41829d311a769a1.mp3"
   ],
   [
     "come across",
@@ -3726,9 +4568,12 @@
     "她給人的感覺是自信且準備充分。",
     "seem, appear",
     "看起來、顯得",
+    "—",
+    "—",
+    "2026-09-17",
     "",
-    "",
-    "2026-09-17"
+    "audio/18cf5d2c795cbb715eaa.mp3",
+    "audio/49a25e718e446a724f69.mp3"
   ],
   [
     "job seeker",
@@ -3741,7 +4586,10 @@
     "候選人、應徵者",
     "employer",
     "雇主",
-    "2026-09-17"
+    "2026-09-17",
+    "",
+    "audio/cb66909058860230e5cc.mp3",
+    "audio/cf968cf2934f2b6dcd0e.mp3"
   ],
   [
     "informal interaction",
@@ -3754,7 +4602,10 @@
     "隨意的交流",
     "formal interview",
     "正式面試",
-    "2026-09-17"
+    "2026-09-17",
+    "",
+    "audio/b65fccc4edb93e1ef65c.mp3",
+    "audio/c908c5681b1c9b250a9a.mp3"
   ],
   [
     "personality test",
@@ -3765,9 +4616,12 @@
     "有些公司在招募時會使用人格測驗。",
     "personality assessment",
     "人格評估",
+    "—",
+    "—",
+    "2026-09-17",
     "",
-    "",
-    "2026-09-17"
+    "audio/29207f78e6194e4ffee3.mp3",
+    "audio/5c158e6cad0c195d42e9.mp3"
   ],
   [
     "company culture",
@@ -3778,9 +4632,12 @@
     "主管會考量候選人是否適合公司文化。",
     "workplace culture, organizational culture",
     "職場文化、組織文化",
+    "—",
+    "—",
+    "2026-09-17",
     "",
-    "",
-    "2026-09-17"
+    "audio/dae61ff6a5ef1493e513.mp3",
+    "audio/65c554f239dd1a4220c0.mp3"
   ],
   [
     "position",
@@ -3793,7 +4650,10 @@
     "位置、角色",
     "displacement, unemployment",
     "偏離；失業",
-    "2026-09-21"
+    "2026-09-21",
+    "Verb: position; Adjective: positional; Adverb: positionally",
+    "audio/e78eb70bdcb1bb645900.mp3",
+    "audio/4fda43b95da5bd953f6e.mp3"
   ],
   [
     "in no time",
@@ -3806,7 +4666,10 @@
     "非常迅速、不久後",
     "after a long time",
     "過了很久",
-    "2026-09-21"
+    "2026-09-21",
+    "",
+    "audio/09b337ab410adc526e6c.mp3",
+    "audio/81a150a5a121c1579001.mp3"
   ],
   [
     "filler",
@@ -3819,7 +4682,10 @@
     "猶豫詞、話語標記",
     "meaningful content",
     "有意義的內容",
-    "2026-09-21"
+    "2026-09-21",
+    "Verb: fill; Noun: filling; Adjective: filled",
+    "audio/b1ad20db2c53497bc8c1.mp3",
+    "audio/8e64654930429a0a4407.mp3"
   ],
   [
     "Pretty good, you?",
@@ -3832,7 +4698,10 @@
     "過得不錯、還可以",
     "not doing well",
     "過得不好",
-    "2026-09-21"
+    "2026-09-21",
+    "",
+    "audio/a1a02885296ae60ce52a.mp3",
+    "audio/959a369ad34bf93af1d4.mp3"
   ],
   [
     "Solid day so far.",
@@ -3845,7 +4714,10 @@
     "目前過得不錯的一天",
     "a rough day so far",
     "目前過得不順的一天",
-    "2026-09-21"
+    "2026-09-21",
+    "",
+    "audio/bc0ef8fd372cbb5c358e.mp3",
+    "audio/133fba4212be507c46ad.mp3"
   ],
   [
     "Can't complain.",
@@ -3858,7 +4730,10 @@
     "過得還行、一切都好",
     "things are terrible",
     "情況很糟",
-    "2026-09-21"
+    "2026-09-21",
+    "",
+    "audio/1d36985302206283cedf.mp3",
+    "audio/6453acb0e24909330c86.mp3"
   ],
   [
     "Not bad at all.",
@@ -3871,7 +4746,10 @@
     "相當好、挺不錯",
     "very poor",
     "非常差",
-    "2026-09-21"
+    "2026-09-21",
+    "",
+    "audio/d2bdd04d9239815861ff.mp3",
+    "audio/624953c3e33d4cf17e4d.mp3"
   ],
   [
     "I'm doing alright.",
@@ -3884,7 +4762,10 @@
     "我很好、我還可以",
     "I'm struggling",
     "我過得很辛苦",
-    "2026-09-21"
+    "2026-09-21",
+    "",
+    "audio/cf76c5aba5bf844e895c.mp3",
+    "audio/06761dbb272aea2c7539.mp3"
   ],
   [
     "domestic flight",
@@ -3897,7 +4778,10 @@
     "國內航班、本地航班",
     "international flight",
     "國際航班",
-    "2026-09-21"
+    "2026-09-21",
+    "",
+    "audio/77124232984e4c1876dd.mp3",
+    "audio/3e49328ed350e669ff99.mp3"
   ],
   [
     "flip",
@@ -3910,7 +4794,10 @@
     "翻面、反轉",
     "keep upright",
     "保持正向",
-    "2026-09-21"
+    "2026-09-21",
+    "Noun: flip; Adjective: flippable; Verb forms: flips, flipped, flipping",
+    "audio/edecb67a35db3278fc98.mp3",
+    "audio/70b9b4396dc3c9fd1a07.mp3"
   ],
   [
     "strap",
@@ -3921,9 +4808,12 @@
     "搭機前請確認行李束帶已固定好。",
     "band, belt",
     "帶子、皮帶",
-    "",
-    "",
-    "2026-09-21"
+    "—",
+    "—",
+    "2026-09-21",
+    "Verb: strap; Adjective: strappy; Verb forms: straps, strapped, strapping",
+    "audio/dcef8f0c8368d9497ee2.mp3",
+    "audio/156a0f1c5a671f09cfb8.mp3"
   ],
   [
     "old version",
@@ -3936,7 +4826,10 @@
     "較早版本、先前版本",
     "latest version",
     "最新版本",
-    "2026-09-21"
+    "2026-09-21",
+    "",
+    "audio/dccc7342b63b874c601f.mp3",
+    "audio/0beeea12acf83f055b3a.mp3"
   ],
   [
     "outdated",
@@ -3949,7 +4842,10 @@
     "已淘汰的、老式的",
     "current, up-to-date",
     "現行的、最新的",
-    "2026-09-21"
+    "2026-09-21",
+    "Verb: outdate, outdates, outdated, outdating; Adjective: outdated",
+    "audio/e6e3451a5b28a15bbc62.mp3",
+    "audio/d94847f455154c6aa4bf.mp3"
   ],
   [
     "lifespan",
@@ -3960,9 +4856,12 @@
     "良好的充電習慣可以延長手機的使用壽命。",
     "lifetime, service life",
     "生命週期、使用年限",
-    "",
-    "",
-    "2026-09-21"
+    "—",
+    "—",
+    "2026-09-21",
+    "—",
+    "audio/e6e97f296cfb7b8d983a.mp3",
+    "audio/737a92e2540f05a673a1.mp3"
   ],
   [
     "upgrade",
@@ -3975,7 +4874,10 @@
     "改善、更新",
     "downgrade",
     "降級",
-    "2026-09-21"
+    "2026-09-21",
+    "Noun: upgrade; Verb forms: upgrades, upgraded, upgrading",
+    "audio/28fb52dcd9633daccd88.mp3",
+    "audio/f0cbb227c47d953e503f.mp3"
   ],
   [
     "connecting flight",
@@ -3988,7 +4890,10 @@
     "轉機、後續航班",
     "direct flight",
     "直飛航班",
-    "2026-09-21"
+    "2026-09-21",
+    "",
+    "audio/401c2cb847dd28831b7d.mp3",
+    "audio/fe65c871deba7e6f4c39.mp3"
   ],
   [
     "change planes",
@@ -4001,7 +4906,10 @@
     "轉機、換飛機",
     "fly directly",
     "直飛",
-    "2026-09-21"
+    "2026-09-21",
+    "",
+    "audio/45e5cfeb7e39d4034b09.mp3",
+    "audio/68b2988740c83fbd509d.mp3"
   ],
   [
     "final destination",
@@ -4014,7 +4922,10 @@
     "最後目的地、終點",
     "starting point",
     "起點",
-    "2026-09-21"
+    "2026-09-21",
+    "",
+    "audio/c6a970ce1b794f6825d5.mp3",
+    "audio/1223f073a46a2a067b23.mp3"
   ],
   [
     "layover",
@@ -4027,7 +4938,10 @@
     "中途停留、轉機時間",
     "direct journey",
     "直達行程",
-    "2026-09-21"
+    "2026-09-21",
+    "Verb: lay over; Noun: layover",
+    "audio/5a7f822a4f02de97c953.mp3",
+    "audio/1fcf4198be6d69d85dea.mp3"
   ],
   [
     "transfer to",
@@ -4040,7 +4954,10 @@
     "轉換到、移動到",
     "remain on",
     "繼續留在",
-    "2026-09-21"
+    "2026-09-21",
+    "",
+    "audio/f6e734c76ab13620e5e6.mp3",
+    "audio/c4991d4603a6644d6d13.mp3"
   ],
   [
     "change terminals",
@@ -4053,7 +4970,10 @@
     "轉換航廈",
     "stay in the same terminal",
     "留在同一航廈",
-    "2026-09-21"
+    "2026-09-21",
+    "",
+    "audio/cc5830d0a4ca93b42778.mp3",
+    "audio/a42bb223e3de325d6f64.mp3"
   ],
   [
     "boarding pass",
@@ -4064,9 +4984,12 @@
     "在登機門請準備好登機證。",
     "boarding card, flight pass",
     "登機卡、搭機憑證",
+    "—",
+    "—",
+    "2026-09-21",
     "",
-    "",
-    "2026-09-21"
+    "audio/601cf3a6ac9ef207504c.mp3",
+    "audio/5d5713014214e8c4cb9b.mp3"
   ],
   [
     "departure gate",
@@ -4079,7 +5002,10 @@
     "登機閘口",
     "arrival gate",
     "抵達閘口",
-    "2026-09-21"
+    "2026-09-21",
+    "",
+    "audio/24cdbe13dd6ba6e89f42.mp3",
+    "audio/01fb00bf117c62687b4e.mp3"
   ],
   [
     "checked baggage",
@@ -4092,7 +5018,10 @@
     "託運行李、貨艙行李",
     "carry-on baggage",
     "隨身行李",
-    "2026-09-21"
+    "2026-09-21",
+    "",
+    "audio/0c3ba56c6760dacc71c2.mp3",
+    "audio/c8aafdc7836722734837.mp3"
   ],
   [
     "check through",
@@ -4105,7 +5034,10 @@
     "直掛、直接轉運",
     "reclaim and recheck",
     "領回並重新託運",
-    "2026-09-21"
+    "2026-09-21",
+    "",
+    "audio/c0da7dc6833d85b9fd61.mp3",
+    "audio/06dd1e618951913b0228.mp3"
   ],
   [
     "smooth connection",
@@ -4118,7 +5050,10 @@
     "輕鬆轉機、無縫銜接",
     "missed connection",
     "錯過轉機",
-    "2026-09-21"
+    "2026-09-21",
+    "",
+    "audio/b5ebba744bdd2cbed4e6.mp3",
+    "audio/76ad67d9155ff70a5b2a.mp3"
   ],
   [
     "get on",
@@ -4131,7 +5066,10 @@
     "登乘、進入",
     "get off",
     "下車；下飛機",
-    "2026-09-21"
+    "2026-09-21",
+    "",
+    "audio/118e4e9e99224c60840d.mp3",
+    "audio/9c968fed133eecf07cd6.mp3"
   ],
   [
     "get off",
@@ -4144,7 +5082,10 @@
     "離開、下機",
     "get on",
     "登上交通工具",
-    "2026-09-21"
+    "2026-09-21",
+    "",
+    "audio/92f6aaa2761fb377d5c0.mp3",
+    "audio/c5809809dd6cdbdeb037.mp3"
   ],
   [
     "stop over",
@@ -4157,7 +5098,10 @@
     "中途停留、暫停行程",
     "travel nonstop",
     "直達不停留",
-    "2026-09-21"
+    "2026-09-21",
+    "",
+    "audio/f81f63810de2f0fe16a2.mp3",
+    "audio/061de3a18bc4acb6f005.mp3"
   ],
   [
     "unveil",
@@ -4170,7 +5114,10 @@
     "揭曉、推出",
     "conceal, hide",
     "隱藏、保密",
-    "2026-09-21"
+    "2026-09-21",
+    "Noun: unveiling; Verb forms: unveils, unveiled, unveiling",
+    "audio/94528b926c463e601f3e.mp3",
+    "audio/3e7bbaecfb3334ca8a9f.mp3"
   ],
   [
     "lineup",
@@ -4183,7 +5130,10 @@
     "系列、選擇",
     "single item",
     "單一項目",
-    "2026-09-21"
+    "2026-09-21",
+    "—",
+    "audio/d9f325bf8f4243f30073.mp3",
+    "audio/be78a1e14c25d8e47ad9.mp3"
   ],
   [
     "shortage",
@@ -4196,7 +5146,10 @@
     "稀缺、不足",
     "surplus, abundance",
     "過剩、充足",
-    "2026-09-21"
+    "2026-09-21",
+    "Noun: shortage, shortfall; Verb: shorten; Adjective: short",
+    "audio/a44518bd9eb14e6f48c5.mp3",
+    "audio/eadd276b2805dc8248b5.mp3"
   ],
   [
     "feature",
@@ -4209,7 +5162,10 @@
     "功能、特徵",
     "drawback, omission",
     "缺點、缺少",
-    "2026-09-21"
+    "2026-09-21",
+    "Verb: feature; Adjective: featured; Noun: feature",
+    "audio/cafd3d4c1892531c52f4.mp3",
+    "audio/5ba1b90f3228f46dbb76.mp3"
   ],
   [
     "rival",
@@ -4222,7 +5178,10 @@
     "競爭者、對手",
     "ally, partner",
     "盟友、夥伴",
-    "2026-09-21"
+    "2026-09-21",
+    "Noun: rival, rivalry; Verb: rival, rivals, rivaled, rivaling; Adjective: rival",
+    "audio/d8abe5f69ec30ee714f0.mp3",
+    "audio/d73188ae4199505a172a.mp3"
   ],
   [
     "preorder",
@@ -4235,7 +5194,10 @@
     "提前訂購、預留",
     "cancellation",
     "取消訂單",
-    "2026-09-21"
+    "2026-09-21",
+    "Verb: preorder; Verb forms: preorders, preordered, preordering",
+    "audio/0e7c2fb4a4a187e62331.mp3",
+    "audio/9f805fbbfef187a26e4a.mp3"
   ],
   [
     "foldable model",
@@ -4248,7 +5210,10 @@
     "摺疊裝置、摺疊手機",
     "fixed-screen model",
     "固定螢幕機型",
-    "2026-09-21"
+    "2026-09-21",
+    "",
+    "audio/1f9c7a995b7c735515ef.mp3",
+    "audio/bc3d582af760990e77f7.mp3"
   ],
   [
     "take over from",
@@ -4261,7 +5226,10 @@
     "接任、取代",
     "hand over to",
     "交接給",
-    "2026-09-21"
+    "2026-09-21",
+    "",
+    "audio/2318e5101d5f4a1251e6.mp3",
+    "audio/0ab4eb75697b65cb9391.mp3"
   ],
   [
     "latest generation",
@@ -4274,7 +5242,10 @@
     "最新世代、現行世代",
     "previous generation",
     "上一代",
-    "2026-09-21"
+    "2026-09-21",
+    "",
+    "audio/1551cce6ed8b7a7f261e.mp3",
+    "audio/2d06b656257aee631b67.mp3"
   ],
   [
     "display",
@@ -4285,9 +5256,12 @@
     "這款裝置配備了 iPhone 歷來最大的顯示器。",
     "screen, panel",
     "螢幕、面板",
-    "",
-    "",
-    "2026-09-21"
+    "—",
+    "—",
+    "2026-09-21",
+    "Verb: display; Noun: display; Adjective: displayable; Verb forms: displays, displayed, displaying",
+    "audio/79921697524c747ab32c.mp3",
+    "audio/4bf1a6b3fb93a9359a72.mp3"
   ],
   [
     "divide the screen",
@@ -4300,7 +5274,10 @@
     "將畫面分割",
     "use full screen",
     "使用全螢幕",
-    "2026-09-21"
+    "2026-09-21",
+    "",
+    "audio/e8ad57f39d859da42369.mp3",
+    "audio/adc9bd3c7f26632d1a4e.mp3"
   ],
   [
     "compare products",
@@ -4313,7 +5290,10 @@
     "評估產品、對照商品",
     "choose blindly",
     "盲目選擇",
-    "2026-09-21"
+    "2026-09-21",
+    "",
+    "audio/28ae190580cc3f800c98.mp3",
+    "audio/9bed148bec8921bef00d.mp3"
   ],
   [
     "previous generation",
@@ -4326,7 +5306,10 @@
     "較早世代、前代產品",
     "latest generation",
     "最新一代",
-    "2026-09-21"
+    "2026-09-21",
+    "",
+    "audio/8f7a081085cbdfb1171b.mp3",
+    "audio/143f4891895a01c4e707.mp3"
   ],
   [
     "memory chip",
@@ -4337,9 +5320,12 @@
     "全球記憶體晶片短缺影響了價格。",
     "memory module, storage chip",
     "記憶模組、儲存晶片",
+    "—",
+    "—",
+    "2026-09-21",
     "",
-    "",
-    "2026-09-21"
+    "audio/29d08d86b8f3514ed03f.mp3",
+    "audio/98a510d4dd453a51f37d.mp3"
   ],
   [
     "battery life",
@@ -4352,7 +5338,10 @@
     "電池使用時間、運作時間",
     "rapid battery drain",
     "電池快速耗盡",
-    "2026-09-21"
+    "2026-09-21",
+    "",
+    "audio/69517cd67ff7a60450eb.mp3",
+    "audio/229b92c766e7a6a54a1d.mp3"
   ],
   [
     "charge to 50%",
@@ -4365,7 +5354,10 @@
     "充至一半、達到一半容量",
     "drain to 0%",
     "耗電至零",
-    "2026-09-21"
+    "2026-09-21",
+    "",
+    "audio/4c325809e3a112aad3bf.mp3",
+    "audio/7456381b74bd6c64ef83.mp3"
   ],
   [
     "cinematic effect",
@@ -4378,7 +5370,10 @@
     "電影風格效果、電影質感",
     "plain footage",
     "未加效果的影像",
-    "2026-09-21"
+    "2026-09-21",
+    "",
+    "audio/3aaec44d4bdb9fcf9d5c.mp3",
+    "audio/2129e8df1ef661ef2b2c.mp3"
   ],
   [
     "focus-tracking",
@@ -4391,7 +5386,10 @@
     "主體追蹤、自動對焦追蹤",
     "fixed focus",
     "固定焦點",
-    "2026-09-21"
+    "2026-09-21",
+    "—",
+    "audio/0e49322b99361a5201a2.mp3",
+    "audio/1bc1e14a2d0e952fb041.mp3"
   ],
   [
     "moving subject",
@@ -4404,7 +5402,10 @@
     "移動目標、動態主體",
     "stationary subject",
     "靜止主體",
-    "2026-09-21"
+    "2026-09-21",
+    "",
+    "audio/171449bd343a7bd3f23c.mp3",
+    "audio/86716253e0acbc4a94ec.mp3"
   ],
   [
     "privacy and security",
@@ -4417,7 +5418,10 @@
     "資料保護、保密性",
     "exposure and vulnerability",
     "資料暴露與弱點",
-    "2026-09-21"
+    "2026-09-21",
+    "",
+    "audio/aa337d1ffb811cfe58da.mp3",
+    "audio/844e8cb45b7416a78c54.mp3"
   ],
   [
     "set apart from",
@@ -4430,7 +5434,10 @@
     "與……區分、使不同",
     "blend in with",
     "與……融為一體",
-    "2026-09-21"
+    "2026-09-21",
+    "",
+    "audio/1a9043abb0d5c29c36a8.mp3",
+    "audio/4a542fe79d10d6f3aca9.mp3"
   ],
   [
     "release",
@@ -4443,6 +5450,297 @@
     "推出、發行",
     "withdraw, cancel",
     "撤回、取消",
-    "2026-09-21"
+    "2026-09-21",
+    "Noun: release; Verb forms: releases, released, releasing",
+    "audio/551431e9bfe4bbf42327.mp3",
+    "audio/aae59f48da3c946cba95.mp3"
+  ],
+  [
+    "multitask",
+    "",
+    "Verb",
+    "同時處理多項工作",
+    "I can multitask when the tasks are simple.",
+    "工作簡單時，我可以同時處理多件事。",
+    "juggle tasks",
+    "同時兼顧多項工作",
+    "focus on one task",
+    "專注單一工作",
+    "2026-09-24",
+    "Verb: multitask, multitasks, multitasked, multitasking; Noun: multitasking, multitasker",
+    "audio/aa3babf5f814ebfbf7aa.mp3",
+    "audio/1f50e5986d8e79ec78fa.mp3"
+  ],
+  [
+    "multitasking",
+    "",
+    "Noun",
+    "一心多用；同時處理多項工作",
+    "Multitasking can make it harder to concentrate.",
+    "一心多用可能讓人更難專心。",
+    "doing several tasks at once",
+    "同時做多件事",
+    "single-tasking",
+    "一次專注一件事",
+    "2026-09-24",
+    "Noun: multitasking; Verb: multitask, multitasks, multitasked, multitasking",
+    "audio/8dcfd93c91efe7180419.mp3",
+    "audio/9fe0162e0c8920308cb2.mp3"
+  ],
+  [
+    "monotasker",
+    "",
+    "Noun",
+    "一次專注一件事的人",
+    "A monotasker finishes one task before starting another.",
+    "單工工作者會先完成一件事，再開始另一件。",
+    "single-tasker",
+    "單工工作者",
+    "multitasker",
+    "同時處理多事的人",
+    "2026-09-24",
+    "Noun: monotasker, monotaskers, monotasking",
+    "audio/7e6a8ba14dc322beb063.mp3",
+    "audio/371558f99d9bdd47293d.mp3"
+  ],
+  [
+    "prioritize",
+    "",
+    "Verb",
+    "優先處理；排定優先順序",
+    "We should prioritize important tasks.",
+    "我們應該優先處理重要工作。",
+    "rank, put first",
+    "排序、優先處理",
+    "deprioritize",
+    "降低優先順序",
+    "2026-09-24",
+    "Verb: prioritize, prioritizes, prioritized, prioritizing; Noun: priority, prioritization; Adjective: prioritized",
+    "audio/a3d41f258cf97c6c34bc.mp3",
+    "audio/5ba156a6338cec0a3ae5.mp3"
+  ],
+  [
+    "overwhelmed",
+    "",
+    "Adjective",
+    "不堪負荷的；壓力很大的",
+    "I felt overwhelmed by all my classes.",
+    "我因為課程太多而感到不堪負荷。",
+    "overloaded, swamped",
+    "負荷過重、忙不過來",
+    "calm, in control",
+    "平靜、可掌控的",
+    "2026-09-24",
+    "Verb: overwhelm, overwhelms, overwhelmed, overwhelming; Adjective: overwhelmed, overwhelming; Adverb: overwhelmingly",
+    "audio/d3e0694cde977dcfac59.mp3",
+    "audio/64fd673cfddbac17dfe5.mp3"
+  ],
+  [
+    "take on",
+    "",
+    "Phrasal verb",
+    "接下工作或責任",
+    "I can't take on another project this week.",
+    "這週我不能再接另一個專案。",
+    "accept, undertake",
+    "接受、承擔",
+    "turn down",
+    "拒絕",
+    "2026-09-24",
+    "",
+    "audio/47a1da4b9fdf3a60ce3e.mp3",
+    "audio/f060d11d1f13705a12d9.mp3"
+  ],
+  [
+    "keep up with",
+    "",
+    "Phrasal verb",
+    "跟上進度",
+    "It's hard to keep up with several courses.",
+    "要跟上好幾門課的進度很不容易。",
+    "stay on pace with",
+    "跟上步調",
+    "fall behind",
+    "落後",
+    "2026-09-24",
+    "",
+    "audio/9732b115d94767a2b22e.mp3",
+    "audio/01d5b9f7c07ad6891b40.mp3"
+  ],
+  [
+    "focus on",
+    "",
+    "Phrasal verb",
+    "專注於",
+    "Please focus on one task at a time.",
+    "請一次專注一件事。",
+    "concentrate on",
+    "集中注意力於",
+    "ignore",
+    "忽視",
+    "2026-09-24",
+    "",
+    "audio/606a162af7619d911db7.mp3",
+    "audio/961cd32f9be589400b3b.mp3"
+  ],
+  [
+    "work through",
+    "",
+    "Phrasal verb",
+    "逐步處理或解決",
+    "Let's work through the problem together.",
+    "我們一起逐步解決問題。",
+    "resolve step by step",
+    "逐步解決",
+    "avoid",
+    "迴避",
+    "2026-09-24",
+    "",
+    "audio/00e44279fa0394dc7f6d.mp3",
+    "audio/0b1a9b20672010b5d775.mp3"
+  ],
+  [
+    "latest model",
+    "",
+    "Noun phrase",
+    "最新機型",
+    "He always wants the latest model.",
+    "他總是想要最新機型。",
+    "newest version",
+    "最新版本",
+    "older model",
+    "舊機型",
+    "2026-09-24",
+    "",
+    "audio/7029c6d716844acdcac6.mp3",
+    "audio/a95ede8b2e7e7e42859f.mp3"
+  ],
+  [
+    "version",
+    "",
+    "Noun",
+    "版本",
+    "Which version of the phone do you use?",
+    "你用的是哪個版本的手機？",
+    "edition, variant",
+    "版本、變體",
+    "—",
+    "—",
+    "2026-09-24",
+    "Noun: version, versions",
+    "audio/36d89c41d44457c50e62.mp3",
+    "audio/d615d59b1ddf75f96d5d.mp3"
+  ],
+  [
+    "as I mentioned earlier",
+    "",
+    "Expression",
+    "如我先前提到的",
+    "As I mentioned earlier, price matters to me.",
+    "如我先前提到的，價格對我很重要。",
+    "as I said before",
+    "如我之前所說",
+    "—",
+    "—",
+    "2026-09-24",
+    "",
+    "audio/cdfecff4554165862686.mp3",
+    "audio/cabd4ed597faee125499.mp3"
+  ],
+  [
+    "bilingual",
+    "",
+    "Adjective",
+    "會說兩種語言的",
+    "She is bilingual in English and Mandarin.",
+    "她會說英語和華語兩種語言。",
+    "speaking two languages",
+    "會使用兩種語言的",
+    "monolingual",
+    "只會一種語言的",
+    "2026-09-24",
+    "Adjective: bilingual; Noun: bilingual, bilingualism; Adverb: bilingually",
+    "audio/89a303ab58e3baa4ce0f.mp3",
+    "audio/4bd8f135fa70cc5e4b20.mp3"
+  ],
+  [
+    "trilingual",
+    "",
+    "Adjective",
+    "會說三種語言的",
+    "A trilingual learner can communicate in three languages.",
+    "會三種語言的學習者能用三種語言溝通。",
+    "speaking three languages",
+    "會使用三種語言的",
+    "—",
+    "—",
+    "2026-09-24",
+    "Adjective: trilingual; Noun: trilingual, trilingualism",
+    "audio/fed7ea57f94393fb54ef.mp3",
+    "audio/cf1aec49196dd5711f08.mp3"
+  ],
+  [
+    "multilingual",
+    "",
+    "Adjective",
+    "會說多種語言的",
+    "The class included multilingual students.",
+    "這堂課有會說多種語言的學生。",
+    "speaking several languages",
+    "會使用數種語言的",
+    "monolingual",
+    "只會一種語言的",
+    "2026-09-24",
+    "Adjective: multilingual; Noun: multilingualism",
+    "audio/89e2009255ea37830d3b.mp3",
+    "audio/82a6aed2ae7fc784d97d.mp3"
+  ],
+  [
+    "polyglot",
+    "",
+    "Noun",
+    "通曉多種語言的人",
+    "A polyglot enjoys learning new languages.",
+    "多語者喜歡學習新語言。",
+    "multilingual speaker",
+    "多語者",
+    "monolingual speaker",
+    "單語者",
+    "2026-09-24",
+    "Noun: polyglot, polyglots; Adjective: polyglot",
+    "audio/2dd53aca9517ad300a9c.mp3",
+    "audio/88ba0e1272623fc90320.mp3"
+  ],
+  [
+    "hyperpolyglot",
+    "",
+    "Noun",
+    "會非常多種語言的人",
+    "A hyperpolyglot may speak six or more languages.",
+    "超級多語者可能會說六種以上的語言。",
+    "speaker of many languages",
+    "會許多種語言的人",
+    "—",
+    "—",
+    "2026-09-24",
+    "Noun: hyperpolyglot, hyperpolyglots",
+    "audio/e05b5b1fdd481a37e4bc.mp3",
+    "audio/728ff3ddb56636488832.mp3"
+  ],
+  [
+    "I'm all ears",
+    "",
+    "Idiom",
+    "我洗耳恭聽",
+    "Tell me your idea; I'm all ears.",
+    "告訴我你的想法，我洗耳恭聽。",
+    "I'm listening",
+    "我正在聽",
+    "—",
+    "—",
+    "2026-09-24",
+    "",
+    "audio/48ae6e1a69ff7ec7f012.mp3",
+    "audio/98cea1928a75e9ce8fc0.mp3"
   ]
 ]

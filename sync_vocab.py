@@ -8,8 +8,9 @@
 
 每次在 Excel 更新完單字後，執行這個腳本就會自動：
 1. 讀取 Excel 所有單字（去重複）
-2. 更新 App 的 index.html
-3. 自動 git commit + push 到 GitHub Pages
+2. Generate and verify offline Kokoro audio for words and examples
+3. Update App data and index.html
+4. Commit and push to GitHub Pages
 """
 
 import argparse
@@ -20,8 +21,11 @@ import openpyxl
 import json
 import re
 import subprocess
+import tempfile
 from pathlib import Path
 from collections import defaultdict
+
+from audio_assets import attach_audio_paths, ensure_complete, missing_clips
 
 for stream in (sys.stdout, sys.stderr):
     if hasattr(stream, "reconfigure"):
@@ -36,6 +40,8 @@ DEFAULT_EXCEL_PATH = Path(
 )
 APP_DIR = Path(__file__).resolve().parent
 INDEX_HTML = APP_DIR / "index.html"
+JSON_FILE = APP_DIR / "vocab_data.json"
+AUDIO_DIR = APP_DIR / "audio"
 
 # ── 讀取 Excel ────────────────────────────────────────────────────────────────
 def read_vocab(excel_path=DEFAULT_EXCEL_PATH):
@@ -131,6 +137,39 @@ def generate_date_bar_html(cards):
     lines.append("  </div>")
     return "\n".join(lines)
 
+
+def prepare_audio(cards):
+    cards = attach_audio_paths(cards)
+    pending = missing_clips(cards, AUDIO_DIR)
+    if pending:
+        kokoro_python = Path(
+            os.environ.get(
+                "KOKORO_PYTHON",
+                Path.home() / "Desktop/English class 整理重點/.models/kokoro/venv/Scripts/python.exe",
+            )
+        )
+        if not kokoro_python.is_file():
+            raise FileNotFoundError(
+                f"Kokoro Python not found: {kokoro_python}. Set KOKORO_PYTHON before sync."
+            )
+        with tempfile.TemporaryDirectory() as temp_dir:
+            cards_file = Path(temp_dir) / "cards.json"
+            cards_file.write_text(json.dumps(cards, ensure_ascii=False), encoding="utf-8")
+            subprocess.run(
+                [
+                    str(kokoro_python), str(APP_DIR / "audio_assets.py"),
+                    "--cards-file", str(cards_file), "--audio-dir", str(AUDIO_DIR),
+                ],
+                cwd=APP_DIR,
+                check=True,
+            )
+    ensure_complete(cards, AUDIO_DIR)
+    return cards
+
+
+def update_json(cards):
+    JSON_FILE.write_text(json.dumps(cards, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+
 # ── 更新 index.html ───────────────────────────────────────────────────────────
 def update_html(cards, index_html=INDEX_HTML):
     print("\n✏️  更新 index.html...")
@@ -174,11 +213,13 @@ def git_push(cards, date_counts):
     dates  = len(date_counts)
     msg    = f"Sync vocab: {total} words across {dates} class dates"
 
-    subprocess.run(["git", "add", "index.html"], cwd=APP_DIR, check=True)
-    result = subprocess.run(["git", "diff", "--cached", "--stat"], cwd=APP_DIR, capture_output=True, text=True)
-    if "nothing to commit" in result.stdout or not result.stdout.strip():
-        print("ℹ️  index.html 沒有變更，無需 push")
+    subprocess.run(["git", "add", "index.html", "vocab_data.json", "audio"], cwd=APP_DIR, check=True)
+    result = subprocess.run(["git", "diff", "--cached", "--quiet"], cwd=APP_DIR)
+    if result.returncode == 0:
+        print("ℹ️  字卡與音檔沒有變更，無需 push")
         return
+    if result.returncode != 1:
+        raise RuntimeError("Could not inspect staged App changes")
     subprocess.run(["git", "commit", "-m", msg], cwd=APP_DIR, check=True)
     subprocess.run(["git", "push"], cwd=APP_DIR, check=True)
     print(f"✅ 已推送！網站約 1 分鐘後更新：")
@@ -193,6 +234,7 @@ def build_parser():
         default=DEFAULT_EXCEL_PATH,
         help="Master_Vocabulary_Tracker.xlsx 路徑",
     )
+    parser.add_argument("--local-only", action="store_true", help="Update files without committing or pushing")
     return parser
 
 
@@ -208,8 +250,11 @@ def main(argv=None):
             print("❌ 沒有讀到任何單字，請確認 Excel 路徑正確")
             return 1
 
+        cards = prepare_audio(cards)
         if update_html(cards):
-            git_push(cards, date_counts)
+            update_json(cards)
+            if not args.local_only:
+                git_push(cards, date_counts)
             print("\n🎉 同步完成！")
             return 0
         else:
