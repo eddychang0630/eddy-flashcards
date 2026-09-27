@@ -6,10 +6,10 @@
       "type": "class",
       "date": "2026-07-06",
       "category": "健康與天氣",
-      "prompt_zh": "請給我一下。",
+      "prompt_zh": "請等我一下。",
       "question_en": "",
       "answer_en": "Just give me a second.",
-      "answer_zh": "請給我一下。",
+      "answer_zh": "請等我一下。",
       "original": "Just wait me a second.",
       "timecode": "",
       "source": "20260706/english_class_notes.md",
@@ -1982,6 +1982,6 @@
       "audio_answer": "audio/28e1b584397f97d9fef4.mp3"
     }
   ],
-  "revision": "2a1670fd039d",
-  "updated_at": "2026-09-27T05:20:52+00:00"
+  "revision": "1f82425192c7",
+  "updated_at": "2026-09-27T07:13:09+00:00"
 }

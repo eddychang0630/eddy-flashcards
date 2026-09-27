@@ -1,3 +1,4 @@
+import json
 import tempfile
 import unittest
 from pathlib import Path
@@ -16,6 +17,13 @@ NOTE = """# 2026-09-27 English Class Notes
 
 
 class SentenceSyncTest(unittest.TestCase):
+    def test_july_waiting_card_uses_complete_chinese_translation(self):
+        data_path = Path(__file__).resolve().parents[1] / "data.json"
+        cards = json.loads(data_path.read_text(encoding="utf-8"))["cards"]
+        card = next(card for card in cards if card["id"] == "class-20260706-01")
+        self.assertEqual("請等我一下。", card["prompt_zh"])
+        self.assertEqual("請等我一下。", card["answer_zh"])
+
     def test_parse_separates_spoken_text_translation_time_and_correction(self):
         rows = parse_better_table(NOTE)
         self.assertEqual(1, len(rows))
