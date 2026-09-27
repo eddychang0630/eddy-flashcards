@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#0c5956">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="句子練習">
+  <meta name="description" content="課堂英語句型與情境問答複習">
+  <link rel="manifest" href="manifest.json">
+  <link rel="apple-touch-icon" href="icons/icon-180.png">
+  <link rel="icon" type="image/png" href="icons/icon-192.png">
+  <link rel="stylesheet" href="style.css">
+  <title>Eddy 句子練習</title>
+</head>
+<body>
+  <div class="shell">
+    <header class="topbar">
+      <div class="brand"><img src="icons/icon-192.png" alt="" width="42" height="42"><div><strong>句子練習</strong><span>Eddy's English</span></div></div>
+      <button id="refresh" class="icon-button" type="button" title="重新整理資料" aria-label="重新整理資料"><i data-lucide="refresh-cw"></i></button>
+    </header>
+
+    <main>
+      <section class="overview" aria-label="複習進度">
+        <div><span>今日待複習</span><strong id="due-count">—</strong></div>
+        <div><span>已練習</span><strong id="seen-count">—</strong></div>
+        <div><span>課堂句子</span><strong id="class-count">—</strong></div>
+      </section>
+
+      <nav class="tabs" aria-label="練習分類">
+        <button class="tab active" data-view="today" type="button"><i data-lucide="calendar-check"></i><span>今日</span></button>
+        <button class="tab" data-view="lessons" type="button"><i data-lucide="book-open"></i><span>課堂</span></button>
+        <button class="tab" data-view="scenarios" type="button"><i data-lucide="messages-square"></i><span>情境</span></button>
+      </nav>
+
+      <section class="workspace" aria-label="句子卡練習">
+        <div class="section-heading"><div><p id="view-kicker" class="kicker">DAILY PRACTICE</p><h1 id="view-title">今日複習</h1></div><span id="session-count" class="session-count"></span></div>
+        <div id="filters" class="filters" hidden></div>
+        <div id="message" class="message" hidden></div>
+        <article id="practice-card" class="practice-card" hidden>
+          <div class="card-top"><span id="card-type" class="eyebrow"></span><span id="card-position" class="position"></span></div>
+          <p id="prompt" class="prompt"></p>
+          <div id="reveal-area" class="reveal-area" hidden>
+            <div id="question-section" class="answer-section" hidden><span class="field-label">常用問句</span><p id="question-en" class="english"></p><button id="play-question" class="audio-button" type="button" title="播放問句"><i data-lucide="volume-2"></i><span>聽問句</span></button></div>
+            <div class="answer-section primary-answer"><span class="field-label">自然說法</span><p id="answer-en" class="english"></p><p id="answer-zh" class="translation"></p><button id="play-answer" class="audio-button" type="button" title="播放自然說法"><i data-lucide="volume-2"></i><span>聽發音</span></button></div>
+            <div id="original-section" class="original-section" hidden><span class="field-label">課堂原句</span><p id="original"></p></div>
+            <div class="grammar-section"><span class="field-label">文法與句型</span><p id="grammar-explanation"></p><p id="grammar-pattern" class="pattern"></p></div>
+            <div class="listening-tools"><span>跟讀</span><div class="segmented" role="group" aria-label="朗讀速度"><button data-speed="1" class="active" type="button">正常</button><button data-speed="0.82" type="button">慢速</button></div><button id="loop-audio" class="toggle-button" type="button" aria-pressed="false" title="循環播放"><i data-lucide="repeat-2"></i><span>循環</span></button></div>
+          </div>
+          <button id="reveal" class="primary-button" type="button"><i data-lucide="eye"></i><span>顯示英文</span></button>
+          <div id="ratings" class="ratings" hidden><button data-rating="1" type="button">重來</button><button data-rating="2" type="button">困難</button><button data-rating="3" type="button">記得</button><button data-rating="4" type="button">輕鬆</button></div>
+        </article>
+        <button id="restart" class="secondary-button" type="button" hidden><i data-lucide="rotate-ccw"></i><span>再練一次</span></button>
+      </section>
+
+      <section class="data-tools" aria-label="資料與備份"><div><strong>資料與進度</strong><span id="updated-at">—</span></div><div class="tool-buttons"><button id="export-progress" type="button"><i data-lucide="download"></i><span>匯出進度</span></button><button id="import-progress" type="button"><i data-lucide="upload"></i><span>匯入進度</span></button><input id="import-file" type="file" accept="application/json,.json" hidden></div></section>
+    </main>
+  </div>
+  <script src="app.js" defer></script>
+</body>
+</html>

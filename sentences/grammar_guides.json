@@ -1,0 +1,98 @@
+{
+  "20260706": [
+    {"explanation":"請對方稍等時，用 give + 人 + 時間；wait 後面要接 for + 人。","pattern":"Give me + 一段時間. / Wait for me + 一段時間."},
+    {"explanation":"調整設定用 adjust settings；多項裝置設定通常用複數。","pattern":"Let me adjust my + 複數名詞."},
+    {"explanation":"詢問現在能否聽清楚，用 Can you hear me clearly?；clearly 修飾 hear。","pattern":"Can you + 動詞 + 受詞 + 副詞?"},
+    {"explanation":"回顧當時天氣要用過去式 was；extremely 修飾形容詞 hot。","pattern":"The weather was + 程度副詞 + 形容詞."},
+    {"explanation":"預測颱風路徑用 be going to + 原形動詞；地名前通常不加 the。","pattern":"It is going to pass through + 地名."},
+    {"explanation":"notice 後可接 that 子句描述觀察到的事；that 可省略。","pattern":"I just noticed (that) + 主詞 + 過去式動詞."},
+    {"explanation":"描述可能的原因，用 cause + 問題；avoid cause this reason 這種重複表達。","pattern":"Maybe + 原因 + caused + 問題."},
+    {"explanation":"關心某人適應得如何，用 How is + 人 + doing?；staff member 是一名員工。","pattern":"How is your + 人 + doing?"},
+    {"explanation":"想做某事用 feel like + V-ing；feel want 不是自然搭配。","pattern":"I feel like + V-ing."},
+    {"explanation":"主詞是事情時，用 It surprised me；更早的想法用 had never thought。","pattern":"It surprised me because I had never thought that + 子句."}
+  ],
+  "20260709": [
+    {"explanation":"調整設備設定用 adjust my settings；settings 通常是複數。","pattern":"Let me adjust my + 複數名詞."},
+    {"explanation":"檢查連線時用 Can you hear me clearly?；clearly 是副詞。","pattern":"Can you + 動詞 + 受詞 + 副詞?"},
+    {"explanation":"先說核心主詞再補內容；單數 teacher 在一般現在式用 teaches。","pattern":"The teacher teaches + 科目, right?"},
+    {"explanation":"each + 單數名詞接單數動詞；說明授課期間與範圍可用 teaches for / covers。","pattern":"Each + 單數名詞 + 動詞-s + for + 時間 + and + 動詞-s + 內容."},
+    {"explanation":"need to 後接原形動詞 get；成績高於某數字用 above。","pattern":"We need to get an average score above + 數字."},
+    {"explanation":"禮貌提出延期要求，用 Would it be possible to + 動詞；postpone 直接接受詞。","pattern":"Would it be possible to postpone + 活動 + for + 時間?"},
+    {"explanation":"談之前的預期用 didn't imagine；would 表示從過去看未來的情況。","pattern":"I didn't imagine it would be + 形容詞."},
+    {"explanation":"單數 course 接 costs；說每人費用用 per person。","pattern":"This course costs + 金額 + per person."},
+    {"explanation":"搬到另一國是 relocate to；reallocate 指重新分配資源。","pattern":"I have been considering + V-ing + to + 地點."},
+    {"explanation":"要說帶來好消息，用 bring + 人 + good news；green flag 不能直接代換。","pattern":"I hope I can bring you good news + 時間副詞."}
+  ],
+  "20260907": [
+    {"explanation":"音訊檢查用 Can you hear me clearly?；clearly 修飾 hear。","pattern":"Can you hear me + 副詞?"},
+    {"explanation":"請牙醫處理牙齒可用 have + 受詞 + 過去分詞；cleaned and checked 平行。","pattern":"I went to + 地點 + to have my + 名詞 + 過去分詞."},
+    {"explanation":"引出好消息用 The good news is that + 完整子句。","pattern":"The good news is that + 主詞 + 動詞 + 補語."},
+    {"explanation":"接續過去發生的兩件事，兩個動詞都用過去式；運動是 work out。","pattern":"After that, I went to + 地點 + and + 過去式動詞."},
+    {"explanation":"生活恢復到某種狀態可說 go back to + 名詞。","pattern":"My life will go back to + 名詞."},
+    {"explanation":"忙碌的行程是 hectic schedule；每週三次是 three times a week。","pattern":"I will have a hectic schedule because + 原因."},
+    {"explanation":"問設定的溫度，用 What temperature do you set + 設備 + to?。","pattern":"What temperature do you usually set + 設備 + to?"},
+    {"explanation":"a month ago 指明過去，否定句用 didn't + 原形動詞。","pattern":"About + 時間 + ago, I didn't + 原形動詞."},
+    {"explanation":"start 後可接 V-ing；已開始的習慣用 started。","pattern":"I started + V-ing + 受詞."},
+    {"explanation":"說明運動前吃點東西，先用 Before + V-ing，再說主要建議。","pattern":"Before + V-ing, you should + 原形動詞 + to + 原形動詞."}
+  ],
+  "20260910": [
+    {"pattern":"Yesterday was the + 序數 + day of + 名詞."},
+    {"pattern":"I have + 數字 + courses to take."},
+    {"pattern":"I've just + 過去分詞 + 受詞."},
+    {"pattern":"The workload for + 課程 + is + 形容詞."},
+    {"pattern":"I don't feel + 形容詞."},
+    {"pattern":"I'm still excited about + 名詞."},
+    {"pattern":"We went to the same + 學校類型."},
+    {"pattern":"It's like a + 形容詞 + job."},
+    {"pattern":"Can you hear me clearly, or is there + 名詞?"},
+    {"pattern":"You're always in + 名詞 + mode."}
+  ],
+  "20260914": [
+    {"pattern":"I'll make sure I'm + 形容詞 + for + 活動."},
+    {"pattern":"I + 過去式動詞 + on + 過去日期."},
+    {"pattern":"In the end, you still need to + 原形動詞."},
+    {"pattern":"I worked at + 公司 + in + 城市."},
+    {"pattern":"There were + 複數名詞 + we had to + 原形動詞."},
+    {"pattern":"I'm not surprised by + 名詞."},
+    {"pattern":"I think many + 人群 + use + 工具 + to + 原形動詞."},
+    {"pattern":"They want to become + 形容詞."},
+    {"pattern":"It's difficult to + 原形動詞 + through + 管道."},
+    {"pattern":"We have enough time to + 原形動詞 + 受詞."}
+  ],
+  "20260917": [
+    {"pattern":"Do + 主詞 + look + 形容詞?"},
+    {"pattern":"I've gained + 數量 + knowledge this week."},
+    {"pattern":"I need to set aside time to + 原形動詞."},
+    {"pattern":"Because I'm taking + 數字 + courses, there is a lot to learn."},
+    {"pattern":"It can help me + 原形動詞 + and + 原形動詞."},
+    {"pattern":"I still have + 時間 + to + 原形動詞."},
+    {"pattern":"There may be only + 數量 + left."},
+    {"pattern":"I've started sharing + 事物 + with + 人."},
+    {"pattern":"I agree to some extent, maybe about + 百分比."},
+    {"pattern":"It's hard to tell + 受詞 + apart."}
+  ],
+  "20260921": [
+    {"explanation":"並列的過去動作時態要一致；do the workout 可簡化成 worked out。","pattern":"I just went to + 地點 + and + 過去式動詞."},
+    {"explanation":"同意對方的個人經驗，用 Same here；same to I 不合英文用法。","pattern":"Same here. / Me too."},
+    {"explanation":"需要時間恢復的人做主詞，用 I need；不是 it needs。","pattern":"I think I need + 時間 + to + 原形動詞."},
+    {"explanation":"描述固定看診頻率用一般現在式；專科醫師前加 a。","pattern":"I see a + 專科醫師 + about once a + 時間單位."},
+    {"explanation":"轉述醫師當時說的話用 said；普遍情況可保留現在式 have。","pattern":"The doctor said that + 主詞 + 現在式動詞."},
+    {"explanation":"thought about 後可接疑問詞子句；從過去視角推測用 would。","pattern":"I never thought about who would + 原形動詞."},
+    {"explanation":"說功能需求可用 should be easy to + 動詞；with one hand 是自然搭配。","pattern":"A + 物品 + should be easy to use with + 工具/方式."},
+    {"explanation":"比較價格用 for the same price；both A and B 連接兩項。","pattern":"You could buy both + A + and + B + for the same price."},
+    {"explanation":"過去的選擇問句用 Why did + 主詞 + 原形動詞。","pattern":"Why did you choose + 物品?"},
+    {"explanation":"因為某個名詞原因用 because of；過去沒買用 didn't buy。","pattern":"I didn't buy + 物品 + because of + 名詞."}
+  ],
+  "20260924": [
+    {"explanation":"碩士學位是 master's degree；從星期二到星期五用 from ... to ...。","pattern":"I have classes for my + 學位 + from + 星期 + to + 星期."},
+    {"explanation":"擔心一件事用 worried that + 子句；到校上課是 go to campus for class。","pattern":"Someone was worried that + 主詞 + would have to + 原形動詞."},
+    {"explanation":"描述過去結束時間用 ended；class 比 course 更適合單堂課。","pattern":"The class ended at + 時間."},
+    {"explanation":"too many 修飾可數複數 courses；attend 接在 to 後用原形。","pattern":"I have too many + 複數名詞 + to + 原形動詞."},
+    {"explanation":"一般現在式問句用 Does + 主詞 + have；does 後動詞不加 s。","pattern":"Does your country have laws to + 原形動詞?"},
+    {"explanation":"表達認為『不太』時，常用 I don't think + 肯定子句。","pattern":"I don't think it is very + 形容詞."},
+    {"explanation":"過去是否曾發售，用 Did + 主詞 + ever + 原形動詞；簡答 I don't think so。","pattern":"Did + 公司 + ever release + 產品?"},
+    {"explanation":"兩項總價相近，用 Together ... cost about the same as ...。","pattern":"Together, + 兩項物品 + would cost about the same as + 比較物."},
+    {"explanation":"直接問句中疑問詞 exactly 放在 is 前：What exactly is ...?。","pattern":"What exactly is + 名詞?"},
+    {"explanation":"動名詞片語作主詞時接單數 is；擴展人脈用 expand your network。","pattern":"V-ing + 受詞 + is a good opportunity to + 原形動詞."}
+  ]
+}

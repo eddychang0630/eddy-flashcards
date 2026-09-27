@@ -1,0 +1,1987 @@
+{
+  "schema_version": 1,
+  "cards": [
+    {
+      "id": "class-20260706-01",
+      "type": "class",
+      "date": "2026-07-06",
+      "category": "健康與天氣",
+      "prompt_zh": "請給我一下。",
+      "question_en": "",
+      "answer_en": "Just give me a second.",
+      "answer_zh": "請給我一下。",
+      "original": "Just wait me a second.",
+      "timecode": "",
+      "source": "20260706/english_class_notes.md",
+      "grammar": {
+        "title": "句型重點",
+        "explanation": "請對方稍等時，用 give + 人 + 時間；wait 後面要接 for + 人。",
+        "pattern": "Give me + 一段時間. / Wait for me + 一段時間."
+      },
+      "audio_question": "",
+      "audio_answer": "audio/7c3c5f9cffbadfbfdd2c.mp3"
+    },
+    {
+      "id": "class-20260706-02",
+      "type": "class",
+      "date": "2026-07-06",
+      "category": "健康與天氣",
+      "prompt_zh": "讓我調整一下設定。",
+      "question_en": "",
+      "answer_en": "Let me adjust my settings.",
+      "answer_zh": "讓我調整一下設定。",
+      "original": "Let me change my setting.",
+      "timecode": "",
+      "source": "20260706/english_class_notes.md",
+      "grammar": {
+        "title": "句型重點",
+        "explanation": "調整設定用 adjust settings；多項裝置設定通常用複數。",
+        "pattern": "Let me adjust my + 複數名詞."
+      },
+      "audio_question": "",
+      "audio_answer": "audio/ab690757c46a4c720fbb.mp3"
+    },
+    {
+      "id": "class-20260706-03",
+      "type": "class",
+      "date": "2026-07-06",
+      "category": "健康與天氣",
+      "prompt_zh": "你聽得清楚嗎？",
+      "question_en": "",
+      "answer_en": "Can you hear me clearly?",
+      "answer_zh": "你聽得清楚嗎？",
+      "original": "Did you hear me fine?",
+      "timecode": "",
+      "source": "20260706/english_class_notes.md",
+      "grammar": {
+        "title": "句型重點",
+        "explanation": "詢問現在能否聽清楚，用 Can you hear me clearly?；clearly 修飾 hear。",
+        "pattern": "Can you + 動詞 + 受詞 + 副詞?"
+      },
+      "audio_question": "",
+      "audio_answer": "audio/453f2ca5bb75565a04ea.mp3"
+    },
+    {
+      "id": "class-20260706-04",
+      "type": "class",
+      "date": "2026-07-06",
+      "category": "健康與天氣",
+      "prompt_zh": "天氣非常熱。",
+      "question_en": "",
+      "answer_en": "The weather was extremely hot.",
+      "answer_zh": "天氣非常熱。",
+      "original": "The weather is too hot.",
+      "timecode": "",
+      "source": "20260706/english_class_notes.md",
+      "grammar": {
+        "title": "句型重點",
+        "explanation": "回顧當時天氣要用過去式 was；extremely 修飾形容詞 hot。",
+        "pattern": "The weather was + 程度副詞 + 形容詞."
+      },
+      "audio_question": "",
+      "audio_answer": "audio/b33374cb9ca27bf16138.mp3"
+    },
+    {
+      "id": "class-20260706-05",
+      "type": "class",
+      "date": "2026-07-06",
+      "category": "健康與天氣",
+      "prompt_zh": "它會直接通過台北。",
+      "question_en": "",
+      "answer_en": "It's going to pass directly through Taipei.",
+      "answer_zh": "它會直接通過台北。",
+      "original": "It's directly just go through the Taipei.",
+      "timecode": "",
+      "source": "20260706/english_class_notes.md",
+      "grammar": {
+        "title": "句型重點",
+        "explanation": "預測颱風路徑用 be going to + 原形動詞；地名前通常不加 the。",
+        "pattern": "It is going to pass through + 地名."
+      },
+      "audio_question": "",
+      "audio_answer": "audio/6060c16835a40e5cae14.mp3"
+    },
+    {
+      "id": "class-20260706-06",
+      "type": "class",
+      "date": "2026-07-06",
+      "category": "健康與天氣",
+      "prompt_zh": "我剛注意到你換眼鏡了。",
+      "question_en": "",
+      "answer_en": "I just noticed that you changed your glasses.",
+      "answer_zh": "我剛注意到你換眼鏡了。",
+      "original": "I just noticed you changed your glasses, right?",
+      "timecode": "",
+      "source": "20260706/english_class_notes.md",
+      "grammar": {
+        "title": "句型重點",
+        "explanation": "notice 後可接 that 子句描述觀察到的事；that 可省略。",
+        "pattern": "I just noticed (that) + 主詞 + 過去式動詞."
+      },
+      "audio_question": "",
+      "audio_answer": "audio/8b9c799f02f26ded234d.mp3"
+    },
+    {
+      "id": "class-20260706-07",
+      "type": "class",
+      "date": "2026-07-06",
+      "category": "健康與天氣",
+      "prompt_zh": "也許是螢幕品質造成這個問題。",
+      "question_en": "",
+      "answer_en": "Maybe the monitor quality caused the problem.",
+      "answer_zh": "也許是螢幕品質造成這個問題。",
+      "original": "Maybe the monitor quality can cause this reason.",
+      "timecode": "",
+      "source": "20260706/english_class_notes.md",
+      "grammar": {
+        "title": "句型重點",
+        "explanation": "描述可能的原因，用 cause + 問題；avoid cause this reason 這種重複表達。",
+        "pattern": "Maybe + 原因 + caused + 問題."
+      },
+      "audio_question": "",
+      "audio_answer": "audio/dc8634f51171c5d9e357.mp3"
+    },
+    {
+      "id": "class-20260706-08",
+      "type": "class",
+      "date": "2026-07-06",
+      "category": "健康與天氣",
+      "prompt_zh": "你的新員工目前怎麼樣？",
+      "question_en": "",
+      "answer_en": "How is your new staff member doing?",
+      "answer_zh": "你的新員工目前怎麼樣？",
+      "original": "How about your new stuff or new employee?",
+      "timecode": "",
+      "source": "20260706/english_class_notes.md",
+      "grammar": {
+        "title": "句型重點",
+        "explanation": "關心某人適應得如何，用 How is + 人 + doing?；staff member 是一名員工。",
+        "pattern": "How is your + 人 + doing?"
+      },
+      "audio_question": "",
+      "audio_answer": "audio/18727b05b8c5160f8447.mp3"
+    },
+    {
+      "id": "class-20260706-09",
+      "type": "class",
+      "date": "2026-07-06",
+      "category": "健康與天氣",
+      "prompt_zh": "我真的很想睡覺。",
+      "question_en": "",
+      "answer_en": "I really feel like sleeping.",
+      "answer_zh": "我真的很想睡覺。",
+      "original": "I feel really want to sleep.",
+      "timecode": "",
+      "source": "20260706/english_class_notes.md",
+      "grammar": {
+        "title": "句型重點",
+        "explanation": "想做某事用 feel like + V-ing；feel want 不是自然搭配。",
+        "pattern": "I feel like + V-ing."
+      },
+      "audio_question": "",
+      "audio_answer": "audio/12fe7af38b52f9b694d7.mp3"
+    },
+    {
+      "id": "class-20260706-10",
+      "type": "class",
+      "date": "2026-07-06",
+      "category": "健康與天氣",
+      "prompt_zh": "這真的讓我很驚訝，因為我從沒想過呼吸會影響記憶。",
+      "question_en": "",
+      "answer_en": "It really surprised me because I had never thought that breathing could affect our memory.",
+      "answer_zh": "這真的讓我很驚訝，因為我從沒想過呼吸會影響記憶。",
+      "original": "I think it is really surprised to me because I never have a thought like thinking breath can affect our memories.",
+      "timecode": "",
+      "source": "20260706/english_class_notes.md",
+      "grammar": {
+        "title": "句型重點",
+        "explanation": "主詞是事情時，用 It surprised me；更早的想法用 had never thought。",
+        "pattern": "It surprised me because I had never thought that + 子句."
+      },
+      "audio_question": "",
+      "audio_answer": "audio/8eea20652b3171b4431e.mp3"
+    },
+    {
+      "id": "class-20260709-01",
+      "type": "class",
+      "date": "2026-07-09",
+      "category": "課程與安排",
+      "prompt_zh": "讓我調整一下設定。",
+      "question_en": "",
+      "answer_en": "Let me adjust my settings.",
+      "answer_zh": "讓我調整一下設定。",
+      "original": "Let me change my setting.",
+      "timecode": "",
+      "source": "20260709/english_class_notes.md",
+      "grammar": {
+        "title": "句型重點",
+        "explanation": "調整設備設定用 adjust my settings；settings 通常是複數。",
+        "pattern": "Let me adjust my + 複數名詞."
+      },
+      "audio_question": "",
+      "audio_answer": "audio/ab690757c46a4c720fbb.mp3"
+    },
+    {
+      "id": "class-20260709-02",
+      "type": "class",
+      "date": "2026-07-09",
+      "category": "課程與安排",
+      "prompt_zh": "你聽得清楚嗎？",
+      "question_en": "",
+      "answer_en": "Can you hear me clearly?",
+      "answer_zh": "你聽得清楚嗎？",
+      "original": "Could you hear me fine?",
+      "timecode": "",
+      "source": "20260709/english_class_notes.md",
+      "grammar": {
+        "title": "句型重點",
+        "explanation": "檢查連線時用 Can you hear me clearly?；clearly 是副詞。",
+        "pattern": "Can you + 動詞 + 受詞 + 副詞?"
+      },
+      "audio_question": "",
+      "audio_answer": "audio/453f2ca5bb75565a04ea.mp3"
+    },
+    {
+      "id": "class-20260709-03",
+      "type": "class",
+      "date": "2026-07-09",
+      "category": "課程與安排",
+      "prompt_zh": "我的意思是，老師教的是工程數學，對吧？",
+      "question_en": "",
+      "answer_en": "I mean, the teacher teaches engineering math, right?",
+      "answer_zh": "我的意思是，老師教的是工程數學，對吧？",
+      "original": "I mean, because the class teachers, how to say teacher teach the engineering math, right?",
+      "timecode": "",
+      "source": "20260709/english_class_notes.md",
+      "grammar": {
+        "title": "句型重點",
+        "explanation": "先說核心主詞再補內容；單數 teacher 在一般現在式用 teaches。",
+        "pattern": "The teacher teaches + 科目, right?"
+      },
+      "audio_question": "",
+      "audio_answer": "audio/7280a682ce460920d983.mp3"
+    },
+    {
+      "id": "class-20260709-04",
+      "type": "class",
+      "date": "2026-07-09",
+      "category": "課程與安排",
+      "prompt_zh": "每位老師教兩週，涵蓋兩個章節。",
+      "question_en": "",
+      "answer_en": "Each teacher teaches for two weeks and covers two chapters.",
+      "answer_zh": "每位老師教兩週，涵蓋兩個章節。",
+      "original": "So one teacher teach two weeks and then two chapter.",
+      "timecode": "",
+      "source": "20260709/english_class_notes.md",
+      "grammar": {
+        "title": "句型重點",
+        "explanation": "each + 單數名詞接單數動詞；說明授課期間與範圍可用 teaches for / covers。",
+        "pattern": "Each + 單數名詞 + 動詞-s + for + 時間 + and + 動詞-s + 內容."
+      },
+      "audio_question": "",
+      "audio_answer": "audio/01f26bbdae82e0ed00bc.mp3"
+    },
+    {
+      "id": "class-20260709-05",
+      "type": "class",
+      "date": "2026-07-09",
+      "category": "課程與安排",
+      "prompt_zh": "我們平均分數要超過 70 分。",
+      "question_en": "",
+      "answer_en": "We need to get an average score above 70.",
+      "answer_zh": "我們平均分數要超過 70 分。",
+      "original": "So we need to have, we need to got the average over 70.",
+      "timecode": "",
+      "source": "20260709/english_class_notes.md",
+      "grammar": {
+        "title": "句型重點",
+        "explanation": "need to 後接原形動詞 get；成績高於某數字用 above。",
+        "pattern": "We need to get an average score above + 數字."
+      },
+      "audio_question": "",
+      "audio_answer": "audio/d6e1cad174d987a9612e.mp3"
+    },
+    {
+      "id": "class-20260709-06",
+      "type": "class",
+      "date": "2026-07-09",
+      "category": "課程與安排",
+      "prompt_zh": "這五週可以暫停上課嗎？",
+      "question_en": "",
+      "answer_en": "Would it be possible to postpone our classes for these five weeks?",
+      "answer_zh": "這五週可以暫停上課嗎？",
+      "original": "Would it be possible how to say postpone about only these five weeks?",
+      "timecode": "",
+      "source": "20260709/english_class_notes.md",
+      "grammar": {
+        "title": "句型重點",
+        "explanation": "禮貌提出延期要求，用 Would it be possible to + 動詞；postpone 直接接受詞。",
+        "pattern": "Would it be possible to postpone + 活動 + for + 時間?"
+      },
+      "audio_question": "",
+      "audio_answer": "audio/e909845acb8a053ce824.mp3"
+    },
+    {
+      "id": "class-20260709-07",
+      "type": "class",
+      "date": "2026-07-09",
+      "category": "課程與安排",
+      "prompt_zh": "我沒想到會這麼難。",
+      "question_en": "",
+      "answer_en": "I didn't imagine it would be this hard.",
+      "answer_zh": "我沒想到會這麼難。",
+      "original": "I'm not imagine that is so hard.",
+      "timecode": "",
+      "source": "20260709/english_class_notes.md",
+      "grammar": {
+        "title": "句型重點",
+        "explanation": "談之前的預期用 didn't imagine；would 表示從過去看未來的情況。",
+        "pattern": "I didn't imagine it would be + 形容詞."
+      },
+      "audio_question": "",
+      "audio_answer": "audio/26cc27f40ec01790bdce.mp3"
+    },
+    {
+      "id": "class-20260709-08",
+      "type": "class",
+      "date": "2026-07-09",
+      "category": "課程與安排",
+      "prompt_zh": "這門課每人要 8,000 元。",
+      "question_en": "",
+      "answer_en": "This course costs 8,000 NTD per person.",
+      "answer_zh": "這門課每人要 8,000 元。",
+      "original": "These course cost us one per people.",
+      "timecode": "",
+      "source": "20260709/english_class_notes.md",
+      "grammar": {
+        "title": "句型重點",
+        "explanation": "單數 course 接 costs；說每人費用用 per person。",
+        "pattern": "This course costs + 金額 + per person."
+      },
+      "audio_question": "",
+      "audio_answer": "audio/57f05881868656555016.mp3"
+    },
+    {
+      "id": "class-20260709-09",
+      "type": "class",
+      "date": "2026-07-09",
+      "category": "課程與安排",
+      "prompt_zh": "我一直在考慮搬到另一個國家。",
+      "question_en": "",
+      "answer_en": "I have been considering relocating to another country.",
+      "answer_zh": "我一直在考慮搬到另一個國家。",
+      "original": "I have been considering reallocating to other countries.",
+      "timecode": "",
+      "source": "20260709/english_class_notes.md",
+      "grammar": {
+        "title": "句型重點",
+        "explanation": "搬到另一國是 relocate to；reallocate 指重新分配資源。",
+        "pattern": "I have been considering + V-ing + to + 地點."
+      },
+      "audio_question": "",
+      "audio_answer": "audio/fd9d8c4a6312c0addc7a.mp3"
+    },
+    {
+      "id": "class-20260709-10",
+      "type": "class",
+      "date": "2026-07-09",
+      "category": "課程與安排",
+      "prompt_zh": "我希望之後能帶給你一個好消息。",
+      "question_en": "",
+      "answer_en": "I hope I can bring you good news afterward.",
+      "answer_zh": "我希望之後能帶給你一個好消息。",
+      "original": "I hope I can bring the green flag to you after.",
+      "timecode": "",
+      "source": "20260709/english_class_notes.md",
+      "grammar": {
+        "title": "句型重點",
+        "explanation": "要說帶來好消息，用 bring + 人 + good news；green flag 不能直接代換。",
+        "pattern": "I hope I can bring you good news + 時間副詞."
+      },
+      "audio_question": "",
+      "audio_answer": "audio/fed5ed9f1951f430ab77.mp3"
+    },
+    {
+      "id": "class-20260907-01",
+      "type": "class",
+      "date": "2026-09-07",
+      "category": "生活與健康",
+      "prompt_zh": "你聽得清楚嗎？",
+      "question_en": "",
+      "answer_en": "Can you hear me clearly?",
+      "answer_zh": "你聽得清楚嗎？",
+      "original": "Could you hear me fine?",
+      "timecode": "",
+      "source": "20260907/english_class_notes.md",
+      "grammar": {
+        "title": "句型重點",
+        "explanation": "音訊檢查用 Can you hear me clearly?；clearly 修飾 hear。",
+        "pattern": "Can you hear me + 副詞?"
+      },
+      "audio_question": "",
+      "audio_answer": "audio/453f2ca5bb75565a04ea.mp3"
+    },
+    {
+      "id": "class-20260907-02",
+      "type": "class",
+      "date": "2026-09-07",
+      "category": "生活與健康",
+      "prompt_zh": "今晚我去牙醫那裡洗牙並檢查牙齒。",
+      "question_en": "",
+      "answer_en": "Tonight, I went to the dentist to have my teeth cleaned and checked.",
+      "answer_zh": "今晚我去牙醫那裡洗牙並檢查牙齒。",
+      "original": "Tonight, I went to the dentist to wash my teeth and check my teeth.",
+      "timecode": "",
+      "source": "20260907/english_class_notes.md",
+      "grammar": {
+        "title": "句型重點",
+        "explanation": "請牙醫處理牙齒可用 have + 受詞 + 過去分詞；cleaned and checked 平行。",
+        "pattern": "I went to + 地點 + to have my + 名詞 + 過去分詞."
+      },
+      "audio_question": "",
+      "audio_answer": "audio/05bf56cee82251789354.mp3"
+    },
+    {
+      "id": "class-20260907-03",
+      "type": "class",
+      "date": "2026-09-07",
+      "category": "生活與健康",
+      "prompt_zh": "好消息是我的牙齒很健康。",
+      "question_en": "",
+      "answer_en": "The good news is that my teeth are healthy.",
+      "answer_zh": "好消息是我的牙齒很健康。",
+      "original": "Green flag is my tooth is healthy.",
+      "timecode": "",
+      "source": "20260907/english_class_notes.md",
+      "grammar": {
+        "title": "句型重點",
+        "explanation": "引出好消息用 The good news is that + 完整子句。",
+        "pattern": "The good news is that + 主詞 + 動詞 + 補語."
+      },
+      "audio_question": "",
+      "audio_answer": "audio/8e78539de5c21ebff644.mp3"
+    },
+    {
+      "id": "class-20260907-04",
+      "type": "class",
+      "date": "2026-09-07",
+      "category": "生活與健康",
+      "prompt_zh": "之後我去健身房運動。",
+      "question_en": "",
+      "answer_en": "After that, I went to the gym and worked out.",
+      "answer_zh": "之後我去健身房運動。",
+      "original": "After that, I go to the gym and do the workout.",
+      "timecode": "",
+      "source": "20260907/english_class_notes.md",
+      "grammar": {
+        "title": "句型重點",
+        "explanation": "接續過去發生的兩件事，兩個動詞都用過去式；運動是 work out。",
+        "pattern": "After that, I went to + 地點 + and + 過去式動詞."
+      },
+      "audio_question": "",
+      "audio_answer": "audio/9ddff16817f92784047a.mp3"
+    },
+    {
+      "id": "class-20260907-05",
+      "type": "class",
+      "date": "2026-09-07",
+      "category": "生活與健康",
+      "prompt_zh": "我的生活會回到學生生活。",
+      "question_en": "",
+      "answer_en": "My life will go back to student life.",
+      "answer_zh": "我的生活會回到學生生活。",
+      "original": "My life will return to student life.",
+      "timecode": "",
+      "source": "20260907/english_class_notes.md",
+      "grammar": {
+        "title": "句型重點",
+        "explanation": "生活恢復到某種狀態可說 go back to + 名詞。",
+        "pattern": "My life will go back to + 名詞."
+      },
+      "audio_question": "",
+      "audio_answer": "audio/0df5c85eec601e43de1e.mp3"
+    },
+    {
+      "id": "class-20260907-06",
+      "type": "class",
+      "date": "2026-09-07",
+      "category": "生活與健康",
+      "prompt_zh": "我的行程會很緊湊，因為我每週要去學校三次。",
+      "question_en": "",
+      "answer_en": "I will have a hectic schedule because I need to go to school three times a week.",
+      "answer_zh": "我的行程會很緊湊，因為我每週要去學校三次。",
+      "original": "I will have a headache schedule because every thrice a week I need to go to school.",
+      "timecode": "",
+      "source": "20260907/english_class_notes.md",
+      "grammar": {
+        "title": "句型重點",
+        "explanation": "忙碌的行程是 hectic schedule；每週三次是 three times a week。",
+        "pattern": "I will have a hectic schedule because + 原因."
+      },
+      "audio_question": "",
+      "audio_answer": "audio/3a74ffeb58050785cb65.mp3"
+    },
+    {
+      "id": "class-20260907-07",
+      "type": "class",
+      "date": "2026-09-07",
+      "category": "生活與健康",
+      "prompt_zh": "你通常把冷氣設定在幾度？",
+      "question_en": "",
+      "answer_en": "What temperature do you usually set your air conditioner to?",
+      "answer_zh": "你通常把冷氣設定在幾度？",
+      "original": "The temperature you setting, how do you always setting?",
+      "timecode": "",
+      "source": "20260907/english_class_notes.md",
+      "grammar": {
+        "title": "句型重點",
+        "explanation": "問設定的溫度，用 What temperature do you set + 設備 + to?。",
+        "pattern": "What temperature do you usually set + 設備 + to?"
+      },
+      "audio_question": "",
+      "audio_answer": "audio/30b7b34022cfb8a0dcb0.mp3"
+    },
+    {
+      "id": "class-20260907-08",
+      "type": "class",
+      "date": "2026-09-07",
+      "category": "生活與健康",
+      "prompt_zh": "大約一個月前，我不吃早餐。",
+      "question_en": "",
+      "answer_en": "About a month ago, I didn't eat breakfast.",
+      "answer_zh": "大約一個月前，我不吃早餐。",
+      "original": "I think one month ago, I don't eat breakfast.",
+      "timecode": "",
+      "source": "20260907/english_class_notes.md",
+      "grammar": {
+        "title": "句型重點",
+        "explanation": "a month ago 指明過去，否定句用 didn't + 原形動詞。",
+        "pattern": "About + 時間 + ago, I didn't + 原形動詞."
+      },
+      "audio_question": "",
+      "audio_answer": "audio/81bff855dee70e493ac9.mp3"
+    },
+    {
+      "id": "class-20260907-09",
+      "type": "class",
+      "date": "2026-09-07",
+      "category": "生活與健康",
+      "prompt_zh": "所以我開始吃早餐。",
+      "question_en": "",
+      "answer_en": "So I started eating breakfast.",
+      "answer_zh": "所以我開始吃早餐。",
+      "original": "So I start eat my breakfast.",
+      "timecode": "",
+      "source": "20260907/english_class_notes.md",
+      "grammar": {
+        "title": "句型重點",
+        "explanation": "start 後可接 V-ing；已開始的習慣用 started。",
+        "pattern": "I started + V-ing + 受詞."
+      },
+      "audio_question": "",
+      "audio_answer": "audio/d8736a512ce18d1c70d6.mp3"
+    },
+    {
+      "id": "class-20260907-10",
+      "type": "class",
+      "date": "2026-09-07",
+      "category": "生活與健康",
+      "prompt_zh": "運動前應該吃一點輕食，幫自己補充能量。",
+      "question_en": "",
+      "answer_en": "Before working out, you should eat something light to give yourself energy.",
+      "answer_zh": "運動前應該吃一點輕食，幫自己補充能量。",
+      "original": "Because when you go to the gym to do the workout, you need to eat some little thing to charge your energy.",
+      "timecode": "",
+      "source": "20260907/english_class_notes.md",
+      "grammar": {
+        "title": "句型重點",
+        "explanation": "說明運動前吃點東西，先用 Before + V-ing，再說主要建議。",
+        "pattern": "Before + V-ing, you should + 原形動詞 + to + 原形動詞."
+      },
+      "audio_question": "",
+      "audio_answer": "audio/dfd59d4ca398e01c190b.mp3"
+    },
+    {
+      "id": "class-20260910-01",
+      "type": "class",
+      "date": "2026-09-10",
+      "category": "新學期",
+      "prompt_zh": "昨天是我新學期的第二天。",
+      "question_en": "",
+      "answer_en": "Yesterday was the second day of my new semester.",
+      "answer_zh": "昨天是我新學期的第二天。",
+      "original": "yesterday is my second day from my new semester.",
+      "timecode": "05:28",
+      "source": "20260910/english_class_notes.md",
+      "grammar": {
+        "title": "句型重點",
+        "explanation": "過去時間用 was；學期中的第幾天用 of。",
+        "pattern": "Yesterday was the + 序數 + day of + 名詞."
+      },
+      "audio_question": "",
+      "audio_answer": "audio/2b4c9894ef75fcc7d60f.mp3"
+    },
+    {
+      "id": "class-20260910-02",
+      "type": "class",
+      "date": "2026-09-10",
+      "category": "新學期",
+      "prompt_zh": "我有兩門課要修。",
+      "question_en": "",
+      "answer_en": "I have two courses to take.",
+      "answer_zh": "我有兩門課要修。",
+      "original": "I have two classes, two courses need to learn.",
+      "timecode": "05:48",
+      "source": "20260910/english_class_notes.md",
+      "grammar": {
+        "title": "句型重點",
+        "explanation": "修課用 take a course；避免重複 classes / courses。",
+        "pattern": "I have + 數字 + courses to take."
+      },
+      "audio_question": "",
+      "audio_answer": "audio/09f46018a4e249d5e5a1.mp3"
+    },
+    {
+      "id": "class-20260910-03",
+      "type": "class",
+      "date": "2026-09-10",
+      "category": "新學期",
+      "prompt_zh": "我剛剛又加選了一門課。",
+      "question_en": "",
+      "answer_en": "I've just added one more course.",
+      "answer_zh": "我剛剛又加選了一門課。",
+      "original": "I just add one more course.",
+      "timecode": "06:40",
+      "source": "20260910/english_class_notes.md",
+      "grammar": {
+        "title": "句型重點",
+        "explanation": "剛完成的動作用 have just added；不是 add 原形。",
+        "pattern": "I've just + 過去分詞 + 受詞."
+      },
+      "audio_question": "",
+      "audio_answer": "audio/bf9e14ec1105740a1bb6.mp3"
+    },
+    {
+      "id": "class-20260910-04",
+      "type": "class",
+      "date": "2026-09-10",
+      "category": "新學期",
+      "prompt_zh": "這門課的課業負擔很輕。",
+      "question_en": "",
+      "answer_en": "The workload for this course is really light.",
+      "answer_zh": "這門課的課業負擔很輕。",
+      "original": "Loading is really light.",
+      "timecode": "07:22",
+      "source": "20260910/english_class_notes.md",
+      "grammar": {
+        "title": "句型重點",
+        "explanation": "課業負擔是 workload；loading 通常指載入。",
+        "pattern": "The workload for + 課程 + is + 形容詞."
+      },
+      "audio_question": "",
+      "audio_answer": "audio/30d5ae35bd8f51591482.mp3"
+    },
+    {
+      "id": "class-20260910-05",
+      "type": "class",
+      "date": "2026-09-10",
+      "category": "新學期",
+      "prompt_zh": "我不覺得有壓力。",
+      "question_en": "",
+      "answer_en": "I don't feel stressed.",
+      "answer_zh": "我不覺得有壓力。",
+      "original": "I don't feel stress.",
+      "timecode": "07:53",
+      "source": "20260910/english_class_notes.md",
+      "grammar": {
+        "title": "句型重點",
+        "explanation": "描述感受用 stressed；也可說 I don't feel much stress。",
+        "pattern": "I don't feel + 形容詞."
+      },
+      "audio_question": "",
+      "audio_answer": "audio/136006789f965ad6e4ed.mp3"
+    },
+    {
+      "id": "class-20260910-06",
+      "type": "class",
+      "date": "2026-09-10",
+      "category": "新學期",
+      "prompt_zh": "我對新學期仍然感到興奮。",
+      "question_en": "",
+      "answer_en": "I'm still excited about the new semester.",
+      "answer_zh": "我對新學期仍然感到興奮。",
+      "original": "Right now, my condition still feel excited.",
+      "timecode": "10:42",
+      "source": "20260910/english_class_notes.md",
+      "grammar": {
+        "title": "句型重點",
+        "explanation": "用 I 當感受的主詞，再接 be + excited。",
+        "pattern": "I'm still excited about + 名詞."
+      },
+      "audio_question": "",
+      "audio_answer": "audio/82c554350ed30b74280f.mp3"
+    },
+    {
+      "id": "class-20260910-07",
+      "type": "class",
+      "date": "2026-09-10",
+      "category": "新學期",
+      "prompt_zh": "我們以前念同一所高中。",
+      "question_en": "",
+      "answer_en": "We went to the same high school.",
+      "answer_zh": "我們以前念同一所高中。",
+      "original": "We studied the same high school.",
+      "timecode": "17:30",
+      "source": "20260910/english_class_notes.md",
+      "grammar": {
+        "title": "句型重點",
+        "explanation": "就讀某校用 go to；也可用 studied at。",
+        "pattern": "We went to the same + 學校類型."
+      },
+      "audio_question": "",
+      "audio_answer": "audio/444531c131069403d3e6.mp3"
+    },
+    {
+      "id": "class-20260910-08",
+      "type": "class",
+      "date": "2026-09-10",
+      "category": "新學期",
+      "prompt_zh": "這就像一份夢寐以求的工作。",
+      "question_en": "",
+      "answer_en": "It's like a dream job.",
+      "answer_zh": "這就像一份夢寐以求的工作。",
+      "original": "It is like a dream work",
+      "timecode": "18:56",
+      "source": "20260910/english_class_notes.md",
+      "grammar": {
+        "title": "句型重點",
+        "explanation": "一份工作是 a job；work 在此是不可數名詞。",
+        "pattern": "It's like a + 形容詞 + job."
+      },
+      "audio_question": "",
+      "audio_answer": "audio/d54dca0c13894221eab0.mp3"
+    },
+    {
+      "id": "class-20260910-09",
+      "type": "class",
+      "date": "2026-09-10",
+      "category": "新學期",
+      "prompt_zh": "你聽得清楚嗎？還是聲音有延遲？",
+      "question_en": "",
+      "answer_en": "Can you hear me clearly, or is there a delay?",
+      "answer_zh": "你聽得清楚嗎？還是聲音有延遲？",
+      "original": "Could you hear me fine or too late?",
+      "timecode": "41:43",
+      "source": "20260910/english_class_notes.md",
+      "grammar": {
+        "title": "句型重點",
+        "explanation": "詢問現在的音訊用 can；too late 不等於網路延遲。",
+        "pattern": "Can you hear me clearly, or is there + 名詞?"
+      },
+      "audio_question": "",
+      "audio_answer": "audio/ab1135fd211b9e4b7769.mp3"
+    },
+    {
+      "id": "class-20260910-10",
+      "type": "class",
+      "date": "2026-09-10",
+      "category": "新學期",
+      "prompt_zh": "你總是處在工作模式。",
+      "question_en": "",
+      "answer_en": "You're always in work mode.",
+      "answer_zh": "你總是處在工作模式。",
+      "original": "You're always on the working mode.",
+      "timecode": "48:10",
+      "source": "20260910/english_class_notes.md",
+      "grammar": {
+        "title": "句型重點",
+        "explanation": "固定搭配是 in work mode，不用 on the working mode。",
+        "pattern": "You're always in + 名詞 + mode."
+      },
+      "audio_question": "",
+      "audio_answer": "audio/26db8967ffedcd009f0d.mp3"
+    },
+    {
+      "id": "class-20260914-01",
+      "type": "class",
+      "date": "2026-09-14",
+      "category": "工作與飲食",
+      "prompt_zh": "我會確保自己上課時不會太累。",
+      "question_en": "",
+      "answer_en": "I'll make sure I'm not too tired for class.",
+      "answer_zh": "我會確保自己上課時不會太累。",
+      "original": "I will make sure I have, how to say, good condition.",
+      "timecode": "03:34",
+      "source": "20260914/english_class_notes.md",
+      "grammar": {
+        "title": "句型重點",
+        "explanation": "描述上課精神狀況，用 I'm not too tired 比 have good condition 自然；去掉找詞時的 how to say。",
+        "pattern": "I'll make sure I'm + 形容詞 + for + 活動."
+      },
+      "audio_question": "",
+      "audio_answer": "audio/a135b9a067cb34ebbd86.mp3"
+    },
+    {
+      "id": "class-20260914-02",
+      "type": "class",
+      "date": "2026-09-14",
+      "category": "工作與飲食",
+      "prompt_zh": "我星期六做了運動。",
+      "question_en": "",
+      "answer_en": "I did my workout on Saturday.",
+      "answer_zh": "我星期六做了運動。",
+      "original": "I done my workout on Saturday.",
+      "timecode": "03:56",
+      "source": "20260914/english_class_notes.md",
+      "grammar": {
+        "title": "句型重點",
+        "explanation": "有明確過去時間 on Saturday，用 did；done 是過去分詞。也可說 I worked out on Saturday。",
+        "pattern": "I + 過去式動詞 + on + 過去日期."
+      },
+      "audio_question": "",
+      "audio_answer": "audio/251013bfc14ec31fd6a0.mp3"
+    },
+    {
+      "id": "class-20260914-03",
+      "type": "class",
+      "date": "2026-09-14",
+      "category": "工作與飲食",
+      "prompt_zh": "但到頭來，你還是得找到路。",
+      "question_en": "",
+      "answer_en": "But in the end, you still need to find your way.",
+      "answer_zh": "但到頭來，你還是得找到路。",
+      "original": "But at the end, you need to find your accurate... It's called... Your accurate direction, not always lost.",
+      "timecode": "18:27",
+      "source": "20260914/english_class_notes.md",
+      "grammar": {
+        "title": "句型重點",
+        "explanation": "這裡強調最後結果，用 in the end；找到路用 find your way，比 find your accurate direction 自然。",
+        "pattern": "In the end, you still need to + 原形動詞."
+      },
+      "audio_question": "",
+      "audio_answer": "audio/d20552c98538d8e79ba3.mp3"
+    },
+    {
+      "id": "class-20260914-04",
+      "type": "class",
+      "date": "2026-09-14",
+      "category": "工作與飲食",
+      "prompt_zh": "所以我當時在台中的麥當勞工作。",
+      "question_en": "",
+      "answer_en": "So I worked at McDonald's in Taichung.",
+      "answer_zh": "所以我當時在台中的麥當勞工作。",
+      "original": "So I work McDonald's at Taichung.",
+      "timecode": "23:40",
+      "source": "20260914/english_class_notes.md",
+      "grammar": {
+        "title": "句型重點",
+        "explanation": "過去經歷用 worked；任職於店家用 at；城市前用 in。",
+        "pattern": "I worked at + 公司 + in + 城市."
+      },
+      "audio_question": "",
+      "audio_answer": "audio/996fb1571871e9145893.mp3"
+    },
+    {
+      "id": "class-20260914-05",
+      "type": "class",
+      "date": "2026-09-14",
+      "category": "工作與飲食",
+      "prompt_zh": "當時有很多事情是我們必須做的。",
+      "question_en": "",
+      "answer_en": "There were a lot of things we had to do.",
+      "answer_zh": "當時有很多事情是我們必須做的。",
+      "original": "Yeah, a lot of things we need to do.",
+      "timecode": "24:53",
+      "source": "20260914/english_class_notes.md",
+      "grammar": {
+        "title": "句型重點",
+        "explanation": "談之前的工作，用 There were ... we had to ...，讓句子有完整主幹並保持過去式。",
+        "pattern": "There were + 複數名詞 + we had to + 原形動詞."
+      },
+      "audio_question": "",
+      "audio_answer": "audio/41113bb4839cdbe7009f.mp3"
+    },
+    {
+      "id": "class-20260914-06",
+      "type": "class",
+      "date": "2026-09-14",
+      "category": "工作與飲食",
+      "prompt_zh": "我對這個比例並不太意外。",
+      "question_en": "",
+      "answer_en": "I'm not really surprised by the percentage.",
+      "answer_zh": "我對這個比例並不太意外。",
+      "original": "Because I don't feel really surprised of the percentage.",
+      "timecode": "40:05",
+      "source": "20260914/english_class_notes.md",
+      "grammar": {
+        "title": "句型重點",
+        "explanation": "固定搭配 surprised by / at；獨立回答不必用 Because 開頭，也可另接完整原因。",
+        "pattern": "I'm not surprised by + 名詞."
+      },
+      "audio_question": "",
+      "audio_answer": "audio/786c6c7faa2585fe7765.mp3"
+    },
+    {
+      "id": "class-20260914-07",
+      "type": "class",
+      "date": "2026-09-14",
+      "category": "工作與飲食",
+      "prompt_zh": "我認為許多年輕人會用社群媒體找用餐地點。",
+      "question_en": "",
+      "answer_en": "I think many young people use social media to find places to eat.",
+      "answer_zh": "我認為許多年輕人會用社群媒體找用餐地點。",
+      "original": "For the youngsters, I think they always use the social media to find a place to eat.",
+      "timecode": "40:49",
+      "source": "20260914/english_class_notes.md",
+      "grammar": {
+        "title": "句型重點",
+        "explanation": "一般說 social media 不加 the；young people 直接當主詞。many 比 always 的概括語氣保守。",
+        "pattern": "I think many + 人群 + use + 工具 + to + 原形動詞."
+      },
+      "audio_question": "",
+      "audio_answer": "audio/25b71fb2e175e3a8d861.mp3"
+    },
+    {
+      "id": "class-20260914-08",
+      "type": "class",
+      "date": "2026-09-14",
+      "category": "工作與飲食",
+      "prompt_zh": "也許他們想變得更有名。",
+      "question_en": "",
+      "answer_en": "Maybe they want to become more famous.",
+      "answer_zh": "也許他們想變得更有名。",
+      "original": "Yeah, maybe they want more famous.",
+      "timecode": "45:22",
+      "source": "20260914/english_class_notes.md",
+      "grammar": {
+        "title": "句型重點",
+        "explanation": "want 後不能直接接 more famous；要用 want to become / be + 形容詞。",
+        "pattern": "They want to become + 形容詞."
+      },
+      "audio_question": "",
+      "audio_answer": "audio/b7495296ff1f01f849e5.mp3"
+    },
+    {
+      "id": "class-20260914-09",
+      "type": "class",
+      "date": "2026-09-14",
+      "category": "工作與飲食",
+      "prompt_zh": "透過這個 App 訂餐很困難。",
+      "question_en": "",
+      "answer_en": "It's difficult to order food through the app.",
+      "answer_zh": "透過這個 App 訂餐很困難。",
+      "original": "it's so hard to use the app to order the delivery.",
+      "timecode": "46:11",
+      "source": "20260914/english_class_notes.md",
+      "grammar": {
+        "title": "句型重點",
+        "explanation": "點外送可說 order food through the app 或 order food for delivery；避免不自然的 order the delivery。",
+        "pattern": "It's difficult to + 原形動詞 + through + 管道."
+      },
+      "audio_question": "",
+      "audio_answer": "audio/a5d39e9772e69f5b99e9.mp3"
+    },
+    {
+      "id": "class-20260914-10",
+      "type": "class",
+      "date": "2026-09-14",
+      "category": "工作與飲食",
+      "prompt_zh": "我們有足夠的時間學習課程內容。",
+      "question_en": "",
+      "answer_en": "We have enough time to learn the material.",
+      "answer_zh": "我們有足夠的時間學習課程內容。",
+      "original": "we got enough time to learn the knowledge.",
+      "timecode": "51:47",
+      "source": "20260914/english_class_notes.md",
+      "grammar": {
+        "title": "句型重點",
+        "explanation": "描述現在課程用 have；學習教材內容用 learn the material，比 learn the knowledge 自然。",
+        "pattern": "We have enough time to + 原形動詞 + 受詞."
+      },
+      "audio_question": "",
+      "audio_answer": "audio/01e0227b743644db39cb.mp3"
+    },
+    {
+      "id": "class-20260917-01",
+      "type": "class",
+      "date": "2026-09-17",
+      "category": "學習與感受",
+      "prompt_zh": "真的嗎？我看起來很有精神嗎？",
+      "question_en": "",
+      "answer_en": "Really? Do I look fresh?",
+      "answer_zh": "真的嗎？我看起來很有精神嗎？",
+      "original": "Really? Am I look fresh?",
+      "timecode": "00:00:38",
+      "source": "20260917/english_class_notes.md",
+      "grammar": {
+        "title": "句型重點",
+        "explanation": "一般現在式問句用 Do + 主詞 + 原形動詞。",
+        "pattern": "Do + 主詞 + look + 形容詞?"
+      },
+      "audio_question": "",
+      "audio_answer": "audio/a9ac4337861e61ee4946.mp3"
+    },
+    {
+      "id": "class-20260917-02",
+      "type": "class",
+      "date": "2026-09-17",
+      "category": "學習與感受",
+      "prompt_zh": "我這週學到了很多知識。",
+      "question_en": "",
+      "answer_en": "I've gained a lot of knowledge this week.",
+      "answer_zh": "我這週學到了很多知識。",
+      "original": "I just learned a lot of knowledge this week.",
+      "timecode": "00:00:51",
+      "source": "20260917/english_class_notes.md",
+      "grammar": {
+        "title": "句型重點",
+        "explanation": "gain knowledge 是較自然的搭配；本週經驗可用現在完成式。",
+        "pattern": "I've gained + 數量 + knowledge this week."
+      },
+      "audio_question": "",
+      "audio_answer": "audio/1010991170b2f419576c.mp3"
+    },
+    {
+      "id": "class-20260917-03",
+      "type": "class",
+      "date": "2026-09-17",
+      "category": "學習與感受",
+      "prompt_zh": "我仍需要撥出一些時間複習學過的內容。",
+      "question_en": "",
+      "answer_en": "I still need to set aside some time to review what I've learned.",
+      "answer_zh": "我仍需要撥出一些時間複習學過的內容。",
+      "original": "I still need to put another time to review or recall.",
+      "timecode": "00:01:04",
+      "source": "20260917/english_class_notes.md",
+      "grammar": {
+        "title": "句型重點",
+        "explanation": "用 set aside time 表示撥出時間；recall 通常需要受詞。",
+        "pattern": "I need to set aside time to + 原形動詞."
+      },
+      "audio_question": "",
+      "audio_answer": "audio/e76a01f5c87d8253d203.mp3"
+    },
+    {
+      "id": "class-20260917-04",
+      "type": "class",
+      "date": "2026-09-17",
+      "category": "學習與感受",
+      "prompt_zh": "因為我這學期修了四門課，所以有很多內容要學。",
+      "question_en": "",
+      "answer_en": "Because I'm taking four courses, there is a lot I need to learn.",
+      "answer_zh": "因為我這學期修了四門課，所以有很多內容要學。",
+      "original": "Because I chose four courses and then there has a lot of knowledge I need to learn.",
+      "timecode": "00:01:13",
+      "source": "20260917/english_class_notes.md",
+      "grammar": {
+        "title": "句型重點",
+        "explanation": "存在句用 there is；正在修課用 be taking courses。",
+        "pattern": "Because I'm taking + 數字 + courses, there is a lot to learn."
+      },
+      "audio_question": "",
+      "audio_answer": "audio/05e13ee08bd03c85db72.mp3"
+    },
+    {
+      "id": "class-20260917-05",
+      "type": "class",
+      "date": "2026-09-17",
+      "category": "學習與感受",
+      "prompt_zh": "這能幫助我繼續進步，達到更高的程度。",
+      "question_en": "",
+      "answer_en": "It can help me move forward and reach a higher level.",
+      "answer_zh": "這能幫助我繼續進步，達到更高的程度。",
+      "original": "It can help me to move forward to higher place, higher level.",
+      "timecode": "00:06:07",
+      "source": "20260917/english_class_notes.md",
+      "grammar": {
+        "title": "句型重點",
+        "explanation": "help + 受詞 + 原形動詞較精簡；reach a higher level 是自然搭配。",
+        "pattern": "It can help me + 原形動詞 + and + 原形動詞."
+      },
+      "audio_question": "",
+      "audio_answer": "audio/ca4f079e494df0e406cf.mp3"
+    },
+    {
+      "id": "class-20260917-06",
+      "type": "class",
+      "date": "2026-09-17",
+      "category": "學習與感受",
+      "prompt_zh": "我還有週末可以補進度。",
+      "question_en": "",
+      "answer_en": "I still have the weekend to catch up.",
+      "answer_zh": "我還有週末可以補進度。",
+      "original": "I still got weekend I can use.",
+      "timecode": "00:07:23",
+      "source": "20260917/english_class_notes.md",
+      "grammar": {
+        "title": "句型重點",
+        "explanation": "描述目前擁有的時間用 have；特定週末前加 the。",
+        "pattern": "I still have + 時間 + to + 原形動詞."
+      },
+      "audio_question": "",
+      "audio_answer": "audio/219a4f2f3742e70ceeb7.mp3"
+    },
+    {
+      "id": "class-20260917-07",
+      "type": "class",
+      "date": "2026-09-17",
+      "category": "學習與感受",
+      "prompt_zh": "所以這表示可能只剩五分鐘。",
+      "question_en": "",
+      "answer_en": "So this means there may be only five minutes left.",
+      "answer_zh": "所以這表示可能只剩五分鐘。",
+      "original": "So this is like maybe only left maybe five minutes.",
+      "timecode": "00:14:27",
+      "source": "20260917/english_class_notes.md",
+      "grammar": {
+        "title": "句型重點",
+        "explanation": "用 there may be ... left，並刪除重複的 maybe。",
+        "pattern": "There may be only + 數量 + left."
+      },
+      "audio_question": "",
+      "audio_answer": "audio/5de517a6ea2d539f9471.mp3"
+    },
+    {
+      "id": "class-20260917-08",
+      "type": "class",
+      "date": "2026-09-17",
+      "category": "學習與感受",
+      "prompt_zh": "我改變了習慣，開始和最親近的朋友分享感受。",
+      "question_en": "",
+      "answer_en": "I've changed my habits and started sharing my feelings with my closest friends.",
+      "answer_zh": "我改變了習慣，開始和最親近的朋友分享感受。",
+      "original": "I just changed my habits and started to share my feelings to my really close friends.",
+      "timecode": "00:28:40",
+      "source": "20260917/english_class_notes.md",
+      "grammar": {
+        "title": "句型重點",
+        "explanation": "share something with someone；closest 比 really close 更精簡。",
+        "pattern": "I've started sharing + 事物 + with + 人."
+      },
+      "audio_question": "",
+      "audio_answer": "audio/cf86c019b875d9f44c77.mp3"
+    },
+    {
+      "id": "class-20260917-09",
+      "type": "class",
+      "date": "2026-09-17",
+      "category": "學習與感受",
+      "prompt_zh": "我某種程度上同意，大約有六到七成。",
+      "question_en": "",
+      "answer_en": "I agree to some extent, maybe about 60 to 70 percent.",
+      "answer_zh": "我某種程度上同意，大約有六到七成。",
+      "original": "I do maybe 60 to 70% agree.",
+      "timecode": "00:45:52",
+      "source": "20260917/english_class_notes.md",
+      "grammar": {
+        "title": "句型重點",
+        "explanation": "程度副詞放在 agree 後方，to some extent 能讓語氣更自然。",
+        "pattern": "I agree to some extent, maybe about + 百分比."
+      },
+      "audio_question": "",
+      "audio_answer": "audio/1480f5d48811418d1ce7.mp3"
+    },
+    {
+      "id": "class-20260917-10",
+      "type": "class",
+      "date": "2026-09-17",
+      "category": "學習與感受",
+      "prompt_zh": "是的，真的很難把他們區分開來。",
+      "question_en": "",
+      "answer_en": "Yes, it's really hard to tell them apart.",
+      "answer_zh": "是的，真的很難把他們區分開來。",
+      "original": "Yes, it's really hard to tell apart.",
+      "timecode": "00:49:29",
+      "source": "20260917/english_class_notes.md",
+      "grammar": {
+        "title": "句型重點",
+        "explanation": "tell apart 通常要指出被區分的對象，例如 tell them apart。",
+        "pattern": "It's hard to tell + 受詞 + apart."
+      },
+      "audio_question": "",
+      "audio_answer": "audio/cfcd5875b3a87fa1a889.mp3"
+    },
+    {
+      "id": "class-20260921-01",
+      "type": "class",
+      "date": "2026-09-21",
+      "category": "運動與科技",
+      "prompt_zh": "我剛剛去健身房運動了。",
+      "question_en": "",
+      "answer_en": "I just went to the gym and worked out.",
+      "answer_zh": "我剛剛去健身房運動了。",
+      "original": "I just went to the gym and do the workout.",
+      "timecode": "00:00:30-00:00:36",
+      "source": "20260921/english_class_notes.md",
+      "grammar": {
+        "title": "句型重點",
+        "explanation": "並列的過去動作時態要一致；do the workout 可簡化成 worked out。",
+        "pattern": "I just went to + 地點 + and + 過去式動詞."
+      },
+      "audio_question": "",
+      "audio_answer": "audio/163a1b75a0be40faa69e.mp3"
+    },
+    {
+      "id": "class-20260921-02",
+      "type": "class",
+      "date": "2026-09-21",
+      "category": "運動與科技",
+      "prompt_zh": "喔，我也是。",
+      "question_en": "",
+      "answer_en": "Oh, same here.",
+      "answer_zh": "喔，我也是。",
+      "original": "Oh, same to I.",
+      "timecode": "00:00:46-00:00:47",
+      "source": "20260921/english_class_notes.md",
+      "grammar": {
+        "title": "句型重點",
+        "explanation": "同意對方的個人經驗，用 Same here；same to I 不合英文用法。",
+        "pattern": "Same here. / Me too."
+      },
+      "audio_question": "",
+      "audio_answer": "audio/183d2f2f454fa59f7406.mp3"
+    },
+    {
+      "id": "class-20260921-03",
+      "type": "class",
+      "date": "2026-09-21",
+      "category": "運動與科技",
+      "prompt_zh": "我想我需要兩天才能恢復。",
+      "question_en": "",
+      "answer_en": "I think I need two days to recover.",
+      "answer_zh": "我想我需要兩天才能恢復。",
+      "original": "I think it needs two days to recover.",
+      "timecode": "00:00:59-00:01:02",
+      "source": "20260921/english_class_notes.md",
+      "grammar": {
+        "title": "句型重點",
+        "explanation": "需要時間恢復的人做主詞，用 I need；不是 it needs。",
+        "pattern": "I think I need + 時間 + to + 原形動詞."
+      },
+      "audio_question": "",
+      "audio_answer": "audio/d3d789bb8f95399fffca.mp3"
+    },
+    {
+      "id": "class-20260921-04",
+      "type": "class",
+      "date": "2026-09-21",
+      "category": "運動與科技",
+      "prompt_zh": "我大約每個月看一次皮膚科醫師。",
+      "question_en": "",
+      "answer_en": "I see a dermatologist about once a month.",
+      "answer_zh": "我大約每個月看一次皮膚科醫師。",
+      "original": "I will go to see dermatologist I think maybe once a month.",
+      "timecode": "00:01:40-00:01:48",
+      "source": "20260921/english_class_notes.md",
+      "grammar": {
+        "title": "句型重點",
+        "explanation": "描述固定看診頻率用一般現在式；專科醫師前加 a。",
+        "pattern": "I see a + 專科醫師 + about once a + 時間單位."
+      },
+      "audio_question": "",
+      "audio_answer": "audio/5411c8073fb7c1ca2f8c.mp3"
+    },
+    {
+      "id": "class-20260921-05",
+      "type": "class",
+      "date": "2026-09-21",
+      "category": "運動與科技",
+      "prompt_zh": "醫師說有些人會有這個問題。",
+      "question_en": "",
+      "answer_en": "The doctor said that some people have this issue.",
+      "answer_zh": "醫師說有些人會有這個問題。",
+      "original": "The doctor just say some people will have this issue.",
+      "timecode": "00:05:09-00:05:13",
+      "source": "20260921/english_class_notes.md",
+      "grammar": {
+        "title": "句型重點",
+        "explanation": "轉述醫師當時說的話用 said；普遍情況可保留現在式 have。",
+        "pattern": "The doctor said that + 主詞 + 現在式動詞."
+      },
+      "audio_question": "",
+      "audio_answer": "audio/721d3bb31beccb36e1bd.mp3"
+    },
+    {
+      "id": "class-20260921-06",
+      "type": "class",
+      "date": "2026-09-21",
+      "category": "運動與科技",
+      "prompt_zh": "我從沒想過誰會搭飛機去高雄。",
+      "question_en": "",
+      "answer_en": "I never thought about who would take a flight to Kaohsiung.",
+      "answer_zh": "我從沒想過誰會搭飛機去高雄。",
+      "original": "I never thought that who will take the airplane to Kaohsiung.",
+      "timecode": "00:25:13-00:25:25",
+      "source": "20260921/english_class_notes.md",
+      "grammar": {
+        "title": "句型重點",
+        "explanation": "thought about 後可接疑問詞子句；從過去視角推測用 would。",
+        "pattern": "I never thought about who would + 原形動詞."
+      },
+      "audio_question": "",
+      "audio_answer": "audio/2088da816423a471331b.mp3"
+    },
+    {
+      "id": "class-20260921-07",
+      "type": "class",
+      "date": "2026-09-21",
+      "category": "運動與科技",
+      "prompt_zh": "在我看來，手機應該要能輕鬆單手操作。",
+      "question_en": "",
+      "answer_en": "In my view, a phone should be easy to use with one hand.",
+      "answer_zh": "在我看來，手機應該要能輕鬆單手操作。",
+      "original": "In my view, I think phone, you just need to use your one hand.",
+      "timecode": "00:34:14-00:34:19",
+      "source": "20260921/english_class_notes.md",
+      "grammar": {
+        "title": "句型重點",
+        "explanation": "說功能需求可用 should be easy to + 動詞；with one hand 是自然搭配。",
+        "pattern": "A + 物品 + should be easy to use with + 工具/方式."
+      },
+      "audio_question": "",
+      "audio_answer": "audio/e5dea5a58207122f3031.mp3"
+    },
+    {
+      "id": "class-20260921-08",
+      "type": "class",
+      "date": "2026-09-21",
+      "category": "運動與科技",
+      "prompt_zh": "你甚至可以用同樣的價格同時買一支 iPhone 和一台 iPad。",
+      "question_en": "",
+      "answer_en": "You could buy both an iPhone and an iPad for the same price.",
+      "answer_zh": "你甚至可以用同樣的價格同時買一支 iPhone 和一台 iPad。",
+      "original": "You also can buy an iPhone and iPad in the same time.",
+      "timecode": "00:35:11-00:35:15",
+      "source": "20260921/english_class_notes.md",
+      "grammar": {
+        "title": "句型重點",
+        "explanation": "比較價格用 for the same price；both A and B 連接兩項。",
+        "pattern": "You could buy both + A + and + B + for the same price."
+      },
+      "audio_question": "",
+      "audio_answer": "audio/d966c503dcd4267a817a.mp3"
+    },
+    {
+      "id": "class-20260921-09",
+      "type": "class",
+      "date": "2026-09-21",
+      "category": "運動與科技",
+      "prompt_zh": "我為什麼選擇 Apple Watch Ultra？",
+      "question_en": "",
+      "answer_en": "Why did I choose the Apple Watch Ultra?",
+      "answer_zh": "我為什麼選擇 Apple Watch Ultra？",
+      "original": "Why I choose the Apple Watch Ultra?",
+      "timecode": "00:37:44-00:37:47",
+      "source": "20260921/english_class_notes.md",
+      "grammar": {
+        "title": "句型重點",
+        "explanation": "過去的選擇問句用 Why did + 主詞 + 原形動詞。",
+        "pattern": "Why did you choose + 物品?"
+      },
+      "audio_question": "",
+      "audio_answer": "audio/652a1bcb9144e8d66951.mp3"
+    },
+    {
+      "id": "class-20260921-10",
+      "type": "class",
+      "date": "2026-09-21",
+      "category": "運動與科技",
+      "prompt_zh": "我沒有買一般 Series 機型，是因為它的電池續航力。",
+      "question_en": "",
+      "answer_en": "I didn't buy the regular Series model because of its battery life.",
+      "answer_zh": "我沒有買一般 Series 機型，是因為它的電池續航力。",
+      "original": "I don't buy the normal series because the battery.",
+      "timecode": "00:37:47-00:37:52",
+      "source": "20260921/english_class_notes.md",
+      "grammar": {
+        "title": "句型重點",
+        "explanation": "因為某個名詞原因用 because of；過去沒買用 didn't buy。",
+        "pattern": "I didn't buy + 物品 + because of + 名詞."
+      },
+      "audio_question": "",
+      "audio_answer": "audio/8fe3fa05b5ffac560fff.mp3"
+    },
+    {
+      "id": "class-20260924-01",
+      "type": "class",
+      "date": "2026-09-24",
+      "category": "課程與科技",
+      "prompt_zh": "我週二到週五有碩士課程。",
+      "question_en": "",
+      "answer_en": "I have classes for my master's degree from Tuesday to Friday.",
+      "answer_zh": "我週二到週五有碩士課程。",
+      "original": "I have a master degrees class Tuesday to Friday, right?",
+      "timecode": "",
+      "source": "20260924/english_class_notes.md",
+      "grammar": {
+        "title": "句型重點",
+        "explanation": "碩士學位是 master's degree；從星期二到星期五用 from ... to ...。",
+        "pattern": "I have classes for my + 學位 + from + 星期 + to + 星期."
+      },
+      "audio_question": "",
+      "audio_answer": "audio/be7b07f2ec3489c1f565.mp3"
+    },
+    {
+      "id": "class-20260924-02",
+      "type": "class",
+      "date": "2026-09-24",
+      "category": "課程與科技",
+      "prompt_zh": "教授擔心我們仍得去學校上課。",
+      "question_en": "",
+      "answer_en": "The professor was worried that we would still have to go to campus for class.",
+      "answer_zh": "教授擔心我們仍得去學校上課。",
+      "original": "The professor just worried about if our students still need to go to school to have a class,",
+      "timecode": "",
+      "source": "20260924/english_class_notes.md",
+      "grammar": {
+        "title": "句型重點",
+        "explanation": "擔心一件事用 worried that + 子句；到校上課是 go to campus for class。",
+        "pattern": "Someone was worried that + 主詞 + would have to + 原形動詞."
+      },
+      "audio_question": "",
+      "audio_answer": "audio/aee24bc8253ccb2be740.mp3"
+    },
+    {
+      "id": "class-20260924-03",
+      "type": "class",
+      "date": "2026-09-24",
+      "category": "課程與科技",
+      "prompt_zh": "所以那堂課在九點結束。",
+      "question_en": "",
+      "answer_en": "So the class ended at nine o'clock.",
+      "answer_zh": "所以那堂課在九點結束。",
+      "original": "so the course end at nine o'clock.",
+      "timecode": "",
+      "source": "20260924/english_class_notes.md",
+      "grammar": {
+        "title": "句型重點",
+        "explanation": "描述過去結束時間用 ended；class 比 course 更適合單堂課。",
+        "pattern": "The class ended at + 時間."
+      },
+      "audio_question": "",
+      "audio_answer": "audio/9671fbeaaeb276818635.mp3"
+    },
+    {
+      "id": "class-20260924-04",
+      "type": "class",
+      "date": "2026-09-24",
+      "category": "課程與科技",
+      "prompt_zh": "因為我要上的課太多了。",
+      "question_en": "",
+      "answer_en": "Because I have too many courses to attend.",
+      "answer_zh": "因為我要上的課太多了。",
+      "original": "Because too many course I need to learn. Attend.",
+      "timecode": "",
+      "source": "20260924/english_class_notes.md",
+      "grammar": {
+        "title": "句型重點",
+        "explanation": "too many 修飾可數複數 courses；attend 接在 to 後用原形。",
+        "pattern": "I have too many + 複數名詞 + to + 原形動詞."
+      },
+      "audio_question": "",
+      "audio_answer": "audio/49704a174dc9f373da4b.mp3"
+    },
+    {
+      "id": "class-20260924-05",
+      "type": "class",
+      "date": "2026-09-24",
+      "category": "課程與科技",
+      "prompt_zh": "你們國家有保護海龜的法律嗎？",
+      "question_en": "",
+      "answer_en": "Does your country have laws to protect turtles?",
+      "answer_zh": "你們國家有保護海龜的法律嗎？",
+      "original": "is your country have a law to protect the turtles?",
+      "timecode": "",
+      "source": "20260924/english_class_notes.md",
+      "grammar": {
+        "title": "句型重點",
+        "explanation": "一般現在式問句用 Does + 主詞 + have；does 後動詞不加 s。",
+        "pattern": "Does your country have laws to + 原形動詞?"
+      },
+      "audio_question": "",
+      "audio_answer": "audio/9e1ea9c93af0cfecfd23.mp3"
+    },
+    {
+      "id": "class-20260924-06",
+      "type": "class",
+      "date": "2026-09-24",
+      "category": "課程與科技",
+      "prompt_zh": "是的，但我認為差異不大。",
+      "question_en": "",
+      "answer_en": "Yes, but I don't think it's very different.",
+      "answer_zh": "是的，但我認為差異不大。",
+      "original": "Yeah, but I think it's not too much different",
+      "timecode": "",
+      "source": "20260924/english_class_notes.md",
+      "grammar": {
+        "title": "句型重點",
+        "explanation": "表達認為『不太』時，常用 I don't think + 肯定子句。",
+        "pattern": "I don't think it is very + 形容詞."
+      },
+      "audio_question": "",
+      "audio_answer": "audio/de5d422fb0281632dfc9.mp3"
+    },
+    {
+      "id": "class-20260924-07",
+      "type": "class",
+      "date": "2026-09-24",
+      "category": "課程與科技",
+      "prompt_zh": "Apple 曾推出 iPhone 9 嗎？我想沒有。",
+      "question_en": "",
+      "answer_en": "Did Apple ever release an iPhone 9? I don't think so.",
+      "answer_zh": "Apple 曾推出 iPhone 9 嗎？我想沒有。",
+      "original": "Because do Apple have the iPhone 9? I think no.",
+      "timecode": "",
+      "source": "20260924/english_class_notes.md",
+      "grammar": {
+        "title": "句型重點",
+        "explanation": "過去是否曾發售，用 Did + 主詞 + ever + 原形動詞；簡答 I don't think so。",
+        "pattern": "Did + 公司 + ever release + 產品?"
+      },
+      "audio_question": "",
+      "audio_answer": "audio/b703d39f427f1a802a7f.mp3"
+    },
+    {
+      "id": "class-20260924-08",
+      "type": "class",
+      "date": "2026-09-24",
+      "category": "課程與科技",
+      "prompt_zh": "那兩台裝置合起來的價格大約和 iPhone Duo 一樣。",
+      "question_en": "",
+      "answer_en": "Together, those two devices would cost about the same as an iPhone Duo.",
+      "answer_zh": "那兩台裝置合起來的價格大約和 iPhone Duo 一樣。",
+      "original": "Because these two things cost maybe equal to iPhone Duo.",
+      "timecode": "",
+      "source": "20260924/english_class_notes.md",
+      "grammar": {
+        "title": "句型重點",
+        "explanation": "兩項總價相近，用 Together ... cost about the same as ...。",
+        "pattern": "Together, + 兩項物品 + would cost about the same as + 比較物."
+      },
+      "audio_question": "",
+      "audio_answer": "audio/8ec646f5499a77fb2244.mp3"
+    },
+    {
+      "id": "class-20260924-09",
+      "type": "class",
+      "date": "2026-09-24",
+      "category": "課程與科技",
+      "prompt_zh": "但我想問：一心多用究竟是什麼？",
+      "question_en": "",
+      "answer_en": "But I really want to ask: what exactly is multitasking?",
+      "answer_zh": "但我想問：一心多用究竟是什麼？",
+      "original": "But I really want to ask, what is exactly multitasking?",
+      "timecode": "",
+      "source": "20260924/english_class_notes.md",
+      "grammar": {
+        "title": "句型重點",
+        "explanation": "直接問句中疑問詞 exactly 放在 is 前：What exactly is ...?。",
+        "pattern": "What exactly is + 名詞?"
+      },
+      "audio_question": "",
+      "audio_answer": "audio/324f5dd1469559a7ed2c.mp3"
+    },
+    {
+      "id": "class-20260924-10",
+      "type": "class",
+      "date": "2026-09-24",
+      "category": "課程與科技",
+      "prompt_zh": "我認為認識新朋友是拓展人脈的大好機會。",
+      "question_en": "",
+      "answer_en": "I think meeting new people is a great opportunity to expand your network.",
+      "answer_zh": "我認為認識新朋友是拓展人脈的大好機會。",
+      "original": "because I think can meet new people, new friends is really a good opportunity to expand your network.",
+      "timecode": "",
+      "source": "20260924/english_class_notes.md",
+      "grammar": {
+        "title": "句型重點",
+        "explanation": "動名詞片語作主詞時接單數 is；擴展人脈用 expand your network。",
+        "pattern": "V-ing + 受詞 + is a good opportunity to + 原形動詞."
+      },
+      "audio_question": "",
+      "audio_answer": "audio/e1e3dec028967b0baf7c.mp3"
+    },
+    {
+      "id": "scenario-class-clarify",
+      "type": "scenario",
+      "date": "",
+      "category": "課堂溝通",
+      "prompt_zh": "請老師再解釋一次剛才的重點。",
+      "question_en": "Could you explain that one more time?",
+      "answer_en": "Of course. Let me put it another way.",
+      "answer_zh": "當然。我換個方式說。",
+      "original": "",
+      "timecode": "",
+      "source": "curated scenario practice",
+      "grammar": {
+        "explanation": "Could you + 原形動詞是禮貌請求；put it another way 表示換個說法。",
+        "pattern": "Could you + 原形動詞 + one more time?"
+      },
+      "audio_question": "audio/b662bbf16c84815496f8.mp3",
+      "audio_answer": "audio/94926c955aea34674a41.mp3"
+    },
+    {
+      "id": "scenario-class-meaning",
+      "type": "scenario",
+      "date": "",
+      "category": "課堂溝通",
+      "prompt_zh": "詢問一個單字的意思並用自己的話確認。",
+      "question_en": "What does this word mean in this sentence?",
+      "answer_en": "It means something is easy to use in this context.",
+      "answer_zh": "在這個語境裡，它表示某樣東西很方便使用。",
+      "original": "",
+      "timecode": "",
+      "source": "curated scenario practice",
+      "grammar": {
+        "explanation": "What does + 單數主詞 + mean?；in this context 指在此語境。",
+        "pattern": "What does + 單字 + mean in this sentence?"
+      },
+      "audio_question": "audio/438da32406945539c2d8.mp3",
+      "audio_answer": "audio/635abfbc8643c99e13ab.mp3"
+    },
+    {
+      "id": "scenario-class-pronunciation",
+      "type": "scenario",
+      "date": "",
+      "category": "課堂溝通",
+      "prompt_zh": "請老師示範發音，你再跟讀。",
+      "question_en": "Could you pronounce that word slowly?",
+      "answer_en": "Sure. Listen first, then repeat after me.",
+      "answer_zh": "當然。先聽，再跟著我念。",
+      "original": "",
+      "timecode": "",
+      "source": "curated scenario practice",
+      "grammar": {
+        "explanation": "Could you pronounce... 是禮貌的發音請求；slowly 是副詞。",
+        "pattern": "Could you pronounce + 單字 + slowly?"
+      },
+      "audio_question": "audio/77fc6c7b76f4667b8ca3.mp3",
+      "audio_answer": "audio/5002e79da660e93227fc.mp3"
+    },
+    {
+      "id": "scenario-class-time",
+      "type": "scenario",
+      "date": "",
+      "category": "課堂溝通",
+      "prompt_zh": "要求多一點時間組織答案。",
+      "question_en": "Do you need a moment to think?",
+      "answer_en": "Yes, please give me a second to organize my thoughts.",
+      "answer_zh": "好，請給我一點時間整理想法。",
+      "original": "",
+      "timecode": "",
+      "source": "curated scenario practice",
+      "grammar": {
+        "explanation": "give someone a second to + 動詞，表示給某人片刻做某事。",
+        "pattern": "Please give me a second to + 原形動詞."
+      },
+      "audio_question": "audio/4312090a2033e60b0927.mp3",
+      "audio_answer": "audio/729559238e47fe3929b7.mp3"
+    },
+    {
+      "id": "scenario-connection-audio",
+      "type": "scenario",
+      "date": "",
+      "category": "線上通話",
+      "prompt_zh": "確認對方能不能聽清楚你的聲音。",
+      "question_en": "Can you hear me clearly?",
+      "answer_en": "Yes, I can hear you clearly now.",
+      "answer_zh": "可以，我現在聽得很清楚。",
+      "original": "",
+      "timecode": "",
+      "source": "curated scenario practice",
+      "grammar": {
+        "explanation": "Can you hear me... 詢問即時音訊狀態；clearly 修飾 hear。",
+        "pattern": "Can you hear me + 副詞?"
+      },
+      "audio_question": "audio/453f2ca5bb75565a04ea.mp3",
+      "audio_answer": "audio/0eb73f246c70620c45f4.mp3"
+    },
+    {
+      "id": "scenario-connection-delay",
+      "type": "scenario",
+      "date": "",
+      "category": "線上通話",
+      "prompt_zh": "你聽到延遲，想確認對方是否也遇到。",
+      "question_en": "Is there a delay on your end?",
+      "answer_en": "Yes, your audio is about two seconds behind.",
+      "answer_zh": "有，你的聲音大約延遲兩秒。",
+      "original": "",
+      "timecode": "",
+      "source": "curated scenario practice",
+      "grammar": {
+        "explanation": "on your end 指你那端；behind 在這裡表示落後、延遲。",
+        "pattern": "Is there a + 問題 + on your end?"
+      },
+      "audio_question": "audio/64819d0d6e4d2020a591.mp3",
+      "audio_answer": "audio/b2e318b397dcba5af321.mp3"
+    },
+    {
+      "id": "scenario-connection-rejoin",
+      "type": "scenario",
+      "date": "",
+      "category": "線上通話",
+      "prompt_zh": "連線不穩，告知你要重新進入會議。",
+      "question_en": "Your connection seems unstable. Can you still hear me?",
+      "answer_en": "I can hear you, but I'll leave and rejoin the call.",
+      "answer_zh": "我聽得到，但我會先離開再重新加入通話。",
+      "original": "",
+      "timecode": "",
+      "source": "curated scenario practice",
+      "grammar": {
+        "explanation": "I'll + 原形動詞用於當下決定；leave and rejoin 是平行動詞。",
+        "pattern": "I'll + 動詞 + and + 動詞 + the call."
+      },
+      "audio_question": "audio/aed7c0a2e0b8cc7cabf8.mp3",
+      "audio_answer": "audio/dfc475a6582ac5174264.mp3"
+    },
+    {
+      "id": "scenario-schedule-postpone",
+      "type": "scenario",
+      "date": "",
+      "category": "行程安排",
+      "prompt_zh": "禮貌詢問是否可以把課往後延。",
+      "question_en": "Would it be possible to postpone our class?",
+      "answer_en": "Yes, we can move it to next Thursday.",
+      "answer_zh": "可以，我們可以改到下週四。",
+      "original": "",
+      "timecode": "",
+      "source": "curated scenario practice",
+      "grammar": {
+        "explanation": "Would it be possible to... 語氣比 Can we... 更委婉。",
+        "pattern": "Would it be possible to + 原形動詞 + 活動?"
+      },
+      "audio_question": "audio/e26cb89c6488d9805ea7.mp3",
+      "audio_answer": "audio/ecea41b337ea734398fb.mp3"
+    },
+    {
+      "id": "scenario-schedule-availability",
+      "type": "scenario",
+      "date": "",
+      "category": "行程安排",
+      "prompt_zh": "詢問對方下週何時有空。",
+      "question_en": "When are you available next week?",
+      "answer_en": "I'm available on Tuesday evening or Friday morning.",
+      "answer_zh": "我週二晚上或週五早上有空。",
+      "original": "",
+      "timecode": "",
+      "source": "curated scenario practice",
+      "grammar": {
+        "explanation": "available on + 星期；時間段可接 evening/morning。",
+        "pattern": "I'm available on + 星期 + 時段."
+      },
+      "audio_question": "audio/c4a8bd5e2e70a0defaf8.mp3",
+      "audio_answer": "audio/a0ff55177ef97d34b92f.mp3"
+    },
+    {
+      "id": "scenario-schedule-busy",
+      "type": "scenario",
+      "date": "",
+      "category": "行程安排",
+      "prompt_zh": "解釋因為學期忙碌，這週需要改期。",
+      "question_en": "Can we keep our usual class time this week?",
+      "answer_en": "I'm afraid I need to reschedule because my semester is busy.",
+      "answer_zh": "恐怕我得改期，因為這學期比較忙。",
+      "original": "",
+      "timecode": "",
+      "source": "curated scenario practice",
+      "grammar": {
+        "explanation": "I'm afraid... 可柔和地提出不便；because 後接完整原因子句。",
+        "pattern": "I'm afraid I need to + 原形動詞 + because + 子句."
+      },
+      "audio_question": "audio/d9c0961a1027c9d76f9d.mp3",
+      "audio_answer": "audio/b3474b29b88290a024a8.mp3"
+    },
+    {
+      "id": "scenario-study-workload",
+      "type": "scenario",
+      "date": "",
+      "category": "學習與工作",
+      "prompt_zh": "告訴朋友你這學期修四門課。",
+      "question_en": "How many courses are you taking this semester?",
+      "answer_en": "I'm taking four courses, so my workload is quite heavy.",
+      "answer_zh": "我這學期修四門課，所以課業負擔相當重。",
+      "original": "",
+      "timecode": "",
+      "source": "curated scenario practice",
+      "grammar": {
+        "explanation": "be taking courses 描述本學期正在修的課；workload 指工作或課業量。",
+        "pattern": "I'm taking + 數字 + courses, so + 結果."
+      },
+      "audio_question": "audio/0756da3531abc83147dd.mp3",
+      "audio_answer": "audio/840d57d766d918b7a957.mp3"
+    },
+    {
+      "id": "scenario-study-review",
+      "type": "scenario",
+      "date": "",
+      "category": "學習與工作",
+      "prompt_zh": "說明你要撥時間複習。",
+      "question_en": "How do you prepare for difficult classes?",
+      "answer_en": "I set aside time each weekend to review what I've learned.",
+      "answer_zh": "我每週末會撥時間複習學過的內容。",
+      "original": "",
+      "timecode": "",
+      "source": "curated scenario practice",
+      "grammar": {
+        "explanation": "set aside time to + 動詞表示保留時間；what I've learned 是名詞子句。",
+        "pattern": "I set aside time to + 原形動詞 + what I've learned."
+      },
+      "audio_question": "audio/48091bd030d5db5ae131.mp3",
+      "audio_answer": "audio/86166786e6e5888a922c.mp3"
+    },
+    {
+      "id": "scenario-work-update",
+      "type": "scenario",
+      "date": "",
+      "category": "學習與工作",
+      "prompt_zh": "向同事說明工作進度，並承諾稍後更新。",
+      "question_en": "How is the project going?",
+      "answer_en": "It's going well. I'll send you an update this afternoon.",
+      "answer_zh": "進行得不錯。我今天下午會傳進度給你。",
+      "original": "",
+      "timecode": "",
+      "source": "curated scenario practice",
+      "grammar": {
+        "explanation": "How is ... going? 問進度；send someone an update 是常見搭配。",
+        "pattern": "I'll send you an update + 時間."
+      },
+      "audio_question": "audio/4281b4e9018ffd07682e.mp3",
+      "audio_answer": "audio/d7ff42d1ac0b54976fd5.mp3"
+    },
+    {
+      "id": "scenario-travel-food",
+      "type": "scenario",
+      "date": "",
+      "category": "旅遊與飲食",
+      "prompt_zh": "請當地朋友推薦一道在地料理。",
+      "question_en": "What local dish would you recommend?",
+      "answer_en": "I'd recommend the noodle soup. It's a local favorite.",
+      "answer_zh": "我推薦那道湯麵，是當地人很喜歡的料理。",
+      "original": "",
+      "timecode": "",
+      "source": "curated scenario practice",
+      "grammar": {
+        "explanation": "would recommend 語氣禮貌；I'd recommend + 名詞。",
+        "pattern": "I'd recommend + 料理 + because + 原因."
+      },
+      "audio_question": "audio/4d2eb6166cdfed3f4c03.mp3",
+      "audio_answer": "audio/33c5a00e8513d8fe6e4e.mp3"
+    },
+    {
+      "id": "scenario-travel-order",
+      "type": "scenario",
+      "date": "",
+      "category": "旅遊與飲食",
+      "prompt_zh": "在餐廳確認這道菜是否能外帶。",
+      "question_en": "Can I order this for takeout?",
+      "answer_en": "Yes, we can pack it for you.",
+      "answer_zh": "可以，我們可以幫你打包。",
+      "original": "",
+      "timecode": "",
+      "source": "curated scenario practice",
+      "grammar": {
+        "explanation": "for takeout 表示外帶；pack it for you 是幫你打包。",
+        "pattern": "Can I order + 餐點 + for takeout?"
+      },
+      "audio_question": "audio/4df738ad738e00b35961.mp3",
+      "audio_answer": "audio/77e2328297d593be087b.mp3"
+    },
+    {
+      "id": "scenario-travel-deal",
+      "type": "scenario",
+      "date": "",
+      "category": "旅遊與飲食",
+      "prompt_zh": "詢問餐廳有沒有特別優惠。",
+      "question_en": "Do you have any special deals today?",
+      "answer_en": "Yes, the lunch set is twenty percent off.",
+      "answer_zh": "有，午間套餐打八折。",
+      "original": "",
+      "timecode": "",
+      "source": "curated scenario practice",
+      "grammar": {
+        "explanation": "Do you have any... 適合詢問供應或優惠；percent off 表示折扣。",
+        "pattern": "Do you have any + 複數名詞 + today?"
+      },
+      "audio_question": "audio/b531bbcabce0b8d97a02.mp3",
+      "audio_answer": "audio/d93a8a5063c9a3a14fe1.mp3"
+    },
+    {
+      "id": "scenario-health-gym",
+      "type": "scenario",
+      "date": "",
+      "category": "健康與生活",
+      "prompt_zh": "告訴朋友你運動後需要休息。",
+      "question_en": "Are you going to the gym again tomorrow?",
+      "answer_en": "Probably not. I need a day to recover after working out.",
+      "answer_zh": "可能不會。我運動後需要一天恢復。",
+      "original": "",
+      "timecode": "",
+      "source": "curated scenario practice",
+      "grammar": {
+        "explanation": "after + V-ing 表示做完某事之後；need a day to recover。",
+        "pattern": "I need + 時間 + to recover after + V-ing."
+      },
+      "audio_question": "audio/70139f6c731b17eb6b2f.mp3",
+      "audio_answer": "audio/8c83eb6823290c938737.mp3"
+    },
+    {
+      "id": "scenario-health-dentist",
+      "type": "scenario",
+      "date": "",
+      "category": "健康與生活",
+      "prompt_zh": "說明你剛去看牙醫並洗牙。",
+      "question_en": "How was your dental appointment?",
+      "answer_en": "It went well. I had my teeth cleaned and checked.",
+      "answer_zh": "很順利。我洗了牙，也檢查了牙齒。",
+      "original": "",
+      "timecode": "",
+      "source": "curated scenario practice",
+      "grammar": {
+        "explanation": "have + 受詞 + 過去分詞表示請別人替你做某事。",
+        "pattern": "I had my + 名詞 + 過去分詞."
+      },
+      "audio_question": "audio/08bbe9e9425f2f05f55a.mp3",
+      "audio_answer": "audio/295765a9857d16f5be8a.mp3"
+    },
+    {
+      "id": "scenario-opinion-agree",
+      "type": "scenario",
+      "date": "",
+      "category": "意見與感受",
+      "prompt_zh": "對對方的看法表示部分同意。",
+      "question_en": "Do you agree with that idea?",
+      "answer_en": "I agree to some extent, but I see one problem with it.",
+      "answer_zh": "我某種程度上同意，但我認為它有一個問題。",
+      "original": "",
+      "timecode": "",
+      "source": "curated scenario practice",
+      "grammar": {
+        "explanation": "to some extent 表示部分同意；but 後接保留意見。",
+        "pattern": "I agree to some extent, but + 子句."
+      },
+      "audio_question": "audio/b89422ebd158d90c9b43.mp3",
+      "audio_answer": "audio/448db70cb93313be0603.mp3"
+    },
+    {
+      "id": "scenario-opinion-mixed",
+      "type": "scenario",
+      "date": "",
+      "category": "意見與感受",
+      "prompt_zh": "說明你對新學期心情複雜。",
+      "question_en": "How do you feel about the new semester?",
+      "answer_en": "I have mixed emotions. I'm excited, but also a little nervous.",
+      "answer_zh": "我的心情很複雜。我很期待，但也有點緊張。",
+      "original": "",
+      "timecode": "",
+      "source": "curated scenario practice",
+      "grammar": {
+        "explanation": "mixed emotions 表示同時有不同感受；I'm ... but also ... 列出兩種情緒。",
+        "pattern": "I have mixed emotions. I'm + 感受 A + but also + 感受 B."
+      },
+      "audio_question": "audio/14741204e3d786f29b8d.mp3",
+      "audio_answer": "audio/28e1b584397f97d9fef4.mp3"
+    }
+  ],
+  "revision": "2a1670fd039d",
+  "updated_at": "2026-09-27T05:20:52+00:00"
+}

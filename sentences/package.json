@@ -1,0 +1,15 @@
+{
+  "name": "eddy-sentence-practice",
+  "private": true,
+  "version": "1.0.0",
+  "scripts": {
+    "build": "esbuild src/app.js --bundle --minify --target=es2020 --outfile=app.js"
+  },
+  "dependencies": {
+    "lucide": "^0.468.0",
+    "ts-fsrs": "^5.2.3"
+  },
+  "devDependencies": {
+    "esbuild": "^0.25.0"
+  }
+}
