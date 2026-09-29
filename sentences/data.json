@@ -308,18 +308,18 @@
       "category": "課程與安排",
       "prompt_zh": "接下來五週的課可以延期嗎？",
       "question_en": "",
-      "answer_en": "Would it be possible to postpone our classes for these five weeks?",
+      "answer_en": "Would it be possible to postpone the classes scheduled for the next five weeks?",
       "answer_zh": "接下來五週的課可以延期嗎？",
       "original": "Would it be possible how to say postpone about only these five weeks?",
       "timecode": "",
       "source": "20260709/english_class_notes.md",
       "grammar": {
         "title": "句型重點",
-        "explanation": "禮貌提出延期要求，用 Would it be possible to + 動詞；postpone 直接接受詞。",
-        "pattern": "Would it be possible to postpone + 活動 + for + 時間?"
+        "explanation": "禮貌提出延期要求，用 Would it be possible to + 動詞；scheduled for the next five weeks 清楚指接下來五週原訂的課。",
+        "pattern": "Would it be possible to postpone the classes scheduled for + 時間?"
       },
       "audio_question": "",
-      "audio_answer": "audio/e909845acb8a053ce824.mp3"
+      "audio_answer": "audio/0038b740ac8786b737ae.mp3"
     },
     {
       "id": "class-20260709-07",
@@ -1166,20 +1166,20 @@
       "type": "class",
       "date": "2026-09-17",
       "category": "學習與感受",
-      "prompt_zh": "我部分同意，大約有六到七成認同。",
+      "prompt_zh": "我大概有六、七成認同。",
       "question_en": "",
-      "answer_en": "I agree to some extent, maybe about 60 to 70 percent.",
-      "answer_zh": "我部分同意，大約有六到七成認同。",
+      "answer_en": "I'd say I agree with about 60 to 70 percent of that.",
+      "answer_zh": "我大概有六、七成認同。",
       "original": "I do maybe 60 to 70% agree.",
       "timecode": "00:45:52",
       "source": "20260917/english_class_notes.md",
       "grammar": {
         "title": "句型重點",
-        "explanation": "程度副詞放在 agree 後方，to some extent 能讓語氣更自然。",
-        "pattern": "I agree to some extent, maybe about + 百分比."
+        "explanation": "表達認同比例時，用 agree with about + 百分比 + of that；避免同時堆疊 to some extent、maybe 和 about。",
+        "pattern": "I'd say I agree with about + 百分比 + of that."
       },
       "audio_question": "",
-      "audio_answer": "audio/1480f5d48811418d1ce7.mp3"
+      "audio_answer": "audio/6ba6693d580b2ee56f42.mp3"
     },
     {
       "id": "class-20260917-10",
@@ -1466,30 +1466,30 @@
       "type": "class",
       "date": "2026-09-24",
       "category": "課程與科技",
-      "prompt_zh": "因為我要上的課太多了。",
+      "prompt_zh": "我修了太多課。",
       "question_en": "",
-      "answer_en": "Because I have too many courses to attend.",
-      "answer_zh": "因為我要上的課太多了。",
+      "answer_en": "I'm taking too many courses.",
+      "answer_zh": "我修了太多課。",
       "original": "Because too many course I need to learn. Attend.",
       "timecode": "",
       "source": "20260924/english_class_notes.md",
       "grammar": {
         "title": "句型重點",
-        "explanation": "too many 修飾可數複數 courses；attend 接在 to 後用原形。",
-        "pattern": "I have too many + 複數名詞 + to + 原形動詞."
+        "explanation": "說這學期修太多課，用 I'm taking too many courses；too many 修飾可數複數。",
+        "pattern": "I'm taking too many + 複數名詞."
       },
       "audio_question": "",
-      "audio_answer": "audio/49704a174dc9f373da4b.mp3"
+      "audio_answer": "audio/d536376b20ad370f8a33.mp3"
     },
     {
       "id": "class-20260924-05",
       "type": "class",
       "date": "2026-09-24",
       "category": "課程與科技",
-      "prompt_zh": "你們國家有保護海龜的法律嗎？",
+      "prompt_zh": "你們國家有保護龜類的法律嗎？",
       "question_en": "",
       "answer_en": "Does your country have laws to protect turtles?",
-      "answer_zh": "你們國家有保護海龜的法律嗎？",
+      "answer_zh": "你們國家有保護龜類的法律嗎？",
       "original": "is your country have a law to protect the turtles?",
       "timecode": "",
       "source": "20260924/english_class_notes.md",
@@ -1982,6 +1982,6 @@
       "audio_answer": "audio/28e1b584397f97d9fef4.mp3"
     }
   ],
-  "revision": "3b80391a0878",
-  "updated_at": "2026-09-29T05:12:35+00:00"
+  "revision": "95980ef7d4b9",
+  "updated_at": "2026-09-29T05:22:46+00:00"
 }

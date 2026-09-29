@@ -1,5 +1,6 @@
 {
   "class-20260709-06": {
+    "answer_en": "Would it be possible to postpone the classes scheduled for the next five weeks?",
     "answer_zh": "接下來五週的課可以延期嗎？"
   },
   "class-20260907-05": {
@@ -18,9 +19,17 @@
     "answer_zh": "但到頭來，你還是得找到自己的方向。"
   },
   "class-20260917-09": {
-    "answer_zh": "我部分同意，大約有六到七成認同。"
+    "answer_en": "I'd say I agree with about 60 to 70 percent of that.",
+    "answer_zh": "我大概有六、七成認同。"
   },
   "class-20260921-10": {
     "answer_zh": "我沒買一般款 Apple Watch Series，主要是出於續航力的考量。"
+  },
+  "class-20260924-04": {
+    "answer_en": "I'm taking too many courses.",
+    "answer_zh": "我修了太多課。"
+  },
+  "class-20260924-05": {
+    "answer_zh": "你們國家有保護龜類的法律嗎？"
   }
 }

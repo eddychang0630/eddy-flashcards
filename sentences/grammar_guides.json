@@ -17,7 +17,7 @@
     {"explanation":"先說核心主詞再補內容；單數 teacher 在一般現在式用 teaches。","pattern":"The teacher teaches + 科目, right?"},
     {"explanation":"each + 單數名詞接單數動詞；說明授課期間與範圍可用 teaches for / covers。","pattern":"Each + 單數名詞 + 動詞-s + for + 時間 + and + 動詞-s + 內容."},
     {"explanation":"need to 後接原形動詞 get；成績高於某數字用 above。","pattern":"We need to get an average score above + 數字."},
-    {"explanation":"禮貌提出延期要求，用 Would it be possible to + 動詞；postpone 直接接受詞。","pattern":"Would it be possible to postpone + 活動 + for + 時間?"},
+    {"explanation":"禮貌提出延期要求，用 Would it be possible to + 動詞；scheduled for the next five weeks 清楚指接下來五週原訂的課。","pattern":"Would it be possible to postpone the classes scheduled for + 時間?"},
     {"explanation":"談之前的預期用 didn't imagine；would 表示從過去看未來的情況。","pattern":"I didn't imagine it would be + 形容詞."},
     {"explanation":"單數 course 接 costs；說每人費用用 per person。","pattern":"This course costs + 金額 + per person."},
     {"explanation":"搬到另一國是 relocate to；reallocate 指重新分配資源。","pattern":"I have been considering + V-ing + to + 地點."},
@@ -68,7 +68,7 @@
     {"pattern":"I still have + 時間 + to + 原形動詞."},
     {"pattern":"There may be only + 數量 + left."},
     {"pattern":"I've started sharing + 事物 + with + 人."},
-    {"pattern":"I agree to some extent, maybe about + 百分比."},
+    {"explanation":"表達認同比例時，用 agree with about + 百分比 + of that；避免同時堆疊 to some extent、maybe 和 about。","pattern":"I'd say I agree with about + 百分比 + of that."},
     {"pattern":"It's hard to tell + 受詞 + apart."}
   ],
   "20260921": [
@@ -87,7 +87,7 @@
     {"explanation":"碩士學位是 master's degree；從星期二到星期五用 from ... to ...。","pattern":"I have classes for my + 學位 + from + 星期 + to + 星期."},
     {"explanation":"擔心一件事用 worried that + 子句；到校上課是 go to campus for class。","pattern":"Someone was worried that + 主詞 + would have to + 原形動詞."},
     {"explanation":"描述過去結束時間用 ended；class 比 course 更適合單堂課。","pattern":"The class ended at + 時間."},
-    {"explanation":"too many 修飾可數複數 courses；attend 接在 to 後用原形。","pattern":"I have too many + 複數名詞 + to + 原形動詞."},
+    {"explanation":"說這學期修太多課，用 I'm taking too many courses；too many 修飾可數複數。","pattern":"I'm taking too many + 複數名詞."},
     {"explanation":"一般現在式問句用 Does + 主詞 + have；does 後動詞不加 s。","pattern":"Does your country have laws to + 原形動詞?"},
     {"explanation":"表達認為『不太』時，常用 I don't think + 肯定子句。","pattern":"I don't think it is very + 形容詞."},
     {"explanation":"過去是否曾發售，用 Did + 主詞 + ever + 原形動詞；簡答 I don't think so。","pattern":"Did + 公司 + ever release + 產品?"},
