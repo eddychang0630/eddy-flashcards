@@ -213,14 +213,15 @@ def git_push(cards, date_counts):
     dates  = len(date_counts)
     msg    = f"Sync vocab: {total} words across {dates} class dates"
 
-    subprocess.run(["git", "add", "index.html", "vocab_data.json", "audio"], cwd=APP_DIR, check=True)
-    result = subprocess.run(["git", "diff", "--cached", "--quiet"], cwd=APP_DIR)
+    paths = ["index.html", "vocab_data.json", "audio"]
+    subprocess.run(["git", "add", "--", *paths], cwd=APP_DIR, check=True)
+    result = subprocess.run(["git", "diff", "--cached", "--quiet", "--", *paths], cwd=APP_DIR)
     if result.returncode == 0:
         print("ℹ️  字卡與音檔沒有變更，無需 push")
         return
     if result.returncode != 1:
         raise RuntimeError("Could not inspect staged App changes")
-    subprocess.run(["git", "commit", "-m", msg], cwd=APP_DIR, check=True)
+    subprocess.run(["git", "commit", "-m", msg, "--", *paths], cwd=APP_DIR, check=True)
     subprocess.run(["git", "push"], cwd=APP_DIR, check=True)
     print(f"✅ 已推送！網站約 1 分鐘後更新：")
     print(f"   https://eddychang0630.github.io/eddy-flashcards/")

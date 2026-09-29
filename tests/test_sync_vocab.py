@@ -1,6 +1,7 @@
 import tempfile
 import unittest
 from pathlib import Path
+from types import SimpleNamespace
 from unittest.mock import patch
 
 from openpyxl import Workbook
@@ -12,6 +13,16 @@ ROOT = Path(__file__).resolve().parents[1]
 
 
 class SyncVocabularyTest(unittest.TestCase):
+    def test_git_push_commits_only_vocabulary_paths(self):
+        with patch.object(sync_vocab.subprocess, "run", side_effect=[
+            SimpleNamespace(returncode=0), SimpleNamespace(returncode=1),
+            SimpleNamespace(returncode=0), SimpleNamespace(returncode=0),
+        ]) as run:
+            sync_vocab.git_push(["word"], {"2026-09-25": 1})
+        paths = ["index.html", "vocab_data.json", "audio"]
+        self.assertEqual(["git", "diff", "--cached", "--quiet", "--", *paths], run.call_args_list[1].args[0])
+        self.assertEqual(["git", "commit", "-m", "Sync vocab: 1 words across 1 class dates", "--", *paths], run.call_args_list[2].args[0])
+
     def test_audio_failure_blocks_html_update_and_deployment(self):
         cards = [["word", "", "Noun", "中文", "Example sentence.", "翻譯", "", "", "", "", "2026-09-25", ""]]
         with patch.object(sync_vocab, "read_vocab", return_value=(cards, {"2026-09-25": 1})), \

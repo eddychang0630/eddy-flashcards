@@ -63,6 +63,24 @@ class SentenceSyncTest(unittest.TestCase):
         self.assertTrue(card["audio_answer"].startswith("audio/"))
         self.assertFalse(card["audio_question"])
 
+    def test_class_override_updates_both_chinese_sides_and_spoken_english(self):
+        row = {
+            "number": 1, "original": "My life will return to student life.",
+            "improved": "My life will go back to student life.",
+            "translation": "我的生活會回到學生生活。", "timecode": "", "correction": "",
+        }
+        guides = {"20260907": [{"explanation": "用 again 表示再次。", "pattern": "I'll be + 名詞 + again."}]}
+        overrides = {"class-20260907-01": {"answer_en": "I'll be a student again.", "answer_zh": "我又要過學生生活了。"}}
+        card = build_dataset({"20260907": [row]}, guides, [], overrides=overrides)["cards"][0]
+        self.assertEqual("I'll be a student again.", card["answer_en"])
+        self.assertEqual("我又要過學生生活了。", card["answer_zh"])
+        self.assertEqual(card["answer_zh"], card["prompt_zh"])
+        self.assertNotEqual("", card["audio_answer"])
+
+    def test_unknown_or_empty_override_is_rejected(self):
+        with self.assertRaisesRegex(ValueError, "Unknown override"):
+            build_dataset({}, {}, [], overrides={"class-20260907-99": {"answer_zh": "文字"}})
+
     def test_scenario_question_and_answer_have_audio_without_teacher_attribution(self):
         scenario = [{
             "id": "clarify-01", "category": "課堂溝通", "prompt_zh": "請老師再說一次",

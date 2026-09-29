@@ -17,6 +17,7 @@ APP_DIR = Path(__file__).resolve().parent
 SITE_ROOT = APP_DIR.parent
 sys.path.insert(0, str(SITE_ROOT))
 from audio_assets import attach_audio_paths, audio_relative_path, ensure_complete, missing_clips  # noqa: E402
+from sentences.translation_audit import approve_reviews, build_request, require_reviewed  # noqa: E402
 
 
 class BetterTableParser(HTMLParser):
@@ -129,26 +130,35 @@ def load_lessons(notes_root):
     return lessons
 
 
-def build_dataset(lessons, guides, scenarios, topics=None):
+def build_dataset(lessons, guides, scenarios, topics=None, overrides=None):
     topics = topics or {}
+    overrides = overrides or {}
     cards = []
     for date, rows in sorted(lessons.items()):
         if len(guides.get(date, [])) != len(rows):
             raise ValueError(f"Missing grammar guides for {date}")
         for row, guide in zip(rows, guides[date]):
+            card_id = f"class-{date}-{row['number']:02d}"
+            correction = overrides.get(card_id, {})
+            if not isinstance(correction, dict) or set(correction) - {"answer_en", "answer_zh"}:
+                raise ValueError(f"Invalid override: {card_id}")
+            if any(not value or not isinstance(value, str) for value in correction.values()):
+                raise ValueError(f"Empty override: {card_id}")
+            improved = correction.get("answer_en", row["improved"])
+            translation = correction.get("answer_zh", row["translation"])
             explanation = guide.get("explanation") or row.get("correction", "")
             pattern = guide.get("pattern", "")
             if not explanation or not pattern:
                 raise ValueError(f"Missing grammar explanation/pattern: {date} #{row['number']}")
             cards.append({
-                "id": f"class-{date}-{row['number']:02d}",
+                "id": card_id,
                 "type": "class",
                 "date": f"{date[:4]}-{date[4:6]}-{date[6:]}",
                 "category": topics.get(date, "課堂表達"),
-                "prompt_zh": row["translation"],
+                "prompt_zh": translation,
                 "question_en": "",
-                "answer_en": row["improved"],
-                "answer_zh": row["translation"],
+                "answer_en": improved,
+                "answer_zh": translation,
                 "original": row["original"],
                 "timecode": row.get("timecode", ""),
                 "source": f"{date}/english_class_notes.md",
@@ -158,8 +168,12 @@ def build_dataset(lessons, guides, scenarios, topics=None):
                     "pattern": pattern,
                 },
                 "audio_question": "",
-                "audio_answer": audio_relative_path(row["improved"]),
+                "audio_answer": audio_relative_path(improved),
             })
+
+    unknown = set(overrides) - {card["id"] for card in cards}
+    if unknown:
+        raise ValueError(f"Unknown override: {sorted(unknown)[0]}")
 
     seen_ids = {card["id"] for card in cards}
     for scenario in scenarios:
@@ -239,17 +253,37 @@ def main(argv=None):
     parser = argparse.ArgumentParser(description="Sync sentence practice PWA")
     parser.add_argument("--notes-root", type=Path, default=Path.home() / "Desktop/English class 整理重點")
     parser.add_argument("--local-only", action="store_true")
+    audit = parser.add_mutually_exclusive_group()
+    audit.add_argument("--audit-request", type=Path, help="Export changed bilingual cards for semantic review")
+    audit.add_argument("--audit-approve", type=Path, help="Apply explicit approvals for current card fingerprints")
     args = parser.parse_args(argv)
     lessons = load_lessons(args.notes_root)
     guides = json.loads((APP_DIR / "grammar_guides.json").read_text(encoding="utf-8"))
     scenarios = json.loads((APP_DIR / "scenarios.json").read_text(encoding="utf-8"))
     topics = json.loads((APP_DIR / "lesson_topics.json").read_text(encoding="utf-8"))
-    dataset = build_dataset(lessons, guides, scenarios, topics)
+    overrides_path = APP_DIR / "translation_overrides.json"
+    overrides = json.loads(overrides_path.read_text(encoding="utf-8")) if overrides_path.is_file() else {}
+    dataset = build_dataset(lessons, guides, scenarios, topics, overrides)
+    audit_path = APP_DIR / "translation_audit.json"
+    ledger = json.loads(audit_path.read_text(encoding="utf-8")) if audit_path.is_file() else {"schema_version": 1, "cards": {}}
+    if args.audit_request:
+        request = build_request(dataset["cards"], ledger)
+        args.audit_request.write_text(json.dumps(request, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+        print(f"Translation review request: {len(request['cards'])} card(s) -> {args.audit_request}")
+        return 0
+    if args.audit_approve:
+        response = json.loads(args.audit_approve.read_text(encoding="utf-8"))
+        ledger = approve_reviews(dataset["cards"], ledger, response)
+        require_reviewed(dataset["cards"], ledger)
+        audit_path.write_text(json.dumps(ledger, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+        print(f"Translation review current for {len(dataset['cards'])} card(s)")
+        return 0
+    require_reviewed(dataset["cards"], ledger)
     generate_audio(dataset["cards"])
     write_dataset(dataset)
     print(f"Sentence cards: {len(dataset['cards'])}, lessons: {len(lessons)}, revision: {dataset['revision']}")
     if not args.local_only:
-        paths = ["sentences/data.json", "sentences/audio", "sentences/grammar_guides.json", "sentences/lesson_topics.json", "sentences/scenarios.json"]
+        paths = ["sentences/data.json", "sentences/audio", "sentences/grammar_guides.json", "sentences/lesson_topics.json", "sentences/scenarios.json", "sentences/translation_overrides.json", "sentences/translation_audit.json"]
         subprocess.run(["git", "add", "--", *paths], cwd=SITE_ROOT, check=True)
         changes = subprocess.run(["git", "diff", "--cached", "--quiet", "--", *paths], cwd=SITE_ROOT)
         if changes.returncode == 1:

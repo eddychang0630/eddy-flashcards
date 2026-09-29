@@ -306,10 +306,10 @@
       "type": "class",
       "date": "2026-07-09",
       "category": "課程與安排",
-      "prompt_zh": "這五週可以暫停上課嗎？",
+      "prompt_zh": "接下來五週的課可以延期嗎？",
       "question_en": "",
       "answer_en": "Would it be possible to postpone our classes for these five weeks?",
-      "answer_zh": "這五週可以暫停上課嗎？",
+      "answer_zh": "接下來五週的課可以延期嗎？",
       "original": "Would it be possible how to say postpone about only these five weeks?",
       "timecode": "",
       "source": "20260709/english_class_notes.md",
@@ -486,20 +486,20 @@
       "type": "class",
       "date": "2026-09-07",
       "category": "生活與健康",
-      "prompt_zh": "我的生活會回到學生生活。",
+      "prompt_zh": "我又要過學生生活了。",
       "question_en": "",
-      "answer_en": "My life will go back to student life.",
-      "answer_zh": "我的生活會回到學生生活。",
+      "answer_en": "I'll be a student again.",
+      "answer_zh": "我又要過學生生活了。",
       "original": "My life will return to student life.",
       "timecode": "",
       "source": "20260907/english_class_notes.md",
       "grammar": {
         "title": "句型重點",
-        "explanation": "生活恢復到某種狀態可說 go back to + 名詞。",
-        "pattern": "My life will go back to + 名詞."
+        "explanation": "要說又要當學生，可直接用 I'll be a student again；again 表示再次。",
+        "pattern": "I'll be a + 身分 + again."
       },
       "audio_question": "",
-      "audio_answer": "audio/0df5c85eec601e43de1e.mp3"
+      "audio_answer": "audio/8d4d22dcaf1e298467ae.mp3"
     },
     {
       "id": "class-20260907-06",
@@ -546,20 +546,20 @@
       "type": "class",
       "date": "2026-09-07",
       "category": "生活與健康",
-      "prompt_zh": "大約一個月前，我不吃早餐。",
+      "prompt_zh": "直到大約一個月前，我都沒有吃早餐的習慣。",
       "question_en": "",
-      "answer_en": "About a month ago, I didn't eat breakfast.",
-      "answer_zh": "大約一個月前，我不吃早餐。",
+      "answer_en": "Until about a month ago, I didn't eat breakfast.",
+      "answer_zh": "直到大約一個月前，我都沒有吃早餐的習慣。",
       "original": "I think one month ago, I don't eat breakfast.",
       "timecode": "",
       "source": "20260907/english_class_notes.md",
       "grammar": {
         "title": "句型重點",
-        "explanation": "a month ago 指明過去，否定句用 didn't + 原形動詞。",
-        "pattern": "About + 時間 + ago, I didn't + 原形動詞."
+        "explanation": "說明某個習慣持續到一個月前，用 Until about a month ago；過去的習慣用 didn't + 原形動詞。",
+        "pattern": "Until about + 時間 + ago, I didn't + 原形動詞."
       },
       "audio_question": "",
-      "audio_answer": "audio/81bff855dee70e493ac9.mp3"
+      "audio_answer": "audio/05924b34862ddd564866.mp3"
     },
     {
       "id": "class-20260907-09",
@@ -826,36 +826,36 @@
       "type": "class",
       "date": "2026-09-14",
       "category": "工作與飲食",
-      "prompt_zh": "我星期六做了運動。",
+      "prompt_zh": "我週六運動了。",
       "question_en": "",
-      "answer_en": "I did my workout on Saturday.",
-      "answer_zh": "我星期六做了運動。",
+      "answer_en": "I worked out on Saturday.",
+      "answer_zh": "我週六運動了。",
       "original": "I done my workout on Saturday.",
       "timecode": "03:56",
       "source": "20260914/english_class_notes.md",
       "grammar": {
         "title": "句型重點",
-        "explanation": "有明確過去時間 on Saturday，用 did；done 是過去分詞。也可說 I worked out on Saturday。",
+        "explanation": "描述過去某天運動，用 worked out；有明確過去時間 on Saturday，動詞用過去式。",
         "pattern": "I + 過去式動詞 + on + 過去日期."
       },
       "audio_question": "",
-      "audio_answer": "audio/251013bfc14ec31fd6a0.mp3"
+      "audio_answer": "audio/835bd5824e29605f0d00.mp3"
     },
     {
       "id": "class-20260914-03",
       "type": "class",
       "date": "2026-09-14",
       "category": "工作與飲食",
-      "prompt_zh": "但到頭來，你還是得找到路。",
+      "prompt_zh": "但到頭來，你還是得找到自己的方向。",
       "question_en": "",
       "answer_en": "But in the end, you still need to find your way.",
-      "answer_zh": "但到頭來，你還是得找到路。",
+      "answer_zh": "但到頭來，你還是得找到自己的方向。",
       "original": "But at the end, you need to find your accurate... It's called... Your accurate direction, not always lost.",
       "timecode": "18:27",
       "source": "20260914/english_class_notes.md",
       "grammar": {
         "title": "句型重點",
-        "explanation": "這裡強調最後結果，用 in the end；找到路用 find your way，比 find your accurate direction 自然。",
+        "explanation": "這裡強調最後結果，用 in the end；find your way 在此是找到自己的方向，不是字面上的找路。",
         "pattern": "In the end, you still need to + 原形動詞."
       },
       "audio_question": "",
@@ -1166,10 +1166,10 @@
       "type": "class",
       "date": "2026-09-17",
       "category": "學習與感受",
-      "prompt_zh": "我某種程度上同意，大約有六到七成。",
+      "prompt_zh": "我部分同意，大約有六到七成認同。",
       "question_en": "",
       "answer_en": "I agree to some extent, maybe about 60 to 70 percent.",
-      "answer_zh": "我某種程度上同意，大約有六到七成。",
+      "answer_zh": "我部分同意，大約有六到七成認同。",
       "original": "I do maybe 60 to 70% agree.",
       "timecode": "00:45:52",
       "source": "20260917/english_class_notes.md",
@@ -1386,10 +1386,10 @@
       "type": "class",
       "date": "2026-09-21",
       "category": "運動與科技",
-      "prompt_zh": "我沒有買一般 Series 機型，是因為它的電池續航力。",
+      "prompt_zh": "我沒買一般款 Apple Watch Series，主要是出於續航力的考量。",
       "question_en": "",
       "answer_en": "I didn't buy the regular Series model because of its battery life.",
-      "answer_zh": "我沒有買一般 Series 機型，是因為它的電池續航力。",
+      "answer_zh": "我沒買一般款 Apple Watch Series，主要是出於續航力的考量。",
       "original": "I don't buy the normal series because the battery.",
       "timecode": "00:37:47-00:37:52",
       "source": "20260921/english_class_notes.md",
@@ -1625,10 +1625,10 @@
       "type": "scenario",
       "date": "",
       "category": "課堂溝通",
-      "prompt_zh": "詢問一個單字的意思並用自己的話確認。",
-      "question_en": "What does this word mean in this sentence?",
-      "answer_en": "It means something is easy to use in this context.",
-      "answer_zh": "在這個語境裡，它表示某樣東西很方便使用。",
+      "prompt_zh": "詢問 handy 在句子中的意思。",
+      "question_en": "What does \"handy\" mean in this sentence?",
+      "answer_en": "It means convenient or easy to use in this context.",
+      "answer_zh": "在這個語境裡，handy 是「方便、好用」的意思。",
       "original": "",
       "timecode": "",
       "source": "curated scenario practice",
@@ -1636,8 +1636,8 @@
         "explanation": "What does + 單數主詞 + mean?；in this context 指在此語境。",
         "pattern": "What does + 單字 + mean in this sentence?"
       },
-      "audio_question": "audio/438da32406945539c2d8.mp3",
-      "audio_answer": "audio/635abfbc8643c99e13ab.mp3"
+      "audio_question": "audio/34551928c1cf49f27f33.mp3",
+      "audio_answer": "audio/2336c00fc3baba3d87a0.mp3"
     },
     {
       "id": "scenario-class-pronunciation",
@@ -1982,6 +1982,6 @@
       "audio_answer": "audio/28e1b584397f97d9fef4.mp3"
     }
   ],
-  "revision": "1f82425192c7",
-  "updated_at": "2026-09-27T07:13:09+00:00"
+  "revision": "3b80391a0878",
+  "updated_at": "2026-09-29T05:12:35+00:00"
 }

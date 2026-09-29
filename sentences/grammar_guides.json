@@ -28,10 +28,10 @@
     {"explanation":"請牙醫處理牙齒可用 have + 受詞 + 過去分詞；cleaned and checked 平行。","pattern":"I went to + 地點 + to have my + 名詞 + 過去分詞."},
     {"explanation":"引出好消息用 The good news is that + 完整子句。","pattern":"The good news is that + 主詞 + 動詞 + 補語."},
     {"explanation":"接續過去發生的兩件事，兩個動詞都用過去式；運動是 work out。","pattern":"After that, I went to + 地點 + and + 過去式動詞."},
-    {"explanation":"生活恢復到某種狀態可說 go back to + 名詞。","pattern":"My life will go back to + 名詞."},
+    {"explanation":"要說又要當學生，可直接用 I'll be a student again；again 表示再次。","pattern":"I'll be a + 身分 + again."},
     {"explanation":"忙碌的行程是 hectic schedule；每週三次是 three times a week。","pattern":"I will have a hectic schedule because + 原因."},
     {"explanation":"問設定的溫度，用 What temperature do you set + 設備 + to?。","pattern":"What temperature do you usually set + 設備 + to?"},
-    {"explanation":"a month ago 指明過去，否定句用 didn't + 原形動詞。","pattern":"About + 時間 + ago, I didn't + 原形動詞."},
+    {"explanation":"說明某個習慣持續到一個月前，用 Until about a month ago；過去的習慣用 didn't + 原形動詞。","pattern":"Until about + 時間 + ago, I didn't + 原形動詞."},
     {"explanation":"start 後可接 V-ing；已開始的習慣用 started。","pattern":"I started + V-ing + 受詞."},
     {"explanation":"說明運動前吃點東西，先用 Before + V-ing，再說主要建議。","pattern":"Before + V-ing, you should + 原形動詞 + to + 原形動詞."}
   ],
@@ -49,8 +49,8 @@
   ],
   "20260914": [
     {"pattern":"I'll make sure I'm + 形容詞 + for + 活動."},
-    {"pattern":"I + 過去式動詞 + on + 過去日期."},
-    {"pattern":"In the end, you still need to + 原形動詞."},
+    {"explanation":"描述過去某天運動，用 worked out；有明確過去時間 on Saturday，動詞用過去式。","pattern":"I + 過去式動詞 + on + 過去日期."},
+    {"explanation":"這裡強調最後結果，用 in the end；find your way 在此是找到自己的方向，不是字面上的找路。","pattern":"In the end, you still need to + 原形動詞."},
     {"pattern":"I worked at + 公司 + in + 城市."},
     {"pattern":"There were + 複數名詞 + we had to + 原形動詞."},
     {"pattern":"I'm not surprised by + 名詞."},
