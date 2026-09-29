@@ -1,14 +1,15 @@
 import { createEmptyCard, fsrs, Rating } from 'ts-fsrs';
-import { createIcons, RefreshCw, CalendarCheck, BookOpen, MessagesSquare, Volume2, Eye, Repeat2, RotateCcw, Download, Upload } from 'lucide';
+import { createIcons, RefreshCw, CalendarCheck, BookOpen, MessagesSquare, Volume2, Eye, Repeat2, RotateCcw, Download, Upload, ChevronLeft, ChevronRight } from 'lucide';
 
 const scheduler = fsrs();
-const icons = { RefreshCw, CalendarCheck, BookOpen, MessagesSquare, Volume2, Eye, Repeat2, RotateCcw, Download, Upload };
+const icons = { RefreshCw, CalendarCheck, BookOpen, MessagesSquare, Volume2, Eye, Repeat2, RotateCcw, Download, Upload, ChevronLeft, ChevronRight };
 const state = {
   cards: [], reviews: new Map(), view: 'today', selectedDate: '', selectedCategory: '',
   queue: [], index: 0, revealed: false, speed: 1, loop: false, audio: new Audio(), ratingBusy: false,
 };
 const $ = id => document.getElementById(id);
 const setText = (id, value) => { $(id).textContent = value; };
+let touchStart = null;
 
 function refreshIcons() {
   createIcons({ icons, attrs: { 'stroke-width': 1.9 } });
@@ -72,6 +73,7 @@ function stopAudio() {
 
 function chooseQueue() {
   stopAudio();
+  touchStart = null;
   state.queue = filteredCards();
   state.index = 0;
   state.revealed = false;
@@ -135,6 +137,8 @@ function render() {
 
   setText('card-type', item.type === 'class' ? `${item.date} · ${item.category}` : `情境練習 · ${item.category}`);
   setText('card-position', `${state.index + 1} / ${total}`);
+  $('previous').disabled = total < 2;
+  $('next').disabled = total < 2;
   setText('prompt', item.prompt_zh);
   setText('question-en', item.question_en);
   setText('answer-en', item.answer_en);
@@ -155,6 +159,14 @@ function switchView(view) {
   if (!['today', 'lessons', 'scenarios'].includes(view)) return;
   state.view = view;
   chooseQueue();
+}
+
+function moveCard(step) {
+  if (state.ratingBusy || state.queue.length < 2 || !state.queue[state.index]) return;
+  stopAudio();
+  state.index = (state.index + step + state.queue.length) % state.queue.length;
+  state.revealed = false;
+  render();
 }
 
 async function rate(rating) {
@@ -253,6 +265,22 @@ async function initialize() {
 
 document.querySelectorAll('.tab').forEach(button => button.addEventListener('click', () => switchView(button.dataset.view)));
 $('reveal').addEventListener('click', () => { state.revealed = true; render(); });
+$('previous').addEventListener('click', () => moveCard(-1));
+$('next').addEventListener('click', () => moveCard(1));
+$('practice-card').addEventListener('touchstart', event => {
+  touchStart = event.touches.length === 1 && !event.target.closest('button')
+    ? { x: event.touches[0].clientX, y: event.touches[0].clientY } : null;
+}, { passive: true });
+$('practice-card').addEventListener('touchend', event => {
+  if (!touchStart || event.changedTouches.length !== 1) return;
+  const dx = event.changedTouches[0].clientX - touchStart.x;
+  const dy = event.changedTouches[0].clientY - touchStart.y;
+  touchStart = null;
+  if (Math.abs(dx) < 55 || Math.abs(dx) <= Math.abs(dy) * 1.35) return;
+  event.preventDefault();
+  moveCard(dx < 0 ? 1 : -1);
+}, { passive: false });
+$('practice-card').addEventListener('touchcancel', () => { touchStart = null; });
 document.querySelectorAll('[data-rating]').forEach(button => button.addEventListener('click', () => rate(Number(button.dataset.rating)).catch(error => window.alert(`無法儲存：${error.message}`))));
 $('play-question').addEventListener('click', () => play('question'));
 $('play-answer').addEventListener('click', () => play('answer'));

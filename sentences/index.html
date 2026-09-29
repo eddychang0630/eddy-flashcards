@@ -12,6 +12,7 @@
   <link rel="apple-touch-icon" href="icons/icon-180.png">
   <link rel="icon" type="image/png" href="icons/icon-192.png">
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="navigation.css">
   <title>Eddy 句子練習</title>
 </head>
 <body>
@@ -39,7 +40,7 @@
         <div id="filters" class="filters" hidden></div>
         <div id="message" class="message" hidden></div>
         <article id="practice-card" class="practice-card" hidden>
-          <div class="card-top"><span id="card-type" class="eyebrow"></span><span id="card-position" class="position"></span></div>
+          <div class="card-top"><span id="card-type" class="eyebrow"></span><div class="card-navigation" role="group" aria-label="切換句子"><button id="previous" class="nav-button" type="button" title="上一句" aria-label="上一句"><i data-lucide="chevron-left"></i></button><span id="card-position" class="position"></span><button id="next" class="nav-button" type="button" title="下一句" aria-label="下一句"><i data-lucide="chevron-right"></i></button></div></div>
           <p id="prompt" class="prompt"></p>
           <div id="reveal-area" class="reveal-area" hidden>
             <div id="question-section" class="answer-section" hidden><span class="field-label">常用問句</span><p id="question-en" class="english"></p><button id="play-question" class="audio-button" type="button" title="播放問句"><i data-lucide="volume-2"></i><span>聽問句</span></button></div>

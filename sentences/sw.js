@@ -1,5 +1,5 @@
-const CACHE = 'eddy-sentences-v1';
-const SHELL = ['./', './index.html', './style.css', './app.js', './data.json', './manifest.json', './icons/icon-192.png'];
+const CACHE = 'eddy-sentences-v2';
+const SHELL = ['./', './index.html', './style.css', './navigation.css', './app.js', './data.json', './manifest.json', './icons/icon-192.png'];
 
 self.addEventListener('install', event => {
   event.waitUntil(caches.open(CACHE).then(cache => cache.addAll(SHELL)).then(() => self.skipWaiting()));
@@ -18,5 +18,5 @@ self.addEventListener('fetch', event => {
     event.respondWith(caches.match(request).then(cached => cached || fetch(request).then(response => { if (response.status === 200 && !request.headers.has('range')) caches.open(CACHE).then(cache => cache.put(request, response.clone())); return response; })));
     return;
   }
-  event.respondWith(fetch(request).then(response => { if (response.ok) caches.open(CACHE).then(cache => cache.put(request, response.clone())); return response; }).catch(() => caches.match(request)));
+  event.respondWith(fetch(new Request(request, { cache: 'no-store' })).then(response => { if (response.ok) caches.open(CACHE).then(cache => cache.put(request, response.clone())); return response; }).catch(() => caches.match(request)));
 });

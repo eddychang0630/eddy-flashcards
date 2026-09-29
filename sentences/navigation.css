@@ -1,0 +1,17 @@
+.practice-card { touch-action: pan-y; }
+.card-top { flex-wrap: wrap; gap: 8px; }
+.card-top .eyebrow { flex: 1 1 155px; min-width: 0; }
+.card-navigation { display: flex; align-items: center; gap: 4px; margin-left: auto; flex: none; }
+.card-navigation .position { min-width: 42px; text-align: center; }
+.nav-button {
+  width: 38px;
+  height: 38px;
+  display: grid;
+  place-items: center;
+  border: 1px solid #d1ddd7;
+  border-radius: 6px;
+  background: #fff;
+  color: #145c59;
+}
+.nav-button:hover { border-color: #0c5956; }
+.nav-button svg { width: 18px; height: 18px; }
