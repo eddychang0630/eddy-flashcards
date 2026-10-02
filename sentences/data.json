@@ -1602,6 +1602,206 @@
       "audio_answer": "audio/e1e3dec028967b0baf7c.mp3"
     },
     {
+      "id": "class-20261001-01",
+      "type": "class",
+      "date": "2026-10-01",
+      "category": "課業與睡眠",
+      "prompt_zh": "整體還不錯，但我真的覺得很累。",
+      "question_en": "",
+      "answer_en": "It's been good, but I feel really exhausted.",
+      "answer_zh": "整體還不錯，但我真的覺得很累。",
+      "original": "It's good, but I can feel it's really exhausted.",
+      "timecode": "",
+      "source": "20261001/english_class_notes.md",
+      "grammar": {
+        "title": "句型重點",
+        "explanation": "自己感到疲累用 feel exhausted；讓人疲累的事用 exhausting。it's been good 表示截至目前整體還不錯。",
+        "pattern": "It's been + 形容詞, but I feel + 情緒或身體狀態形容詞."
+      },
+      "audio_question": "",
+      "audio_answer": "audio/8974ac65ac1a43c17e69.mp3"
+    },
+    {
+      "id": "class-20261001-02",
+      "type": "class",
+      "date": "2026-10-01",
+      "category": "課業與睡眠",
+      "prompt_zh": "我的課表讓人筋疲力盡。",
+      "question_en": "",
+      "answer_en": "My schedule is exhausting.",
+      "answer_zh": "我的課表讓人筋疲力盡。",
+      "original": "It's like a headache schedule.",
+      "timecode": "",
+      "source": "20261001/english_class_notes.md",
+      "grammar": {
+        "title": "句型重點",
+        "explanation": "描述課表造成的感受，用 My schedule is exhausting；headache schedule 不是自然搭配。",
+        "pattern": "My + 事物 + is + 造成感受的 -ing 形容詞."
+      },
+      "audio_question": "",
+      "audio_answer": "audio/694a24567bba76b49145.mp3"
+    },
+    {
+      "id": "class-20261001-03",
+      "type": "class",
+      "date": "2026-10-01",
+      "category": "課業與睡眠",
+      "prompt_zh": "我覺得昨天是最難熬的一天。",
+      "question_en": "",
+      "answer_en": "I think yesterday was the hardest day to get through.",
+      "answer_zh": "我覺得昨天是最難熬的一天。",
+      "original": "Yesterday I think it is the most hardest day to overcome.",
+      "timecode": "",
+      "source": "20261001/english_class_notes.md",
+      "grammar": {
+        "title": "句型重點",
+        "explanation": "hard 的最高級是 hardest，不再加 most；昨天的經歷用過去式 was。",
+        "pattern": "I think yesterday was the hardest + 名詞 + to + 原形動詞."
+      },
+      "audio_question": "",
+      "audio_answer": "audio/7173c702a422fb830f44.mp3"
+    },
+    {
+      "id": "class-20261001-04",
+      "type": "class",
+      "date": "2026-10-01",
+      "category": "課業與睡眠",
+      "prompt_zh": "我的另一堂課晚上十點才結束。",
+      "question_en": "",
+      "answer_en": "My other class ends at 10 p.m.",
+      "answer_zh": "我的另一堂課晚上十點才結束。",
+      "original": "Another class, the course time is end at 10 o'clock.",
+      "timecode": "",
+      "source": "20261001/english_class_notes.md",
+      "grammar": {
+        "title": "句型重點",
+        "explanation": "單堂課用 class；一般現在式第三人稱單數用 ends，時間可明確說 10 p.m.。",
+        "pattern": "My other class ends at + 時間."
+      },
+      "audio_question": "",
+      "audio_answer": "audio/86e3051ee58cf27dc2a4.mp3"
+    },
+    {
+      "id": "class-20261001-05",
+      "type": "class",
+      "date": "2026-10-01",
+      "category": "課業與睡眠",
+      "prompt_zh": "我還在適應這樣的課表。",
+      "question_en": "",
+      "answer_en": "I'm still getting used to this schedule.",
+      "answer_zh": "我還在適應這樣的課表。",
+      "original": "I still trying to get used to it for this situation.",
+      "timecode": "",
+      "source": "20261001/english_class_notes.md",
+      "grammar": {
+        "title": "句型重點",
+        "explanation": "正在適應用 I'm still getting used to + 名詞；不要省略 am，也不要多加 for。",
+        "pattern": "I'm still getting used to + 名詞或 V-ing."
+      },
+      "audio_question": "",
+      "audio_answer": "audio/6a6a0dea5e7de3ee1a12.mp3"
+    },
+    {
+      "id": "class-20261001-06",
+      "type": "class",
+      "date": "2026-10-01",
+      "category": "課業與睡眠",
+      "prompt_zh": "我們只剩兩個月了。",
+      "question_en": "",
+      "answer_en": "We only have two months left.",
+      "answer_zh": "我們只剩兩個月了。",
+      "original": "We only left two months.",
+      "timecode": "",
+      "source": "20261001/english_class_notes.md",
+      "grammar": {
+        "title": "句型重點",
+        "explanation": "表示時間剩下多少，用 have + 時間 + left；left 放在時間後。",
+        "pattern": "We only have + 時間 + left."
+      },
+      "audio_question": "",
+      "audio_answer": "audio/330c1a1d1518b953ea36.mp3"
+    },
+    {
+      "id": "class-20261001-07",
+      "type": "class",
+      "date": "2026-10-01",
+      "category": "課業與睡眠",
+      "prompt_zh": "所以我通常一個人吃晚餐。",
+      "question_en": "",
+      "answer_en": "So I usually eat dinner alone.",
+      "answer_zh": "所以我通常一個人吃晚餐。",
+      "original": "So I always had a dinner solo.",
+      "timecode": "",
+      "source": "20261001/english_class_notes.md",
+      "grammar": {
+        "title": "句型重點",
+        "explanation": "描述平常習慣用一般現在式與 usually；eat dinner 不加 a，alone 表示獨自。",
+        "pattern": "I usually + 原形動詞 + 受詞 + alone."
+      },
+      "audio_question": "",
+      "audio_answer": "audio/a2f1efe05342733f5b12.mp3"
+    },
+    {
+      "id": "class-20261001-08",
+      "type": "class",
+      "date": "2026-10-01",
+      "category": "課業與睡眠",
+      "prompt_zh": "那是我第一次去，所以決定試試看。",
+      "question_en": "",
+      "answer_en": "It was my first time there, so I decided to give it a shot.",
+      "answer_zh": "那是我第一次去，所以決定試試看。",
+      "original": "Today is my first time to been there to give a shot.",
+      "timecode": "",
+      "source": "20261001/english_class_notes.md",
+      "grammar": {
+        "title": "句型重點",
+        "explanation": "第一次去某處說 It was my first time there；試餐廳用 give it a shot，it 指餐廳或體驗。",
+        "pattern": "It was my first time + 地點, so I decided to give it a shot."
+      },
+      "audio_question": "",
+      "audio_answer": "audio/d66cb15c0387426b4fd1.mp3"
+    },
+    {
+      "id": "class-20261001-09",
+      "type": "class",
+      "date": "2026-10-01",
+      "category": "課業與睡眠",
+      "prompt_zh": "讓我說明一下我的工作內容。",
+      "question_en": "",
+      "answer_en": "Let me explain what I do for work.",
+      "answer_zh": "讓我說明一下我的工作內容。",
+      "original": "My thoughts is to introduce my job.",
+      "timecode": "",
+      "source": "20261001/english_class_notes.md",
+      "grammar": {
+        "title": "句型重點",
+        "explanation": "介紹工作時先用 Let me explain...；what I do for work 是間接疑問詞子句，維持陳述語序。",
+        "pattern": "Let me explain what I do for + 領域."
+      },
+      "audio_question": "",
+      "audio_answer": "audio/6bd535d3420c1f8ef703.mp3"
+    },
+    {
+      "id": "class-20261001-10",
+      "type": "class",
+      "date": "2026-10-01",
+      "category": "課業與睡眠",
+      "prompt_zh": "我同意文章的觀點：睡眠數據可能影響心情。",
+      "question_en": "",
+      "answer_en": "I agree with the article's point that sleep data can affect your mood.",
+      "answer_zh": "我同意文章的觀點：睡眠數據可能影響心情。",
+      "original": "I really believe this article that mentioned the sleep data will impact your mood.",
+      "timecode": "",
+      "source": "20261001/english_class_notes.md",
+      "grammar": {
+        "title": "句型重點",
+        "explanation": "認同文章的觀點說 agree with the article's point that + 子句；affect your mood 比 impact your mood 更自然。",
+        "pattern": "I agree with the article's point that + 完整子句."
+      },
+      "audio_question": "",
+      "audio_answer": "audio/ad3ea9c8292b0b88ce9c.mp3"
+    },
+    {
       "id": "scenario-class-clarify",
       "type": "scenario",
       "date": "",
@@ -1982,6 +2182,6 @@
       "audio_answer": "audio/28e1b584397f97d9fef4.mp3"
     }
   ],
-  "revision": "95980ef7d4b9",
-  "updated_at": "2026-09-29T05:22:46+00:00"
+  "revision": "0ec9c8a77d90",
+  "updated_at": "2026-10-02T05:34:56+00:00"
 }

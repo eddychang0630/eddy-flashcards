@@ -94,5 +94,17 @@
     {"explanation":"兩項總價相近，用 Together ... cost about the same as ...。","pattern":"Together, + 兩項物品 + would cost about the same as + 比較物."},
     {"explanation":"直接問句中疑問詞 exactly 放在 is 前：What exactly is ...?。","pattern":"What exactly is + 名詞?"},
     {"explanation":"動名詞片語作主詞時接單數 is；擴展人脈用 expand your network。","pattern":"V-ing + 受詞 + is a good opportunity to + 原形動詞."}
+  ],
+  "20261001": [
+    {"explanation":"自己感到疲累用 feel exhausted；讓人疲累的事用 exhausting。it's been good 表示截至目前整體還不錯。","pattern":"It's been + 形容詞, but I feel + 情緒或身體狀態形容詞."},
+    {"explanation":"描述課表造成的感受，用 My schedule is exhausting；headache schedule 不是自然搭配。","pattern":"My + 事物 + is + 造成感受的 -ing 形容詞."},
+    {"explanation":"hard 的最高級是 hardest，不再加 most；昨天的經歷用過去式 was。","pattern":"I think yesterday was the hardest + 名詞 + to + 原形動詞."},
+    {"explanation":"單堂課用 class；一般現在式第三人稱單數用 ends，時間可明確說 10 p.m.。","pattern":"My other class ends at + 時間."},
+    {"explanation":"正在適應用 I'm still getting used to + 名詞；不要省略 am，也不要多加 for。","pattern":"I'm still getting used to + 名詞或 V-ing."},
+    {"explanation":"表示時間剩下多少，用 have + 時間 + left；left 放在時間後。","pattern":"We only have + 時間 + left."},
+    {"explanation":"描述平常習慣用一般現在式與 usually；eat dinner 不加 a，alone 表示獨自。","pattern":"I usually + 原形動詞 + 受詞 + alone."},
+    {"explanation":"第一次去某處說 It was my first time there；試餐廳用 give it a shot，it 指餐廳或體驗。","pattern":"It was my first time + 地點, so I decided to give it a shot."},
+    {"explanation":"介紹工作時先用 Let me explain...；what I do for work 是間接疑問詞子句，維持陳述語序。","pattern":"Let me explain what I do for + 領域."},
+    {"explanation":"認同文章的觀點說 agree with the article's point that + 子句；affect your mood 比 impact your mood 更自然。","pattern":"I agree with the article's point that + 完整子句."}
   ]
 }
