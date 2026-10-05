@@ -106,5 +106,17 @@
     {"explanation":"第一次去某處說 It was my first time there；試餐廳用 give it a shot，it 指餐廳或體驗。","pattern":"It was my first time + 地點, so I decided to give it a shot."},
     {"explanation":"介紹工作時先用 Let me explain...；what I do for work 是間接疑問詞子句，維持陳述語序。","pattern":"Let me explain what I do for + 領域."},
     {"explanation":"認同文章的觀點說 agree with the article's point that + 子句；affect your mood 比 impact your mood 更自然。","pattern":"I agree with the article's point that + 完整子句."}
+  ],
+  "20261005": [
+    {"title":"Stay 與 Leave","explanation":"在某處待一段時間用 stay there for + 時間；leave 是離開，不能用來表達留在當地。might 表示不確定的可能性。","pattern":"I might stay + 地點 + for + 一段時間."},
+    {"title":"每人費用","explanation":"說明價格用 It costs + 金額；about 表示約略，per person 是每個人。不要省略 costs 的主詞。","pattern":"It costs about + 金額 + per person."},
+    {"title":"情況相反","explanation":"the other way around 表示兩種情況或做法剛好相反；用完整主句，不必在單獨回答前放 because。","pattern":"It's the other way around in + 地方."},
+    {"title":"After 後的動名詞","explanation":"after 後可接 V-ing，或完整子句 after I finish...。go home 不加 to；兩個日常動作用 go 和 take 並列。","pattern":"After + V-ing + 受詞, I + 原形動詞 + and + 原形動詞."},
+    {"title":"Urgent 與 Emergency","explanation":"urgent 是形容詞，用來修飾 task；emergency 是緊急事件的名詞。identify 表示找出、辨識，能直接表達先確認急迫任務。","pattern":"I identify the most urgent + 單數名詞."},
+    {"title":"請對方舉例","explanation":"Could you + 原形動詞 是禮貌請求；give + 人 + an example 是給某人一個例子。for instance 只能引出例子，不是動詞。","pattern":"Could you give me an example?"},
+    {"title":"動名詞作主詞","explanation":"動作作主詞時用 V-ing：Prioritizing tasks。整個動名詞片語視為單數，接 is。crucial 表示非常重要。","pattern":"V-ing + 受詞 + is crucial."},
+    {"title":"拆解大目標","explanation":"break ... down into ... 表示拆成較小部分。smaller steps 指規模較小的步驟；minor 容易讓人以為不重要。","pattern":"I break + 目標 + down into smaller steps."},
+    {"title":"表達低頻率","explanation":"rarely 表示很少，放在一般動詞 go 前；there 代替已談到的地點。less 必須有比較語境，這裡改用 rarely 更清楚。","pattern":"I rarely + 原形動詞 + 地點."},
+    {"title":"單數主詞與感受","explanation":"The smell of coffee 的核心名詞是 smell，動詞用 makes。make + 人 + feel + 形容詞 描述造成的感受；放鬆的感受用 relaxed。","pattern":"The smell of + 名詞 + makes me feel + 形容詞."}
   ]
 }

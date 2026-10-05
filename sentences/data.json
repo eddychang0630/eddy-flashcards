@@ -1802,6 +1802,206 @@
       "audio_answer": "audio/ad3ea9c8292b0b88ce9c.mp3"
     },
     {
+      "id": "class-20261005-01",
+      "type": "class",
+      "date": "2026-10-05",
+      "category": "時間管理與咖啡店",
+      "prompt_zh": "我可能會在那裡待兩天。",
+      "question_en": "",
+      "answer_en": "I might stay there for two days.",
+      "answer_zh": "我可能會在那裡待兩天。",
+      "original": "And then maybe leave there for two days.",
+      "timecode": "01:53-01:57",
+      "source": "20261005/english_class_notes.md",
+      "grammar": {
+        "title": "Stay 與 Leave",
+        "explanation": "在某處待一段時間用 stay there for + 時間；leave 是離開，不能用來表達留在當地。might 表示不確定的可能性。",
+        "pattern": "I might stay + 地點 + for + 一段時間."
+      },
+      "audio_question": "",
+      "audio_answer": "audio/090a47df8452af1fc868.mp3"
+    },
+    {
+      "id": "class-20261005-02",
+      "type": "class",
+      "date": "2026-10-05",
+      "category": "時間管理與咖啡店",
+      "prompt_zh": "所以每個人大約要花新台幣六百元。",
+      "question_en": "",
+      "answer_en": "So it costs about NT$600 per person.",
+      "answer_zh": "所以每個人大約要花新台幣六百元。",
+      "original": "So per person only need to, it's like Maybe 600 NTD.",
+      "timecode": "05:42-05:48",
+      "source": "20261005/english_class_notes.md",
+      "grammar": {
+        "title": "每人費用",
+        "explanation": "說明價格用 It costs + 金額；about 表示約略，per person 是每個人。不要省略 costs 的主詞。",
+        "pattern": "It costs about + 金額 + per person."
+      },
+      "audio_question": "",
+      "audio_answer": "audio/8b7a33510df336d3b180.mp3"
+    },
+    {
+      "id": "class-20261005-03",
+      "type": "class",
+      "date": "2026-10-05",
+      "category": "時間管理與咖啡店",
+      "prompt_zh": "在台灣，情況剛好相反。",
+      "question_en": "",
+      "answer_en": "It's the other way around in Taiwan.",
+      "answer_zh": "在台灣，情況剛好相反。",
+      "original": "Because it's opposite in Taiwan.",
+      "timecode": "06:46-06:50",
+      "source": "20261005/english_class_notes.md",
+      "grammar": {
+        "title": "情況相反",
+        "explanation": "the other way around 表示兩種情況或做法剛好相反；用完整主句，不必在單獨回答前放 because。",
+        "pattern": "It's the other way around in + 地方."
+      },
+      "audio_question": "",
+      "audio_answer": "audio/18bff9d6f115386289d7.mp3"
+    },
+    {
+      "id": "class-20261005-04",
+      "type": "class",
+      "date": "2026-10-05",
+      "category": "時間管理與咖啡店",
+      "prompt_zh": "運動結束後，我回家洗澡。",
+      "question_en": "",
+      "answer_en": "After finishing my workout, I go home and take a shower.",
+      "answer_zh": "運動結束後，我回家洗澡。",
+      "original": "And then after finish the workout and then go back to home take a shower.",
+      "timecode": "12:34-12:43",
+      "source": "20261005/english_class_notes.md",
+      "grammar": {
+        "title": "After 後的動名詞",
+        "explanation": "after 後可接 V-ing，或完整子句 after I finish...。go home 不加 to；兩個日常動作用 go 和 take 並列。",
+        "pattern": "After + V-ing + 受詞, I + 原形動詞 + and + 原形動詞."
+      },
+      "audio_question": "",
+      "audio_answer": "audio/c126b5d89d88779c1c54.mp3"
+    },
+    {
+      "id": "class-20261005-05",
+      "type": "class",
+      "date": "2026-10-05",
+      "category": "時間管理與咖啡店",
+      "prompt_zh": "接著，我找出最急迫的任務。",
+      "question_en": "",
+      "answer_en": "Then I identify the most urgent task.",
+      "answer_zh": "接著，我找出最急迫的任務。",
+      "original": "And then see what is the most emergency thing you need to do.",
+      "timecode": "13:35-13:44",
+      "source": "20261005/english_class_notes.md",
+      "grammar": {
+        "title": "Urgent 與 Emergency",
+        "explanation": "urgent 是形容詞，用來修飾 task；emergency 是緊急事件的名詞。identify 表示找出、辨識，能直接表達先確認急迫任務。",
+        "pattern": "I identify the most urgent + 單數名詞."
+      },
+      "audio_question": "",
+      "audio_answer": "audio/04947d110bd02ae9c4a2.mp3"
+    },
+    {
+      "id": "class-20261005-06",
+      "type": "class",
+      "date": "2026-10-05",
+      "category": "時間管理與咖啡店",
+      "prompt_zh": "你可以舉個例子給我嗎？",
+      "question_en": "",
+      "answer_en": "Could you give me an example?",
+      "answer_zh": "你可以舉個例子給我嗎？",
+      "original": "Could you, for instance, for me?",
+      "timecode": "15:11-15:13",
+      "source": "20261005/english_class_notes.md",
+      "grammar": {
+        "title": "請對方舉例",
+        "explanation": "Could you + 原形動詞 是禮貌請求；give + 人 + an example 是給某人一個例子。for instance 只能引出例子，不是動詞。",
+        "pattern": "Could you give me an example?"
+      },
+      "audio_question": "",
+      "audio_answer": "audio/4ee01c2df7c8f998a4ba.mp3"
+    },
+    {
+      "id": "class-20261005-07",
+      "type": "class",
+      "date": "2026-10-05",
+      "category": "時間管理與咖啡店",
+      "prompt_zh": "安排任務的優先順序很重要。",
+      "question_en": "",
+      "answer_en": "Prioritizing tasks is crucial.",
+      "answer_zh": "安排任務的優先順序很重要。",
+      "original": "Prioritize is really crucial.",
+      "timecode": "17:29-17:31",
+      "source": "20261005/english_class_notes.md",
+      "grammar": {
+        "title": "動名詞作主詞",
+        "explanation": "動作作主詞時用 V-ing：Prioritizing tasks。整個動名詞片語視為單數，接 is。crucial 表示非常重要。",
+        "pattern": "V-ing + 受詞 + is crucial."
+      },
+      "audio_question": "",
+      "audio_answer": "audio/cfd38a814a1a4ec81cc9.mp3"
+    },
+    {
+      "id": "class-20261005-08",
+      "type": "class",
+      "date": "2026-10-05",
+      "category": "時間管理與咖啡店",
+      "prompt_zh": "我把目標拆成較小的步驟。",
+      "question_en": "",
+      "answer_en": "I break the goal down into smaller steps.",
+      "answer_zh": "我把目標拆成較小的步驟。",
+      "original": "To separate the goal into the minor goal to complete.",
+      "timecode": "17:56-18:01",
+      "source": "20261005/english_class_notes.md",
+      "grammar": {
+        "title": "拆解大目標",
+        "explanation": "break ... down into ... 表示拆成較小部分。smaller steps 指規模較小的步驟；minor 容易讓人以為不重要。",
+        "pattern": "I break + 目標 + down into smaller steps."
+      },
+      "audio_question": "",
+      "audio_answer": "audio/191a101fa9b22f05a1f8.mp3"
+    },
+    {
+      "id": "class-20261005-09",
+      "type": "class",
+      "date": "2026-10-05",
+      "category": "時間管理與咖啡店",
+      "prompt_zh": "我很少去那裡。",
+      "question_en": "",
+      "answer_en": "I rarely go there.",
+      "answer_zh": "我很少去那裡。",
+      "original": "It's really less.",
+      "timecode": "49:57-49:58",
+      "source": "20261005/english_class_notes.md",
+      "grammar": {
+        "title": "表達低頻率",
+        "explanation": "rarely 表示很少，放在一般動詞 go 前；there 代替已談到的地點。less 必須有比較語境，這裡改用 rarely 更清楚。",
+        "pattern": "I rarely + 原形動詞 + 地點."
+      },
+      "audio_question": "",
+      "audio_answer": "audio/7422c62696313f60c329.mp3"
+    },
+    {
+      "id": "class-20261005-10",
+      "type": "class",
+      "date": "2026-10-05",
+      "category": "時間管理與咖啡店",
+      "prompt_zh": "咖啡香讓我感到放鬆。",
+      "question_en": "",
+      "answer_en": "The smell of coffee makes me feel relaxed.",
+      "answer_zh": "咖啡香讓我感到放鬆。",
+      "original": "The coffee, the coffee smell make me relax.",
+      "timecode": "50:35-50:42",
+      "source": "20261005/english_class_notes.md",
+      "grammar": {
+        "title": "單數主詞與感受",
+        "explanation": "The smell of coffee 的核心名詞是 smell，動詞用 makes。make + 人 + feel + 形容詞 描述造成的感受；放鬆的感受用 relaxed。",
+        "pattern": "The smell of + 名詞 + makes me feel + 形容詞."
+      },
+      "audio_question": "",
+      "audio_answer": "audio/d35de0f3e85e4affd48c.mp3"
+    },
+    {
       "id": "scenario-class-clarify",
       "type": "scenario",
       "date": "",
@@ -2182,6 +2382,6 @@
       "audio_answer": "audio/28e1b584397f97d9fef4.mp3"
     }
   ],
-  "revision": "0ec9c8a77d90",
-  "updated_at": "2026-10-02T05:34:56+00:00"
+  "revision": "606fc4255839",
+  "updated_at": "2026-10-05T15:21:32+00:00"
 }
