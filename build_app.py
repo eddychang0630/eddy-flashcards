@@ -106,6 +106,35 @@ HTML = f"""<!DOCTYPE html>
     .refresh-btn:disabled {{ opacity: 0.65; cursor: wait; }}
     .refresh-btn.is-refreshing span {{ animation: refreshSpin 0.7s linear infinite; }}
     @keyframes refreshSpin {{ to {{ transform: rotate(360deg); }} }}
+    .search-icon-btn {{ width: 36px; height: 36px; flex-basis: 36px; border-radius: 8px; }}
+    .search-icon-btn svg {{ width: 20px; height: 20px; }}
+    .search-dialog {{
+      width: min(520px, calc(100% - 32px)); max-height: calc(100dvh - 32px);
+      margin: auto; padding: 0; border: 1px solid var(--border); border-radius: 8px;
+      background: var(--card-bg); color: var(--text); overflow: hidden;
+    }}
+    .search-dialog::backdrop {{ background: rgba(0,0,0,0.65); }}
+    .search-header {{ display: flex; align-items: center; justify-content: space-between; padding: 12px 16px; }}
+    .search-header h2 {{ font-size: 1rem; letter-spacing: 0; }}
+    .search-field {{ padding: 0 16px 12px; }}
+    .search-field input {{
+      width: 100%; min-width: 0; padding: 11px 12px; font: inherit; font-size: 1rem;
+      color: var(--text); background: var(--bg); border: 1px solid var(--border); border-radius: 6px;
+      user-select: text; -webkit-user-select: text;
+    }}
+    .search-field input:focus {{ outline: 2px solid var(--primary); outline-offset: 2px; }}
+    .search-status {{ padding: 0 16px 10px; font-size: 0.8rem; color: var(--muted); }}
+    .search-status:empty {{ display: none; }}
+    .search-results {{ list-style: none; max-height: min(55dvh, 480px); overflow-y: auto; overscroll-behavior: contain; }}
+    .search-result {{
+      display: flex; flex-direction: column; gap: 5px; width: 100%; padding: 12px 16px;
+      text-align: left; background: transparent; color: var(--text); border: 0;
+      border-top: 1px solid var(--border); font: inherit; cursor: pointer;
+    }}
+    .search-result:hover, .search-result:focus-visible {{ background: var(--bg); }}
+    .search-result:focus-visible {{ outline: 2px solid var(--primary); outline-offset: -2px; }}
+    .search-result-word {{ font-size: 1rem; font-weight: 700; overflow-wrap: anywhere; }}
+    .search-result-meta {{ font-size: 0.8rem; line-height: 1.5; color: var(--muted); overflow-wrap: anywhere; }}
     .mode-toggle {{ display: flex; gap: 3px; background: var(--card-bg); border-radius: 12px; padding: 3px; }}
     .mode-btn {{
       padding: 5px 12px; border-radius: 9px; font-size: 0.72rem; font-weight: 700;
@@ -335,6 +364,10 @@ HTML = f"""<!DOCTYPE html>
   <div id="top-bar">
     <h1>📚 Eddy 英文字卡</h1>
     <div class="top-actions">
+      <!-- Search and X icons from Lucide; notices in LUCIDE-LICENSE.txt. -->
+      <button class="refresh-btn search-icon-btn" id="vocab-search-btn" type="button" onclick="openVocabularySearch()" aria-label="搜尋單字" title="搜尋單字" aria-haspopup="dialog" aria-controls="vocab-search-dialog">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m21 21-4.34-4.34"/><circle cx="11" cy="11" r="8"/></svg>
+      </button>
       <button class="refresh-btn" id="app-refresh-btn" type="button" onclick="refreshApp()" aria-label="重新整理 App" title="重新整理 App">
         <span aria-hidden="true">↻</span>
       </button>
@@ -346,6 +379,19 @@ HTML = f"""<!DOCTYPE html>
   </div>
 
   <!-- Date Filter Bar -->
+  <dialog class="search-dialog" id="vocab-search-dialog" aria-labelledby="vocab-search-title">
+    <div class="search-header">
+      <h2 id="vocab-search-title">搜尋單字</h2>
+      <button class="refresh-btn search-icon-btn" type="button" onclick="closeVocabularySearch()" aria-label="關閉搜尋" title="關閉搜尋">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+      </button>
+    </div>
+    <div class="search-field">
+      <input id="vocab-search-input" type="search" placeholder="搜尋單字或片語" aria-label="搜尋單字或片語" autocomplete="off" autocapitalize="none" spellcheck="false" enterkeyhint="search" oninput="renderVocabularySearch()" onkeydown="handleVocabularySearchKey(event)" autofocus>
+    </div>
+    <p class="search-status" id="vocab-search-status" role="status" aria-live="polite"></p>
+    <ul class="search-results" id="vocab-search-results" aria-label="搜尋結果"></ul>
+  </dialog>
   <div id="date-bar">
     {date_pills_html.strip()}
   </div>
@@ -573,6 +619,76 @@ function playCardAudio(event, buttonId) {{
   }});
 }}
 
+// Search always uses the complete vocabulary, including cards from other dates.
+function searchVocabulary(cards, query) {{
+  const normalize = value => String(value || '').normalize('NFKC').trim().toLowerCase().replace(/\\s+/g, ' ');
+  const term = normalize(query);
+  if(!term) return [];
+  return cards.map((card, index) => ({{index, word: normalize(card[0])}}))
+    .filter(item => item.word.includes(term))
+    .sort((a, b) => {{
+      const rank = word => word === term ? 0 : word.startsWith(term) ? 1 : 2;
+      return rank(a.word) - rank(b.word) || a.word.localeCompare(b.word, 'en');
+    }})
+    .map(item => item.index);
+}}
+
+function renderVocabularySearch() {{
+  const query = document.getElementById('vocab-search-input').value;
+  const matches = searchVocabulary(CARDS, query);
+  const results = document.getElementById('vocab-search-results');
+  results.replaceChildren();
+  document.getElementById('vocab-search-status').textContent = !query.trim() ? '' :
+    matches.length ? `${{matches.length}} 個結果` : '找不到符合的單字';
+  for(const index of matches) {{
+    const card = CARDS[index];
+    const row = document.createElement('li');
+    const button = document.createElement('button');
+    button.type = 'button';
+    button.className = 'search-result';
+    const word = document.createElement('span');
+    word.className = 'search-result-word';
+    word.textContent = card[0];
+    const meta = document.createElement('span');
+    meta.className = 'search-result-meta';
+    meta.textContent = [card[2], card[3], card[10]].filter(Boolean).join(' · ');
+    button.append(word, meta);
+    button.addEventListener('click', () => selectVocabularySearch(index));
+    row.append(button);
+    results.append(row);
+  }}
+}}
+
+function openVocabularySearch() {{
+  stopCardAudio();
+  document.getElementById('vocab-search-dialog').showModal();
+  renderVocabularySearch();
+  const input = document.getElementById('vocab-search-input');
+  input.focus();
+  input.select();
+}}
+
+function closeVocabularySearch() {{
+  document.getElementById('vocab-search-dialog').close();
+}}
+
+function selectVocabularySearch(index) {{
+  const card = CARDS[index];
+  if(!card) return;
+  switchMode('study');
+  setDateFilter(card[10]);
+  sIdx = filteredCards.indexOf(card);
+  showSCard();
+  closeVocabularySearch();
+}}
+
+function handleVocabularySearchKey(event) {{
+  if(event.key !== 'Enter') return;
+  event.preventDefault();
+  const matches = searchVocabulary(CARDS, event.target.value);
+  if(matches.length) selectVocabularySearch(matches[0]);
+}}
+
 // ─── Date Filter ──────────────────────────────────────────────────────────────
 function setDateFilter(date) {{
   activeDate = date;
@@ -752,6 +868,7 @@ document.getElementById('study-scroll').addEventListener('touchend',e=>{{
 
 // ─── Keyboard ────────────────────────────────────────────────────────────────
 document.addEventListener('keydown',e=>{{
+  if(document.getElementById('vocab-search-dialog').open || e.target.closest?.('input, textarea, select, [contenteditable="true"]')) return;
   if(mode==='quiz'){{
     if(e.key===' ')doFlip();
     if(e.key==='ArrowRight'&&qFlipped)judge(true);
