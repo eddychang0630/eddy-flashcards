@@ -122,15 +122,20 @@ def generate_date_bar_html(cards):
     for card in cards:
         date_counts[card[10]] += 1
 
+    dates = sorted((date for date in date_counts if date), reverse=True)
+    latest_date = dates[0] if dates else ""
+    all_active = "" if latest_date else " active"
     lines = [
         '  <div id="date-bar">',
-        '    <button class="dpill active" onclick="setDateFilter(\'\')" '
+        f'    <button class="dpill{all_active}" onclick="setDateFilter(\'\')" '
         f'id="dpill-all">全部 ({len(cards)})</button>',
     ]
-    for date, count in date_counts.items():
+    for date in dates:
+        count = date_counts[date]
         label = f"{date[5:7]}/{date[8:10]}"
+        active = " active" if date == latest_date else ""
         lines.append(
-            '    <button class="dpill" '
+            f'    <button class="dpill{active}" '
             f'onclick="setDateFilter(\'{date}\')" id="dpill-{date}">'
             f"{label} ({count})</button>"
         )

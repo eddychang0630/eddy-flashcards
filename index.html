@@ -342,20 +342,20 @@
     <ul class="search-results" id="vocab-search-results" aria-label="搜尋結果"></ul>
   </dialog>
   <div id="date-bar">
-    <button class="dpill active" onclick="setDateFilter('')" id="dpill-all">全部 (415)</button>
-    <button class="dpill" onclick="setDateFilter('2026-06-25')" id="dpill-2026-06-25">06/25 (18)</button>
-    <button class="dpill" onclick="setDateFilter('2026-06-29')" id="dpill-2026-06-29">06/29 (19)</button>
-    <button class="dpill" onclick="setDateFilter('2026-06-22')" id="dpill-2026-06-22">06/22 (11)</button>
-    <button class="dpill" onclick="setDateFilter('2026-07-06')" id="dpill-2026-07-06">07/06 (38)</button>
-    <button class="dpill" onclick="setDateFilter('2026-07-09')" id="dpill-2026-07-09">07/09 (30)</button>
-    <button class="dpill" onclick="setDateFilter('2026-09-07')" id="dpill-2026-09-07">09/07 (35)</button>
-    <button class="dpill" onclick="setDateFilter('2026-09-10')" id="dpill-2026-09-10">09/10 (44)</button>
-    <button class="dpill" onclick="setDateFilter('2026-09-14')" id="dpill-2026-09-14">09/14 (48)</button>
-    <button class="dpill" onclick="setDateFilter('2026-09-17')" id="dpill-2026-09-17">09/17 (47)</button>
-    <button class="dpill" onclick="setDateFilter('2026-09-21')" id="dpill-2026-09-21">09/21 (51)</button>
-    <button class="dpill" onclick="setDateFilter('2026-09-24')" id="dpill-2026-09-24">09/24 (18)</button>
+    <button class="dpill" onclick="setDateFilter('')" id="dpill-all">全部 (415)</button>
+    <button class="dpill active" onclick="setDateFilter('2026-10-05')" id="dpill-2026-10-05">10/05 (30)</button>
     <button class="dpill" onclick="setDateFilter('2026-10-01')" id="dpill-2026-10-01">10/01 (26)</button>
-    <button class="dpill" onclick="setDateFilter('2026-10-05')" id="dpill-2026-10-05">10/05 (30)</button>
+    <button class="dpill" onclick="setDateFilter('2026-09-24')" id="dpill-2026-09-24">09/24 (18)</button>
+    <button class="dpill" onclick="setDateFilter('2026-09-21')" id="dpill-2026-09-21">09/21 (51)</button>
+    <button class="dpill" onclick="setDateFilter('2026-09-17')" id="dpill-2026-09-17">09/17 (47)</button>
+    <button class="dpill" onclick="setDateFilter('2026-09-14')" id="dpill-2026-09-14">09/14 (48)</button>
+    <button class="dpill" onclick="setDateFilter('2026-09-10')" id="dpill-2026-09-10">09/10 (44)</button>
+    <button class="dpill" onclick="setDateFilter('2026-09-07')" id="dpill-2026-09-07">09/07 (35)</button>
+    <button class="dpill" onclick="setDateFilter('2026-07-09')" id="dpill-2026-07-09">07/09 (30)</button>
+    <button class="dpill" onclick="setDateFilter('2026-07-06')" id="dpill-2026-07-06">07/06 (38)</button>
+    <button class="dpill" onclick="setDateFilter('2026-06-29')" id="dpill-2026-06-29">06/29 (19)</button>
+    <button class="dpill" onclick="setDateFilter('2026-06-25')" id="dpill-2026-06-25">06/25 (18)</button>
+    <button class="dpill" onclick="setDateFilter('2026-06-22')" id="dpill-2026-06-22">06/22 (11)</button>
   </div>
 
   <!-- Progress -->
@@ -936,8 +936,8 @@ function fmtDate(d) {
 }
 
 // ─── State ────────────────────────────────────────────────────────────────────
-let activeDate = '';   // '' = all dates
-let filteredCards = [...CARDS];
+let activeDate = CARDS.reduce((latest, card) => card[10] > latest ? card[10] : latest, '');
+let filteredCards = activeDate ? CARDS.filter(card => card[10]===activeDate) : [...CARDS];
 
 let qDeck=[], qIdx=0, qKnow=0, qDunno=0, qFlipped=false, wrongCards=[];
 let sIdx=0;
@@ -1289,7 +1289,7 @@ if('serviceWorker' in navigator) {
 
 // ─── Init ─────────────────────────────────────────────────────────────────────
 initQuiz(filteredCards);
-showSCard();
+setDateFilter(activeDate);
 </script>
 </body>
 </html>

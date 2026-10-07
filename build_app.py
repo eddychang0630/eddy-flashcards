@@ -12,7 +12,7 @@ OUT_HTML  = APP_DIR / "index.html"
 with open(JSON_FILE, encoding="utf-8") as f:
     cards = json.load(f)
 
-# Gather unique dates in order
+# Gather unique dates, newest first.
 dates = []
 for c in cards:
     # Pad to 12 elements to avoid index out of range if missing word forms
@@ -22,6 +22,9 @@ for c in cards:
     d = c[10]
     if d and d not in dates:
         dates.append(d)
+
+dates.sort(reverse=True)
+latest_date = dates[0] if dates else ""
 
 date_counts = {}
 for c in cards:
@@ -43,11 +46,13 @@ cards_js_lines.append("];")
 CARDS_JS = "\n".join(cards_js_lines)
 
 # Build date pills HTML
-date_pills_html = f'<button class="dpill active" onclick="setDateFilter(\'\')" id="dpill-all">全部 ({len(cards)})</button>\n'
+all_active = "" if latest_date else " active"
+date_pills_html = f'<button class="dpill{all_active}" onclick="setDateFilter(\'\')" id="dpill-all">全部 ({len(cards)})</button>\n'
 for d in dates:
     label = fmt_date_label(d)
     cnt   = date_counts[d]
-    date_pills_html += f'    <button class="dpill" onclick="setDateFilter(\'{d}\')" id="dpill-{d}">{label} ({cnt})</button>\n'
+    active = " active" if d == latest_date else ""
+    date_pills_html += f'    <button class="dpill{active}" onclick="setDateFilter(\'{d}\')" id="dpill-{d}">{label} ({cnt})</button>\n'
 
 HTML = f"""<!DOCTYPE html>
 <html lang="zh-TW">
@@ -558,8 +563,8 @@ function fmtDate(d) {{
 }}
 
 // ─── State ────────────────────────────────────────────────────────────────────
-let activeDate = '';   // '' = all dates
-let filteredCards = [...CARDS];
+let activeDate = CARDS.reduce((latest, card) => card[10] > latest ? card[10] : latest, '');
+let filteredCards = activeDate ? CARDS.filter(card => card[10]===activeDate) : [...CARDS];
 
 let qDeck=[], qIdx=0, qKnow=0, qDunno=0, qFlipped=false, wrongCards=[];
 let sIdx=0;
@@ -911,7 +916,7 @@ if('serviceWorker' in navigator) {{
 
 // ─── Init ─────────────────────────────────────────────────────────────────────
 initQuiz(filteredCards);
-showSCard();
+setDateFilter(activeDate);
 </script>
 </body>
 </html>"""
