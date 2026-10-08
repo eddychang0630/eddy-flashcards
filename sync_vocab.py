@@ -255,11 +255,13 @@ def main(argv=None):
 
     try:
         cards, date_counts = read_vocab(args.excel)
-        cards = [list(card[:12]) + ["", "", "class"] for card in cards] + load_personal_cards(PERSONAL_FILE)
         if not cards:
             print("❌ 沒有讀到任何單字，請確認 Excel 路徑正確")
             return 1
 
+        if not PERSONAL_FILE.is_file():
+            raise FileNotFoundError(f"Personal vocabulary database is missing: {PERSONAL_FILE}")
+        cards = [list(card[:12]) + ["", "", "class"] for card in cards] + load_personal_cards(PERSONAL_FILE)
         cards = prepare_audio(cards)
         if update_html(cards):
             update_json(cards)

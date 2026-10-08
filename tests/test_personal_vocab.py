@@ -95,6 +95,30 @@ class PersonalVocabularyTest(unittest.TestCase):
         self.assertNotIn("10/08", html)
         self.assertIn('class="dpill active"', html)
 
+    def test_empty_class_workbook_still_blocks_sync_with_existing_life_cards(self):
+        module = self.module()
+        with tempfile.TemporaryDirectory() as temp:
+            path = Path(temp) / "personal.json"
+            module.add_entries(path, [entry()], "2026-10-08", Path(temp) / "backups")
+            with patch.object(sync_vocab, "read_vocab", return_value=([], {})), \
+                 patch.object(sync_vocab, "PERSONAL_FILE", path), \
+                 patch.object(sync_vocab, "prepare_audio", side_effect=attach_audio_paths) as audio, \
+                 patch.object(sync_vocab, "update_html", return_value=True), \
+                 patch.object(sync_vocab, "update_json"), patch.object(sync_vocab, "git_push"):
+                self.assertEqual(1, sync_vocab.main(["--excel", "unused.xlsx", "--local-only"]))
+            audio.assert_not_called()
+
+    def test_missing_life_database_blocks_sync_instead_of_erasing_it(self):
+        card = ["lesson", "", "Noun", "meaning", "Example.", "translation", "", "", "", "", "2026-10-05", ""]
+        with tempfile.TemporaryDirectory() as temp:
+            with patch.object(sync_vocab, "read_vocab", return_value=([card], {card[10]: 1})), \
+                 patch.object(sync_vocab, "PERSONAL_FILE", Path(temp) / "missing.json"), \
+                 patch.object(sync_vocab, "prepare_audio", side_effect=attach_audio_paths) as audio, \
+                 patch.object(sync_vocab, "update_html", return_value=True), \
+                 patch.object(sync_vocab, "update_json"), patch.object(sync_vocab, "git_push"):
+                self.assertEqual(1, sync_vocab.main(["--excel", "unused.xlsx", "--local-only"]))
+            audio.assert_not_called()
+
 
 if __name__ == "__main__":
     unittest.main()
