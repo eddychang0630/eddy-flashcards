@@ -23,7 +23,7 @@ def audio_relative_path(text, voice=VOICE):
 
 def attach_audio_paths(cards):
     return [
-        list(card[:12]) + [audio_relative_path(card[0]), audio_relative_path(card[4])]
+        list(card[:12]) + [audio_relative_path(card[0]), audio_relative_path(card[4])] + list(card[14:])
         for card in cards
     ]
 

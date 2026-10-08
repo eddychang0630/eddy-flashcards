@@ -19,7 +19,7 @@ class SyncVocabularyTest(unittest.TestCase):
             SimpleNamespace(returncode=0), SimpleNamespace(returncode=0),
         ]) as run:
             sync_vocab.git_push(["word"], {"2026-09-25": 1})
-        paths = ["index.html", "vocab_data.json", "audio"]
+        paths = ["index.html", "vocab_data.json", "audio", "personal_vocabulary.json"]
         self.assertEqual(["git", "diff", "--cached", "--quiet", "--", *paths], run.call_args_list[1].args[0])
         self.assertEqual(["git", "commit", "-m", "Sync vocab: 1 words across 1 class dates", "--", *paths], run.call_args_list[2].args[0])
 

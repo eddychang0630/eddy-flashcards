@@ -91,6 +91,12 @@
     }
     .mode-btn.active { background: var(--primary); color: #fff; }
 
+    #source-bar { display: flex; gap: 4px; padding: 6px 14px; flex-shrink: 0; border-bottom: 1px solid var(--border); }
+    .source-btn { flex: 1; min-height: 36px; padding: 6px 12px; border: 0; border-radius: 6px; font: inherit; font-size: 0.8rem; font-weight: 700; background: transparent; color: var(--muted); cursor: pointer; letter-spacing: 0; }
+    .source-btn.active { background: var(--card-bg); color: var(--text); box-shadow: inset 0 -2px var(--primary); }
+    .source-btn:focus-visible { outline: 2px solid var(--primary); outline-offset: 1px; }
+    #empty-vocabulary { margin: auto; padding: 24px; color: var(--muted); text-align: center; }
+
     /* Date Filter Bar */
     #date-bar {
       display: flex; gap: 6px; padding: 8px 14px;
@@ -341,6 +347,10 @@
     <p class="search-status" id="vocab-search-status" role="status" aria-live="polite"></p>
     <ul class="search-results" id="vocab-search-results" aria-label="搜尋結果"></ul>
   </dialog>
+  <div id="source-bar" role="group" aria-label="單字分類">
+    <button class="source-btn active" id="source-class" type="button" onclick="setSourceFilter('class')" aria-pressed="true">課堂單字</button>
+    <button class="source-btn" id="source-life" type="button" onclick="setSourceFilter('life')" aria-pressed="false">生活單字</button>
+  </div>
   <div id="date-bar">
     <button class="dpill" onclick="setDateFilter('')" id="dpill-all">全部 (415)</button>
     <button class="dpill active" onclick="setDateFilter('2026-10-05')" id="dpill-2026-10-05">10/05 (30)</button>
@@ -366,6 +376,8 @@
     </div>
     <div class="progress-bar-bg"><div class="progress-bar-fill" id="prog-fill" style="width:1%"></div></div>
   </div>
+
+  <p id="empty-vocabulary" role="status" hidden>尚無單字</p>
 
   <!-- QUIZ SCREEN -->
   <div class="screen" id="screen-quiz">
@@ -935,9 +947,30 @@ function fmtDate(d) {
   return p.length===3 ? `${p[1]}/${p[2]}` : d;
 }
 
+function cardSource(card) {
+  return card[14] === 'life' ? 'life' : 'class';
+}
+
+function filterVocabulary(cards, source, date) {
+  return cards.filter(card => cardSource(card) === source && (!date || card[10] === date));
+}
+
+function latestVocabularyDate(cards, source) {
+  return filterVocabulary(cards, source, '').reduce((latest, card) => card[10] > latest ? card[10] : latest, '');
+}
+
+function sourceLabel(source) {
+  return source === 'life' ? '生活單字' : '課堂單字';
+}
+
+function cardDateLabel(card) {
+  return card[10] ? `${cardSource(card) === 'life' ? '新增日期' : '課程日期'} ${card[10]}` : '';
+}
+
 // ─── State ────────────────────────────────────────────────────────────────────
-let activeDate = CARDS.reduce((latest, card) => card[10] > latest ? card[10] : latest, '');
-let filteredCards = activeDate ? CARDS.filter(card => card[10]===activeDate) : [...CARDS];
+let activeSource = 'class';
+let activeDate = latestVocabularyDate(CARDS, activeSource);
+let filteredCards = filterVocabulary(CARDS, activeSource, activeDate);
 
 let qDeck=[], qIdx=0, qKnow=0, qDunno=0, qFlipped=false, wrongCards=[];
 let sIdx=0;
@@ -1029,7 +1062,7 @@ function renderVocabularySearch() {
     word.textContent = card[0];
     const meta = document.createElement('span');
     meta.className = 'search-result-meta';
-    meta.textContent = [card[2], card[3], card[10]].filter(Boolean).join(' · ');
+    meta.textContent = [sourceLabel(cardSource(card)), card[2], card[3], card[10]].filter(Boolean).join(' · ');
     button.append(word, meta);
     button.addEventListener('click', () => selectVocabularySearch(index));
     row.append(button);
@@ -1053,6 +1086,7 @@ function closeVocabularySearch() {
 function selectVocabularySearch(index) {
   const card = CARDS[index];
   if(!card) return;
+  setSourceFilter(cardSource(card));
   switchMode('study');
   setDateFilter(card[10]);
   sIdx = filteredCards.indexOf(card);
@@ -1068,9 +1102,41 @@ function handleVocabularySearchKey(event) {
 }
 
 // ─── Date Filter ──────────────────────────────────────────────────────────────
+function renderDateFilters() {
+  const cards = filterVocabulary(CARDS, activeSource, '');
+  const counts = new Map();
+  for(const card of cards) if(card[10]) counts.set(card[10], (counts.get(card[10]) || 0) + 1);
+  const bar = document.getElementById('date-bar');
+  bar.replaceChildren();
+  const addButton = (date, label) => {
+    const button = document.createElement('button');
+    button.type = 'button';
+    button.className = 'dpill';
+    button.id = date ? `dpill-${date}` : 'dpill-all';
+    button.textContent = label;
+    button.addEventListener('click', () => setDateFilter(date));
+    bar.append(button);
+  };
+  addButton('', `全部 (${cards.length})`);
+  for(const date of [...counts.keys()].sort().reverse()) addButton(date, `${fmtDate(date)} (${counts.get(date)})`);
+}
+
+function setSourceFilter(source) {
+  if(!['class','life'].includes(source)) return;
+  activeSource = source;
+  for(const value of ['class','life']) {
+    const button = document.getElementById(`source-${value}`);
+    button.classList.toggle('active', value === source);
+    button.setAttribute('aria-pressed', String(value === source));
+  }
+  renderDateFilters();
+  setDateFilter(latestVocabularyDate(CARDS, source));
+}
+
 function setDateFilter(date) {
+  stopCardAudio();
   activeDate = date;
-  filteredCards = date ? CARDS.filter(c => c[10]===date) : [...CARDS];
+  filteredCards = filterVocabulary(CARDS, activeSource, date);
 
   // Update pill styles
   document.querySelectorAll('.dpill').forEach(el => el.classList.remove('active'));
@@ -1079,24 +1145,31 @@ function setDateFilter(date) {
   // Scroll the pill into view
   if(target) target.scrollIntoView({behavior:'smooth', block:'nearest', inline:'center'});
 
-  // Restart current mode with filtered deck
-  if(mode==='quiz') initQuiz(filteredCards);
-  else { sIdx=0; showSCard(); }
+  const empty = !filteredCards.length;
+  const emptyMessage = document.getElementById('empty-vocabulary');
+  emptyMessage.hidden = !empty;
+  emptyMessage.textContent = activeSource === 'life' ? '尚無生活單字' : '尚無課堂單字';
+  for(const value of ['quiz','study']) document.getElementById(`screen-${value}`).classList.toggle('active', value === mode && !empty);
+  // Keep the quiz deck in the same category even when switching from study mode.
+  initQuiz(filteredCards);
+  sIdx=0;
+  if(mode==='study') showSCard();
+  if(empty) setProgress(0,0);
 }
 
 // ─── Progress ─────────────────────────────────────────────────────────────────
 function setProgress(idx, total) {
   const pct = total ? Math.round(((idx+1)/total)*100) : 0;
-  document.getElementById('prog-label').textContent = `第 ${idx+1} 張，共 ${total} 張`;
+  document.getElementById('prog-label').textContent = `第 ${total ? idx+1 : 0} 張，共 ${total} 張`;
   document.getElementById('prog-pct').textContent = `${pct}%`;
-  document.getElementById('prog-fill').style.width = `${Math.max(pct,1)}%`;
+  document.getElementById('prog-fill').style.width = `${total ? Math.max(pct,1) : 0}%`;
 }
 
 // ─── Quiz ─────────────────────────────────────────────────────────────────────
 function initQuiz(cards) {
   qDeck=shuffle(cards); qIdx=0; qKnow=0; qDunno=0; wrongCards=[];
   document.getElementById('finish-overlay').classList.remove('show');
-  updateScores(); showQCard();
+  updateScores(); if(cards.length) showQCard();
 }
 function showQCard() {
   if(qIdx>=qDeck.length){showFinish();return;}
@@ -1114,7 +1187,7 @@ function showQCard() {
   document.getElementById('q-ex').textContent=c[4]?`"${c[4]}"` :'';
   setAudioButton('q-word-audio',c[12]);
   setAudioButton('q-example-audio',c[13]);
-  document.getElementById('q-date-tag').textContent=c[10]?`📅 ${c[10]}` :'';
+  document.getElementById('q-date-tag').textContent=cardDateLabel(c);
 
   qFlipped=false;
   document.getElementById('flip-inner').classList.remove('flipped');
@@ -1126,6 +1199,7 @@ function showQCard() {
   w.classList.remove('anim-in','anim-pop','anim-shake'); void w.offsetWidth; w.classList.add('anim-in');
 }
 function doFlip() {
+  if(!qDeck.length)return;
   if(qFlipped)return;
   qFlipped=true;
   document.getElementById('flip-inner').classList.add('flipped');
@@ -1135,6 +1209,7 @@ function doFlip() {
   },280);
 }
 function judge(knew) {
+  if(qIdx>=qDeck.length)return;
   stopCardAudio();
   const w=document.getElementById('flip-wrapper');
   if(knew){ qKnow++; w.classList.remove('anim-pop'); void w.offsetWidth; w.classList.add('anim-pop'); }
@@ -1163,6 +1238,7 @@ function restartAll() { document.getElementById('finish-overlay').classList.remo
 function showSCard() {
   stopCardAudio();
   const c=filteredCards[sIdx];
+  if(!c)return;
   const wordEl=document.getElementById('s-word');
   wordEl.textContent=c[0]; fitWordFont(wordEl,c[0]);
 
@@ -1181,7 +1257,7 @@ function showSCard() {
   document.getElementById('s-zh').textContent=c[5]?`→ ${c[5]}` :'';
 
   // Date badge
-  document.getElementById('s-date-badge').textContent=c[10]?`📅 ${c[10]}` :'';
+  document.getElementById('s-date-badge').textContent=cardDateLabel(c);
 
   // Word Forms
   const formsBlock = document.getElementById('s-forms-block');
@@ -1210,6 +1286,7 @@ function showSCard() {
   card.classList.remove('anim-in'); void card.offsetWidth; card.classList.add('anim-in');
 }
 function studyNav(d) {
+  if(!filteredCards.length)return;
   const n=sIdx+d;
   sIdx=n<0?0:n>=filteredCards.length?0:n;
   showSCard();
@@ -1220,7 +1297,7 @@ function switchMode(m) {
   stopCardAudio();
   mode=m;
   ['quiz','study'].forEach(x=>{
-    document.getElementById(`screen-${x}`).classList.toggle('active',x===m);
+    document.getElementById(`screen-${x}`).classList.toggle('active',x===m && filteredCards.length>0);
     document.getElementById(`mode-${x}-btn`).classList.toggle('active',x===m);
     document.getElementById(`tab-${x}`).classList.toggle('active',x===m);
   });
@@ -1288,7 +1365,6 @@ if('serviceWorker' in navigator) {
 }
 
 // ─── Init ─────────────────────────────────────────────────────────────────────
-initQuiz(filteredCards);
 setDateFilter(activeDate);
 </script>
 </body>

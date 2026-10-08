@@ -34,8 +34,9 @@ class LatestLessonTest(unittest.TestCase):
     def initial_state(self, html, cards):
         match = re.search(r"// \u2500+ State .*?\n(.*?)\nfunction stopCardAudio", html, re.S)
         self.assertIsNotNone(match)
+        helpers = re.search(r"function cardSource\(card\).*?(?=// \u2500+ State)", html, re.S)
         script = (
-            "const CARDS=" + json.dumps(cards) + ";\n" + match[1]
+            "const CARDS=" + json.dumps(cards) + ";\n" + (helpers[0] if helpers else "") + match[1]
             + "\nJSON.stringify({activeDate, words:filteredCards.map(c=>c[0]), mode});"
         )
         runner = "console.log(require('node:vm').runInNewContext(process.argv[1]));"

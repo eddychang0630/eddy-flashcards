@@ -26,6 +26,7 @@ from pathlib import Path
 from collections import defaultdict
 
 from audio_assets import attach_audio_paths, ensure_complete, missing_clips
+from personal_vocab import load_personal_cards
 
 for stream in (sys.stdout, sys.stderr):
     if hasattr(stream, "reconfigure"):
@@ -42,6 +43,7 @@ APP_DIR = Path(__file__).resolve().parent
 INDEX_HTML = APP_DIR / "index.html"
 JSON_FILE = APP_DIR / "vocab_data.json"
 AUDIO_DIR = APP_DIR / "audio"
+PERSONAL_FILE = APP_DIR / "personal_vocabulary.json"
 
 # ── 讀取 Excel ────────────────────────────────────────────────────────────────
 def read_vocab(excel_path=DEFAULT_EXCEL_PATH):
@@ -118,6 +120,7 @@ def generate_cards_js(cards):
 
 
 def generate_date_bar_html(cards):
+    cards = [card for card in cards if len(card) <= 14 or card[14] != "life"]
     date_counts = defaultdict(int)
     for card in cards:
         date_counts[card[10]] += 1
@@ -218,7 +221,7 @@ def git_push(cards, date_counts):
     dates  = len(date_counts)
     msg    = f"Sync vocab: {total} words across {dates} class dates"
 
-    paths = ["index.html", "vocab_data.json", "audio"]
+    paths = ["index.html", "vocab_data.json", "audio", "personal_vocabulary.json"]
     subprocess.run(["git", "add", "--", *paths], cwd=APP_DIR, check=True)
     result = subprocess.run(["git", "diff", "--cached", "--quiet", "--", *paths], cwd=APP_DIR)
     if result.returncode == 0:
@@ -252,6 +255,7 @@ def main(argv=None):
 
     try:
         cards, date_counts = read_vocab(args.excel)
+        cards = [list(card[:12]) + ["", "", "class"] for card in cards] + load_personal_cards(PERSONAL_FILE)
         if not cards:
             print("❌ 沒有讀到任何單字，請確認 Excel 路徑正確")
             return 1
