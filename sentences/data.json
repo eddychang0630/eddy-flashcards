@@ -2002,6 +2002,206 @@
       "audio_answer": "audio/d35de0f3e85e4affd48c.mp3"
     },
     {
+      "id": "class-20261012-01",
+      "type": "class",
+      "date": "2026-10-12",
+      "category": "公司規模與成長策略",
+      "prompt_zh": "有人能照顧你嗎？",
+      "question_en": "",
+      "answer_en": "Is there anyone who can take care of you?",
+      "answer_zh": "有人能照顧你嗎？",
+      "original": "Yeah, so does anybody can take care about you or?",
+      "timecode": "05:37",
+      "source": "20261012/english_class_notes.md",
+      "grammar": {
+        "title": "句型重點",
+        "explanation": "情態動詞 can 不與 does 疊用；照顧某人用 take care of。",
+        "pattern": "Is there anyone who can + 原形動詞?"
+      },
+      "audio_question": "",
+      "audio_answer": "audio/b24a1905ed78ea429c98.mp3"
+    },
+    {
+      "id": "class-20261012-02",
+      "type": "class",
+      "date": "2026-10-12",
+      "category": "公司規模與成長策略",
+      "prompt_zh": "那真是不走運。",
+      "question_en": "",
+      "answer_en": "That's bad luck.",
+      "answer_zh": "那真是不走運。",
+      "original": "It's a bad luck.",
+      "timecode": "07:19",
+      "source": "20261012/english_class_notes.md",
+      "grammar": {
+        "title": "句型重點",
+        "explanation": "luck 是不可數名詞，此處不加 a。That 指剛才發生的事。",
+        "pattern": "That's + 不可數名詞片語."
+      },
+      "audio_question": "",
+      "audio_answer": "audio/ceeffdeebf74381533aa.mp3"
+    },
+    {
+      "id": "class-20261012-03",
+      "type": "class",
+      "date": "2026-10-12",
+      "category": "公司規模與成長策略",
+      "prompt_zh": "當時我來不及閃避他的機車。",
+      "question_en": "",
+      "answer_en": "I didn't have time to avoid his scooter.",
+      "answer_zh": "當時我來不及閃避他的機車。",
+      "original": "I have no time to avoid his scooter.",
+      "timecode": "09:20",
+      "source": "20261012/english_class_notes.md",
+      "grammar": {
+        "title": "句型重點",
+        "explanation": "描述已發生的事故用過去式；did not 後接原形 have。",
+        "pattern": "I didn't have time to + 原形動詞."
+      },
+      "audio_question": "",
+      "audio_answer": "audio/064335244cbfa02bcd00.mp3"
+    },
+    {
+      "id": "class-20261012-04",
+      "type": "class",
+      "date": "2026-10-12",
+      "category": "公司規模與成長策略",
+      "prompt_zh": "只能用一隻手做所有事情真的很不方便，對吧？",
+      "question_en": "",
+      "answer_en": "It's really inconvenient to do everything with one hand, isn't it?",
+      "answer_zh": "只能用一隻手做所有事情真的很不方便，對吧？",
+      "original": "But it's really inconvenient for using one hand, right?",
+      "timecode": "13:52",
+      "source": "20261012/english_class_notes.md",
+      "grammar": {
+        "title": "句型重點",
+        "explanation": "用 It is + 形容詞 + to V 說明不便之處；用一隻手是 with one hand。",
+        "pattern": "It's + 形容詞 + to + 原形動詞, isn't it?"
+      },
+      "audio_question": "",
+      "audio_answer": "audio/cdef3ce49470d79737d3.mp3"
+    },
+    {
+      "id": "class-20261012-05",
+      "type": "class",
+      "date": "2026-10-12",
+      "category": "公司規模與成長策略",
+      "prompt_zh": "我完全能理解只能用一隻手有多困難。",
+      "question_en": "",
+      "answer_en": "I can totally understand how difficult it is to use only one hand.",
+      "answer_zh": "我完全能理解只能用一隻手有多困難。",
+      "original": "So I can totally understand you only can use in one hand.",
+      "timecode": "15:41",
+      "source": "20261012/english_class_notes.md",
+      "grammar": {
+        "title": "句型重點",
+        "explanation": "understand 後接 how 子句，更清楚表達理解對方的困難；only 放在 one hand 前。",
+        "pattern": "I can understand how + 形容詞 + it is to + 原形動詞."
+      },
+      "audio_question": "",
+      "audio_answer": "audio/cb717c04222cd610d0c3.mp3"
+    },
+    {
+      "id": "class-20261012-06",
+      "type": "class",
+      "date": "2026-10-12",
+      "category": "公司規模與成長策略",
+      "prompt_zh": "我想我任職的第一家公司也是跨國企業。",
+      "question_en": "",
+      "answer_en": "I think the first company I worked for was also an MNC.",
+      "answer_zh": "我想我任職的第一家公司也是跨國企業。",
+      "original": "I think my first company also, also MNC.",
+      "timecode": "37:57",
+      "source": "20261012/english_class_notes.md",
+      "grammar": {
+        "title": "句型重點",
+        "explanation": "補上過去式 was；MNC 以母音音素開頭，因此用 an。",
+        "pattern": "I think the first + 名詞 + I + 過去式動詞 + was also + 名詞補語."
+      },
+      "audio_question": "",
+      "audio_answer": "audio/cb9d1f1cb75613bc6048.mp3"
+    },
+    {
+      "id": "class-20261012-07",
+      "type": "class",
+      "date": "2026-10-12",
+      "category": "公司規模與成長策略",
+      "prompt_zh": "如果我更年輕，我會比較想在快速成長的企業工作。",
+      "question_en": "",
+      "answer_en": "If I were younger, I would prefer to work for a scale-up.",
+      "answer_zh": "如果我更年輕，我會比較想在快速成長的企業工作。",
+      "original": "In my view, if I'm still young, I would prefer to scale up.",
+      "timecode": "40:46",
+      "source": "20261012/english_class_notes.md",
+      "grammar": {
+        "title": "句型重點",
+        "explanation": "假設與目前情況不同，用 If I were ... I would ...；scale-up 是公司類型，work for 才是任職於。",
+        "pattern": "If I were + 形容詞, I would prefer to + 原形動詞."
+      },
+      "audio_question": "",
+      "audio_answer": "audio/8cde2c22c4d538fdd39b.mp3"
+    },
+    {
+      "id": "class-20261012-08",
+      "type": "class",
+      "date": "2026-10-12",
+      "category": "公司規模與成長策略",
+      "prompt_zh": "我的答案是，這取決於你的產品。",
+      "question_en": "",
+      "answer_en": "My answer is that it depends on your product.",
+      "answer_zh": "我的答案是，這取決於你的產品。",
+      "original": "Yeah, so my answer is depends on your product.",
+      "timecode": "46:33",
+      "source": "20261012/english_class_notes.md",
+      "grammar": {
+        "title": "句型重點",
+        "explanation": "不能把 is 與 depends 直接並列；用 that 引出完整子句 it depends ...。",
+        "pattern": "My answer is that + 主詞 + 動詞."
+      },
+      "audio_question": "",
+      "audio_answer": "audio/f76b9bd6957dddf98504.mp3"
+    },
+    {
+      "id": "class-20261012-09",
+      "type": "class",
+      "date": "2026-10-12",
+      "category": "公司規模與成長策略",
+      "prompt_zh": "這個問題真正的意思是什麼？",
+      "question_en": "",
+      "answer_en": "What does this question really mean?",
+      "answer_zh": "這個問題真正的意思是什麼？",
+      "original": "What is this truly questions mean?",
+      "timecode": "51:05",
+      "source": "20261012/english_class_notes.md",
+      "grammar": {
+        "title": "句型重點",
+        "explanation": "mean 是主要動詞，問句用 does；this 後接單數 question；此處 really 比 truly 自然。",
+        "pattern": "What does + 單數主詞 + really mean?"
+      },
+      "audio_question": "",
+      "audio_answer": "audio/bbd1242c1172d0791218.mp3"
+    },
+    {
+      "id": "class-20261012-10",
+      "type": "class",
+      "date": "2026-10-12",
+      "category": "公司規模與成長策略",
+      "prompt_zh": "我分辨不出你用單手和雙手打字有什麼差別。",
+      "question_en": "",
+      "answer_en": "I can't tell the difference between your typing with one hand and with two hands.",
+      "answer_zh": "我分辨不出你用單手和雙手打字有什麼差別。",
+      "original": "I cannot tell different from you using one hand and two hands.",
+      "timecode": "52:56",
+      "source": "20261012/english_class_notes.md",
+      "grammar": {
+        "title": "句型重點",
+        "explanation": "tell the difference between A and B 是分辨兩者差異；different 是形容詞，不能代替 difference。",
+        "pattern": "I can't tell the difference between + A + and + B."
+      },
+      "audio_question": "",
+      "audio_answer": "audio/b379744500bc509d9055.mp3"
+    },
+    {
       "id": "scenario-class-clarify",
       "type": "scenario",
       "date": "",
@@ -2382,6 +2582,6 @@
       "audio_answer": "audio/28e1b584397f97d9fef4.mp3"
     }
   ],
-  "revision": "606fc4255839",
-  "updated_at": "2026-10-05T15:21:32+00:00"
+  "revision": "a06f0cb939b0",
+  "updated_at": "2026-10-12T16:10:35+00:00"
 }
