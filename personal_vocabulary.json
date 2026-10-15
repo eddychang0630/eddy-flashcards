@@ -11,5 +11,31 @@
     "antonym_meaning": "—",
     "word_forms": "",
     "date": "2026-10-08"
+  },
+  {
+    "word": "revenue",
+    "pos": "Noun",
+    "meaning": "營收；收入（尚未扣除成本與費用）",
+    "example": "The company's revenue increased by 15% last year.",
+    "translation": "這家公司去年的營收增加了 15%。",
+    "synonyms": "income; sales income",
+    "synonym_meaning": "收入；銷售收入",
+    "antonyms": "—",
+    "antonym_meaning": "—",
+    "word_forms": "Noun: revenue; Plural: revenues",
+    "date": "2026-10-15"
+  },
+  {
+    "word": "mitigate",
+    "pos": "Verb",
+    "meaning": "減輕；緩和（傷害、風險或嚴重程度）",
+    "example": "We need a backup plan to mitigate the risk of delays.",
+    "translation": "我們需要備用計畫，以降低延誤的風險。",
+    "synonyms": "alleviate; lessen",
+    "synonym_meaning": "減輕；減少",
+    "antonyms": "aggravate; exacerbate",
+    "antonym_meaning": "使惡化；加劇",
+    "word_forms": "Verb: mitigate, mitigates, mitigated, mitigating; Noun: mitigation",
+    "date": "2026-10-15"
   }
 ]

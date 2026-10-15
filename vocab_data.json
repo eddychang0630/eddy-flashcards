@@ -7546,5 +7546,39 @@
     "audio/f90c1b0e10479ce49e5c.mp3",
     "audio/91d18e85233037bbac9d.mp3",
     "life"
+  ],
+  [
+    "revenue",
+    "",
+    "Noun",
+    "營收；收入（尚未扣除成本與費用）",
+    "The company's revenue increased by 15% last year.",
+    "這家公司去年的營收增加了 15%。",
+    "income; sales income",
+    "收入；銷售收入",
+    "—",
+    "—",
+    "2026-10-15",
+    "Noun: revenue; Plural: revenues",
+    "audio/6e4536dc0b9a0ac801c2.mp3",
+    "audio/2904c5c84e5eb9244414.mp3",
+    "life"
+  ],
+  [
+    "mitigate",
+    "",
+    "Verb",
+    "減輕；緩和（傷害、風險或嚴重程度）",
+    "We need a backup plan to mitigate the risk of delays.",
+    "我們需要備用計畫，以降低延誤的風險。",
+    "alleviate; lessen",
+    "減輕；減少",
+    "aggravate; exacerbate",
+    "使惡化；加劇",
+    "2026-10-15",
+    "Verb: mitigate, mitigates, mitigated, mitigating; Noun: mitigation",
+    "audio/19440618e04dfb671df0.mp3",
+    "audio/3f463c41278c2190b90c.mp3",
+    "life"
   ]
 ]
