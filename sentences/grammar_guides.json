@@ -443,5 +443,47 @@
       "explanation": "tell the difference between A and B 是分辨兩者差異；different 是形容詞，不能代替 difference。",
       "pattern": "I can't tell the difference between + A + and + B."
     }
+  ],
+  "20261015": [
+    {
+      "explanation": "information 與 knowledge 都是不可數名詞，用 much；用 to absorb 說明需要吸收的內容。",
+      "pattern": "There is too much + 不可數名詞 + to + V."
+    },
+    {
+      "explanation": "need to 後接原形動詞；for yourself 表達自己思考。",
+      "pattern": "You still need to + 原形動詞."
+    },
+    {
+      "explanation": "現在進行式問句需要 be 動詞：Are you using ...? both hands 表示雙手。",
+      "pattern": "Are you + V-ing + 受詞 + now?"
+    },
+    {
+      "explanation": "have + 受詞 + 原形動詞；把錄音變成文字用 transcribe，翻譯成另一語言才用 translate。",
+      "pattern": "I’ll have + 受詞 + 原形動詞."
+    },
+    {
+      "explanation": "want 後接 to V；談企業規模用 at its current size；if 子句後直接接主句。",
+      "pattern": "If + 主詞 + wants to + V, I think + 子句."
+    },
+    {
+      "explanation": "一般詢問「誰」時，who 搭配第三人稱單數助動詞 doesn’t。",
+      "pattern": "Who doesn’t + 原形動詞?"
+    },
+    {
+      "explanation": "That means 後接子句；企業受到影響要用被動式 will be affected。",
+      "pattern": "That means + 主詞 + will be + 過去分詞."
+    },
+    {
+      "explanation": "進步用 make progress；feel 後用形容詞 anxious，而不是名詞 anxiety。",
+      "pattern": "If I don’t feel that I’m + V-ing, I get + 形容詞."
+    },
+    {
+      "explanation": "完整問句用 How can I + 原形動詞；若用 how to，後面也要接原形 lead。",
+      "pattern": "How can I + 原形動詞 + 受詞 + 副詞?"
+    },
+    {
+      "explanation": "動詞 summarize 作主詞時改為動名詞 summarizing；也可以用名詞 a summary。",
+      "pattern": "I think + V-ing + is + 形容詞."
+    }
   ]
 }

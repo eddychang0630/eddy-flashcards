@@ -2202,6 +2202,206 @@
       "audio_answer": "audio/b379744500bc509d9055.mp3"
     },
     {
+      "id": "class-20261015-01",
+      "type": "class",
+      "date": "2026-10-15",
+      "category": "AI 學習、企業成長與商務會議",
+      "prompt_zh": "這麼短的時間內有太多資訊需要吸收。",
+      "question_en": "",
+      "answer_en": "There is too much information to absorb in such a short time.",
+      "answer_zh": "這麼短的時間內有太多資訊需要吸收。",
+      "original": "Because it's too many knowledge in a short time into your brain.",
+      "timecode": "04:25",
+      "source": "20261015/english_class_notes.md",
+      "grammar": {
+        "title": "句型重點",
+        "explanation": "information 與 knowledge 都是不可數名詞，用 much；用 to absorb 說明需要吸收的內容。",
+        "pattern": "There is too much + 不可數名詞 + to + V."
+      },
+      "audio_question": "",
+      "audio_answer": "audio/7c9e8759c673df8f4de5.mp3"
+    },
+    {
+      "id": "class-20261015-02",
+      "type": "class",
+      "date": "2026-10-15",
+      "category": "AI 學習、企業成長與商務會議",
+      "prompt_zh": "但你仍然需要自己思考。",
+      "question_en": "",
+      "answer_en": "But you still need to think for yourself.",
+      "answer_zh": "但你仍然需要自己思考。",
+      "original": "But you still need to thinking.",
+      "timecode": "07:16",
+      "source": "20261015/english_class_notes.md",
+      "grammar": {
+        "title": "句型重點",
+        "explanation": "need to 後接原形動詞；for yourself 表達自己思考。",
+        "pattern": "You still need to + 原形動詞."
+      },
+      "audio_question": "",
+      "audio_answer": "audio/8fe56f77c9973737bc0e.mp3"
+    },
+    {
+      "id": "class-20261015-03",
+      "type": "class",
+      "date": "2026-10-15",
+      "category": "AI 學習、企業成長與商務會議",
+      "prompt_zh": "Chino，你現在在用雙手嗎？",
+      "question_en": "",
+      "answer_en": "Chino, are you using both hands now?",
+      "answer_zh": "Chino，你現在在用雙手嗎？",
+      "original": "Oh, Chino, right now you using two hands?",
+      "timecode": "07:57",
+      "source": "20261015/english_class_notes.md",
+      "grammar": {
+        "title": "句型重點",
+        "explanation": "現在進行式問句需要 be 動詞：Are you using ...? both hands 表示雙手。",
+        "pattern": "Are you + V-ing + 受詞 + now?"
+      },
+      "audio_question": "",
+      "audio_answer": "audio/b17d4839297015c6b4d3.mp3"
+    },
+    {
+      "id": "class-20261015-04",
+      "type": "class",
+      "date": "2026-10-15",
+      "category": "AI 學習、企業成長與商務會議",
+      "prompt_zh": "我會讓 AI 轉錄我們的對話。",
+      "question_en": "",
+      "answer_en": "I’ll have the AI transcribe our conversation.",
+      "answer_zh": "我會讓 AI 轉錄我們的對話。",
+      "original": "And then I will let the AI to translate what we say.",
+      "timecode": "08:50",
+      "source": "20261015/english_class_notes.md",
+      "grammar": {
+        "title": "句型重點",
+        "explanation": "have + 受詞 + 原形動詞；把錄音變成文字用 transcribe，翻譯成另一語言才用 translate。",
+        "pattern": "I’ll have + 受詞 + 原形動詞."
+      },
+      "audio_question": "",
+      "audio_answer": "audio/68b794c774eb512215b5.mp3"
+    },
+    {
+      "id": "class-20261015-05",
+      "type": "class",
+      "date": "2026-10-15",
+      "category": "AI 學習、企業成長與商務會議",
+      "prompt_zh": "如果業主想讓企業維持目前的規模，我覺得也沒問題。",
+      "question_en": "",
+      "answer_en": "If the owner wants to keep the business at its current size, I think that’s fine.",
+      "answer_zh": "如果業主想讓企業維持目前的規模，我覺得也沒問題。",
+      "original": "Yeah, because if the boss only wants just stay in this level, and then I think it's quite good.",
+      "timecode": "17:55",
+      "source": "20261015/english_class_notes.md",
+      "grammar": {
+        "title": "句型重點",
+        "explanation": "want 後接 to V；談企業規模用 at its current size；if 子句後直接接主句。",
+        "pattern": "If + 主詞 + wants to + V, I think + 子句."
+      },
+      "audio_question": "",
+      "audio_answer": "audio/622e21833ea2e1a691c9.mp3"
+    },
+    {
+      "id": "class-20261015-06",
+      "type": "class",
+      "date": "2026-10-15",
+      "category": "AI 學習、企業成長與商務會議",
+      "prompt_zh": "誰不想多賺一點錢呢？",
+      "question_en": "",
+      "answer_en": "Who doesn’t want to earn more money?",
+      "answer_zh": "誰不想多賺一點錢呢？",
+      "original": "Yeah, who don't love money, right?",
+      "timecode": "18:56",
+      "source": "20261015/english_class_notes.md",
+      "grammar": {
+        "title": "句型重點",
+        "explanation": "一般詢問「誰」時，who 搭配第三人稱單數助動詞 doesn’t。",
+        "pattern": "Who doesn’t + 原形動詞?"
+      },
+      "audio_question": "",
+      "audio_answer": "audio/c6c88ea557ad34c5e619.mp3"
+    },
+    {
+      "id": "class-20261015-07",
+      "type": "class",
+      "date": "2026-10-15",
+      "category": "AI 學習、企業成長與商務會議",
+      "prompt_zh": "那就表示整個企業都會受到影響，對吧？",
+      "question_en": "",
+      "answer_en": "That means your entire business will be affected, right?",
+      "answer_zh": "那就表示整個企業都會受到影響，對吧？",
+      "original": "And then it's mean your total business will affect, right?",
+      "timecode": "24:59",
+      "source": "20261015/english_class_notes.md",
+      "grammar": {
+        "title": "句型重點",
+        "explanation": "That means 後接子句；企業受到影響要用被動式 will be affected。",
+        "pattern": "That means + 主詞 + will be + 過去分詞."
+      },
+      "audio_question": "",
+      "audio_answer": "audio/13c8e480af40d3bc2ab9.mp3"
+    },
+    {
+      "id": "class-20261015-08",
+      "type": "class",
+      "date": "2026-10-15",
+      "category": "AI 學習、企業成長與商務會議",
+      "prompt_zh": "如果我感覺自己沒有進步，就會感到焦慮。",
+      "question_en": "",
+      "answer_en": "If I don’t feel that I’m making progress, I get anxious.",
+      "answer_zh": "如果我感覺自己沒有進步，就會感到焦慮。",
+      "original": "If I cannot feel I'm in progress, then I will feel really anxiety.",
+      "timecode": "30:09",
+      "source": "20261015/english_class_notes.md",
+      "grammar": {
+        "title": "句型重點",
+        "explanation": "進步用 make progress；feel 後用形容詞 anxious，而不是名詞 anxiety。",
+        "pattern": "If I don’t feel that I’m + V-ing, I get + 形容詞."
+      },
+      "audio_question": "",
+      "audio_answer": "audio/c2c161d3a91e772fc257.mp3"
+    },
+    {
+      "id": "class-20261015-09",
+      "type": "class",
+      "date": "2026-10-15",
+      "category": "AI 學習、企業成長與商務會議",
+      "prompt_zh": "我要如何有效地主持會議？",
+      "question_en": "",
+      "answer_en": "How can I lead the meeting effectively?",
+      "answer_zh": "我要如何有效地主持會議？",
+      "original": "And then how to leading.",
+      "timecode": "38:03",
+      "source": "20261015/english_class_notes.md",
+      "grammar": {
+        "title": "句型重點",
+        "explanation": "完整問句用 How can I + 原形動詞；若用 how to，後面也要接原形 lead。",
+        "pattern": "How can I + 原形動詞 + 受詞 + 副詞?"
+      },
+      "audio_question": "",
+      "audio_answer": "audio/6dfed90821e89eba3f35.mp3"
+    },
+    {
+      "id": "class-20261015-10",
+      "type": "class",
+      "date": "2026-10-15",
+      "category": "AI 學習、企業成長與商務會議",
+      "prompt_zh": "我認為總結會議至關重要。",
+      "question_en": "",
+      "answer_en": "I think summarizing the meeting is crucial.",
+      "answer_zh": "我認為總結會議至關重要。",
+      "original": "because I think the summarize is really crucial.",
+      "timecode": "42:26",
+      "source": "20261015/english_class_notes.md",
+      "grammar": {
+        "title": "句型重點",
+        "explanation": "動詞 summarize 作主詞時改為動名詞 summarizing；也可以用名詞 a summary。",
+        "pattern": "I think + V-ing + is + 形容詞."
+      },
+      "audio_question": "",
+      "audio_answer": "audio/a4f7808b2213998ca618.mp3"
+    },
+    {
       "id": "scenario-class-clarify",
       "type": "scenario",
       "date": "",
@@ -2582,6 +2782,6 @@
       "audio_answer": "audio/28e1b584397f97d9fef4.mp3"
     }
   ],
-  "revision": "a06f0cb939b0",
-  "updated_at": "2026-10-12T16:10:35+00:00"
+  "revision": "a64256cfcede",
+  "updated_at": "2026-10-15T18:14:46+00:00"
 }
