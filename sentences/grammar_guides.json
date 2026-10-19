@@ -485,5 +485,47 @@
       "explanation": "動詞 summarize 作主詞時改為動名詞 summarizing；也可以用名詞 a summary。",
       "pattern": "I think + V-ing + is + 形容詞."
     }
+  ],
+  "20261019": [
+    {
+      "explanation": "描述已發生的活動，and 連接的兩個動作用一致的過去式：went 和 worked out。done 是過去分詞，不能直接當這裡的過去式；work out 是自然的「健身、運動」說法。",
+      "pattern": "Subject + past-tense verb + and + past-tense verb. / I went to ... and ..."
+    },
+    {
+      "explanation": "go 是一般動詞，第三人稱單數主詞的現在式否定要用 doesn't + 原形動詞，不能用 isn't go。這裡用 the mountains 指對話中的山區；加入 the typhoon's 讓 path 的指涉清楚。",
+      "pattern": "Singular subject + doesn't + base verb. / The ... doesn't go through ..."
+    },
+    {
+      "explanation": "afraid 是形容詞，前面要有 be：I'm afraid。台北是「受到影響」，所以用被動式 will be + 過去分詞 affected；by 接造成影響的事物。",
+      "pattern": "I'm afraid that + subject + will be + past participle + by ..."
+    },
+    {
+      "explanation": "表示「報名參加課程」可用 sign up for + 課程，或 register for + 課程。register 直接接課程容易變成「登記該課程」，不如補上 for 自然。decide 後接 to + 原形動詞。",
+      "pattern": "I decided to sign up for + a course / lessons."
+    },
+    {
+      "explanation": "happy 前面需要 be，說「很開心能做某事」用 be happy to + 原形動詞。交朋友常用 make friends；這裡談自己的休閒興趣，my hobbies 比 the interest 清楚自然。",
+      "pattern": "I'm happy to + base verb. / make friends through + a shared activity"
+    },
+    {
+      "explanation": "nervous 描述感到緊張的人，所以用 I am nervous；引起緊張的事物可用 about 帶出。若以考試當主詞，則可說 The exam makes me nervous。",
+      "pattern": "Person + be + nervous about + something. / Something makes + person + nervous."
+    },
+    {
+      "explanation": "knowledge 是不可數名詞，要用 much 或 a lot of，不能用 many。現在完成式是 have/has + 過去分詞，因此要用 haven't absorbed。這裡用 course material 自然指課程內容，yet 表示尚未完成。",
+      "pattern": "There's still a lot of + uncountable noun + I haven't + past participle + yet."
+    },
+    {
+      "explanation": "被動說法是 be affected by，不能用 affected from。這裡採主動結構 let + 受詞 + 原形動詞，清楚表達不要讓對方的情緒影響自己；給建議用 shouldn't 比 cannot 自然。",
+      "pattern": "You shouldn't let + something + affect you. / be affected by + something"
+    },
+    {
+      "explanation": "表示「使某人變得生氣」用 make + 受詞 + 形容詞，不能用 let + 受詞 + angry；let 後面需要原形動詞。argue with 適合這裡的爭辯語境；even angrier 表示更加生氣，may 表示可能。",
+      "pattern": "If + present simple, subject + may + base verb. / make + object + adjective"
+    },
+    {
+      "explanation": "原句缺少主要動詞，補上 drink。alone 容易指獨自一人；食物或飲品不搭配其他東西時可用 on its own。the protein powder is already flavored 清楚表達蛋白粉本身已有調味。",
+      "pattern": "I + verb + it on its own because + subject + be + already + past participle."
+    }
   ]
 }

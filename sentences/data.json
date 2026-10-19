@@ -2402,6 +2402,206 @@
       "audio_answer": "audio/a4f7808b2213998ca618.mp3"
     },
     {
+      "id": "class-20261019-01",
+      "type": "class",
+      "date": "2026-10-19",
+      "category": "專業處理顧客抱怨",
+      "prompt_zh": "我去了健身房運動。",
+      "question_en": "",
+      "answer_en": "I went to the gym and worked out.",
+      "answer_zh": "我去了健身房運動。",
+      "original": "I went to the gym and done the workout.",
+      "timecode": "",
+      "source": "20261019/english_class_notes.md",
+      "grammar": {
+        "title": "句型重點",
+        "explanation": "描述已發生的活動，and 連接的兩個動作用一致的過去式：went 和 worked out。done 是過去分詞，不能直接當這裡的過去式；work out 是自然的「健身、運動」說法。",
+        "pattern": "Subject + past-tense verb + and + past-tense verb. / I went to ... and ..."
+      },
+      "audio_question": "",
+      "audio_answer": "audio/9cad473e167dca8f12d8.mp3"
+    },
+    {
+      "id": "class-20261019-02",
+      "type": "class",
+      "date": "2026-10-19",
+      "category": "專業處理顧客抱怨",
+      "prompt_zh": "颱風的路徑沒有穿過山區。",
+      "question_en": "",
+      "answer_en": "The typhoon's path doesn't go through the mountains.",
+      "answer_zh": "颱風的路徑沒有穿過山區。",
+      "original": "The path isn't go through the mountain.",
+      "timecode": "",
+      "source": "20261019/english_class_notes.md",
+      "grammar": {
+        "title": "句型重點",
+        "explanation": "go 是一般動詞，第三人稱單數主詞的現在式否定要用 doesn't + 原形動詞，不能用 isn't go。這裡用 the mountains 指對話中的山區；加入 the typhoon's 讓 path 的指涉清楚。",
+        "pattern": "Singular subject + doesn't + base verb. / The ... doesn't go through ..."
+      },
+      "audio_question": "",
+      "audio_answer": "audio/5ab5d4067d41e6e8c13c.mp3"
+    },
+    {
+      "id": "class-20261019-03",
+      "type": "class",
+      "date": "2026-10-19",
+      "category": "專業處理顧客抱怨",
+      "prompt_zh": "我只是擔心台北會受到颱風影響。",
+      "question_en": "",
+      "answer_en": "I'm just afraid that Taipei will be affected by the typhoon.",
+      "answer_zh": "我只是擔心台北會受到颱風影響。",
+      "original": "so I just afraid that Taipei will affect by the typhoon.",
+      "timecode": "",
+      "source": "20261019/english_class_notes.md",
+      "grammar": {
+        "title": "句型重點",
+        "explanation": "afraid 是形容詞，前面要有 be：I'm afraid。台北是「受到影響」，所以用被動式 will be + 過去分詞 affected；by 接造成影響的事物。",
+        "pattern": "I'm afraid that + subject + will be + past participle + by ..."
+      },
+      "audio_question": "",
+      "audio_answer": "audio/967ffd40ffc099cef13e.mp3"
+    },
+    {
+      "id": "class-20261019-04",
+      "type": "class",
+      "date": "2026-10-19",
+      "category": "專業處理顧客抱怨",
+      "prompt_zh": "我決定報名他的高爾夫球課。",
+      "question_en": "",
+      "answer_en": "I decided to sign up for his golf lessons.",
+      "answer_zh": "我決定報名他的高爾夫球課。",
+      "original": "I decided to register his courses.",
+      "timecode": "",
+      "source": "20261019/english_class_notes.md",
+      "grammar": {
+        "title": "句型重點",
+        "explanation": "表示「報名參加課程」可用 sign up for + 課程，或 register for + 課程。register 直接接課程容易變成「登記該課程」，不如補上 for 自然。decide 後接 to + 原形動詞。",
+        "pattern": "I decided to sign up for + a course / lessons."
+      },
+      "audio_question": "",
+      "audio_answer": "audio/ff2e68db4a9feb1a95b5.mp3"
+    },
+    {
+      "id": "class-20261019-05",
+      "type": "class",
+      "date": "2026-10-19",
+      "category": "專業處理顧客抱怨",
+      "prompt_zh": "我很開心能透過自己的興趣交朋友。",
+      "question_en": "",
+      "answer_en": "I'm really happy to make friends through my hobbies.",
+      "answer_zh": "我很開心能透過自己的興趣交朋友。",
+      "original": "I really happy make friend through the interest, yeah,",
+      "timecode": "",
+      "source": "20261019/english_class_notes.md",
+      "grammar": {
+        "title": "句型重點",
+        "explanation": "happy 前面需要 be，說「很開心能做某事」用 be happy to + 原形動詞。交朋友常用 make friends；這裡談自己的休閒興趣，my hobbies 比 the interest 清楚自然。",
+        "pattern": "I'm happy to + base verb. / make friends through + a shared activity"
+      },
+      "audio_question": "",
+      "audio_answer": "audio/3839ea812d826cba4f7f.mp3"
+    },
+    {
+      "id": "class-20261019-06",
+      "type": "class",
+      "date": "2026-10-19",
+      "category": "專業處理顧客抱怨",
+      "prompt_zh": "我對期中考有點緊張。",
+      "question_en": "",
+      "answer_en": "I'm a little nervous about the midterm exam.",
+      "answer_zh": "我對期中考有點緊張。",
+      "original": "It's kind of nervous to me.",
+      "timecode": "",
+      "source": "20261019/english_class_notes.md",
+      "grammar": {
+        "title": "句型重點",
+        "explanation": "nervous 描述感到緊張的人，所以用 I am nervous；引起緊張的事物可用 about 帶出。若以考試當主詞，則可說 The exam makes me nervous。",
+        "pattern": "Person + be + nervous about + something. / Something makes + person + nervous."
+      },
+      "audio_question": "",
+      "audio_answer": "audio/f7dab0e090708daa4ddd.mp3"
+    },
+    {
+      "id": "class-20261019-07",
+      "type": "class",
+      "date": "2026-10-19",
+      "category": "專業處理顧客抱怨",
+      "prompt_zh": "我還有很多課程內容尚未吸收。",
+      "question_en": "",
+      "answer_en": "There's still a lot of course material I haven't absorbed yet.",
+      "answer_zh": "我還有很多課程內容尚未吸收。",
+      "original": "Because too many knowledge, I haven't absorb that.",
+      "timecode": "",
+      "source": "20261019/english_class_notes.md",
+      "grammar": {
+        "title": "句型重點",
+        "explanation": "knowledge 是不可數名詞，要用 much 或 a lot of，不能用 many。現在完成式是 have/has + 過去分詞，因此要用 haven't absorbed。這裡用 course material 自然指課程內容，yet 表示尚未完成。",
+        "pattern": "There's still a lot of + uncountable noun + I haven't + past participle + yet."
+      },
+      "audio_question": "",
+      "audio_answer": "audio/7b9c0d3ac5c39dd0df50.mp3"
+    },
+    {
+      "id": "class-20261019-08",
+      "type": "class",
+      "date": "2026-10-19",
+      "category": "專業處理顧客抱怨",
+      "prompt_zh": "但你不應讓顧客的情緒影響自己。",
+      "question_en": "",
+      "answer_en": "But you shouldn't let the customer's emotions affect you.",
+      "answer_zh": "但你不應讓顧客的情緒影響自己。",
+      "original": "but you cannot be affected from the customer.",
+      "timecode": "",
+      "source": "20261019/english_class_notes.md",
+      "grammar": {
+        "title": "句型重點",
+        "explanation": "被動說法是 be affected by，不能用 affected from。這裡採主動結構 let + 受詞 + 原形動詞，清楚表達不要讓對方的情緒影響自己；給建議用 shouldn't 比 cannot 自然。",
+        "pattern": "You shouldn't let + something + affect you. / be affected by + something"
+      },
+      "audio_question": "",
+      "audio_answer": "audio/ad268916ec66aaeaaad8.mp3"
+    },
+    {
+      "id": "class-20261019-09",
+      "type": "class",
+      "date": "2026-10-19",
+      "category": "專業處理顧客抱怨",
+      "prompt_zh": "如果你和顧客爭辯，可能會讓對方更加生氣。",
+      "question_en": "",
+      "answer_en": "If you argue with the customer, you may make them even angrier.",
+      "answer_zh": "如果你和顧客爭辯，可能會讓對方更加生氣。",
+      "original": "Because if you fight back or you talk back to the customer, maybe you will let the customer angry again.",
+      "timecode": "",
+      "source": "20261019/english_class_notes.md",
+      "grammar": {
+        "title": "句型重點",
+        "explanation": "表示「使某人變得生氣」用 make + 受詞 + 形容詞，不能用 let + 受詞 + angry；let 後面需要原形動詞。argue with 適合這裡的爭辯語境；even angrier 表示更加生氣，may 表示可能。",
+        "pattern": "If + present simple, subject + may + base verb. / make + object + adjective"
+      },
+      "audio_question": "",
+      "audio_answer": "audio/e6bf69fe779fbddcc4dc.mp3"
+    },
+    {
+      "id": "class-20261019-10",
+      "type": "class",
+      "date": "2026-10-19",
+      "category": "專業處理顧客抱怨",
+      "prompt_zh": "我直接喝，不加其他東西，因為蛋白粉本身已經有調味。",
+      "question_en": "",
+      "answer_en": "I drink it on its own because the protein powder is already flavored.",
+      "answer_zh": "我直接喝，不加其他東西，因為蛋白粉本身已經有調味。",
+      "original": "i just alone because they do have some flavor from the protein",
+      "timecode": "",
+      "source": "20261019/english_class_notes.md",
+      "grammar": {
+        "title": "句型重點",
+        "explanation": "原句缺少主要動詞，補上 drink。alone 容易指獨自一人；食物或飲品不搭配其他東西時可用 on its own。the protein powder is already flavored 清楚表達蛋白粉本身已有調味。",
+        "pattern": "I + verb + it on its own because + subject + be + already + past participle."
+      },
+      "audio_question": "",
+      "audio_answer": "audio/654fa49d60ccdadf3b8e.mp3"
+    },
+    {
       "id": "scenario-class-clarify",
       "type": "scenario",
       "date": "",
@@ -2782,6 +2982,6 @@
       "audio_answer": "audio/28e1b584397f97d9fef4.mp3"
     }
   ],
-  "revision": "a64256cfcede",
-  "updated_at": "2026-10-15T18:14:46+00:00"
+  "revision": "f1ffeeba283c",
+  "updated_at": "2026-10-19T14:21:58+00:00"
 }
