@@ -527,5 +527,47 @@
       "explanation": "原句缺少主要動詞，補上 drink。alone 容易指獨自一人；食物或飲品不搭配其他東西時可用 on its own。the protein powder is already flavored 清楚表達蛋白粉本身已有調味。",
       "pattern": "I + verb + it on its own because + subject + be + already + past participle."
     }
+  ],
+  "20261102": [
+    {
+      "explanation": "提前祝生日快樂可說 Happy birthday in advance。在生日當天用 on the day；祝某人生日快樂用 wish someone a happy birthday，比 congratulate someone 更自然。",
+      "pattern": "Happy birthday in advance! / wish + someone + a happy birthday / on + a particular day"
+    },
+    {
+      "explanation": "主動描述過去正在做的事，用 was/were + 動詞-ing，因此是 was absorbing。was absorbed 是被動形式；沉浸於某事則是 be absorbed in，與此處吸收課程內容的意思不同。",
+      "pattern": "Subject + was/were + verb-ing + object."
+    },
+    {
+      "explanation": "worried that 後接完整子句。the only one who feels this way 表達唯一有這種感受的人；不要把 only me have 直接接在 about 後。one 是單數，因此用 feels。",
+      "pattern": "I'm worried that + a complete clause. / the only one who + singular verb"
+    },
+    {
+      "explanation": "描述最近持續睡不夠，可用現在完成進行式 haven't been getting enough sleep。a lack of sleep 是缺乏睡眠這件事，不能直接說 I feel like a lack of sleep。",
+      "pattern": "I haven't been getting enough + sleep/rest + lately."
+    },
+    {
+      "explanation": "已發生的事情用過去式，fall asleep 的過去式是 fell asleep。got home 表示回到家，home 前不用 at；After 子句後直接接主句，不必再加 and then。",
+      "pattern": "After + subject + past verb, subject + past verb. / get home / fall asleep → fell asleep"
+    },
+    {
+      "explanation": "feel 後面用形容詞描述感受，因此說 feel anxious。anxiety 是名詞；若使用名詞，可說 I feel a lot of anxiety，但日常說 I feel anxious 更簡潔。",
+      "pattern": "Subject + feel + adjective. / anxious (adjective) vs. anxiety (noun)"
+    },
+    {
+      "explanation": "距離上次做某事已經很久，可用 It has been a long time since I last + 過去式。since 連接上次發生的過去事件，不要直接接 I haven't；for pleasure 保留老師問題中的休閒閱讀語境。",
+      "pattern": "It's been a long time since + subject + last + past-tense verb."
+    },
+    {
+      "explanation": "student 是單數可數名詞，此處要說 a student。過去經常做的事可用 used to + 原形動詞；原句 I always reading 缺少合適的謂語結構。",
+      "pattern": "When I was a student, I used to + base verb. / used to + base verb + all the time"
+    },
+    {
+      "explanation": "fascinated 描述感到著迷或很有興趣的人；fascinating 描述令人著迷的事物。可說 I'm fascinated by the findings，或 The findings are fascinating。",
+      "pattern": "Person + be + fascinated by + something. / Something + be + fascinating."
+    },
+    {
+      "explanation": "train someone to + 原形動詞表示訓練某人做某事；自己是受詞時用 yourself。修飾 think 這個動作要用副詞 logically，不能用形容詞 logical。",
+      "pattern": "train + someone/yourself + to + base verb / think + more + adverb"
+    }
   ]
 }

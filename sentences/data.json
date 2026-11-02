@@ -2602,6 +2602,206 @@
       "audio_answer": "audio/654fa49d60ccdadf3b8e.mp3"
     },
     {
+      "id": "class-20261102-01",
+      "type": "class",
+      "date": "2026-11-02",
+      "category": "閱讀樂趣",
+      "prompt_zh": "先祝你生日快樂！生日當天我會再祝福你。",
+      "question_en": "",
+      "answer_en": "Happy birthday in advance! I'll wish you a happy birthday again on the day.",
+      "answer_zh": "先祝你生日快樂！生日當天我會再祝福你。",
+      "original": "Beforehand, I want to inform you and then at that day, I will congratulate you again.",
+      "timecode": "",
+      "source": "20261102/english_class_notes.md",
+      "grammar": {
+        "title": "句型重點",
+        "explanation": "提前祝生日快樂可說 Happy birthday in advance。在生日當天用 on the day；祝某人生日快樂用 wish someone a happy birthday，比 congratulate someone 更自然。",
+        "pattern": "Happy birthday in advance! / wish + someone + a happy birthday / on + a particular day"
+      },
+      "audio_question": "",
+      "audio_answer": "audio/d61799a35d4f8f7b7001.mp3"
+    },
+    {
+      "id": "class-20261102-02",
+      "type": "class",
+      "date": "2026-11-02",
+      "category": "閱讀樂趣",
+      "prompt_zh": "我當時正在吸收課程內容。",
+      "question_en": "",
+      "answer_en": "I was absorbing the course material.",
+      "answer_zh": "我當時正在吸收課程內容。",
+      "original": "yeah, I was absorbed the knowledge.",
+      "timecode": "",
+      "source": "20261102/english_class_notes.md",
+      "grammar": {
+        "title": "句型重點",
+        "explanation": "主動描述過去正在做的事，用 was/were + 動詞-ing，因此是 was absorbing。was absorbed 是被動形式；沉浸於某事則是 be absorbed in，與此處吸收課程內容的意思不同。",
+        "pattern": "Subject + was/were + verb-ing + object."
+      },
+      "audio_question": "",
+      "audio_answer": "audio/c07f2a976f966c14c752.mp3"
+    },
+    {
+      "id": "class-20261102-03",
+      "type": "class",
+      "date": "2026-11-02",
+      "category": "閱讀樂趣",
+      "prompt_zh": "我擔心只有我一個人有這種感受。",
+      "question_en": "",
+      "answer_en": "I'm worried that I'm the only one who feels this way.",
+      "answer_zh": "我擔心只有我一個人有這種感受。",
+      "original": "I'm really worried about only me have this feeling.",
+      "timecode": "",
+      "source": "20261102/english_class_notes.md",
+      "grammar": {
+        "title": "句型重點",
+        "explanation": "worried that 後接完整子句。the only one who feels this way 表達唯一有這種感受的人；不要把 only me have 直接接在 about 後。one 是單數，因此用 feels。",
+        "pattern": "I'm worried that + a complete clause. / the only one who + singular verb"
+      },
+      "audio_question": "",
+      "audio_answer": "audio/4c3b784116408a71eb56.mp3"
+    },
+    {
+      "id": "class-20261102-04",
+      "type": "class",
+      "date": "2026-11-02",
+      "category": "閱讀樂趣",
+      "prompt_zh": "我最近一直睡不夠。",
+      "question_en": "",
+      "answer_en": "I haven't been getting enough sleep lately.",
+      "answer_zh": "我最近一直睡不夠。",
+      "original": "then so these days I feel like a lack of sleep.",
+      "timecode": "",
+      "source": "20261102/english_class_notes.md",
+      "grammar": {
+        "title": "句型重點",
+        "explanation": "描述最近持續睡不夠，可用現在完成進行式 haven't been getting enough sleep。a lack of sleep 是缺乏睡眠這件事，不能直接說 I feel like a lack of sleep。",
+        "pattern": "I haven't been getting enough + sleep/rest + lately."
+      },
+      "audio_question": "",
+      "audio_answer": "audio/4d38843d21462ce63f88.mp3"
+    },
+    {
+      "id": "class-20261102-05",
+      "type": "class",
+      "date": "2026-11-02",
+      "category": "閱讀樂趣",
+      "prompt_zh": "我回到家之後就睡著了。",
+      "question_en": "",
+      "answer_en": "After I got home, I fell asleep.",
+      "answer_zh": "我回到家之後就睡著了。",
+      "original": "After I arrived at home and then I just fall asleep.",
+      "timecode": "",
+      "source": "20261102/english_class_notes.md",
+      "grammar": {
+        "title": "句型重點",
+        "explanation": "已發生的事情用過去式，fall asleep 的過去式是 fell asleep。got home 表示回到家，home 前不用 at；After 子句後直接接主句，不必再加 and then。",
+        "pattern": "After + subject + past verb, subject + past verb. / get home / fall asleep → fell asleep"
+      },
+      "audio_question": "",
+      "audio_answer": "audio/1aeecf97096f551974ae.mp3"
+    },
+    {
+      "id": "class-20261102-06",
+      "type": "class",
+      "date": "2026-11-02",
+      "category": "閱讀樂趣",
+      "prompt_zh": "我覺得很焦慮。",
+      "question_en": "",
+      "answer_en": "I feel really anxious.",
+      "answer_zh": "我覺得很焦慮。",
+      "original": "I feel really anxiety.",
+      "timecode": "",
+      "source": "20261102/english_class_notes.md",
+      "grammar": {
+        "title": "句型重點",
+        "explanation": "feel 後面用形容詞描述感受，因此說 feel anxious。anxiety 是名詞；若使用名詞，可說 I feel a lot of anxiety，但日常說 I feel anxious 更簡潔。",
+        "pattern": "Subject + feel + adjective. / anxious (adjective) vs. anxiety (noun)"
+      },
+      "audio_question": "",
+      "audio_answer": "audio/e5a9e74246fe684ae4c7.mp3"
+    },
+    {
+      "id": "class-20261102-07",
+      "type": "class",
+      "date": "2026-11-02",
+      "category": "閱讀樂趣",
+      "prompt_zh": "我已經很久沒有為了樂趣而讀書了。",
+      "question_en": "",
+      "answer_en": "It's been a long time since I last read a book for pleasure.",
+      "answer_zh": "我已經很久沒有為了樂趣而讀書了。",
+      "original": "it's been a long time I haven't read a book.",
+      "timecode": "",
+      "source": "20261102/english_class_notes.md",
+      "grammar": {
+        "title": "句型重點",
+        "explanation": "距離上次做某事已經很久，可用 It has been a long time since I last + 過去式。since 連接上次發生的過去事件，不要直接接 I haven't；for pleasure 保留老師問題中的休閒閱讀語境。",
+        "pattern": "It's been a long time since + subject + last + past-tense verb."
+      },
+      "audio_question": "",
+      "audio_answer": "audio/fe5c7417845b6fe04ec0.mp3"
+    },
+    {
+      "id": "class-20261102-08",
+      "type": "class",
+      "date": "2026-11-02",
+      "category": "閱讀樂趣",
+      "prompt_zh": "我當學生時，以前經常看漫畫書。",
+      "question_en": "",
+      "answer_en": "When I was a student, I used to read comic books all the time.",
+      "answer_zh": "我當學生時，以前經常看漫畫書。",
+      "original": "when i when i was student i always reading comic books",
+      "timecode": "",
+      "source": "20261102/english_class_notes.md",
+      "grammar": {
+        "title": "句型重點",
+        "explanation": "student 是單數可數名詞，此處要說 a student。過去經常做的事可用 used to + 原形動詞；原句 I always reading 缺少合適的謂語結構。",
+        "pattern": "When I was a student, I used to + base verb. / used to + base verb + all the time"
+      },
+      "audio_question": "",
+      "audio_answer": "audio/2a617cbeee0aa7ee6ca3.mp3"
+    },
+    {
+      "id": "class-20261102-09",
+      "type": "class",
+      "date": "2026-11-02",
+      "category": "閱讀樂趣",
+      "prompt_zh": "這些研究發現讓我很感興趣。",
+      "question_en": "",
+      "answer_en": "I'm really fascinated by the findings.",
+      "answer_zh": "這些研究發現讓我很感興趣。",
+      "original": "I feel really fascinating.",
+      "timecode": "",
+      "source": "20261102/english_class_notes.md",
+      "grammar": {
+        "title": "句型重點",
+        "explanation": "fascinated 描述感到著迷或很有興趣的人；fascinating 描述令人著迷的事物。可說 I'm fascinated by the findings，或 The findings are fascinating。",
+        "pattern": "Person + be + fascinated by + something. / Something + be + fascinating."
+      },
+      "audio_question": "",
+      "audio_answer": "audio/0e22e19f68cffe7e429b.mp3"
+    },
+    {
+      "id": "class-20261102-10",
+      "type": "class",
+      "date": "2026-11-02",
+      "category": "閱讀樂趣",
+      "prompt_zh": "你可以訓練自己更有邏輯地思考。",
+      "question_en": "",
+      "answer_en": "You can train yourself to think more logically.",
+      "answer_zh": "你可以訓練自己更有邏輯地思考。",
+      "original": "and then you can train your brain like more logical.",
+      "timecode": "",
+      "source": "20261102/english_class_notes.md",
+      "grammar": {
+        "title": "句型重點",
+        "explanation": "train someone to + 原形動詞表示訓練某人做某事；自己是受詞時用 yourself。修飾 think 這個動作要用副詞 logically，不能用形容詞 logical。",
+        "pattern": "train + someone/yourself + to + base verb / think + more + adverb"
+      },
+      "audio_question": "",
+      "audio_answer": "audio/b61f987d49d52651d037.mp3"
+    },
+    {
       "id": "scenario-class-clarify",
       "type": "scenario",
       "date": "",
@@ -2982,6 +3182,6 @@
       "audio_answer": "audio/28e1b584397f97d9fef4.mp3"
     }
   ],
-  "revision": "f1ffeeba283c",
-  "updated_at": "2026-10-19T14:21:58+00:00"
+  "revision": "1dd1b481156f",
+  "updated_at": "2026-11-02T14:32:56+00:00"
 }
