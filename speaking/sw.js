@@ -1,4 +1,4 @@
-const CACHE_NAME = 'eddy-chunks-v2';
+const CACHE_NAME = 'eddy-chunks-v3';
 const urlsToCache = ['./', './index.html', './data.js', './manifest.json', './icon-192.png', './icon-512.png', './apple-touch-icon.png'];
 
 self.addEventListener('install', event => {

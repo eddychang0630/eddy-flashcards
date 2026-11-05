@@ -2,7 +2,7 @@
 <html lang="zh-Hant">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -30,10 +30,13 @@
       height: 100%; width: 100%; background: var(--bg); color: var(--text);
       font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'PingFang TC', 'Noto Sans TC', 'Segoe UI', sans-serif;
       overflow: hidden; -webkit-tap-highlight-color: transparent; -webkit-text-size-adjust: 100%;
+      overscroll-behavior: none; touch-action: manipulation;
     }
+    /* 鎖住整個頁面：只有內容區能捲動，畫面不會整片被拖動 */
+    body { position: fixed; inset: 0; }
     button { font: inherit; color: inherit; cursor: pointer; touch-action: manipulation; }
     button:focus-visible, a:focus-visible, input:focus-visible { outline: 2px solid var(--primary); outline-offset: 2px; }
-    #app { display: flex; flex-direction: column; height: 100vh; height: 100dvh; padding-left: var(--safe-left); padding-right: var(--safe-right); }
+    #app { display: flex; flex-direction: column; height: 100%; width: 100%; overflow: hidden; padding-left: var(--safe-left); padding-right: var(--safe-right); }
 
     /* ── Top bar ── */
     #top-bar {
@@ -1076,6 +1079,26 @@ $('#btn-reset').addEventListener('click', e => {
   if (b.dataset.confirm) { const keep = S.settings; S = defaultState(); S.settings = keep; save(); buildDeck(); renderAll(); toast('已清除所有進度'); $('#dlg-settings').close(); delete b.dataset.confirm; b.textContent = '清除所有進度'; }
   else { b.dataset.confirm = 1; b.textContent = '再按一次確認清除'; setTimeout(() => { delete b.dataset.confirm; b.textContent = '清除所有進度'; }, 3000); }
 });
+
+/* ════════════ 鎖定畫面（iOS 不讓整頁被拖動或縮放） ════════════ */
+function canScroll(el, dx, dy) {
+  for (; el && el !== document.body; el = el.parentElement) {
+    const st = getComputedStyle(el);
+    if (Math.abs(dy) >= Math.abs(dx) && /(auto|scroll)/.test(st.overflowY) && el.scrollHeight > el.clientHeight + 1) return true;
+    if (Math.abs(dx) > Math.abs(dy) && /(auto|scroll)/.test(st.overflowX) && el.scrollWidth > el.clientWidth + 1) return true;
+  }
+  return false;
+}
+let tStart = null;
+document.addEventListener('touchstart', e => { tStart = e.touches.length === 1 ? { x: e.touches[0].clientX, y: e.touches[0].clientY } : null; }, { passive: true });
+document.addEventListener('touchmove', e => {
+  if (e.touches.length > 1) { e.preventDefault(); return; }
+  if (!tStart) return;
+  const dx = e.touches[0].clientX - tStart.x, dy = e.touches[0].clientY - tStart.y;
+  if (e.target.closest && e.target.closest('#flip-wrap') && Math.abs(dx) > Math.abs(dy)) return; // 閃卡左右滑
+  if (!canScroll(e.target, dx, dy)) e.preventDefault();
+}, { passive: false });
+['gesturestart', 'gesturechange'].forEach(t => document.addEventListener(t, e => e.preventDefault(), { passive: false }));
 
 /* ════════════ 初始化 ════════════ */
 function renderAll() { renderFamBar(); renderDash(); renderToc(); setView(S.settings.view || 'notes'); }
