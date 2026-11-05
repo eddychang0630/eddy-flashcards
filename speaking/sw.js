@@ -1,4 +1,4 @@
-const CACHE_NAME = 'eddy-chunks-v3';
+const CACHE_NAME = 'eddy-chunks-v4';
 const urlsToCache = ['./', './index.html', './data.js', './manifest.json', './icon-192.png', './icon-512.png', './apple-touch-icon.png'];
 
 self.addEventListener('install', event => {
@@ -13,7 +13,7 @@ self.addEventListener('fetch', event => {
   // 只處理 /speaking/ 範圍內的請求；YouTube 等外部資源不快取
   if (url.origin !== self.location.origin || !url.pathname.startsWith(new URL(self.registration.scope).pathname)) return;
   event.respondWith(
-    fetch(request)
+    fetch(request, { cache: 'no-store' }) // 跳過瀏覽器 HTTP 快取，部署新版立即生效
       .then(response => {
         if (response.ok) { const copy = response.clone(); caches.open(CACHE_NAME).then(c => c.put(request, copy)); }
         return response;

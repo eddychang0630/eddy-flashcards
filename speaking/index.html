@@ -50,6 +50,9 @@
       border: 1px solid var(--border); border-radius: 10px; background: var(--card-bg); font-size: 1rem;
     }
     .icon-btn:active, .icon-btn.on { background: var(--primary); border-color: var(--primary); }
+    #btn-refresh span { display: block; font-size: 1.15rem; line-height: 1; }
+    #btn-refresh.is-refreshing span { animation: spin .7s linear infinite; }
+    @keyframes spin { to { transform: rotate(360deg); } }
     .top-tabs { display: none; gap: 3px; background: var(--card-bg); border-radius: 12px; padding: 3px; border: 1px solid var(--border); }
     .top-tabs button { border: 0; background: transparent; color: var(--muted); font-size: 0.8rem; font-weight: 700; padding: 7px 14px; border-radius: 9px; white-space: nowrap; }
     .top-tabs button.active { background: var(--primary); color: #fff; }
@@ -339,6 +342,7 @@
       <button data-view="talk">💬 對話與跟讀</button>
       <button data-view="catch">🎯 聽力抓塊</button>
     </nav>
+    <button class="icon-btn" id="btn-refresh" aria-label="重新整理 App"><span>↻</span></button>
     <button class="icon-btn" id="btn-player" aria-label="顯示影片">🎬</button>
     <button class="icon-btn" id="btn-settings" aria-label="設定與備份">⚙️</button>
   </header>
@@ -993,6 +997,7 @@ document.addEventListener('click', e => {
   if (d.shrow != null && !e.target.closest('button')) return selectRow(t);
   if (d.opt != null) { if (C.answered) return; C.sel.has(d.opt) ? C.sel.delete(d.opt) : C.sel.add(d.opt); renderCatch(); return; }
   switch (t.id) {
+    case 'btn-refresh': return refreshApp();
     case 'btn-player': return openPlayer();
     case 'btn-settings': return openSettings();
     case 'btn-pick5': return pick5();
@@ -1099,6 +1104,21 @@ document.addEventListener('touchmove', e => {
   if (!canScroll(e.target, dx, dy)) e.preventDefault();
 }, { passive: false });
 ['gesturestart', 'gesturechange'].forEach(t => document.addEventListener(t, e => e.preventDefault(), { passive: false }));
+
+/* ════════════ 重新整理（抓最新版） ════════════ */
+async function refreshApp() {
+  const b = $('#btn-refresh'); if (b.classList.contains('is-refreshing')) return;
+  b.classList.add('is-refreshing'); b.disabled = true; stopSpeech();
+  try {
+    if ('serviceWorker' in navigator) {
+      const reg = await navigator.serviceWorker.getRegistration('./');
+      if (reg) await reg.update();
+    }
+    if ('caches' in window) { const keys = await caches.keys(); await Promise.all(keys.filter(k => k.startsWith('eddy-chunks-')).map(k => caches.delete(k))); }
+  } catch (e) {}
+  location.replace(location.pathname + '?r=' + Date.now());
+}
+if (/[?&]r=\d+/.test(location.search)) history.replaceState(null, '', location.pathname + location.hash);
 
 /* ════════════ 初始化 ════════════ */
 function renderAll() { renderFamBar(); renderDash(); renderToc(); setView(S.settings.view || 'notes'); }
