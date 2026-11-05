@@ -1,5 +1,5 @@
-const CACHE_NAME = 'eddy-chunks-v6';
-const urlsToCache = ['./', './index.html', './data.js', './manifest.json', './icon-192.png', './icon-512.png', './apple-touch-icon.png'];
+const CACHE_NAME = 'eddy-chunks-v7';
+const urlsToCache = ['./', './index.html', './lessons/index.js', './manifest.json', './icon-192.png', './icon-512.png', './apple-touch-icon.png'];
 
 self.addEventListener('install', event => {
   event.waitUntil(caches.open(CACHE_NAME).then(cache => cache.addAll(urlsToCache)).then(() => self.skipWaiting()));

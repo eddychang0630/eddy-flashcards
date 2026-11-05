@@ -339,12 +339,46 @@
       .side-extra .dash { grid-template-columns: repeat(2, 1fr); }
     }
     @media (min-width: 1500px) { .grid { grid-template-columns: repeat(3, 1fr); } .view { max-width: 1400px; } }
+
+    /* ── 課程切換 ── */
+    #lesson-btn { flex: 1; min-width: 0; display: flex; align-items: center; gap: 6px; border: 0; background: transparent; padding: 4px 0; text-align: left; }
+    #lesson-btn #lesson-name { font-size: .98rem; font-weight: 800; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; min-width: 0; }
+    #lesson-btn .caret { flex-shrink: 0; font-size: .7rem; color: var(--muted); border: 1px solid var(--border); border-radius: 6px; padding: 2px 5px; }
+    #app:not(.has-video) #btn-player, #app:not(.has-video) .player-box { display: none; }
+    #app.is-review[data-view="notes"] #fam-bar { display: none; }
+    .lesson-list { display: flex; flex-direction: column; gap: 8px; }
+    .lesson-row { display: flex; align-items: center; gap: 12px; width: 100%; text-align: left; border: 1px solid var(--border); background: var(--bg); border-radius: 14px; padding: 12px; }
+    .lesson-row.active { border-color: var(--primary); background: var(--primary-soft); }
+    .lr-ico { font-size: 1.4rem; flex-shrink: 0; }
+    .lr-main { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 3px; }
+    .lr-main b { font-size: .9rem; } .lr-main small { font-size: .72rem; color: var(--muted); line-height: 1.4; }
+    .lr-main .bar { margin-top: 4px; }
+    .lr-badge { flex-shrink: 0; font-size: .68rem; font-weight: 800; padding: 3px 8px; border-radius: 999px; border: 1px solid var(--border); color: var(--muted); white-space: nowrap; }
+    .lr-badge.amber { color: #fcd34d; border-color: rgba(245,158,11,.45); }
+    .lr-badge.green { color: #86efac; border-color: rgba(34,197,94,.45); }
+    .lesson-cards { display: grid; grid-template-columns: 1fr; gap: 10px; }
+    .lesson-card { text-align: left; display: flex; flex-direction: column; gap: 6px; border: 1px solid var(--border); background: var(--card-bg); border-radius: 18px; padding: 14px; }
+    .lesson-card:active { border-color: var(--primary); }
+    .lesson-card b { font-size: 1rem; line-height: 1.4; }
+    .lesson-card small { font-size: .74rem; color: var(--muted); }
+    .lc-top { display: flex; align-items: center; gap: 8px; }
+    .lc-ico { font-size: 1.2rem; } .lc-date { font-size: .72rem; color: var(--muted); font-weight: 700; flex: 1; }
+    .review-hero h2 { font-size: 1.15rem; }
+    /* ── 問答卡 ── */
+    .spacer-auto { flex: 1; }
+    .qa-q { display: flex; gap: 10px; align-items: flex-start; }
+    .qtag { flex-shrink: 0; width: 28px; height: 28px; border-radius: 8px; background: var(--primary); color: #fff; font-weight: 800; display: grid; place-items: center; font-size: .85rem; margin-top: 2px; }
+    .ccard.qa .written { font-size: 1.2rem; line-height: 1.4; }
+    .ans-title { font-size: .74rem; font-weight: 800; color: var(--muted); letter-spacing: .04em; margin-top: 2px; }
+    .ex-note { font-size: .74rem; color: #d4d4e0; margin-top: 2px; }
+    .q-label { font-size: .78rem; font-weight: 800; color: var(--primary-text); margin-bottom: 8px; }
+    @media (min-width: 768px) { .lesson-cards { grid-template-columns: 1fr 1fr; } }
   </style>
 </head>
 <body>
 <div id="app" data-view="notes">
   <header id="top-bar">
-    <h1>🗣️ 口說 Chunks<small id="top-sub">20 個母語語塊</small></h1>
+    <button id="lesson-btn" aria-label="切換課程"><span id="lesson-name">📅 今日複習</span><span class="caret">▼</span></button>
     <nav class="top-tabs" aria-label="模式">
       <button data-view="notes" class="active">📚 筆記重點</button>
       <button data-view="flash">🃏 閃卡抽考</button>
@@ -355,32 +389,22 @@
     <button class="icon-btn" id="btn-player" aria-label="顯示影片">🎬</button>
     <button class="icon-btn" id="btn-settings" aria-label="設定與備份">⚙️</button>
   </header>
-  <div id="fam-bar" role="tablist" aria-label="Chunk 家族"></div>
+  <div id="fam-bar" role="tablist" aria-label="分組"></div>
 
   <div id="body">
     <aside id="side">
       <div class="side-inner">
         <div class="player-box">
           <div class="player-frame"><div id="yt"></div><div class="player-ph" id="player-ph">點任何 🎬 時間戳記，影片會跳到那一秒</div></div>
-          <div class="player-meta">
-            <div class="pm-title" id="pm-title"></div>
-            <a class="pm-link" id="yt-link" target="_blank" rel="noopener">YouTube ↗</a>
-          </div>
+          <div class="player-meta"><div class="pm-title" id="pm-title"></div><a class="pm-link" id="yt-link" target="_blank" rel="noopener">YouTube ↗</a></div>
           <div class="chapters" id="chapters"></div>
         </div>
         <div class="side-extra">
-          <div class="panel">
-            <div class="sec-title">今日複習進度</div>
-            <div id="dash-side"></div>
-          </div>
-          <div class="panel">
-            <div class="sec-title">5 大家族目錄</div>
-            <div id="toc"></div>
-          </div>
+          <div class="panel"><div class="sec-title" id="dash-title">今日複習進度</div><div id="dash-side"></div></div>
+          <div class="panel"><div class="sec-title" id="toc-title">目錄</div><div id="toc"></div></div>
         </div>
       </div>
     </aside>
-
     <main id="main">
       <section class="view active" id="view-notes"></section>
       <section class="view" id="view-flash"></section>
@@ -399,6 +423,10 @@
 
 <div id="toast" role="status" aria-live="polite"></div>
 
+<dialog id="dlg-lessons">
+  <div class="dlg-head"><h2>📚 切換課程</h2><button class="icon-btn" data-close aria-label="關閉">✕</button></div>
+  <div class="dlg-body"><div class="lesson-list" id="lesson-list"></div></div>
+</dialog>
 <dialog id="dlg-settings">
   <div class="dlg-head"><h2>⚙️ 設定與備份</h2><button class="icon-btn" data-close aria-label="關閉">✕</button></div>
   <div class="dlg-body">
@@ -426,103 +454,162 @@
   </div>
 </dialog>
 
-<script src="data.js"></script>
+<script>
+window.LESSONS = [];
+window.registerLesson = function (l) { window.LESSONS.push(l); };
+</script>
+<script src="lessons/index.js"></script>
 <script>
 'use strict';
-/* ════════════ 資料 ════════════ */
-const D = window.CHUNKS_DATA;
-if (!D) { document.body.innerHTML = '<p style="padding:40px;color:#fff">找不到 data.js，請確認檔案與 index.html 放在同一個資料夾。</p>'; throw new Error('no data'); }
-const FAM = Object.fromEntries(D.families.map(f => [f.id, f]));
-const CONCEPTS = [
-  { icon: '🧩', t: '什麼是 Chunk（語塊 / Word Team）？', p: '母語者說話不會 word by word 一個字一個字唸，而是把常一起出現的字連成「聲音群組（sound groups）」與「意義群組（meaning groups）」。', q: '“Chunks are word teams.”' },
-  { icon: '🌊', t: '為什麼單字都認識卻聽不懂？', p: '課本英文（textbook English）和真實口語（real spoken English）不一樣：連音、弱讀形成了特定的「聲音形狀（sound shapes）」。快語速英文原本像一條大河，學會 chunks 後，你能看見河上的一艘艘小船。', q: '“Chunks are small boats in the river.”' },
-  { icon: '🎯', t: '學習者的黃金原則', p: '說可以慢而清楚，但聽必須認出快語塊。不必模仿電影演員講很快，先求聽懂。每天挑 5 個 chunks 重複跟讀、造短句。', q: '“Speak clearly, listen for fast chunks.”' }
-];
-const CHAPTERS = [
-  ['開場觀念', 0], ['F1 問句', 125], ['F2 日常', 263], ['F3 回應', 434], ['F4 開場', 556], ['F5 時間', 725],
-  ['為什麼重要', 842], ['聽力抓塊', 950], ['實戰對話', 1014], ['19 句跟讀', 1062], ['總結', 1135]
-];
-
 /* ════════════ 工具 ════════════ */
 const $ = (s, el = document) => el.querySelector(s);
 const $$ = (s, el = document) => [...el.querySelectorAll(s)];
-const esc = s => String(s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+const esc = s => String(s ?? '').replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+const escRe = s => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 const fmt = t => { t = Math.floor(t); return String(Math.floor(t / 60)).padStart(2, '0') + ':' + String(t % 60).padStart(2, '0'); };
 const sleep = ms => new Promise(r => setTimeout(r, ms));
 const shuffle = a => { a = a.slice(); for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; };
 const pad2 = n => String(n).padStart(2, '0');
 const isDesktop = () => matchMedia('(min-width: 1025px)').matches;
+const safeId = k => 'card-' + String(k).replace(/[^a-zA-Z0-9_-]/g, '_');
 function today(d = new Date()) { return d.getFullYear() + '-' + pad2(d.getMonth() + 1) + '-' + pad2(d.getDate()); }
 function addDays(ds, n) { const [y, m, d] = ds.split('-').map(Number); return today(new Date(y, m - 1, d + n)); }
-function core(s) { return s.replace(/\(.*?\)/g, '').replace(/\+\s*\[.*?\]/g, '').replace(/\.\.\./g, '').replace(/…/g, '').replace(/[?.!]/g, '').trim(); }
-function famShort(f) { return f.titleZh.replace(/家族$/, ''); }
-
-D.chunks.forEach(c => {
-  const set = new Set([core(c.written)]);
-  c.spoken.split('/').forEach(p => { const k = core(p); if (k) set.add(k); });
-  c.core = core(c.written);
-  c.patterns = [...set].filter(Boolean);
-  c.sayText = c.core + (/\?/.test(c.written) ? '?' : '.');
-  c.hasSpoken = core(c.spoken).toLowerCase() !== c.core.toLowerCase();
-});
-const CHUNK = Object.fromEntries(D.chunks.map(c => [c.id, c]));
-const ALL_PATTERNS = D.chunks.flatMap(c => c.patterns);
+function core(s) { return String(s || '').replace(/\(.*?\)/g, '').replace(/\+\s*\[.*?\]/g, '').replace(/\.\.\./g, '').replace(/…/g, '').replace(/[?.!]/g, '').trim(); }
+let toastTimer;
+function toast(msg) { const t = $('#toast'); t.textContent = msg; t.classList.add('show'); clearTimeout(toastTimer); toastTimer = setTimeout(() => t.classList.remove('show'), 2200); }
 
 function hl(text, phrases, cls = 'hl') {
   const h = esc(text);
-  const ps = [...new Set(phrases || [])].filter(Boolean).sort((a, b) => b.length - a.length)
-    .map(p => esc(p).replace(/[.*+?^${}()|[\]\\]/g, '\\$&'));
+  const ps = [...new Set(phrases || [])].filter(Boolean).sort((a, b) => b.length - a.length).map(p => escRe(esc(p)));
   if (!ps.length) return h;
   return h.replace(new RegExp('\\b(' + ps.join('|') + ')\\b', 'gi'), `<mark class="${cls}">$1</mark>`);
 }
 
-let toastTimer;
-function toast(msg) { const t = $('#toast'); t.textContent = msg; t.classList.add('show'); clearTimeout(toastTimer); toastTimer = setTimeout(() => t.classList.remove('show'), 2200); }
+/* ════════════ 課程資料 ════════════ */
+const REVIEW = 'review';
+let LESSONS = [], LBY = {}, ALL_CARDS = [], CARD = {}, ALL_PATTERNS = [];
+
+function prepLesson(L) {
+  L.icon = L.type === 'video' ? '🎬' : '💬';
+  L.groups = L.groups || [{ id: 'all', number: 1, titleZh: '全部', titleEn: '', description: '' }];
+  L.groupsById = Object.fromEntries(L.groups.map(g => [g.id, g]));
+  L.cards.forEach(c => {
+    c.lesson = L; c.key = L.id + ':' + c.id;
+    if (!c.groupId || !L.groupsById[c.groupId]) c.groupId = L.groups[0].id;
+    if (L.type === 'video') {
+      c.kind = 'chunk';
+      const set = new Set([core(c.written)]);
+      String(c.spoken || '').split('/').forEach(p => { const k = core(p); if (k) set.add(k); });
+      c.core = core(c.written); c.patterns = [...set].filter(Boolean);
+      c.sayText = c.core + (/\?/.test(c.written) ? '?' : '.');
+      c.hasSpoken = !!c.spoken && core(c.spoken).toLowerCase() !== c.core.toLowerCase();
+      c.prompt = c.meaningZh; c.label = c.core;
+      c.items = (c.examples || []).map(e => ({ en: e.en, zh: e.zh, time: e.time }));
+    } else {
+      c.kind = 'qa';
+      c.patterns = (c.chunks || []).slice();
+      c.sayText = c.question; c.prompt = c.questionZh;
+      c.label = c.question.length > 30 ? c.question.slice(0, 28) + '…' : c.question;
+      c.items = (c.answers || []).map(a => ({ en: a.en, zh: a.zh, note: a.note }));
+    }
+    c.usageNote = c.usageNote || '';
+  });
+  if (L.type !== 'video') {
+    if (!L.dialogue) L.dialogue = {
+      title: '問答對練：A 問、B 用第一個建議回答',
+      lines: L.cards.flatMap(c => [{ speaker: 'A', en: c.question, zh: c.questionZh, chunksUsed: c.chunks || [] },
+        ...(c.answers && c.answers[0] ? [{ speaker: 'B', en: c.answers[0].en, zh: c.answers[0].zh, chunksUsed: c.chunks || [] }] : [])])
+    };
+    if (!L.shadow) L.shadow = {
+      title: '問答跟讀：問句 + 所有回答',
+      sentences: L.cards.flatMap(c => [{ en: c.question, zh: c.questionZh }, ...(c.answers || []).map(a => ({ en: a.en, zh: a.zh }))])
+    };
+  }
+}
+function autoChallenges(L) {
+  const out = [];
+  L.cards.forEach(c => {
+    [{ en: c.question, zh: c.questionZh }, ...(c.answers || [])].forEach(s => {
+      const found = [...new Set([...(c.chunks || []), ...ALL_PATTERNS])].filter(p => new RegExp('\\b' + escRe(p) + '\\b', 'i').test(s.en));
+      const tg = found.filter(p => !found.some(q => q !== p && q.toLowerCase().includes(p.toLowerCase())));
+      if (tg.length) out.push({ sentence: s.en, targetChunks: tg.slice(0, 3), spokenHint: s.en, zh: s.zh });
+    });
+  });
+  return out;
+}
+function initLessons() {
+  LESSONS = (window.LESSONS || []).filter(L => L && L.id && Array.isArray(L.cards));
+  LESSONS.forEach(prepLesson);
+  LESSONS.sort((a, b) => String(b.date).localeCompare(String(a.date)));
+  LBY = Object.fromEntries(LESSONS.map(L => [L.id, L]));
+  ALL_CARDS = LESSONS.flatMap(L => L.cards);
+  CARD = Object.fromEntries(ALL_CARDS.map(c => [c.key, c]));
+  ALL_PATTERNS = [...new Set(ALL_CARDS.flatMap(c => c.patterns))];
+  LESSONS.forEach(L => {
+    L.challenges = (L.challenges && L.challenges.length ? L.challenges : autoChallenges(L)).map(q => ({ ...q, lesson: L }));
+  });
+}
 
 /* ════════════ 儲存（localStorage） ════════════ */
 const KEY = 'eddy-chunks-v1';
-const defaultState = () => ({ progress: {}, stars: [], days: [], settings: { rate: 1, voice: '', gap: 'auto', repeat: 1, shRate: 1, view: 'notes', deck: 'due', fmode: 'zh', talkSub: 'dialog' } });
-function loadState() {
+const defaultState = () => ({ v: 2, progress: {}, stars: [], days: [], settings: { rate: 1, voice: '', gap: 'auto', repeat: 1, shRate: 1, view: 'notes', deck: 'due', fmode: 'zh', talkSub: 'dialog', lesson: REVIEW } });
+function normalizeState(j) {
   const base = defaultState();
-  try {
-    const j = JSON.parse(localStorage.getItem(KEY));
-    if (j && typeof j === 'object') { return { ...base, ...j, settings: { ...base.settings, ...(j.settings || {}) } }; }
-  } catch (e) {}
-  return base;
+  const st = { ...base, ...j, settings: { ...base.settings, ...((j && j.settings) || {}) } };
+  // 舊版（只有一課時）進度的編號是 1~20，搬到第一個影片課底下
+  const legacy = LESSONS.find(L => L.legacyProgress);
+  if (legacy) {
+    const p = {};
+    Object.entries(st.progress || {}).forEach(([k, v]) => { p[/^\d+$/.test(k) ? legacy.id + ':' + k : k] = v; });
+    st.progress = p;
+    st.stars = (st.stars || []).map(s => (typeof s === 'number' || /^\d+$/.test(String(s))) ? legacy.id + ':' + s : s);
+  }
+  st.stars = (st.stars || []).filter(k => CARD[k]);
+  if (st.settings.lesson !== REVIEW && !LBY[st.settings.lesson]) st.settings.lesson = REVIEW;
+  st.v = 2;
+  return st;
 }
-let S = loadState();
+function loadState() { try { const j = JSON.parse(localStorage.getItem(KEY)); if (j && typeof j === 'object') return normalizeState(j); } catch (e) {} return normalizeState({}); }
+let S;
 function save() { try { localStorage.setItem(KEY, JSON.stringify(S)); } catch (e) {} }
 
 /* ════════════ 間隔重複（簡易 Leitner） ════════════ */
 const INTV = [0, 1, 3, 7, 14, 30];
-const prog = id => S.progress[id] || { box: 0, ok: 0, bad: 0, due: null };
-const isDue = id => { const p = S.progress[id]; return !p || !p.due || p.due <= today(); };
-const isMastered = id => prog(id).box >= 2;
+const prog = k => S.progress[k] || { box: 0, ok: 0, bad: 0, due: null };
+const isDue = k => { const p = S.progress[k]; return !p || !p.due || p.due <= today(); };
+const isMastered = k => prog(k).box >= 2;
 function touchDay() { const t = today(); if (!S.days.includes(t)) { S.days.push(t); S.days = S.days.slice(-400); } }
-function mark(id, ok) {
-  const p = { box: 0, ok: 0, bad: 0, ...S.progress[id] };
+function mark(k, ok) {
+  const p = { box: 0, ok: 0, bad: 0, ...S.progress[k] };
   if (ok) { p.box = Math.min(p.box + 1, 5); p.ok++; p.due = addDays(today(), INTV[p.box]); }
   else { p.box = 0; p.bad++; p.due = today(); }
-  p.last = today(); S.progress[id] = p; touchDay(); save(); renderDash(); renderToc();
+  p.last = today(); S.progress[k] = p; touchDay(); save(); renderDash(); renderToc();
 }
-function streak() {
-  const set = new Set(S.days); let d = today(); if (!set.has(d)) d = addDays(d, -1);
-  let n = 0; while (set.has(d)) { n++; d = addDays(d, -1); } return n;
+function streak() { const set = new Set(S.days); let d = today(); if (!set.has(d)) d = addDays(d, -1); let n = 0; while (set.has(d)) { n++; d = addDays(d, -1); } return n; }
+
+/* ════════════ 目前範圍（今日複習 / 某一課） ════════════ */
+let curGroup = 'all';
+const isReview = () => S.settings.lesson === REVIEW;
+const curL = () => isReview() ? null : LBY[S.settings.lesson];
+function scopeCards(withGroup = true) {
+  let cs = isReview() ? ALL_CARDS : curL().cards;
+  if (withGroup && curGroup !== 'all') cs = cs.filter(c => isReview() ? c.lesson.id === curGroup : c.groupId === curGroup);
+  return cs;
 }
+function groupLabel(c) { const g = c.lesson.groupsById[c.groupId]; return g ? `${c.lesson.type === 'video' ? 'Family' : '情境'} ${g.number} · ${g.titleZh}` : ''; }
 
 /* ════════════ 語音朗讀（Web Speech API） ════════════ */
 const TTS = { voice: null, run: 0 };
 function enVoices() { return ('speechSynthesis' in window) ? speechSynthesis.getVoices().filter(v => /^en/i.test(v.lang)) : []; }
 function pickVoice() {
   const vs = enVoices(); if (!vs.length) return;
-  let v = S.settings.voice && vs.find(x => x.voiceURI === S.settings.voice);
+  let v = S && S.settings.voice && vs.find(x => x.voiceURI === S.settings.voice);
   if (!v) {
     const pref = ['Samantha', 'Ava', 'Google US English', 'Microsoft Aria', 'Microsoft Jenny', 'Allison', 'Alex'];
     v = pref.map(n => vs.find(x => x.name.includes(n) && /en[-_]US/i.test(x.lang))).find(Boolean) || vs.find(x => /en[-_]US/i.test(x.lang)) || vs[0];
   }
   TTS.voice = v || null; fillVoiceSelect();
 }
-if ('speechSynthesis' in window) { pickVoice(); speechSynthesis.onvoiceschanged = pickVoice; }
 function stopSpeech() { TTS.run++; if ('speechSynthesis' in window) speechSynthesis.cancel(); $$('.playing').forEach(b => b.classList.remove('playing')); }
 function speak(text, { rate, pitch = 1, btn } = {}) {
   return new Promise(res => {
@@ -533,34 +620,48 @@ function speak(text, { rate, pitch = 1, btn } = {}) {
     u.rate = rate || S.settings.rate || 1; u.pitch = pitch;
     let done = false;
     const fin = () => { if (done) return; done = true; clearTimeout(tm); btn && btn.classList.remove('playing'); res(); };
-    const tm = setTimeout(fin, 2000 + text.length * 110 / u.rate);
+    const tm = setTimeout(fin, 2000 + String(text).length * 110 / u.rate);
     u.onend = fin; u.onerror = fin;
     btn && btn.classList.add('playing');
     speechSynthesis.speak(u);
   });
 }
-const estMs = (text, rate) => (text.split(/\s+/).length * 380) / (rate || 1) + 600;
+const estMs = (text, rate) => (String(text).split(/\s+/).length * 380) / (rate || 1) + 600;
 
 /* ════════════ YouTube 播放器 ════════════ */
-let yt = null, ytReady = false, ytWant = null;
-function loadYT() {
-  if (document.getElementById('yt-api')) return;
-  const s = document.createElement('script'); s.id = 'yt-api'; s.src = 'https://www.youtube.com/iframe_api'; document.head.appendChild(s);
-}
+let yt = null, ytReady = false, ytWant = null, ytVid = null, playerLesson = null;
+function loadYT() { if (document.getElementById('yt-api')) return; const s = document.createElement('script'); s.id = 'yt-api'; s.src = 'https://www.youtube.com/iframe_api'; document.head.appendChild(s); }
 window.onYouTubeIframeAPIReady = () => {
+  const L = playerLesson || curL(); if (!L || !L.video) return;
+  ytVid = L.video.videoId;
   yt = new YT.Player('yt', {
-    videoId: D.videoMeta.videoId,
-    playerVars: { playsinline: 1, rel: 0, modestbranding: 1 },
-    events: { onReady: () => { ytReady = true; $('#player-ph') && $('#player-ph').remove(); if (ytWant != null) { doSeek(ytWant); ytWant = null; } } }
+    videoId: ytVid, playerVars: { playsinline: 1, rel: 0, modestbranding: 1 },
+    events: { onReady: () => { ytReady = true; $('#player-ph') && $('#player-ph').remove(); if (ytWant) { doSeek(ytWant.t, ytWant.vid); ytWant = null; } } }
   });
 };
-function doSeek(t) { try { yt.seekTo(t, true); yt.playVideo(); } catch (e) {} }
-function setYtLink(t) { $('#yt-link').href = `https://www.youtube.com/watch?v=${D.videoMeta.videoId}${t ? '&t=' + Math.floor(t) + 's' : ''}`; }
-function seek(t) {
-  stopSpeech(); setYtLink(t);
+function doSeek(t, vid) {
+  try {
+    if (vid && vid !== ytVid) { ytVid = vid; yt.loadVideoById({ videoId: vid, startSeconds: t }); }
+    else { yt.seekTo(t, true); yt.playVideo(); }
+  } catch (e) {}
+}
+function renderPlayerMeta() {
+  const L = playerLesson || curL();
+  $('#app').classList.toggle('has-video', !!(L && L.video));
+  if (!L || !L.video) { $('#app').classList.remove('player-open'); $('#btn-player').classList.remove('on'); return; }
+  $('#pm-title').innerHTML = `${esc(L.video.title)}<div class="pm-sub">${esc(L.video.channel || '')}${L.video.durationFormatted ? ' · ' + esc(L.video.durationFormatted) : ''}</div>`;
+  $('#chapters').innerHTML = (L.chapters || []).map(([t, s]) => `<button class="chap" data-seek="${s}"><b>${fmt(s)}</b>${esc(t)}</button>`).join('');
+  setYtLink(0, L);
+}
+function setYtLink(t, L) { L = L || playerLesson || curL(); if (L && L.video) $('#yt-link').href = `https://www.youtube.com/watch?v=${L.video.videoId}${t ? '&t=' + Math.floor(t) + 's' : ''}`; }
+function seek(t, L) {
+  L = L || curL(); if (!L || !L.video) return;
+  stopSpeech();
+  if (isReview()) { playerLesson = L; renderPlayerMeta(); }
+  setYtLink(t, L);
   if (!isDesktop()) openPlayer(true);
   loadYT();
-  if (ytReady) doSeek(t); else ytWant = t;
+  if (ytReady) doSeek(t, L.video.videoId); else ytWant = { t, vid: L.video.videoId };
   toast('🎬 跳到 ' + fmt(t));
 }
 function openPlayer(force) {
@@ -569,142 +670,241 @@ function openPlayer(force) {
   if (open) loadYT();
 }
 
-/* ════════════ 共用：家族篩選、儀表板、目錄 ════════════ */
-let curFam = 'all';
-function famChunks() { return D.chunks.filter(c => curFam === 'all' || c.familyId === curFam); }
+/* ════════════ 標題列、篩選列、儀表板、目錄 ════════════ */
+function renderLessonBtn() {
+  const L = curL();
+  $('#lesson-name').textContent = L ? `${L.icon} ${L.short || L.title}` : '📅 今日複習';
+  $('#app').classList.toggle('is-review', !L);
+}
 function renderFamBar() {
-  const pills = [['all', `全部 (${D.chunks.length})`], ...D.families.map(f => [f.id, `${f.number}.${famShort(f).replace(/語塊$/, '')} (${D.chunks.filter(c => c.familyId === f.id).length})`])];
-  $('#fam-bar').innerHTML = pills.map(([id, t]) => `<button class="dpill ${curFam === id ? 'active' : ''}" data-fam="${id}">${esc(t)}</button>`).join('');
+  let pills;
+  if (isReview()) {
+    pills = [['all', `全部課程 (${ALL_CARDS.length})`], ...LESSONS.map(L => [L.id, `${L.icon} ${L.short || L.title} (${L.cards.length})`])];
+  } else {
+    const L = curL();
+    pills = [['all', `全部 (${L.cards.length})`], ...L.groups.map(g => [g.id, `${g.number}.${g.titleZh} (${L.cards.filter(c => c.groupId === g.id).length})`])];
+  }
+  $('#fam-bar').innerHTML = pills.map(([id, t]) => `<button class="dpill ${curGroup === id ? 'active' : ''}" data-fam="${esc(id)}">${esc(t)}</button>`).join('');
 }
 function renderDash() {
-  const due = D.chunks.filter(c => isDue(c.id)).length;
-  const m = D.chunks.filter(c => isMastered(c.id)).length;
+  const cs = scopeCards(false);
+  const due = cs.filter(c => isDue(c.key)).length, m = cs.filter(c => isMastered(c.key)).length;
   const html = `<div class="dash">
       <div class="stat amber"><div class="s-num">${due}</div><div class="s-lbl">今日待複習</div></div>
-      <div class="stat green"><div class="s-num">${m}<small style="font-size:.7rem;color:var(--muted)">/20</small></div><div class="s-lbl">已熟練</div></div>
+      <div class="stat green"><div class="s-num">${m}<small style="font-size:.7rem;color:var(--muted)">/${cs.length}</small></div><div class="s-lbl">已熟練</div></div>
       <div class="stat indigo"><div class="s-num">${streak()}</div><div class="s-lbl">連續天數 🔥</div></div>
       <div class="stat"><div class="s-num">${S.stars.length}<small style="font-size:.7rem;color:var(--muted)">/5</small></div><div class="s-lbl">⭐ 今日必背</div></div>
-    </div><div class="bar"><i style="width:${m / D.chunks.length * 100}%"></i></div>`;
+    </div><div class="bar"><i style="width:${cs.length ? m / cs.length * 100 : 0}%"></i></div>`;
   $('#dash-side').innerHTML = html;
   const nd = $('#notes-dash'); if (nd) nd.innerHTML = html;
+  $('#dash-title').textContent = isReview() ? '今日複習進度（全部課程）' : '這一課的進度';
 }
+function lessonStats(L) { return { total: L.cards.length, m: L.cards.filter(c => isMastered(c.key)).length, due: L.cards.filter(c => isDue(c.key)).length }; }
 function renderToc() {
-  $('#toc').innerHTML = D.families.map(f => {
-    const cs = D.chunks.filter(c => c.familyId === f.id);
-    return `<div class="toc-fam"><button data-goto-fam="${f.id}"><span class="n">${f.number}</span>${esc(famShort(f))}<span class="c">${cs.filter(c => isMastered(c.id)).length}/${cs.length}</span></button>
-      <div class="toc-items">${cs.map(c => `<button data-goto="${c.id}"><span class="dot ${isMastered(c.id) ? 'd2' : (S.progress[c.id] ? 'd1' : '')}"></span>${esc(c.written)}${S.stars.includes(c.id) ? '<span class="st">★</span>' : ''}</button>`).join('')}</div></div>`;
+  const el = $('#toc'); if (!el) return;
+  if (isReview()) {
+    $('#toc-title').textContent = '所有課程';
+    el.innerHTML = LESSONS.map(L => { const s = lessonStats(L); return `<div class="toc-fam"><button data-lesson="${esc(L.id)}"><span class="n">${L.icon}</span>${esc(L.short || L.title)}<span class="c">${s.m}/${s.total}</span></button></div>`; }).join('');
+    return;
+  }
+  const L = curL();
+  $('#toc-title').textContent = L.type === 'video' ? '家族目錄' : '情境目錄';
+  el.innerHTML = L.groups.map(g => {
+    const cs = L.cards.filter(c => c.groupId === g.id);
+    return `<div class="toc-fam"><button data-goto-fam="${esc(g.id)}"><span class="n">${g.number}</span>${esc(g.titleZh)}<span class="c">${cs.filter(c => isMastered(c.key)).length}/${cs.length}</span></button>
+      <div class="toc-items">${cs.map(c => `<button data-goto="${esc(c.key)}"><span class="dot ${isMastered(c.key) ? 'd2' : (S.progress[c.key] ? 'd1' : '')}"></span>${esc(c.label)}${S.stars.includes(c.key) ? '<span class="st">★</span>' : ''}</button>`).join('')}</div></div>`;
   }).join('');
 }
+function renderLessonSheet() {
+  const due = ALL_CARDS.filter(c => isDue(c.key)).length;
+  $('#lesson-list').innerHTML = `
+    <button class="lesson-row ${isReview() ? 'active' : ''}" data-lesson="${REVIEW}">
+      <span class="lr-ico">📅</span><span class="lr-main"><b>今日複習</b><small>所有課程混合，到期的卡片一起練</small></span><span class="lr-badge amber">${due} 到期</span></button>
+    ${LESSONS.map(L => { const s = lessonStats(L); return `
+    <button class="lesson-row ${S.settings.lesson === L.id ? 'active' : ''}" data-lesson="${esc(L.id)}">
+      <span class="lr-ico">${L.icon}</span><span class="lr-main"><b>${esc(L.short || L.title)}</b><small>${esc(L.title)} · ${s.total} ${L.type === 'video' ? '個 chunks' : '組問答'}</small>
+      <span class="bar"><i style="width:${s.total ? s.m / s.total * 100 : 0}%"></i></span></span><span class="lr-badge">${s.m}/${s.total}</span></button>`; }).join('')}`;
+}
+function openLesson(id, view) {
+  stopSpeech(); playing = false; shCursor = 0; query = ''; curGroup = 'all'; playerLesson = null;
+  S.settings.lesson = id; save();
+  F.list = []; F.done = false; C.order = []; C.scope = null;
+  notesBuiltFor = null;
+  renderLessonBtn(); renderFamBar(); renderPlayerMeta(); renderDash(); renderToc();
+  if (isDesktop() && curL() && curL().video) loadYT();
+  setView(view || S.settings.view || 'notes', true);
+  $('#main').scrollTop = 0;
+}
 
-/* ════════════ 📚 筆記重點 ════════════ */
-let query = '';
-function masteryChip(id) {
-  const p = S.progress[id], b = p ? Math.min(p.box, 5) : 0;
+/* ════════════ 📚 筆記 ════════════ */
+let query = '', notesBuiltFor = null;
+function masteryChip(k) {
+  const p = S.progress[k], b = p ? Math.min(p.box, 5) : 0;
   if (!p) return '<span class="mastery m0" title="還沒在閃卡練過">🌱 未練習</span>';
   if (b >= 2) return `<span class="mastery m2" title="熟練度 ${b}/5">✅ 已熟練 ${b}/5</span>`;
   return `<span class="mastery m1" title="熟練度 ${b}/5">📈 練習中 ${b}/5</span>`;
 }
+function starBtn(k) { const st = S.stars.includes(k); return `<button class="star ${st ? 'on' : ''}" data-star="${esc(k)}" aria-label="標記今日必背">${st ? '★' : '☆'}</button>`; }
+function itemList(c, pats) {
+  const L = c.lesson;
+  return `<ul class="ex">${c.items.map(e => `<li class="ex-item">
+      <button class="mini" data-say="${esc(e.en)}" aria-label="朗讀">🔊</button>
+      <div class="ex-text"><div class="ex-line">${hl(e.en, pats)}</div><div class="ex-zh">${esc(e.zh)}</div>${e.note ? `<div class="ex-note">💡 ${esc(e.note)}</div>` : ''}</div>
+      ${e.time != null && L.video ? `<button class="ts sm" data-seek="${e.time}" data-lid="${esc(L.id)}">${fmt(e.time)}</button>` : '<span></span>'}</li>`).join('')}</ul>`;
+}
 function chunkCard(c) {
-  const f = FAM[c.familyId], p = prog(c.id), st = S.stars.includes(c.id), b = Math.min(p.box, 5);
-  return `<article class="ccard" id="chunk-${c.id}">
-    <div class="c-head">
-      <span class="badge">Family ${f.number} · ${esc(famShort(f))}</span>
-      <button class="ts" data-seek="${c.timestamp}">🎬 ${c.timestampFormatted}</button>
-      <button class="star ${st ? 'on' : ''}" data-star="${c.id}" aria-label="標記今日必背">${st ? '★' : '☆'}</button>
-    </div>
+  const L = c.lesson;
+  return `<article class="ccard" id="${safeId(c.key)}">
+    <div class="c-head"><span class="badge">${esc(groupLabel(c))}</span>
+      ${c.timestamp != null && L.video ? `<button class="ts" data-seek="${c.timestamp}" data-lid="${esc(L.id)}">🎬 ${fmt(c.timestamp)}</button>` : ''}${starBtn(c.key)}</div>
     <h3 class="written"><span class="cno">#${pad2(c.id)}</span>${esc(c.written)}</h3>
     ${c.hasSpoken ? `<div class="spoken">⚡ 自然連音：${esc(c.spoken)}</div>` : ''}
-    <div class="say-row">
-      <button class="pbtn" data-say="${esc(c.sayText)}">🔊 正常朗讀</button>
-      <button class="pbtn" data-say="${esc(c.sayText)}" data-rate="0.8">🐢 慢速 0.8x</button>
-      ${masteryChip(c.id)}
-    </div>
+    <div class="say-row"><button class="pbtn" data-say="${esc(c.sayText)}">🔊 正常朗讀</button><button class="pbtn" data-say="${esc(c.sayText)}" data-rate="0.8">🐢 慢速 0.8x</button>${masteryChip(c.key)}</div>
     <p class="meaning">${esc(c.meaningZh)}</p>
-    <div class="tip">💡 ${esc(c.usageNote)}</div>
-    <ul class="ex">${c.examples.map(e => `<li class="ex-item">
-      <button class="mini" data-say="${esc(e.en)}" aria-label="朗讀例句">🔊</button>
-      <div class="ex-text"><div class="ex-line">${hl(e.en, c.patterns)}</div><div class="ex-zh">${esc(e.zh)}</div></div>
-      <button class="ts sm" data-seek="${e.time}" aria-label="跳到影片 ${fmt(e.time)}">${fmt(e.time)}</button></li>`).join('')}</ul>
+    ${c.usageNote ? `<div class="tip">💡 ${esc(c.usageNote)}</div>` : ''}
+    ${itemList(c, c.patterns)}
   </article>`;
 }
+function qaCard(c) {
+  const pats = [...c.patterns, ...ALL_PATTERNS];
+  return `<article class="ccard qa" id="${safeId(c.key)}">
+    <div class="c-head"><span class="badge">${esc(groupLabel(c))}</span><span class="spacer-auto"></span>${starBtn(c.key)}</div>
+    <div class="qa-q"><span class="qtag">Q</span><h3 class="written">${hl(c.question, pats)}</h3></div>
+    <p class="meaning">${esc(c.questionZh)}</p>
+    <div class="say-row"><button class="pbtn" data-say="${esc(c.sayText)}">🔊 正常朗讀</button><button class="pbtn" data-say="${esc(c.sayText)}" data-rate="0.8">🐢 慢速 0.8x</button>${masteryChip(c.key)}</div>
+    ${c.usageNote ? `<div class="tip">💡 ${esc(c.usageNote)}</div>` : ''}
+    <div class="ans-title">💬 自然回答</div>
+    ${itemList(c, pats)}
+  </article>`;
+}
+const cardHtml = c => c.kind === 'qa' ? qaCard(c) : chunkCard(c);
 function matchQuery(c) {
   if (!query) return true;
   const q = query.toLowerCase();
-  return [c.written, c.spoken, c.meaningZh, c.usageNote, ...c.examples.flatMap(e => [e.en, e.zh])].join(' ').toLowerCase().includes(q);
+  return [c.written, c.spoken, c.meaningZh, c.question, c.questionZh, c.usageNote, ...c.items.flatMap(e => [e.en, e.zh])].join(' ').toLowerCase().includes(q);
+}
+function today5Html() {
+  return `<div class="panel today5"><div class="today5-head"><h3>⭐ 今日必背 5 個</h3><button class="btn sm" id="btn-pick5">🎲 幫我挑</button><button class="btn sm" id="btn-clear5">清空</button></div><div class="slots" id="slots"></div>
+    <p class="muted" style="font-size:.72rem;margin-top:8px">每天挑 5 個重複唸很多次。可以跨課程挑，點卡片右上角 ☆ 加入。</p></div>`;
 }
 function renderNotes() {
   const v = $('#view-notes');
-  if (!v.dataset.built) {
-    v.dataset.built = 1;
-    v.innerHTML = `
-      <details class="intro" id="intro">
-        <summary><h2>${esc(D.videoMeta.title)}</h2><span class="chev">›</span></summary>
-        <div class="muted" style="font-size:.74rem;margin-top:4px">${esc(D.videoMeta.channel)} · ${D.videoMeta.durationFormatted} <button class="ts sm" data-seek="0">▶ 從頭看</button></div>
-        <p class="core">${esc(D.videoMeta.coreConcept)}</p>
-        <div class="concepts">${CONCEPTS.map(c => `<div class="concept"><h4>${c.icon} ${esc(c.t)}</h4><p>${esc(c.p)}<span class="quote">${esc(c.q)}</span></p></div>`).join('')}</div>
-      </details>
-      <div class="notes-dash" id="notes-dash"></div>
-      <div class="panel today5"><div class="today5-head"><h3>⭐ 今日必背 5 個</h3><button class="btn sm" id="btn-pick5">🎲 幫我挑</button><button class="btn sm" id="btn-clear5">清空</button></div><div class="slots" id="slots"></div>
-        <p class="muted" style="font-size:.72rem;margin-top:8px">影片 19:27 建議：每天挑 5 個 chunks，重複唸很多次。點卡片右上角 ☆ 加入。</p></div>
-      <div class="search"><input type="search" id="q" placeholder="搜尋 chunk、中文或例句…" autocomplete="off"></div>
-      <div id="notes-list"></div>`;
-    try { if (localStorage.getItem(KEY + '-intro') !== 'closed') $('#intro').open = true; } catch (e) { $('#intro').open = true; }
-    $('#intro').addEventListener('toggle', e => { try { localStorage.setItem(KEY + '-intro', e.target.open ? 'open' : 'closed'); } catch (_) {} });
-    $('#q').addEventListener('input', e => { query = e.target.value.trim(); renderNotesList(); });
+  const L = curL();
+  if (notesBuiltFor !== S.settings.lesson) {
+    notesBuiltFor = S.settings.lesson;
+    if (!L) {
+      v.innerHTML = `
+        <div class="intro review-hero"><h2>📅 今日複習</h2><p class="core">所有課程到期的卡片會混在一起。每天打開這裡、練完到期的卡就好。</p>
+          <div class="row" style="margin-top:12px"><button class="btn primary" id="btn-start-review">🃏 開始今日複習</button><button class="btn" data-view="catch">🎯 混合聽力抓塊</button></div></div>
+        <div class="notes-dash" id="notes-dash"></div>
+        ${today5Html()}
+        <div class="sec-title" style="margin-top:6px">我的課程</div>
+        <div class="lesson-cards" id="lesson-cards"></div>
+        <p class="muted" style="font-size:.74rem;margin-top:14px;line-height:1.7">➕ 想加新課：把影片逐字稿或口語問答句貼給 Claude，整理好就會多一課。</p>`;
+    } else {
+      const intro = L.type === 'video'
+        ? `<details class="intro" id="intro"><summary><h2>${esc(L.video.title)}</h2><span class="chev">›</span></summary>
+            <div class="muted" style="font-size:.74rem;margin-top:4px">${esc(L.video.channel || '')} · ${esc(L.video.durationFormatted || '')} <button class="ts sm" data-seek="0" data-lid="${esc(L.id)}">▶ 從頭看</button></div>
+            ${L.video.coreConcept ? `<p class="core">${esc(L.video.coreConcept)}</p>` : ''}
+            <div class="concepts">${(L.concepts || []).map(c => `<div class="concept"><h4>${c.icon} ${esc(c.t)}</h4><p>${esc(c.p)}<span class="quote">${esc(c.q)}</span></p></div>`).join('')}</div></details>`
+        : `<details class="intro" id="intro"><summary><h2>💬 ${esc(L.title)}</h2><span class="chev">›</span></summary>
+            ${L.description ? `<p class="core">${esc(L.description)}</p>` : ''}
+            ${(L.concepts || []).length ? `<div class="concepts">${L.concepts.map(c => `<div class="concept"><h4>${c.icon || '📌'} ${esc(c.t)}</h4><p>${esc(c.p)}${c.q ? `<span class="quote">${esc(c.q)}</span>` : ''}</p></div>`).join('')}</div>` : ''}</details>`;
+      v.innerHTML = `${intro}<div class="notes-dash" id="notes-dash"></div>${today5Html()}
+        <div class="search"><input type="search" id="q" placeholder="搜尋這一課…" autocomplete="off"></div><div id="notes-list"></div>`;
+      const ik = KEY + '-intro-' + L.id;
+      try { $('#intro').open = localStorage.getItem(ik) !== 'closed'; } catch (e) { $('#intro').open = true; }
+      $('#intro').addEventListener('toggle', e => { try { localStorage.setItem(ik, e.target.open ? 'open' : 'closed'); } catch (_) {} });
+      $('#q').addEventListener('input', e => { query = e.target.value.trim(); renderNotesList(); });
+    }
   }
-  renderDash(); renderSlots(); renderNotesList();
+  renderDash(); renderSlots();
+  if (!L) renderLessonCards(); else renderNotesList();
+}
+function renderLessonCards() {
+  const el = $('#lesson-cards'); if (!el) return;
+  el.innerHTML = LESSONS.map(L => { const s = lessonStats(L); return `
+    <button class="lesson-card" data-lesson="${esc(L.id)}">
+      <span class="lc-top"><span class="lc-ico">${L.icon}</span><span class="lc-date">${esc(L.date)}</span>${s.due ? `<span class="lr-badge amber">${s.due} 到期</span>` : '<span class="lr-badge green">✓ 今日完成</span>'}</span>
+      <b>${esc(L.title)}</b>
+      <small>${L.type === 'video' ? '影片課' : '問答句'} · ${L.groups.length} 個${L.type === 'video' ? '家族' : '情境'} · ${s.total} 張卡</small>
+      <span class="bar"><i style="width:${s.total ? s.m / s.total * 100 : 0}%"></i></span>
+      <small>已熟練 ${s.m} / ${s.total}</small></button>`; }).join('') || '<div class="empty">還沒有課程</div>';
 }
 function renderSlots() {
   const el = $('#slots'); if (!el) return;
-  const items = S.stars.map(id => CHUNK[id]).filter(Boolean);
+  const items = S.stars.map(k => CARD[k]).filter(Boolean);
   el.innerHTML = Array.from({ length: 5 }, (_, i) => items[i]
-    ? `<button class="slot filled" data-goto="${items[i].id}">${esc(items[i].core)}</button>`
+    ? `<button class="slot filled" data-goto="${esc(items[i].key)}">${esc(items[i].label)}</button>`
     : `<span class="slot">空位</span>`).join('');
 }
 function renderNotesList() {
-  const el = $('#notes-list'); if (!el) return;
-  const fams = D.families.filter(f => curFam === 'all' || f.id === curFam);
+  const el = $('#notes-list'); const L = curL(); if (!el || !L) return;
+  const gs = L.groups.filter(g => curGroup === 'all' || g.id === curGroup);
   let html = '', total = 0;
-  fams.forEach(f => {
-    const cs = D.chunks.filter(c => c.familyId === f.id && matchQuery(c));
+  gs.forEach(g => {
+    const cs = L.cards.filter(c => c.groupId === g.id && matchQuery(c));
     if (!cs.length) return; total += cs.length;
-    html += `<div class="fam-head"><div class="fam-num">${f.number}</div><h2>${esc(f.titleZh)}<small>${esc(f.titleEn)}</small></h2><button class="ts" data-seek="${f.startTime}">🎬 ${fmt(f.startTime)}</button></div>
-      <p class="fam-desc">${esc(f.description)}</p><div class="grid">${cs.map(chunkCard).join('')}</div>`;
+    html += `<div class="fam-head"><div class="fam-num">${g.number}</div><h2>${esc(g.titleZh)}${g.titleEn ? `<small>${esc(g.titleEn)}</small>` : ''}</h2>${g.startTime != null && L.video ? `<button class="ts" data-seek="${g.startTime}" data-lid="${esc(L.id)}">🎬 ${fmt(g.startTime)}</button>` : ''}</div>
+      ${g.description ? `<p class="fam-desc">${esc(g.description)}</p>` : ''}<div class="grid">${cs.map(cardHtml).join('')}</div>`;
   });
-  el.innerHTML = total ? html : `<div class="empty"><span class="big">🔍</span>找不到「${esc(query)}」相關的 chunk</div>`;
+  el.innerHTML = total ? html : `<div class="empty"><span class="big">🔍</span>找不到「${esc(query)}」</div>`;
 }
-function toggleStar(id) {
-  const i = S.stars.indexOf(id);
+function toggleStar(k) {
+  const i = S.stars.indexOf(k);
   if (i >= 0) S.stars.splice(i, 1);
-  else { if (S.stars.length >= 5) { toast('今日必背最多 5 個，先取消一個吧'); return; } S.stars.push(id); toast('⭐ 已加入今日必背'); }
+  else { if (S.stars.length >= 5) { toast('今日必背最多 5 個，先取消一個吧'); return; } S.stars.push(k); toast('⭐ 已加入今日必背'); }
   save(); renderSlots(); renderDash(); renderToc();
-  const btn = $(`[data-star="${id}"]`); if (btn) { const on = S.stars.includes(id); btn.classList.toggle('on', on); btn.textContent = on ? '★' : '☆'; }
+  $$(`[data-star="${CSS.escape(k)}"]`).forEach(btn => { const on = S.stars.includes(k); btn.classList.toggle('on', on); btn.textContent = on ? '★' : '☆'; });
 }
 function pick5() {
-  const weak = shuffle(D.chunks.filter(c => !isMastered(c.id))).concat(shuffle(D.chunks.filter(c => isMastered(c.id))));
-  S.stars = weak.slice(0, 5).map(c => c.id); save(); renderNotesList(); renderSlots(); renderDash(); renderToc();
+  const pool = scopeCards(false);
+  const weak = shuffle(pool.filter(c => !isMastered(c.key))).concat(shuffle(pool.filter(c => isMastered(c.key))));
+  S.stars = weak.slice(0, 5).map(c => c.key); save();
+  notesBuiltFor === S.settings.lesson && (curL() ? renderNotesList() : null);
+  renderSlots(); renderDash(); renderToc();
   toast('🎲 已優先挑選還不熟的 5 個');
 }
-function gotoChunk(id) {
-  if (curFam !== 'all' && CHUNK[id].familyId !== curFam) { curFam = 'all'; renderFamBar(); }
+function gotoCard(k) {
+  const c = CARD[k]; if (!c) return;
+  if (S.settings.lesson !== c.lesson.id) openLesson(c.lesson.id, 'notes');
+  if (curGroup !== 'all' && curGroup !== c.groupId) { curGroup = 'all'; renderFamBar(); }
   query = ''; const q = $('#q'); if (q) q.value = '';
-  setView('notes');
+  setView('notes'); renderNotesList();
   requestAnimationFrame(() => {
-    const el = $('#chunk-' + id); if (!el) return;
+    const el = document.getElementById(safeId(k)); if (!el) return;
     el.scrollIntoView({ behavior: 'smooth', block: 'start' });
     el.classList.add('flash-hl'); setTimeout(() => el.classList.remove('flash-hl'), 1600);
   });
 }
 
-/* ════════════ 🃏 閃卡抽考 ════════════ */
+/* ════════════ 🃏 閃卡 ════════════ */
 const F = { list: [], idx: 0, flipped: false, ok: 0, bad: 0, again: [], done: false };
-function buildDeck(ids) {
-  let base = famChunks();
-  if (ids) base = ids.map(id => CHUNK[id]);
-  else if (S.settings.deck === 'due') base = base.filter(c => isDue(c.id));
-  else if (S.settings.deck === 'star') base = base.filter(c => S.stars.includes(c.id));
-  F.list = shuffle(base).map(c => ({ id: c.id, ex: c.examples[Math.floor(Math.random() * c.examples.length)] }));
+function buildDeck(keys) {
+  let base = scopeCards(true);
+  if (keys) base = keys.map(k => CARD[k]).filter(Boolean);
+  else if (S.settings.deck === 'due') base = base.filter(c => isDue(c.key));
+  else if (S.settings.deck === 'star') base = ALL_CARDS.filter(c => S.stars.includes(c.key));
+  F.list = shuffle(base).map(c => ({ key: c.key, ex: c.items.length ? c.items[Math.floor(Math.random() * c.items.length)] : null }));
   F.idx = 0; F.flipped = false; F.ok = 0; F.bad = 0; F.again = []; F.done = false;
+}
+function flashBack(c, it) {
+  const L = c.lesson;
+  if (c.kind === 'qa') {
+    const pats = [...c.patterns, ...ALL_PATTERNS];
+    return `<div class="c-head"><span class="badge">${esc(isReview() ? (L.short || L.title) : groupLabel(c))}</span></div>
+      <h3 class="written" style="font-size:1.25rem">${hl(c.question, pats)}</h3>
+      <p class="meaning" style="font-size:.86rem">${esc(c.questionZh)}</p>
+      <div class="ans-title">💬 自然回答</div>
+      ${itemList(c, pats)}
+      ${c.usageNote ? `<div class="tip">💡 ${esc(c.usageNote)}</div>` : ''}`;
+  }
+  return `<div class="c-head"><span class="badge">${esc(isReview() ? (L.short || L.title) : '#' + pad2(c.id))}</span>${it && it.time != null && L.video ? `<button class="ts" data-seek="${it.time}" data-lid="${esc(L.id)}">🎬 ${fmt(it.time)}</button>` : ''}</div>
+    <h3 class="written">${esc(c.written)}</h3>
+    ${c.hasSpoken ? `<div class="spoken">⚡ ${esc(c.spoken)}</div>` : ''}
+    <p class="meaning" style="font-size:.88rem">${esc(c.meaningZh)}</p>
+    ${it ? `<div class="ex-en"><button class="mini" data-say="${esc(it.en)}">🔊</button><span>${hl(it.en, c.patterns)}</span></div><div class="ex-zh">${esc(it.zh)}</div>` : ''}
+    ${c.usageNote ? `<div class="tip" style="margin-top:auto">💡 ${esc(c.usageNote)}</div>` : ''}`;
 }
 function renderFlash() {
   const v = $('#view-flash');
@@ -713,43 +913,30 @@ function renderFlash() {
   let body = '';
   if (!F.list.length) {
     const msg = S.settings.deck === 'due' ? '<span class="big">🎉</span>這個範圍今天都複習完了！<br>想多練可以切到「全部」。'
-      : S.settings.deck === 'star' ? '<span class="big">⭐</span>還沒有標記今日必背的 chunk。<br>到「筆記重點」點 ☆，或按「🎲 幫我挑」。' : '<span class="big">📭</span>這個家族沒有卡片';
+      : S.settings.deck === 'star' ? '<span class="big">⭐</span>還沒有標記今日必背的卡片。<br>到「筆記重點」點 ☆，或按「🎲 幫我挑」。' : '<span class="big">📭</span>這個範圍沒有卡片';
     body = `<div class="empty">${msg}</div>`;
   } else if (F.done) {
     body = `<div class="empty"><span class="big">🏁</span><b style="color:var(--text);font-size:1.1rem">完成！</b><br>✅ 熟練 ${F.ok} ・ ❌ 再練 ${F.bad}</div>
       <div class="row" style="justify-content:center">${F.again.length ? `<button class="btn red" id="btn-redo">🔁 重練不熟的 ${F.again.length} 張</button>` : ''}<button class="btn primary" id="btn-restart">🔀 重新洗牌</button></div>`;
   } else {
-    const it = F.list[F.idx], c = CHUNK[it.id], f = FAM[c.familyId];
+    const it = F.list[F.idx], c = CARD[it.key];
+    const badge = isReview() ? `${c.lesson.icon} ${c.lesson.short || c.lesson.title}` : groupLabel(c);
     const front = S.settings.fmode === 'listen'
-      ? `<button class="big-play" id="fc-play" aria-label="播放">▶</button><div class="q-hint">聽一聽：這句藏了哪個 chunk？想好再點卡片翻面</div>`
-      : `<div class="q-zh">${esc(c.meaningZh)}</div><div class="q-hint">試著說出英文 chunk，再點卡片翻面</div>`;
+      ? `<button class="big-play" id="fc-play" aria-label="播放">▶</button><div class="q-hint">${c.kind === 'qa' ? '聽問句：聽懂了嗎？想想你會怎麼回答，再翻面' : '聽一聽：這句藏了哪個 chunk？想好再點卡片翻面'}</div>`
+      : c.kind === 'qa'
+        ? `<div class="q-label">用英文怎麼問？</div><div class="q-zh">${esc(c.questionZh)}</div><div class="q-hint">說出英文問句，再想一個回答，然後翻面</div>`
+        : `<div class="q-zh">${esc(c.meaningZh)}</div><div class="q-hint">試著說出英文 chunk，再點卡片翻面</div>`;
     body = `
       <div class="scores">
         <div class="stat green"><div class="s-num">${F.ok}</div><div class="s-lbl">✅ 熟練</div></div>
-        <div class="stat" style="--x:0"><div class="s-num" style="color:var(--red)">${F.bad}</div><div class="s-lbl">❌ 再練</div></div>
+        <div class="stat"><div class="s-num" style="color:var(--red)">${F.bad}</div><div class="s-lbl">❌ 再練</div></div>
         <div class="stat"><div class="s-num">${F.list.length - F.idx}</div><div class="s-lbl">剩餘</div></div>
       </div>
-      <div class="card-area">
-        <div class="flip-wrapper" id="flip-wrap">
-          <div class="flip-inner ${F.flipped ? 'flipped' : ''}" id="flip-inner">
-            <div class="flip-face flip-front" id="fc-front">
-              <span class="badge">Family ${f.number} · ${esc(famShort(f))}</span>
-              <span class="counter">${F.idx + 1} / ${F.list.length}</span>
-              ${front}
-              <div class="tap-hint">👆 點擊翻面 ・ 👉 右滑熟練 ・ 👈 左滑再練</div>
-            </div>
-            <div class="flip-face flip-back">
-              <div class="c-head"><span class="badge">#${pad2(c.id)}</span><button class="ts" data-seek="${it.ex.time}">🎬 ${fmt(it.ex.time)}</button></div>
-              <h3 class="written">${esc(c.written)}</h3>
-              ${c.hasSpoken ? `<div class="spoken">⚡ ${esc(c.spoken)}</div>` : ''}
-              <p class="meaning" style="font-size:.88rem">${esc(c.meaningZh)}</p>
-              <div class="ex-en"><button class="mini" data-say="${esc(it.ex.en)}">🔊</button><span>${hl(it.ex.en, c.patterns)}</span></div>
-              <div class="ex-zh">${esc(it.ex.zh)}</div>
-              <div class="tip" style="margin-top:auto">💡 ${esc(c.usageNote)}</div>
-            </div>
-          </div>
-        </div>
-      </div>
+      <div class="card-area"><div class="flip-wrapper" id="flip-wrap"><div class="flip-inner ${F.flipped ? 'flipped' : ''}" id="flip-inner">
+        <div class="flip-face flip-front"><span class="badge">${esc(badge)}</span><span class="counter">${F.idx + 1} / ${F.list.length}</span>${front}
+          <div class="tap-hint">👆 點擊翻面 ・ 👉 右滑熟練 ・ 👈 左滑再練</div></div>
+        <div class="flip-face flip-back">${flashBack(c, it.ex)}</div>
+      </div></div></div>
       <div class="flash-btns">
         <button class="btn" data-nav="-1" aria-label="上一張">‹</button>
         <button class="btn red" data-markc="0">❌ 再練一次</button>
@@ -762,18 +949,15 @@ function renderFlash() {
   bindSwipe();
 }
 function flashSpeakCurrent() {
-  const it = F.list[F.idx]; if (!it) return;
-  speak(it.ex.en, { btn: $('#fc-play') });
+  const it = F.list[F.idx]; if (!it) return; const c = CARD[it.key];
+  speak(c.kind === 'qa' ? c.question : (it.ex ? it.ex.en : c.sayText), { btn: $('#fc-play') });
 }
 function flip() { if (!F.list.length || F.done) return; F.flipped = !F.flipped; $('#flip-inner') && $('#flip-inner').classList.toggle('flipped', F.flipped); }
-function flashNav(d) {
-  if (!F.list.length || F.done) return;
-  F.idx = Math.max(0, Math.min(F.list.length - 1, F.idx + d)); F.flipped = false; stopSpeech(); renderFlash(); autoListen();
-}
+function flashNav(d) { if (!F.list.length || F.done) return; F.idx = Math.max(0, Math.min(F.list.length - 1, F.idx + d)); F.flipped = false; stopSpeech(); renderFlash(); autoListen(); }
 function markCur(ok) {
   if (!F.list.length || F.done) return;
-  const it = F.list[F.idx]; mark(it.id, ok);
-  if (ok) F.ok++; else { F.bad++; F.again.push(it.id); }
+  const it = F.list[F.idx]; mark(it.key, ok);
+  if (ok) F.ok++; else { F.bad++; F.again.push(it.key); }
   if (F.idx >= F.list.length - 1) F.done = true; else F.idx++;
   F.flipped = false; stopSpeech(); renderFlash(); autoListen();
 }
@@ -804,61 +988,58 @@ function bindSwipe() {
 let hideEn = false, playing = false, shCursor = 0;
 const recordings = {}; let rec = null;
 function renderTalk() {
-  const v = $('#view-talk'); const sub = S.settings.talkSub;
-  const top = `<div class="talk-top"><div class="seg"><button data-talk="dialog" class="${sub === 'dialog' ? 'active' : ''}">💬 實戰對話</button><button data-talk="shadow" class="${sub === 'shadow' ? 'active' : ''}">🔁 19 句跟讀</button></div></div>`;
+  const v = $('#view-talk'); const L = curL();
+  if (!L) {
+    v.innerHTML = `<div class="empty" style="padding-bottom:16px"><span class="big">💬</span>對話與跟讀要一課一課練。<br>選一課開始：</div><div class="lesson-cards" id="talk-lessons"></div>`;
+    $('#talk-lessons').innerHTML = LESSONS.map(L2 => `<button class="lesson-card" data-lesson="${esc(L2.id)}" data-lview="talk"><span class="lc-top"><span class="lc-ico">${L2.icon}</span><span class="lc-date">${esc(L2.date)}</span></span><b>${esc(L2.title)}</b><small>${L2.dialogue ? L2.dialogue.lines.length + ' 句對話' : ''}${L2.shadow ? ' · ' + L2.shadow.sentences.length + ' 句跟讀' : ''}</small></button>`).join('');
+    return;
+  }
+  const sub = S.settings.talkSub;
+  const shN = L.shadow ? L.shadow.sentences.length : 0;
+  const top = `<div class="talk-top"><div class="seg"><button data-talk="dialog" class="${sub === 'dialog' ? 'active' : ''}">💬 ${L.type === 'video' ? '實戰對話' : '問答對練'}</button><button data-talk="shadow" class="${sub === 'shadow' ? 'active' : ''}">🔁 ${shN} 句跟讀</button></div></div>`;
+  const tsBtn = (t, label) => t != null && L.video ? `<button class="ts${label ? '' : ' sm'}" data-seek="${t}" data-lid="${esc(L.id)}">${label || ''}${fmt(t)}</button>` : '';
   if (sub === 'dialog') {
-    const dp = D.dialoguePractice;
+    const dp = L.dialogue;
+    if (!dp) { v.innerHTML = top + '<div class="empty">這一課沒有對話</div>'; return; }
     v.innerHTML = top + `
-      <div class="ctrl-bar">
-        <button class="btn primary" id="btn-play-all">${playing ? '⏹ 停止' : '▶ 連續播放'}</button>
-        <button class="btn ${hideEn ? 'primary' : ''}" id="btn-hide">${hideEn ? '👀 顯示英文' : '🙈 隱藏英文'}</button>
-        <span class="spacer"></span>
-        <button class="ts" data-seek="${dp.startTime}">🎬 原片 ${fmt(dp.startTime)}</button>
-      </div>
-      <p class="muted" style="font-size:.76rem;margin-bottom:12px;line-height:1.6">${esc(dp.title)}。隱藏英文時，先看中文自己說出英文，再點模糊處對答案。</p>
+      <div class="ctrl-bar"><button class="btn primary" id="btn-play-all">${playing ? '⏹ 停止' : '▶ 連續播放'}</button>
+        <button class="btn ${hideEn ? 'primary' : ''}" id="btn-hide">${hideEn ? '👀 顯示英文' : '🙈 隱藏英文'}</button><span class="spacer"></span>${tsBtn(dp.startTime, '🎬 原片 ')}</div>
+      <p class="muted" style="font-size:.76rem;margin-bottom:12px;line-height:1.6">${esc(dp.title || '')}。隱藏英文時，先看中文自己說出英文，再點模糊處對答案。</p>
       <div class="chat ${hideEn ? 'hide-en' : ''}" id="chat">
-        ${dp.lines.map((l, i) => `<div class="bubble ${l.speaker}" id="line-${i}">
-          <div class="b-head"><span class="spk">${l.speaker}</span><button class="mini" data-say="${esc(l.en)}" data-pitch="${l.speaker === 'B' ? 1.15 : 0.95}">🔊</button><button class="ts sm" data-seek="${l.time}">${fmt(l.time)}</button></div>
-          <div class="b-en">${hl(l.en, l.chunksUsed)}</div>
+        ${dp.lines.map((l, i) => `<div class="bubble ${l.speaker === 'B' ? 'B' : 'A'}" id="line-${i}">
+          <div class="b-head"><span class="spk">${esc(l.speaker || 'A')}</span><button class="mini" data-say="${esc(l.en)}" data-pitch="${l.speaker === 'B' ? 1.15 : 0.95}">🔊</button>${tsBtn(l.time)}</div>
+          <div class="b-en">${hl(l.en, [...(l.chunksUsed || []), ...(L.type === 'video' ? [] : ALL_PATTERNS)])}</div>
           <div class="b-zh">${esc(l.zh)}</div>
-          <div class="chips">${l.chunksUsed.map(c => `<span class="chip">${esc(c)}</span>`).join('')}</div>
+          ${(l.chunksUsed || []).length ? `<div class="chips">${l.chunksUsed.map(c => `<span class="chip">${esc(c)}</span>`).join('')}</div>` : ''}
         </div>`).join('')}
       </div>`;
   } else {
-    const ss = D.finalShadowingSet; const st = S.settings;
+    const ss = L.shadow; const st = S.settings;
+    if (!ss) { v.innerHTML = top + '<div class="empty">這一課沒有跟讀清單</div>'; return; }
     const segs = (key, opts) => `<div class="seg">${opts.map(([val, t]) => `<button data-set="${key}" data-val="${val}" class="${String(st[key]) === String(val) ? 'active' : ''}">${t}</button>`).join('')}</div>`;
     v.innerHTML = top + `
-      <div class="ctrl-bar">
-        <button class="btn primary" id="btn-shadow">${playing ? '⏹ 停止' : '▶ 開始跟讀'}</button>
-        <button class="btn ${hideEn ? 'primary' : ''}" id="btn-hide">${hideEn ? '👀 顯示英文' : '🙈 隱藏英文'}</button>
-        <span class="spacer"></span>
-        <button class="ts" data-seek="${ss.startTime}">🎬 原片 ${fmt(ss.startTime)}</button>
-      </div>
-      <div class="ctrl-bar">
-        <span class="lbl">跟讀間隔</span>${segs('gap', [['auto', '自動'], ['2', '2s'], ['4', '4s']])}
+      <div class="ctrl-bar"><button class="btn primary" id="btn-shadow">${playing ? '⏹ 停止' : (shCursor ? `▶ 從第 ${shCursor + 1} 句開始` : '▶ 開始跟讀')}</button>
+        <button class="btn ${hideEn ? 'primary' : ''}" id="btn-hide">${hideEn ? '👀 顯示英文' : '🙈 隱藏英文'}</button><span class="spacer"></span>${tsBtn(ss.startTime, '🎬 原片 ')}</div>
+      <div class="ctrl-bar"><span class="lbl">跟讀間隔</span>${segs('gap', [['auto', '自動'], ['2', '2s'], ['4', '4s']])}
         <span class="lbl">每句</span>${segs('repeat', [['1', '1×'], ['2', '2×'], ['3', '3×']])}
-        <span class="lbl">語速</span>${segs('shRate', [['0.8', '0.8'], ['1', '1.0']])}
-      </div>
+        <span class="lbl">語速</span>${segs('shRate', [['0.8', '0.8'], ['1', '1.0']])}</div>
       <div class="turn" id="turn"><span id="turn-txt">🗣️ 換你跟讀…</span><div class="bar"><i id="turn-bar" style="width:0"></i></div></div>
       <p class="muted" style="font-size:.74rem;margin-bottom:10px">點一列選起點 ・ 🎙 錄下自己的聲音再回放對照 ・ 金色是自然連音</p>
       <ol class="sh-list ${hideEn ? 'hide-en' : ''}" id="sh-list">
-        ${ss.sentences.map((s, i) => `<li class="sh-row ${i === shCursor ? 'cursor' : ''}" id="sh-${i}" data-shrow="${i}">
+        ${ss.sentences.map((s, i) => { const rk = L.id + ':' + i; return `<li class="sh-row ${i === shCursor ? 'cursor' : ''}" id="sh-${i}" data-shrow="${i}">
           <span class="sh-no">${i + 1}</span>
-          <div><div class="sh-en">${hl(s.en, ALL_PATTERNS)}</div>${s.spoken !== s.en ? `<div class="sh-sp">⚡ ${esc(s.spoken)}</div>` : ''}<div class="sh-zh">${esc(s.zh)}</div></div>
-          <div class="sh-act">
-            <button class="mini" data-say="${esc(s.en)}" aria-label="朗讀">🔊</button>
-            <button class="mini" data-rec="${i}" aria-label="錄音">🎙</button>
-            ${recordings[i] ? `<button class="mini" data-playrec="${i}" aria-label="播放錄音" style="background:rgba(34,197,94,.18)">▶</button>` : ''}
-            <button class="ts sm" data-seek="${s.time}">${fmt(s.time)}</button>
-          </div>
-        </li>`).join('')}
+          <div><div class="sh-en">${hl(s.en, ALL_PATTERNS)}</div>${s.spoken && s.spoken !== s.en ? `<div class="sh-sp">⚡ ${esc(s.spoken)}</div>` : ''}<div class="sh-zh">${esc(s.zh)}</div></div>
+          <div class="sh-act"><button class="mini" data-say="${esc(s.en)}" aria-label="朗讀">🔊</button><button class="mini" data-rec="${i}" aria-label="錄音">🎙</button>
+            ${recordings[rk] ? `<button class="mini" data-playrec="${i}" aria-label="播放錄音" style="background:rgba(34,197,94,.18)">▶</button>` : ''}${tsBtn(s.time)}</div>
+        </li>`; }).join('')}
       </ol>`;
   }
 }
 async function playDialogue() {
   if (playing) { playing = false; stopSpeech(); renderTalk(); return; }
+  const L = curL(); if (!L || !L.dialogue) return;
   playing = true; const run = ++TTS.run; renderTalk();
-  const lines = D.dialoguePractice.lines;
+  const lines = L.dialogue.lines;
   for (let i = 0; i < lines.length; i++) {
     if (run !== TTS.run) return;
     $$('.bubble.now').forEach(b => b.classList.remove('now'));
@@ -871,8 +1052,9 @@ async function playDialogue() {
 }
 async function playShadow() {
   if (playing) { playing = false; stopSpeech(); renderTalk(); return; }
+  const L = curL(); if (!L || !L.shadow) return;
   playing = true; TTS.run++; const run = TTS.run; renderTalk();
-  const ss = D.finalShadowingSet.sentences; const st = S.settings;
+  const ss = L.shadow.sentences; const st = S.settings;
   for (let i = shCursor; i < ss.length; i++) {
     for (let r = 0; r < Number(st.repeat); r++) {
       if (run !== TTS.run) return;
@@ -889,12 +1071,13 @@ async function playShadow() {
       while (performance.now() - t0 < gap) { if (run !== TTS.run) return; bar.style.width = ((performance.now() - t0) / gap * 100) + '%'; await sleep(50); }
     }
   }
-  if (run === TTS.run) { playing = false; shCursor = 0; renderTalk(); toast('🎉 19 句跟讀完成！'); touchDay(); save(); renderDash(); }
+  if (run === TTS.run) { playing = false; shCursor = 0; renderTalk(); toast(`🎉 ${ss.length} 句跟讀完成！`); touchDay(); save(); renderDash(); }
 }
 async function toggleRec(i) {
   if (rec && rec.state === 'recording') { rec.stop(); return; }
   if (!navigator.mediaDevices || !window.MediaRecorder) { toast('這個瀏覽器不支援錄音'); return; }
   stopSpeech(); if (playing) { playing = false; renderTalk(); }
+  const rk = curL().id + ':' + i;
   try {
     const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
     const chunks = []; rec = new MediaRecorder(stream);
@@ -902,37 +1085,48 @@ async function toggleRec(i) {
     rec.onstop = () => {
       stream.getTracks().forEach(t => t.stop());
       const blob = new Blob(chunks, { type: rec.mimeType || 'audio/mp4' });
-      if (recordings[i]) URL.revokeObjectURL(recordings[i]);
-      recordings[i] = URL.createObjectURL(blob); rec = null;
-      renderTalk(); new Audio(recordings[i]).play().catch(() => {});
+      if (recordings[rk]) URL.revokeObjectURL(recordings[rk]);
+      recordings[rk] = URL.createObjectURL(blob); rec = null;
+      renderTalk(); new Audio(recordings[rk]).play().catch(() => {});
     };
     rec.start(); const b = $(`[data-rec="${i}"]`); b && b.classList.add('rec'); toast('🎙 錄音中… 再按一次停止');
   } catch (e) { toast('無法使用麥克風：' + (e.message || e.name)); rec = null; }
 }
+function selectRow(row) {
+  if (playing) { playing = false; stopSpeech(); }
+  shCursor = Number(row.dataset.shrow); $$('.sh-row').forEach(x => x.classList.remove('cursor', 'now')); row.classList.add('cursor');
+  $('#turn') && $('#turn').classList.remove('show');
+  $('#btn-shadow') && ($('#btn-shadow').textContent = `▶ 從第 ${shCursor + 1} 句開始`);
+}
 
 /* ════════════ 🎯 聽力抓塊 ════════════ */
-const C = { order: [], i: 0, score: 0, answered: false, sel: new Set(), opts: [], showText: false };
+const C = { order: [], i: 0, score: 0, answered: false, sel: new Set(), opts: [], showText: false, scope: null, pool: [] };
 const EXTRA_DISTRACT = ['Let me check', 'have to go', 'What do you think', 'I know what you mean', 'That sounds good', 'a little later', 'sort of', 'I need to', 'You know', 'To be honest'];
-const norm = s => s.toLowerCase().replace(/[^a-z' ]/g, '').trim();
-function setupCatch() { C.order = shuffle(D.listeningChallenge.map((_, i) => i)); C.i = 0; C.score = 0; prepQ(); }
+const norm = s => String(s).toLowerCase().replace(/[^a-z' ]/g, '').trim();
+function setupCatch() {
+  const pool = isReview() ? LESSONS.flatMap(L => L.challenges) : curL().challenges;
+  C.pool = shuffle(pool).slice(0, isReview() ? 8 : pool.length);
+  C.order = C.pool.map((_, i) => i); C.i = 0; C.score = 0; C.scope = S.settings.lesson; prepQ();
+}
 function prepQ() {
   C.answered = false; C.sel = new Set(); C.showText = false;
-  const q = D.listeningChallenge[C.order[C.i]]; if (!q) return;
+  const q = C.pool[C.order[C.i]]; if (!q) return;
   const sent = norm(q.sentence), tg = q.targetChunks.map(norm);
-  const pool = [...new Set([...D.chunks.map(c => c.core), ...EXTRA_DISTRACT])]
+  const cores = ALL_CARDS.filter(c => c.kind === 'chunk').map(c => c.core).concat(ALL_CARDS.flatMap(c => c.kind === 'qa' ? (c.chunks || []) : []));
+  const pool = [...new Set([...cores, ...EXTRA_DISTRACT])]
     .filter(p => !tg.includes(norm(p)) && !sent.includes(norm(p)) && !tg.some(t => t.includes(norm(p)) || norm(p).includes(t)));
-  const n = Math.max(6 - q.targetChunks.length, 3);
-  C.opts = shuffle([...q.targetChunks, ...shuffle(pool).slice(0, n)]);
+  C.opts = shuffle([...q.targetChunks, ...shuffle(pool).slice(0, Math.max(6 - q.targetChunks.length, 3))]);
 }
 function renderCatch() {
   const v = $('#view-catch');
-  if (!C.order.length) setupCatch();
+  if (C.scope !== S.settings.lesson) setupCatch();
+  if (!C.pool.length) { v.innerHTML = '<div class="empty"><span class="big">🎯</span>這個範圍還沒有聽力題</div>'; return; }
   if (C.i >= C.order.length) {
     v.innerHTML = `<div class="catch-card"><div class="empty"><span class="big">${C.score === C.order.length ? '🏆' : '🎧'}</span><b style="color:var(--text);font-size:1.15rem">得分 ${C.score} / ${C.order.length}</b><br>${C.score === C.order.length ? '耳朵已經能抓到語塊了！' : '再聽幾次，語塊的聲音形狀會越來越清楚。'}</div>
-      <div class="row" style="justify-content:center"><button class="btn primary" id="btn-catch-again">🔀 再挑戰一次</button><button class="ts" data-seek="950">🎬 原片 15:50</button></div></div>`;
+      <div class="row" style="justify-content:center"><button class="btn primary" id="btn-catch-again">🔀 再挑戰一次</button></div></div>`;
     return;
   }
-  const q = D.listeningChallenge[C.order[C.i]];
+  const q = C.pool[C.order[C.i]];
   const tg = q.targetChunks.map(norm);
   const optHtml = C.opts.map(o => {
     let cls = '';
@@ -941,36 +1135,36 @@ function renderCatch() {
     return `<button class="opt ${cls}" data-opt="${esc(o)}">${esc(o)}</button>`;
   }).join('');
   const correct = C.answered && tg.length === C.sel.size && [...C.sel].every(s => tg.includes(norm(s)));
+  const seekBtn = q.time != null && q.lesson.video ? `<button class="ts" data-seek="${q.time}" data-lid="${esc(q.lesson.id)}">🎬 ${fmt(q.time)}</button>` : '';
   v.innerHTML = `<div class="catch-card">
-    <div class="q-meta"><span>第 ${C.i + 1} / ${C.order.length} 題</span><span>得分 ${C.score}</span></div>
+    <div class="q-meta"><span>第 ${C.i + 1} / ${C.order.length} 題${isReview() ? ` · ${q.lesson.icon} ${esc(q.lesson.short || q.lesson.title)}` : ''}</span><span>得分 ${C.score}</span></div>
     <div class="q-stage">
       <button class="big-play" id="btn-catch-play" aria-label="播放句子">▶</button>
-      <div class="row" style="justify-content:center"><button class="btn sm" id="btn-catch-slow">🐢 慢速</button><button class="btn sm" id="btn-catch-text">${C.showText || C.answered ? '🙈 藏起句子' : '👀 偷看句子'}</button><button class="ts" data-seek="${q.time}">🎬 ${fmt(q.time)}</button></div>
+      <div class="row" style="justify-content:center"><button class="btn sm" id="btn-catch-slow">🐢 慢速</button><button class="btn sm" id="btn-catch-text">${C.showText || C.answered ? '🙈 藏起句子' : '👀 偷看句子'}</button>${seekBtn}</div>
       <div class="q-sentence ${C.showText || C.answered ? '' : 'hidden-text'}">${C.answered ? hl(q.sentence, q.targetChunks) : esc(q.sentence)}</div>
     </div>
     <div class="sec-title" style="margin:0">這句話裡藏了哪幾個 chunk？（可複選）</div>
     <div class="opts">${optHtml}</div>
     ${C.answered ? `<div class="reveal-box"><div class="verdict ${correct ? 'ok' : 'ng'}">${correct ? '✅ 抓到了！' : '❌ 差一點'}</div>
        正確語塊：${q.targetChunks.map(t => `<mark class="hl">${esc(t)}</mark>`).join(' + ')}<br>
-       ⚡ 自然聽起來像：<mark class="hl-amber">${esc(q.spokenHint)}</mark><br><span class="muted">${esc(q.zh)}</span></div>
+       ${q.spokenHint && q.spokenHint !== q.sentence ? `⚡ 自然聽起來像：<mark class="hl-amber">${esc(q.spokenHint)}</mark><br>` : ''}<span class="muted">${esc(q.zh)}</span></div>
        <button class="btn primary" id="btn-catch-next">${C.i >= C.order.length - 1 ? '看結果 🏁' : '下一題 →'}</button>`
     : `<button class="btn primary" id="btn-catch-check" ${C.sel.size ? '' : 'disabled style="opacity:.5"'}>確認答案</button>`}
     <p class="kbd-hint"><kbd>Space</kbd> 播放 ・ <kbd>Enter</kbd> 確認 / 下一題</p>
   </div>`;
 }
-function playCatch(rate) { const q = D.listeningChallenge[C.order[C.i]]; if (q) speak(q.sentence, { rate, btn: $('#btn-catch-play') }); }
+function playCatch(rate) { const q = C.pool[C.order[C.i]]; if (q) speak(q.sentence, { rate, btn: $('#btn-catch-play') }); }
 function checkCatch() {
   if (C.answered) { C.i++; prepQ(); renderCatch(); if (C.i < C.order.length) setTimeout(() => playCatch(), 250); return; }
   if (!C.sel.size) return;
-  const q = D.listeningChallenge[C.order[C.i]], tg = q.targetChunks.map(norm);
-  const ok = tg.length === C.sel.size && [...C.sel].every(s => tg.includes(norm(s)));
-  if (ok) C.score++;
+  const q = C.pool[C.order[C.i]], tg = q.targetChunks.map(norm);
+  if (tg.length === C.sel.size && [...C.sel].every(s => tg.includes(norm(s)))) C.score++;
   C.answered = true; touchDay(); save(); renderDash(); renderCatch();
 }
 
 /* ════════════ 切換畫面 ════════════ */
-function setView(v) {
-  if (S.settings.view !== v) { stopSpeech(); if (playing) playing = false; }
+function setView(v, force) {
+  if (S.settings.view !== v || force) { stopSpeech(); if (playing) playing = false; }
   S.settings.view = v; save();
   $('#app').dataset.view = v;
   $$('button[data-view]').forEach(b => b.classList.toggle('active', b.dataset.view === v));
@@ -985,20 +1179,21 @@ function setView(v) {
 /* ════════════ 事件 ════════════ */
 document.addEventListener('click', e => {
   const t = e.target.closest('button, [data-shrow], .b-en, .sh-en'); if (!t) return;
-  const d = t.dataset;
   if (t.matches('.b-en, .sh-en')) {
     if (t.closest('.hide-en')) { t.classList.toggle('reveal'); return; }
-    const row = t.closest('[data-shrow]'); if (!row) return; return document.dispatchEvent(new CustomEvent('shrow', { detail: row }));
+    const row = t.closest('[data-shrow]'); if (row) selectRow(row); return;
   }
+  const d = t.dataset;
+  if (t.closest('#dlg-lessons') && d.lesson) { $('#dlg-lessons').close(); return openLesson(d.lesson); }
+  if (d.lesson) return openLesson(d.lesson, d.lview || (d.lesson === REVIEW ? 'notes' : 'notes'));
   if (d.view) return setView(d.view);
-  if (d.seek != null) return seek(Number(d.seek));
+  if (d.seek != null) return seek(Number(d.seek), d.lid ? LBY[d.lid] : null);
   if (d.say != null) { e.stopPropagation(); stopSpeech(); return speak(d.say, { rate: d.rate ? Number(d.rate) : undefined, pitch: d.pitch ? Number(d.pitch) : 1, btn: t }); }
-  if (d.star) return toggleStar(Number(d.star));
-  if (d.goto) return gotoChunk(Number(d.goto));
-  if (d.gotoFam) { curFam = d.gotoFam; renderFamBar(); buildDeck(); setView('notes'); renderNotesList(); $('#main').scrollTop = 0; return; }
+  if (d.star) return toggleStar(d.star);
+  if (d.goto) return gotoCard(d.goto);
+  if (d.gotoFam) { curGroup = d.gotoFam; renderFamBar(); buildDeck(); setView('notes'); renderNotesList(); $('#main').scrollTop = 0; return; }
   if (d.fam) {
-    curFam = d.fam; renderFamBar();
-    buildDeck();
+    curGroup = d.fam; renderFamBar(); buildDeck();
     if (S.settings.view === 'flash') { renderFlash(); autoListen(); } else { renderNotesList(); $('#main').scrollTop = 0; }
     return;
   }
@@ -1006,19 +1201,21 @@ document.addEventListener('click', e => {
   if (d.fmode) { S.settings.fmode = d.fmode; save(); F.flipped = false; renderFlash(); autoListen(); return; }
   if (d.nav) return flashNav(Number(d.nav));
   if (d.markc != null) return markCur(d.markc === '1');
-  if (d.talk) { S.settings.talkSub = d.talk; save(); stopSpeech(); playing = false; renderTalk(); return; }
+  if (d.talk) { S.settings.talkSub = d.talk; save(); stopSpeech(); playing = false; shCursor = 0; renderTalk(); return; }
   if (d.set) { S.settings[d.set] = d.val; save(); $$(`[data-set="${d.set}"]`).forEach(b => b.classList.toggle('active', b.dataset.val === d.val)); return; }
   if (d.rec != null) { e.stopPropagation(); return toggleRec(Number(d.rec)); }
-  if (d.playrec != null) { e.stopPropagation(); const a = new Audio(recordings[d.playrec]); a.play().catch(() => {}); return; }
+  if (d.playrec != null) { e.stopPropagation(); const u = recordings[curL().id + ':' + d.playrec]; u && new Audio(u).play().catch(() => {}); return; }
   if (d.shrow != null && !e.target.closest('button')) return selectRow(t);
   if (d.opt != null) { if (C.answered) return; C.sel.has(d.opt) ? C.sel.delete(d.opt) : C.sel.add(d.opt); renderCatch(); return; }
   switch (t.id) {
+    case 'lesson-btn': renderLessonSheet(); return $('#dlg-lessons').showModal();
     case 'btn-refresh': return refreshApp();
     case 'btn-player': return openPlayer();
     case 'btn-settings': return openSettings();
     case 'btn-pick5': return pick5();
-    case 'btn-clear5': S.stars = []; save(); renderNotesList(); renderSlots(); renderDash(); renderToc(); return;
-    case 'btn-redo': { const ids = F.again.slice(); buildDeck(ids); renderFlash(); autoListen(); return; }
+    case 'btn-clear5': S.stars = []; save(); if (curL()) renderNotesList(); renderSlots(); renderDash(); renderToc(); return;
+    case 'btn-start-review': S.settings.deck = 'due'; curGroup = 'all'; renderFamBar(); buildDeck(); return setView('flash');
+    case 'btn-redo': { const ks = F.again.slice(); buildDeck(ks); renderFlash(); autoListen(); return; }
     case 'btn-restart': buildDeck(); renderFlash(); autoListen(); return;
     case 'btn-play-all': return playDialogue();
     case 'btn-shadow': return playShadow();
@@ -1030,15 +1227,8 @@ document.addEventListener('click', e => {
     case 'btn-catch-again': setupCatch(); renderCatch(); return;
   }
 });
-function selectRow(row) {
-  if (playing) { playing = false; stopSpeech(); }
-  shCursor = Number(row.dataset.shrow); $$('.sh-row').forEach(x => x.classList.remove('cursor', 'now')); row.classList.add('cursor');
-  $('#turn') && $('#turn').classList.remove('show');
-  $('#btn-shadow') && ($('#btn-shadow').textContent = `▶ 從第 ${shCursor + 1} 句開始`);
-}
-document.addEventListener('shrow', e => selectRow(e.detail));
 document.addEventListener('keydown', e => {
-  if (e.target.matches('input, textarea, select') || e.metaKey || e.ctrlKey || $('#dlg-settings').open) return;
+  if (e.target.matches('input, textarea, select') || e.metaKey || e.ctrlKey || $('dialog[open]')) return;
   const v = S.settings.view;
   if (v === 'flash') {
     if (e.code === 'Space') { e.preventDefault(); flip(); }
@@ -1047,7 +1237,7 @@ document.addEventListener('keydown', e => {
     else if (e.key === '1') markCur(true);
     else if (e.key === '2') markCur(false);
     else if (e.key.toLowerCase() === 'p') flashSpeakCurrent();
-  } else if (v === 'talk' && e.code === 'Space') { e.preventDefault(); S.settings.talkSub === 'dialog' ? playDialogue() : playShadow(); }
+  } else if (v === 'talk' && e.code === 'Space' && curL()) { e.preventDefault(); S.settings.talkSub === 'dialog' ? playDialogue() : playShadow(); }
   else if (v === 'catch') {
     if (e.code === 'Space') { e.preventDefault(); playCatch(); }
     else if (e.key === 'Enter') { e.preventDefault(); checkCatch(); }
@@ -1065,41 +1255,49 @@ function openSettings() {
   $$('#seg-rate button').forEach(b => b.classList.toggle('active', Number(b.dataset.rate) === Number(S.settings.rate)));
   $('#dlg-settings').showModal();
 }
-function backupString() { return JSON.stringify({ app: 'eddy-chunks', version: 1, exportedAt: new Date().toISOString(), state: S }); }
+function backupString() { return JSON.stringify({ app: 'eddy-chunks', version: 2, exportedAt: new Date().toISOString(), state: S }); }
 function restore(text) {
   try {
     const j = JSON.parse(text); const st = j.state || j;
     if (!st || typeof st.progress !== 'object') throw new Error('格式不對');
-    const base = defaultState();
-    S = { ...base, ...st, settings: { ...base.settings, ...(st.settings || {}) } };
-    save(); buildDeck(); renderAll(); toast('✅ 進度已還原'); $('#dlg-settings').close();
+    S = normalizeState(st); save(); openLesson(S.settings.lesson); toast('✅ 進度已還原'); $('#dlg-settings').close();
   } catch (e) { toast('還原失敗：' + e.message); }
 }
-$('#dlg-settings').addEventListener('click', e => {
-  if (e.target.closest('[data-close]') || e.target === e.currentTarget) return $('#dlg-settings').close();
-  const r = e.target.closest('[data-rate]');
-  if (r && r.closest('#seg-rate')) { S.settings.rate = Number(r.dataset.rate); save(); $$('#seg-rate button').forEach(b => b.classList.toggle('active', b === r)); e.stopPropagation(); }
-});
-$('#sel-voice').addEventListener('change', e => { S.settings.voice = e.target.value; save(); pickVoice(); });
-$('#btn-test-voice').addEventListener('click', e => { e.stopPropagation(); speak('Do you wanna grab coffee later?'); });
-$('#btn-copy').addEventListener('click', async e => {
-  e.stopPropagation(); const s = backupString();
-  try { await navigator.clipboard.writeText(s); toast('📋 備份碼已複製，到另一台裝置貼上'); }
-  catch (_) { $('#ta-import').value = s; $('#ta-import').select(); toast('請手動複製下方文字'); }
-});
-$('#btn-export').addEventListener('click', e => {
-  e.stopPropagation();
-  const a = document.createElement('a'); a.href = URL.createObjectURL(new Blob([backupString()], { type: 'application/json' }));
-  a.download = `chunks-progress-${today()}.json`; document.body.appendChild(a); a.click(); a.remove(); setTimeout(() => URL.revokeObjectURL(a.href), 3000);
-});
-$('#file-import').addEventListener('change', e => { const f = e.target.files[0]; if (!f) return; const rd = new FileReader(); rd.onload = () => restore(rd.result); rd.readAsText(f); e.target.value = ''; });
-$('#btn-restore').addEventListener('click', e => { e.stopPropagation(); const t = $('#ta-import').value.trim(); if (t) restore(t); else toast('先貼上備份碼'); });
-$('#btn-reset').addEventListener('click', e => {
-  e.stopPropagation();
-  const b = e.currentTarget;
-  if (b.dataset.confirm) { const keep = S.settings; S = defaultState(); S.settings = keep; save(); buildDeck(); renderAll(); toast('已清除所有進度'); $('#dlg-settings').close(); delete b.dataset.confirm; b.textContent = '清除所有進度'; }
-  else { b.dataset.confirm = 1; b.textContent = '再按一次確認清除'; setTimeout(() => { delete b.dataset.confirm; b.textContent = '清除所有進度'; }, 3000); }
-});
+function bindDialogs() {
+  $$('dialog').forEach(dl => dl.addEventListener('click', e => { if (e.target.closest('[data-close]') || e.target === dl) dl.close(); }));
+  $('#seg-rate').addEventListener('click', e => { const r = e.target.closest('[data-rate]'); if (!r) return; e.stopPropagation(); S.settings.rate = Number(r.dataset.rate); save(); $$('#seg-rate button').forEach(b => b.classList.toggle('active', b === r)); });
+  $('#sel-voice').addEventListener('change', e => { S.settings.voice = e.target.value; save(); pickVoice(); });
+  $('#btn-test-voice').addEventListener('click', e => { e.stopPropagation(); speak('Do you wanna grab coffee later?'); });
+  $('#btn-copy').addEventListener('click', async e => {
+    e.stopPropagation(); const s = backupString();
+    try { await navigator.clipboard.writeText(s); toast('📋 備份碼已複製，到另一台裝置貼上'); }
+    catch (_) { $('#ta-import').value = s; $('#ta-import').select(); toast('請手動複製下方文字'); }
+  });
+  $('#btn-export').addEventListener('click', e => {
+    e.stopPropagation();
+    const a = document.createElement('a'); a.href = URL.createObjectURL(new Blob([backupString()], { type: 'application/json' }));
+    a.download = `chunks-progress-${today()}.json`; document.body.appendChild(a); a.click(); a.remove(); setTimeout(() => URL.revokeObjectURL(a.href), 3000);
+  });
+  $('#file-import').addEventListener('change', e => { const f = e.target.files[0]; if (!f) return; const rd = new FileReader(); rd.onload = () => restore(rd.result); rd.readAsText(f); e.target.value = ''; });
+  $('#btn-restore').addEventListener('click', e => { e.stopPropagation(); const t = $('#ta-import').value.trim(); if (t) restore(t); else toast('先貼上備份碼'); });
+  $('#btn-reset').addEventListener('click', e => {
+    e.stopPropagation(); const b = e.currentTarget;
+    if (b.dataset.confirm) { const keep = S.settings; S = normalizeState({ settings: keep }); save(); openLesson(S.settings.lesson); toast('已清除所有進度'); $('#dlg-settings').close(); delete b.dataset.confirm; b.textContent = '清除所有進度'; }
+    else { b.dataset.confirm = 1; b.textContent = '再按一次確認清除'; setTimeout(() => { delete b.dataset.confirm; b.textContent = '清除所有進度'; }, 3000); }
+  });
+}
+
+/* ════════════ 重新整理（抓最新版） ════════════ */
+async function refreshApp() {
+  const b = $('#btn-refresh'); if (b.classList.contains('is-refreshing')) return;
+  b.classList.add('is-refreshing'); b.disabled = true; stopSpeech();
+  try {
+    if ('serviceWorker' in navigator) { const reg = await navigator.serviceWorker.getRegistration('./'); if (reg) await reg.update(); }
+    if ('caches' in window) { const keys = await caches.keys(); await Promise.all(keys.filter(k => k.startsWith('eddy-chunks-')).map(k => caches.delete(k))); }
+  } catch (e) {}
+  location.replace(location.pathname + '?r=' + Date.now());
+}
+if (/[?&]r=\d+/.test(location.search)) history.replaceState(null, '', location.pathname + location.hash);
 
 /* ════════════ 鎖定畫面（iOS 不讓整頁被拖動或縮放） ════════════ */
 function canScroll(el, dx, dy) {
@@ -1116,27 +1314,12 @@ document.addEventListener('touchmove', e => {
   if (e.touches.length > 1) { e.preventDefault(); return; }
   if (!tStart) return;
   const dx = e.touches[0].clientX - tStart.x, dy = e.touches[0].clientY - tStart.y;
-  if (e.target.closest && e.target.closest('#flip-wrap') && Math.abs(dx) > Math.abs(dy)) return; // 閃卡左右滑
+  if (e.target.closest && e.target.closest('#flip-wrap') && Math.abs(dx) > Math.abs(dy)) return;
   if (!canScroll(e.target, dx, dy)) e.preventDefault();
 }, { passive: false });
 ['gesturestart', 'gesturechange'].forEach(t => document.addEventListener(t, e => e.preventDefault(), { passive: false }));
 
-/* ════════════ 重新整理（抓最新版） ════════════ */
-async function refreshApp() {
-  const b = $('#btn-refresh'); if (b.classList.contains('is-refreshing')) return;
-  b.classList.add('is-refreshing'); b.disabled = true; stopSpeech();
-  try {
-    if ('serviceWorker' in navigator) {
-      const reg = await navigator.serviceWorker.getRegistration('./');
-      if (reg) await reg.update();
-    }
-    if ('caches' in window) { const keys = await caches.keys(); await Promise.all(keys.filter(k => k.startsWith('eddy-chunks-')).map(k => caches.delete(k))); }
-  } catch (e) {}
-  location.replace(location.pathname + '?r=' + Date.now());
-}
-if (/[?&]r=\d+/.test(location.search)) history.replaceState(null, '', location.pathname + location.hash);
-
-/* ════════════ iOS 主畫面 App：用整個螢幕高度（避免底部空一截） ════════════ */
+/* ════════════ iOS 主畫面 App：用整個螢幕高度 ════════════ */
 function fitHeight() {
   const standalone = navigator.standalone || matchMedia('(display-mode: standalone)').matches;
   let h = innerHeight;
@@ -1148,18 +1331,31 @@ function fitHeight() {
 }
 fitHeight(); addEventListener('resize', fitHeight); addEventListener('orientationchange', () => setTimeout(fitHeight, 300));
 
-/* ════════════ 初始化 ════════════ */
-function renderAll() { renderFamBar(); renderDash(); renderToc(); setView(S.settings.view || 'notes'); }
-$('#pm-title').innerHTML = `${esc(D.videoMeta.title)}<div class="pm-sub">${esc(D.videoMeta.channel)} · ${D.videoMeta.durationFormatted}</div>`;
-$('#chapters').innerHTML = CHAPTERS.map(([t, s]) => `<button class="chap" data-seek="${s}"><b>${fmt(s)}</b>${esc(t)}</button>`).join('');
-setYtLink(0);
-buildDeck();
-renderAll();
-if (isDesktop()) loadYT();
-matchMedia('(min-width: 1025px)').addEventListener?.('change', ev => { if (ev.matches) loadYT(); });
-if ('serviceWorker' in navigator && location.protocol.startsWith('http')) {
-  window.addEventListener('load', () => navigator.serviceWorker.register('sw.js', { updateViaCache: 'none' }).then(reg => reg.update()).catch(() => {}));
-}
+/* ════════════ 啟動 ════════════ */
+window.startApp = function () {
+  initLessons();
+  if (!LESSONS.length) { $('#main').innerHTML = '<div class="empty"><span class="big">⚠️</span>找不到課程資料（lessons/index.js）</div>'; return; }
+  S = loadState(); save();
+  if ('speechSynthesis' in window) { pickVoice(); speechSynthesis.onvoiceschanged = pickVoice; }
+  bindDialogs();
+  openLesson(S.settings.lesson, S.settings.view || 'notes');
+  matchMedia('(min-width: 1025px)').addEventListener?.('change', ev => { if (ev.matches && (curL() || {}).video) loadYT(); });
+  if ('serviceWorker' in navigator && location.protocol.startsWith('http')) {
+    navigator.serviceWorker.register('sw.js', { updateViaCache: 'none' }).then(reg => reg.update()).catch(() => {});
+  }
+};
+
+</script>
+<script>
+(function () {
+  var files = window.LESSON_FILES || [], n = files.length;
+  if (!n) return window.startApp();
+  files.forEach(function (f) {
+    var s = document.createElement('script'); s.src = 'lessons/' + f;
+    s.onload = s.onerror = function () { if (--n === 0) window.startApp(); };
+    document.head.appendChild(s);
+  });
+})();
 </script>
 </body>
 </html>

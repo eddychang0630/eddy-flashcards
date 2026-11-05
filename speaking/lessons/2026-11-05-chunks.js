@@ -1,6 +1,12 @@
-/* 由 chunks_data.json 產生：更新資料後重新產生此檔 */
-window.CHUNKS_DATA = {
- "videoMeta": {
+/* 🎬 影片課：11/05 母語者 Chunks（來源：DwarEbzLJm8） */
+registerLesson({
+ "id": "2026-11-05-chunks",
+ "type": "video",
+ "date": "2026-11-05",
+ "title": "母語者說太快聽不懂？先抓英文 Chunks",
+ "short": "11/05 母語者 Chunks",
+ "legacyProgress": true,
+ "video": {
   "videoId": "DwarEbzLJm8",
   "url": "https://www.youtube.com/watch?v=DwarEbzLJm8",
   "title": "⚡ 母語者說太快聽不懂？先抓這些英文 chunks，聽力會突然變清楚",
@@ -11,52 +17,117 @@ window.CHUNKS_DATA = {
   "uploadDate": "2026-07-10",
   "coreConcept": "母語者說話不是逐字（word by word）發音，而是將常一起出現的字連成「語塊（Chunks / Word Teams）」，形成特定的聲音形狀（Sound Shapes）。聽力與口說的關鍵在於先辨識這些語塊，再整組輸出。"
  },
- "families": [
+ "concepts": [
+  {
+   "icon": "🧩",
+   "t": "什麼是 Chunk（語塊 / Word Team）？",
+   "p": "母語者說話不會 word by word 一個字一個字唸，而是把常一起出現的字連成「聲音群組（sound groups）」與「意義群組（meaning groups）」。",
+   "q": "“Chunks are word teams.”"
+  },
+  {
+   "icon": "🌊",
+   "t": "為什麼單字都認識卻聽不懂？",
+   "p": "課本英文（textbook English）和真實口語（real spoken English）不一樣：連音、弱讀形成了特定的「聲音形狀（sound shapes）」。快語速英文原本像一條大河，學會 chunks 後，你能看見河上的一艘艘小船。",
+   "q": "“Chunks are small boats in the river.”"
+  },
+  {
+   "icon": "🎯",
+   "t": "學習者的黃金原則",
+   "p": "說可以慢而清楚，但聽必須認出快語塊。不必模仿電影演員講很快，先求聽懂。每天挑 5 個 chunks 重複跟讀、造短句。",
+   "q": "“Speak clearly, listen for fast chunks.”"
+  }
+ ],
+ "chapters": [
+  [
+   "開場觀念",
+   0
+  ],
+  [
+   "F1 問句",
+   125
+  ],
+  [
+   "F2 日常",
+   263
+  ],
+  [
+   "F3 回應",
+   434
+  ],
+  [
+   "F4 開場",
+   556
+  ],
+  [
+   "F5 時間",
+   725
+  ],
+  [
+   "為什麼重要",
+   842
+  ],
+  [
+   "聽力抓塊",
+   950
+  ],
+  [
+   "實戰對話",
+   1014
+  ],
+  [
+   "19 句跟讀",
+   1062
+  ],
+  [
+   "總結",
+   1135
+  ]
+ ],
+ "groups": [
   {
    "id": "question",
    "number": 1,
+   "titleZh": "問句語塊",
    "titleEn": "Question Chunks",
-   "titleZh": "問句語塊家族",
    "description": "最常出現在對話開頭的提問語塊，母語者會將助動詞與代名詞連音弱讀。",
    "startTime": 125
   },
   {
    "id": "daily",
    "number": 2,
-   "titleEn": "Daily Life & Intention Chunks",
    "titleZh": "日常行動與意圖語塊",
+   "titleEn": "Daily Life & Intention Chunks",
    "description": "表達「將要、必須、需要」的高頻核心結構，口語中 to 常弱化為 a / na / ta。",
    "startTime": 263
   },
   {
    "id": "reaction",
    "number": 3,
-   "titleEn": "Reaction Chunks",
    "titleZh": "回應與反饋語塊",
+   "titleEn": "Reaction Chunks",
    "description": "在對話中自然給予回應、表示理解或爭取思考時間，不再尷尬沉默。",
    "startTime": 434
   },
   {
    "id": "opener",
    "number": 4,
-   "titleEn": "Conversation Opener & Softener Chunks",
    "titleZh": "開口緩衝與語氣軟化語塊",
+   "titleEn": "Conversation Opener & Softener Chunks",
    "description": "開啟回答、補充解釋或緩和語氣的潤滑劑，讓口說聽起來自然不生硬。",
    "startTime": 556
   },
   {
    "id": "time",
    "number": 5,
-   "titleEn": "Time & Frequency Chunks",
    "titleZh": "時間與頻率語塊",
+   "titleEn": "Time & Frequency Chunks",
    "description": "母語者放在句尾或句首標示時間與頻率的固定搭配詞組。",
    "startTime": 725
   }
  ],
- "chunks": [
+ "cards": [
   {
    "id": 1,
-   "familyId": "question",
    "written": "Do you want to...?",
    "spoken": "Do you wanna...? / D'ya wanna...?",
    "meaningZh": "你想要…嗎？（邀請朋友、同事或同學一起做某事）",
@@ -89,11 +160,11 @@ window.CHUNKS_DATA = {
      "zh": "你想要再試一次嗎？",
      "time": 149
     }
-   ]
+   ],
+   "groupId": "question"
   },
   {
    "id": 2,
-   "familyId": "question",
    "written": "What do you...?",
    "spoken": "Whaddaya...? / What d'ya...?",
    "meaningZh": "你覺得…？／你的意思是…？",
@@ -111,11 +182,11 @@ window.CHUNKS_DATA = {
      "zh": "你是什麼意思？",
      "time": 173
     }
-   ]
+   ],
+   "groupId": "question"
   },
   {
    "id": 3,
-   "familyId": "question",
    "written": "How do you...?",
    "spoken": "How d'ya...? / How d'you...?",
    "meaningZh": "你怎麼…？／這要怎麼說？",
@@ -133,11 +204,11 @@ window.CHUNKS_DATA = {
      "zh": "你是怎麼知道的？",
      "time": 228
     }
-   ]
+   ],
+   "groupId": "question"
   },
   {
    "id": 4,
-   "familyId": "daily",
    "written": "I'm going to...",
    "spoken": "I'm gonna...",
    "meaningZh": "我打算要…／我準備去…",
@@ -160,11 +231,11 @@ window.CHUNKS_DATA = {
      "zh": "我晚點打給你。",
      "time": 415
     }
-   ]
+   ],
+   "groupId": "daily"
   },
   {
    "id": 5,
-   "familyId": "daily",
    "written": "I have to...",
    "spoken": "I hafta...",
    "meaningZh": "我必須…／我得…",
@@ -192,11 +263,11 @@ window.CHUNKS_DATA = {
      "zh": "我明天得上班。",
      "time": 419
     }
-   ]
+   ],
+   "groupId": "daily"
   },
   {
    "id": 6,
-   "familyId": "daily",
    "written": "I need to...",
    "spoken": "I needa...",
    "meaningZh": "我需要…",
@@ -219,11 +290,11 @@ window.CHUNKS_DATA = {
      "zh": "我需要多加練習。",
      "time": 423
     }
-   ]
+   ],
+   "groupId": "daily"
   },
   {
    "id": 7,
-   "familyId": "reaction",
    "written": "That sounds + [adj.]",
    "spoken": "That sounds...",
    "meaningZh": "聽起來很…（用於對別人的提議或分享做出反應）",
@@ -246,11 +317,11 @@ window.CHUNKS_DATA = {
      "zh": "聽起來很實用。",
      "time": 463
     }
-   ]
+   ],
+   "groupId": "reaction"
   },
   {
    "id": 8,
-   "familyId": "reaction",
    "written": "That makes sense.",
    "spoken": "That makes sense.",
    "meaningZh": "那很合理／有道理／我聽懂了。",
@@ -268,11 +339,11 @@ window.CHUNKS_DATA = {
      "zh": "老實說，那挺合理的。",
      "time": 1030
     }
-   ]
+   ],
+   "groupId": "reaction"
   },
   {
    "id": 9,
-   "familyId": "reaction",
    "written": "I know what you mean.",
    "spoken": "I know whatchu mean.",
    "meaningZh": "我懂你的意思／我能體會你的感受。",
@@ -285,11 +356,11 @@ window.CHUNKS_DATA = {
      "zh": "我完全懂你的意思（例如朋友抱怨聽力很難時可回應）。",
      "time": 486
     }
-   ]
+   ],
+   "groupId": "reaction"
   },
   {
    "id": 10,
-   "familyId": "reaction",
    "written": "Let me...",
    "spoken": "Lemme...",
    "meaningZh": "讓我…（用來爭取思考或查詢的時間）",
@@ -312,11 +383,11 @@ window.CHUNKS_DATA = {
      "zh": "讓我想個幾秒鐘。",
      "time": 528
     }
-   ]
+   ],
+   "groupId": "reaction"
   },
   {
    "id": 11,
-   "familyId": "opener",
    "written": "To be honest...",
    "spoken": "To be honest...",
    "meaningZh": "老實說…／坦白講…",
@@ -334,11 +405,11 @@ window.CHUNKS_DATA = {
      "zh": "老實說，我不知道。",
      "time": 580
     }
-   ]
+   ],
+   "groupId": "opener"
   },
   {
    "id": 12,
-   "familyId": "opener",
    "written": "I mean...",
    "spoken": "I mean...",
    "meaningZh": "我是說…／我的意思是…",
@@ -356,11 +427,11 @@ window.CHUNKS_DATA = {
      "zh": "我的意思是，我需要更多練習。",
      "time": 695
     }
-   ]
+   ],
+   "groupId": "opener"
   },
   {
    "id": 13,
-   "familyId": "opener",
    "written": "You know...",
    "spoken": "Y'know...",
    "meaningZh": "你知道的…（口語緩衝、緩和語氣或連接想法）",
@@ -378,11 +449,11 @@ window.CHUNKS_DATA = {
      "zh": "你知道的，那還蠻難的。",
      "time": 700
     }
-   ]
+   ],
+   "groupId": "opener"
   },
   {
    "id": 14,
-   "familyId": "opener",
    "written": "Kind of...",
    "spoken": "Kinda...",
    "meaningZh": "有一點…／還算…（= a little / somewhat）",
@@ -405,11 +476,11 @@ window.CHUNKS_DATA = {
      "zh": "我有點搞混了。",
      "time": 678
     }
-   ]
+   ],
+   "groupId": "opener"
   },
   {
    "id": 15,
-   "familyId": "opener",
    "written": "Sort of...",
    "spoken": "Sorta...",
    "meaningZh": "有一點…／某種程度上…",
@@ -427,11 +498,11 @@ window.CHUNKS_DATA = {
      "zh": "我今天有點累。",
      "time": 705
     }
-   ]
+   ],
+   "groupId": "opener"
   },
   {
    "id": 16,
-   "familyId": "time",
    "written": "Right now",
    "spoken": "Right now",
    "meaningZh": "現在／此時此刻（at this moment）",
@@ -449,11 +520,11 @@ window.CHUNKS_DATA = {
      "zh": "我現在正在讀英文。",
      "time": 812
     }
-   ]
+   ],
+   "groupId": "time"
   },
   {
    "id": 17,
-   "familyId": "time",
    "written": "In a minute",
    "spoken": "In a minute",
    "meaningZh": "馬上／等一下／很快（very soon）",
@@ -471,11 +542,11 @@ window.CHUNKS_DATA = {
      "zh": "我等一下就去確認。",
      "time": 818
     }
-   ]
+   ],
+   "groupId": "time"
   },
   {
    "id": 18,
-   "familyId": "time",
    "written": "A little later",
    "spoken": "A little later",
    "meaningZh": "稍後／晚一點（after some time）",
@@ -488,11 +559,11 @@ window.CHUNKS_DATA = {
      "zh": "我晚一點再打給你。",
      "time": 769
     }
-   ]
+   ],
+   "groupId": "time"
   },
   {
    "id": 19,
-   "familyId": "time",
    "written": "At the end of...",
    "spoken": "At the end of...",
    "meaningZh": "在…的結尾／歸根結底（at the end of the day）",
@@ -510,11 +581,11 @@ window.CHUNKS_DATA = {
      "zh": "說到底，每次一點小練習都是有幫助的。",
      "time": 826
     }
-   ]
+   ],
+   "groupId": "time"
   },
   {
    "id": 20,
-   "familyId": "time",
    "written": "From time to time",
    "spoken": "From time to time",
    "meaningZh": "偶爾／有時候（sometimes）",
@@ -532,10 +603,11 @@ window.CHUNKS_DATA = {
      "zh": "我偶爾會犯錯。",
      "time": 833
     }
-   ]
+   ],
+   "groupId": "time"
   }
  ],
- "listeningChallenge": [
+ "challenges": [
   {
    "id": 1,
    "sentence": "Do you want to grab coffee later?",
@@ -589,7 +661,7 @@ window.CHUNKS_DATA = {
    "time": 981
   }
  ],
- "dialoguePractice": {
+ "dialogue": {
   "title": "綜合實戰雙人對話（整合 10+ 個 Chunks）",
   "startTime": 1014,
   "lines": [
@@ -672,7 +744,7 @@ window.CHUNKS_DATA = {
    }
   ]
  },
- "finalShadowingSet": {
+ "shadow": {
   "title": "最終 19 句連發跟讀訓練（Shadowing Set）",
   "startTime": 1062,
   "sentences": [
@@ -811,4 +883,4 @@ window.CHUNKS_DATA = {
    }
   ]
  }
-};
+});
