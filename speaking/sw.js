@@ -1,4 +1,4 @@
-const CACHE_NAME = 'eddy-chunks-v1';
+const CACHE_NAME = 'eddy-chunks-v2';
 const urlsToCache = ['./', './index.html', './data.js', './manifest.json', './icon-192.png', './icon-512.png', './apple-touch-icon.png'];
 
 self.addEventListener('install', event => {
@@ -10,7 +10,8 @@ self.addEventListener('fetch', event => {
   const request = event.request;
   if (request.method !== 'GET') return;
   const url = new URL(request.url);
-  if (url.origin !== self.location.origin) return; // YouTube 等外部資源不快取
+  // 只處理 /speaking/ 範圍內的請求；YouTube 等外部資源不快取
+  if (url.origin !== self.location.origin || !url.pathname.startsWith(new URL(self.registration.scope).pathname)) return;
   event.respondWith(
     fetch(request)
       .then(response => {
@@ -23,6 +24,6 @@ self.addEventListener('fetch', event => {
 
 self.addEventListener('activate', event => {
   event.waitUntil(
-    caches.keys().then(names => Promise.all(names.filter(n => n !== CACHE_NAME).map(n => caches.delete(n)))).then(() => self.clients.claim())
+    caches.keys().then(names => Promise.all(names.filter(n => n.startsWith('eddy-chunks-') && n !== CACHE_NAME).map(n => caches.delete(n)))).then(() => self.clients.claim())
   );
 });
