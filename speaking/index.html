@@ -33,10 +33,10 @@
       overscroll-behavior: none; touch-action: manipulation;
     }
     /* 鎖住整個頁面：只有內容區能捲動，畫面不會整片被拖動 */
-    body { position: fixed; inset: 0; }
+    body { position: fixed; top: 0; left: 0; right: 0; height: var(--app-h, 100dvh); }
     button { font: inherit; color: inherit; cursor: pointer; touch-action: manipulation; }
     button:focus-visible, a:focus-visible, input:focus-visible { outline: 2px solid var(--primary); outline-offset: 2px; }
-    #app { display: flex; flex-direction: column; height: 100%; width: 100%; overflow: hidden; padding-left: var(--safe-left); padding-right: var(--safe-right); }
+    #app { display: flex; flex-direction: column; height: var(--app-h, 100dvh); width: 100%; overflow: hidden; padding-left: var(--safe-left); padding-right: var(--safe-right); }
 
     /* ── Top bar ── */
     #top-bar {
@@ -45,6 +45,7 @@
     }
     #top-bar h1 { font-size: 0.98rem; font-weight: 800; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; min-width: 0; flex: 1; }
     #top-bar h1 small { font-weight: 600; color: var(--muted); font-size: 0.72rem; margin-left: 6px; }
+    @media (max-width: 480px) { #top-bar h1 small { display: none; } }
     .icon-btn {
       width: 36px; height: 36px; flex: 0 0 36px; display: grid; place-items: center;
       border: 1px solid var(--border); border-radius: 10px; background: var(--card-bg); font-size: 1rem;
@@ -184,21 +185,26 @@
     .ccard.flash-hl { border-color: var(--primary); box-shadow: 0 0 0 3px rgba(99,102,241,.3); }
     .c-head { display: flex; align-items: center; gap: 6px; }
     .badge { font-size: .62rem; font-weight: 800; letter-spacing: .04em; padding: 3px 9px; border-radius: 999px; background: var(--primary-soft); color: var(--primary-text); white-space: nowrap; }
-    .lvl { font-size: .55rem; letter-spacing: 1px; color: var(--green); margin-left: 2px; }
+    .mastery { margin-left: auto; align-self: center; font-size: .7rem; font-weight: 700; padding: 4px 9px; border-radius: 999px; white-space: nowrap; border: 1px solid var(--border); color: var(--muted); }
+    .mastery.m1 { color: #fcd34d; border-color: rgba(245,158,11,.4); }
+    .mastery.m2 { color: #86efac; border-color: rgba(34,197,94,.45); }
     .c-head .ts { margin-left: auto; }
     .star { border: 0; background: transparent; font-size: 1.25rem; color: var(--muted); width: 32px; height: 32px; display: grid; place-items: center; border-radius: 8px; }
     .star.on { color: var(--amber); }
     .written { font-size: 1.45rem; font-weight: 800; line-height: 1.2; letter-spacing: -.01em; }
     .written .cno { font-size: .78rem; color: var(--muted); font-weight: 700; margin-right: 6px; vertical-align: 3px; }
     .spoken { align-self: flex-start; background: var(--amber-soft); color: #fcd34d; border: 1px solid rgba(245,158,11,.45); border-radius: 10px; padding: 5px 10px; font-size: .84rem; font-weight: 700; }
-    .say-row { display: flex; gap: 8px; flex-wrap: wrap; }
+    .say-row { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
     .meaning { font-size: .95rem; font-weight: 700; line-height: 1.55; }
     .tip { background: rgba(15,15,19,.6); border-left: 3px solid var(--amber); border-radius: 8px; padding: 9px 11px; font-size: .8rem; line-height: 1.65; color: #d4d4e0; }
-    .ex { list-style: none; display: flex; flex-direction: column; gap: 8px; border-top: 1px solid var(--border); padding-top: 10px; }
-    .ex li { display: flex; flex-direction: column; gap: 3px; }
+    .ex { list-style: none; display: flex; flex-direction: column; gap: 12px; border-top: 1px solid var(--border); padding-top: 10px; }
     .ex-en { display: flex; gap: 8px; align-items: flex-start; font-size: .92rem; line-height: 1.5; }
     .ex-en span { padding-top: 4px; }
-    .ex-zh { font-size: .76rem; color: var(--muted); padding-left: 38px; line-height: 1.5; }
+    .ex .ex-item { display: grid; grid-template-columns: 30px 1fr auto; column-gap: 10px; align-items: start; }
+    .ex-item .ts { margin: 3px 0 0; }
+    .ex-text { display: flex; flex-direction: column; gap: 2px; padding-top: 3px; }
+    .ex-line { font-size: .92rem; line-height: 1.5; }
+    .ex-zh { font-size: .78rem; color: var(--muted); line-height: 1.55; }
 
     /* ── Flashcards ── */
     .flash-wrap { display: flex; flex-direction: column; gap: 12px; min-height: 100%; }
@@ -592,12 +598,17 @@ function renderToc() {
 
 /* ════════════ 📚 筆記重點 ════════════ */
 let query = '';
+function masteryChip(id) {
+  const p = S.progress[id], b = p ? Math.min(p.box, 5) : 0;
+  if (!p) return '<span class="mastery m0" title="還沒在閃卡練過">🌱 未練習</span>';
+  if (b >= 2) return `<span class="mastery m2" title="熟練度 ${b}/5">✅ 已熟練 ${b}/5</span>`;
+  return `<span class="mastery m1" title="熟練度 ${b}/5">📈 練習中 ${b}/5</span>`;
+}
 function chunkCard(c) {
   const f = FAM[c.familyId], p = prog(c.id), st = S.stars.includes(c.id), b = Math.min(p.box, 5);
   return `<article class="ccard" id="chunk-${c.id}">
     <div class="c-head">
       <span class="badge">Family ${f.number} · ${esc(famShort(f))}</span>
-      <span class="lvl" title="熟練度 ${b}/5">${'●'.repeat(b)}${'○'.repeat(5 - b)}</span>
       <button class="ts" data-seek="${c.timestamp}">🎬 ${c.timestampFormatted}</button>
       <button class="star ${st ? 'on' : ''}" data-star="${c.id}" aria-label="標記今日必背">${st ? '★' : '☆'}</button>
     </div>
@@ -606,12 +617,14 @@ function chunkCard(c) {
     <div class="say-row">
       <button class="pbtn" data-say="${esc(c.sayText)}">🔊 正常朗讀</button>
       <button class="pbtn" data-say="${esc(c.sayText)}" data-rate="0.8">🐢 慢速 0.8x</button>
+      ${masteryChip(c.id)}
     </div>
     <p class="meaning">${esc(c.meaningZh)}</p>
     <div class="tip">💡 ${esc(c.usageNote)}</div>
-    <ul class="ex">${c.examples.map(e => `<li>
-      <div class="ex-en"><button class="mini" data-say="${esc(e.en)}" aria-label="朗讀例句">🔊</button><span>${hl(e.en, c.patterns)}</span></div>
-      <div class="ex-zh">${esc(e.zh)}<button class="ts sm" data-seek="${e.time}">${fmt(e.time)}</button></div></li>`).join('')}</ul>
+    <ul class="ex">${c.examples.map(e => `<li class="ex-item">
+      <button class="mini" data-say="${esc(e.en)}" aria-label="朗讀例句">🔊</button>
+      <div class="ex-text"><div class="ex-line">${hl(e.en, c.patterns)}</div><div class="ex-zh">${esc(e.zh)}</div></div>
+      <button class="ts sm" data-seek="${e.time}" aria-label="跳到影片 ${fmt(e.time)}">${fmt(e.time)}</button></li>`).join('')}</ul>
   </article>`;
 }
 function matchQuery(c) {
@@ -1122,6 +1135,18 @@ async function refreshApp() {
   location.replace(location.pathname + '?r=' + Date.now());
 }
 if (/[?&]r=\d+/.test(location.search)) history.replaceState(null, '', location.pathname + location.hash);
+
+/* ════════════ iOS 主畫面 App：用整個螢幕高度（避免底部空一截） ════════════ */
+function fitHeight() {
+  const standalone = navigator.standalone || matchMedia('(display-mode: standalone)').matches;
+  let h = innerHeight;
+  if (standalone && /iPhone|iPad|iPod/.test(navigator.userAgent)) {
+    const landscape = matchMedia('(orientation: landscape)').matches;
+    h = Math.max(innerHeight, landscape ? Math.min(screen.width, screen.height) : Math.max(screen.width, screen.height));
+  }
+  document.documentElement.style.setProperty('--app-h', h + 'px');
+}
+fitHeight(); addEventListener('resize', fitHeight); addEventListener('orientationchange', () => setTimeout(fitHeight, 300));
 
 /* ════════════ 初始化 ════════════ */
 function renderAll() { renderFamBar(); renderDash(); renderToc(); setView(S.settings.view || 'notes'); }
