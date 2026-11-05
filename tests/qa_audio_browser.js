@@ -35,7 +35,7 @@ async function waitForAudio(page) {
     console.log('Study word:', await waitForAudio(page), 'seconds');
     if (process.env.APP_URL) {
       await page.waitForFunction(async () => {
-        const cache = await caches.open('eddy-flashcard-v4');
+        const cache = await caches.open('eddy-flashcard-v5');
         return !!(await cache.match(new URL(CARDS[0][12], location.href).href));
       });
       console.log('Audio cache: OK');

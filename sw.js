@@ -1,4 +1,7 @@
-const CACHE_NAME = 'eddy-flashcard-v4';
+const CACHE_PREFIX = 'eddy-flashcard-';
+const CACHE_NAME = 'eddy-flashcard-v5';
+const APP_PATH = new URL(self.registration.scope).pathname;
+const SUB_APP_PATHS = ['sentences', 'speaking'].map(name => APP_PATH + name);
 const urlsToCache = [
   './',
   './index.html',
@@ -18,13 +21,35 @@ self.addEventListener('install', event => {
   );
 });
 
-// Always check the network for the app shell so a new deployment is visible.
+async function loadAppPage(request) {
+  try {
+    const response = await fetch(request, { cache: 'no-store' });
+    if (response.ok) {
+      await caches.open(CACHE_NAME)
+        .then(cache => cache.put(request, response.clone()))
+        .catch(() => {});
+    }
+    return response;
+  } catch {
+    const cached = await caches.open(CACHE_NAME)
+      .then(async cache => (await cache.match(request)) || (await cache.match('./index.html')))
+      .catch(() => null);
+    return cached || new Response('暫時無法連上單字 App。請確認網路後重新整理。', {
+      status: 503,
+      headers: { 'Content-Type': 'text/plain; charset=utf-8' }
+    });
+  }
+}
+
 self.addEventListener('fetch', event => {
   const request = event.request;
   if (request.method !== 'GET') return;
 
   const url = new URL(request.url);
-  const isAudio = url.origin === self.location.origin && url.pathname.includes('/audio/') && url.pathname.endsWith('.mp3');
+  if (url.origin !== self.location.origin || !url.pathname.startsWith(APP_PATH) ||
+      SUB_APP_PATHS.some(path => url.pathname === path || url.pathname.startsWith(path + '/'))) return;
+
+  const isAudio = url.pathname.includes('/audio/') && url.pathname.endsWith('.mp3');
   if (isAudio) {
     const cacheKey = new Request(url.href);
     event.respondWith(
@@ -46,44 +71,26 @@ self.addEventListener('fetch', event => {
     );
     return;
   }
-  const isAppPage = request.mode === 'navigate' || (
-    url.origin === self.location.origin &&
-    (url.pathname.endsWith('/') || url.pathname.endsWith('/index.html'))
-  );
+  const isAppPage = request.mode === 'navigate' || url.pathname === APP_PATH || url.pathname === APP_PATH + 'index.html';
 
   if (isAppPage) {
-    event.respondWith(
-      fetch(request)
-        .then(response => {
-          if (response.ok) {
-            const copy = response.clone();
-            caches.open(CACHE_NAME).then(cache => cache.put(request, copy));
-          }
-          return response;
-        })
-        .catch(() => caches.match(request)
-          .then(response => response || caches.match('./index.html')))
-    );
+    event.respondWith(loadAppPage(request));
     return;
   }
 
   event.respondWith(
-    caches.match(request).then(response => response || fetch(request))
+    caches.open(CACHE_NAME).then(cache => cache.match(request)).catch(() => null)
+      .then(response => response || fetch(request))
   );
 });
 
 // 更新 Service Worker 時清除舊快取
 self.addEventListener('activate', event => {
-  const cacheWhitelist = [CACHE_NAME];
   event.waitUntil(
     caches.keys()
-      .then(cacheNames => Promise.all(
-        cacheNames.map(cacheName => {
-          if (cacheWhitelist.indexOf(cacheName) === -1) {
-            return caches.delete(cacheName);
-          }
-        })
-      ))
+      .then(cacheNames => Promise.all(cacheNames
+        .filter(name => name.startsWith(CACHE_PREFIX) && name !== CACHE_NAME)
+        .map(name => caches.delete(name))))
       .then(() => self.clients.claim())
   );
 });
