@@ -569,5 +569,47 @@
       "explanation": "train someone to + 原形動詞表示訓練某人做某事；自己是受詞時用 yourself。修飾 think 這個動作要用副詞 logically，不能用形容詞 logical。",
       "pattern": "train + someone/yourself + to + base verb / think + more + adverb"
     }
+  ],
+  "20261105": [
+    {
+      "explanation": "yesterday 表示已經發生的時間，要用過去式。談自己參加考試，可用 have an exam；had 是 have 的過去式。",
+      "pattern": "Subject + had + an exam + yesterday."
+    },
+    {
+      "explanation": "next 要接清楚的時間單位，例如 next week。從現在算起兩週後用 in two weeks；two weeks later 通常相對於先前提過的時間。",
+      "pattern": "next + week/month / in + a period of time"
+    },
+    {
+      "explanation": "口語回應『我也是』可用 Same here。現在完成式 have had + 物品 + for + 時間，表示持有某物持續至今；直接說錢包 is six years 容易讓句子不完整。",
+      "pattern": "I've had + an item + for + a period of time."
+    },
+    {
+      "explanation": "『要看、取決於』用 depend on，不能直譯成 need to see。on 後可接 where 引導的名詞子句，維持 where you live 的直述語序。",
+      "pattern": "It depends on + where/what/how + subject + verb."
+    },
+    {
+      "explanation": "進行式需要 be 動詞，所以是 I'm thinking。about 後的間接問句用 how I can，不倒裝成 how can I；improve my skills 也把要提升的對象交代清楚。",
+      "pattern": "I'm thinking about + how + subject + can + base verb."
+    },
+    {
+      "explanation": "a lot of 後的可數名詞要用複數 apps。談已做出且目前仍有用途的工具，可用 I've created。help someone 後可直接接原形動詞；remember vocabulary 交代了記憶的內容。",
+      "pattern": "I've created + plural noun + to help + someone + base verb."
+    },
+    {
+      "explanation": "原句回應朋友稱讚口說流利。用 I'm still learning 明確表達仍在學習；否定句尾的 yet 表示『尚未』。wouldn't say 是委婉表達，並非否定自己已取得的進步。",
+      "pattern": "I'm still + verb-ing, so I wouldn't say + clause + yet."
+    },
+    {
+      "explanation": "afraid 是形容詞，要接 be 動詞，不能用 don't afraid。害怕做某事可用 be afraid of + 動詞-ing；anymore 用於否定句表示『不再』。",
+      "pattern": "Subject + be not afraid of + verb-ing + anymore."
+    },
+    {
+      "explanation": "better 本身已是 good 的比較級，不再加 more。依討論決策能帶來好結果的語境，situation 比含糊的 own thing 更清楚。",
+      "pattern": "make + object + comparative adjective / better, not more better"
+    },
+    {
+      "explanation": "that leaves 表示某種情況造成『只剩下』的結果。into 和 out of 可以並列修飾 roads；into 已是介系詞，不用在前面再加 to。Neihu 為地名，不加 the。",
+      "pattern": "That leaves + only a few + plural noun + into and out of + place."
+    }
   ]
 }

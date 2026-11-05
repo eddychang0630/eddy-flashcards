@@ -2802,6 +2802,206 @@
       "audio_answer": "audio/b61f987d49d52651d037.mp3"
     },
     {
+      "id": "class-20261105-01",
+      "type": "class",
+      "date": "2026-11-05",
+      "category": "學習方法、弦外之音與交通壅塞",
+      "prompt_zh": "你也知道，我昨天考了期中考。",
+      "question_en": "",
+      "answer_en": "As you know, I had my midterm exam yesterday.",
+      "answer_zh": "你也知道，我昨天考了期中考。",
+      "original": "As you know, yesterday is my midterm exam.",
+      "timecode": "00:03:01.938–00:03:05.360",
+      "source": "20261105/english_class_notes.md",
+      "grammar": {
+        "title": "句型重點",
+        "explanation": "yesterday 表示已經發生的時間，要用過去式。談自己參加考試，可用 have an exam；had 是 have 的過去式。",
+        "pattern": "Subject + had + an exam + yesterday."
+      },
+      "audio_question": "",
+      "audio_answer": "audio/2ed321b4aa4ea4db495f.mp3"
+    },
+    {
+      "id": "class-20261105-02",
+      "type": "class",
+      "date": "2026-11-05",
+      "category": "學習方法、弦外之音與交通壅塞",
+      "prompt_zh": "我不確定，也許下週或兩週後。",
+      "question_en": "",
+      "answer_en": "I'm not sure. Maybe next week or in two weeks.",
+      "answer_zh": "我不確定，也許下週或兩週後。",
+      "original": "I don't know. Maybe next or two weeks later.",
+      "timecode": "00:04:14.822–00:04:18.083",
+      "source": "20261105/english_class_notes.md",
+      "grammar": {
+        "title": "句型重點",
+        "explanation": "next 要接清楚的時間單位，例如 next week。從現在算起兩週後用 in two weeks；two weeks later 通常相對於先前提過的時間。",
+        "pattern": "next + week/month / in + a period of time"
+      },
+      "audio_question": "",
+      "audio_answer": "audio/51d5843fab83c213ca83.mp3"
+    },
+    {
+      "id": "class-20261105-03",
+      "type": "class",
+      "date": "2026-11-05",
+      "category": "學習方法、弦外之音與交通壅塞",
+      "prompt_zh": "我也是。我現在這個錢包已經用了六、七年。",
+      "question_en": "",
+      "answer_en": "Same here. I've had my current wallet for six or seven years.",
+      "answer_zh": "我也是。我現在這個錢包已經用了六、七年。",
+      "original": "Same as I, my wallet right now is about six or seven years.",
+      "timecode": "00:06:25.698–00:06:31.462",
+      "source": "20261105/english_class_notes.md",
+      "grammar": {
+        "title": "句型重點",
+        "explanation": "口語回應『我也是』可用 Same here。現在完成式 have had + 物品 + for + 時間，表示持有某物持續至今；直接說錢包 is six years 容易讓句子不完整。",
+        "pattern": "I've had + an item + for + a period of time."
+      },
+      "audio_question": "",
+      "audio_answer": "audio/4a4afdb38ff7bd9cf347.mp3"
+    },
+    {
+      "id": "class-20261105-04",
+      "type": "class",
+      "date": "2026-11-05",
+      "category": "學習方法、弦外之音與交通壅塞",
+      "prompt_zh": "這要看你住在哪裡，因為各地的環境條件不同。",
+      "question_en": "",
+      "answer_en": "It depends on where you live because conditions vary by area.",
+      "answer_zh": "這要看你住在哪裡，因為各地的環境條件不同。",
+      "original": "And it needs to see where you live because the area is totally different.",
+      "timecode": "00:06:59.052–00:07:05.056",
+      "source": "20261105/english_class_notes.md",
+      "grammar": {
+        "title": "句型重點",
+        "explanation": "『要看、取決於』用 depend on，不能直譯成 need to see。on 後可接 where 引導的名詞子句，維持 where you live 的直述語序。",
+        "pattern": "It depends on + where/what/how + subject + verb."
+      },
+      "audio_question": "",
+      "audio_answer": "audio/3aaaf02b82761224e6a1.mp3"
+    },
+    {
+      "id": "class-20261105-05",
+      "type": "class",
+      "date": "2026-11-05",
+      "category": "學習方法、弦外之音與交通壅塞",
+      "prompt_zh": "我總是在想，該如何調整練習方式並提升自己的能力。",
+      "question_en": "",
+      "answer_en": "I'm always thinking about how I can adjust my practice and improve my skills.",
+      "answer_zh": "我總是在想，該如何調整練習方式並提升自己的能力。",
+      "original": "I always thinking about how can I adjust my practice or how can I enhance.",
+      "timecode": "00:11:27.261–00:11:37.987",
+      "source": "20261105/english_class_notes.md",
+      "grammar": {
+        "title": "句型重點",
+        "explanation": "進行式需要 be 動詞，所以是 I'm thinking。about 後的間接問句用 how I can，不倒裝成 how can I；improve my skills 也把要提升的對象交代清楚。",
+        "pattern": "I'm thinking about + how + subject + can + base verb."
+      },
+      "audio_question": "",
+      "audio_answer": "audio/038001aa51370123e639.mp3"
+    },
+    {
+      "id": "class-20261105-06",
+      "type": "class",
+      "date": "2026-11-05",
+      "category": "學習方法、弦外之音與交通壅塞",
+      "prompt_zh": "我做了幾個 App，幫助自己記住單字並提升口說能力。",
+      "question_en": "",
+      "answer_en": "I've created several apps to help me remember vocabulary and improve my speaking skills.",
+      "answer_zh": "我做了幾個 App，幫助自己記住單字並提升口說能力。",
+      "original": "I create a lot of app to help me to remember or to enhance my speaking skills.",
+      "timecode": "00:11:45.191–00:11:52.095",
+      "source": "20261105/english_class_notes.md",
+      "grammar": {
+        "title": "句型重點",
+        "explanation": "a lot of 後的可數名詞要用複數 apps。談已做出且目前仍有用途的工具，可用 I've created。help someone 後可直接接原形動詞；remember vocabulary 交代了記憶的內容。",
+        "pattern": "I've created + plural noun + to help + someone + base verb."
+      },
+      "audio_question": "",
+      "audio_answer": "audio/48e79a0a951bf25bdd9b.mp3"
+    },
+    {
+      "id": "class-20261105-07",
+      "type": "class",
+      "date": "2026-11-05",
+      "category": "學習方法、弦外之音與交通壅塞",
+      "prompt_zh": "我還在學習，所以還不會說自己已經很流利。",
+      "question_en": "",
+      "answer_en": "I'm still learning, so I wouldn't say I'm fluent yet.",
+      "answer_zh": "我還在學習，所以還不會說自己已經很流利。",
+      "original": "I'm not because I still in the process.",
+      "timecode": "00:13:12.294–00:13:15.335",
+      "source": "20261105/english_class_notes.md",
+      "grammar": {
+        "title": "句型重點",
+        "explanation": "原句回應朋友稱讚口說流利。用 I'm still learning 明確表達仍在學習；否定句尾的 yet 表示『尚未』。wouldn't say 是委婉表達，並非否定自己已取得的進步。",
+        "pattern": "I'm still + verb-ing, so I wouldn't say + clause + yet."
+      },
+      "audio_question": "",
+      "audio_answer": "audio/2878c03fb943eeb794b8.mp3"
+    },
+    {
+      "id": "class-20261105-08",
+      "type": "class",
+      "date": "2026-11-05",
+      "category": "學習方法、弦外之音與交通壅塞",
+      "prompt_zh": "我現在不再害怕說英文了。",
+      "question_en": "",
+      "answer_en": "I'm not afraid of speaking English anymore.",
+      "answer_zh": "我現在不再害怕說英文了。",
+      "original": "I don't afraid anymore like speaking English.",
+      "timecode": "00:13:48.531–00:13:55.075",
+      "source": "20261105/english_class_notes.md",
+      "grammar": {
+        "title": "句型重點",
+        "explanation": "afraid 是形容詞，要接 be 動詞，不能用 don't afraid。害怕做某事可用 be afraid of + 動詞-ing；anymore 用於否定句表示『不再』。",
+        "pattern": "Subject + be not afraid of + verb-ing + anymore."
+      },
+      "audio_question": "",
+      "audio_answer": "audio/6fb931c3d68e36174bfb.mp3"
+    },
+    {
+      "id": "class-20261105-09",
+      "type": "class",
+      "date": "2026-11-05",
+      "category": "學習方法、弦外之音與交通壅塞",
+      "prompt_zh": "讓自己的處境變得更好。",
+      "question_en": "",
+      "answer_en": "Make your situation better.",
+      "answer_zh": "讓自己的處境變得更好。",
+      "original": "Make your own thing more better.",
+      "timecode": "00:26:01.862–00:26:05.503",
+      "source": "20261105/english_class_notes.md",
+      "grammar": {
+        "title": "句型重點",
+        "explanation": "better 本身已是 good 的比較級，不再加 more。依討論決策能帶來好結果的語境，situation 比含糊的 own thing 更清楚。",
+        "pattern": "make + object + comparative adjective / better, not more better"
+      },
+      "audio_question": "",
+      "audio_answer": "audio/d33bc53bbff28b770a55.mp3"
+    },
+    {
+      "id": "class-20261105-10",
+      "type": "class",
+      "date": "2026-11-05",
+      "category": "學習方法、弦外之音與交通壅塞",
+      "prompt_zh": "這樣一來，就只剩幾條道路可以進出內湖。",
+      "question_en": "",
+      "answer_en": "That leaves only a few roads into and out of Neihu.",
+      "answer_zh": "這樣一來，就只剩幾條道路可以進出內湖。",
+      "original": "So we only left several roads to into the Nei Hu or to come out the Nei Hu.",
+      "timecode": "00:30:59.281–00:31:09.760",
+      "source": "20261105/english_class_notes.md",
+      "grammar": {
+        "title": "句型重點",
+        "explanation": "that leaves 表示某種情況造成『只剩下』的結果。into 和 out of 可以並列修飾 roads；into 已是介系詞，不用在前面再加 to。Neihu 為地名，不加 the。",
+        "pattern": "That leaves + only a few + plural noun + into and out of + place."
+      },
+      "audio_question": "",
+      "audio_answer": "audio/1977024472c87449a9d9.mp3"
+    },
+    {
       "id": "scenario-class-clarify",
       "type": "scenario",
       "date": "",
@@ -3182,6 +3382,6 @@
       "audio_answer": "audio/28e1b584397f97d9fef4.mp3"
     }
   ],
-  "revision": "1dd1b481156f",
-  "updated_at": "2026-11-02T14:32:56+00:00"
+  "revision": "2be51fab550f",
+  "updated_at": "2026-11-05T16:07:41+00:00"
 }
