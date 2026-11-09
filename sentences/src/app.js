@@ -89,7 +89,9 @@ function chooseQueue() {
 
 function renderFilters() {
   const box = $('filters');
+  const scrollLeft = box.scrollLeft;
   box.replaceChildren();
+  box.classList.toggle('date-strip', state.view === 'lessons');
   box.hidden = state.view === 'today';
   if (box.hidden) return;
   const options = state.view === 'lessons'
@@ -106,6 +108,16 @@ function renderFilters() {
       chooseQueue();
     });
     box.append(button);
+  }
+  if (state.view === 'lessons') {
+    box.scrollLeft = scrollLeft;
+    const selected = box.querySelector('.active');
+    if (selected) {
+      const strip = box.getBoundingClientRect();
+      const button = selected.getBoundingClientRect();
+      if (button.left < strip.left) box.scrollLeft -= strip.left - button.left;
+      else if (button.right > strip.right) box.scrollLeft += button.right - strip.right;
+    }
   }
 }
 
