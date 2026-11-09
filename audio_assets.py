@@ -21,9 +21,18 @@ def audio_relative_path(text, voice=VOICE):
     return f"audio/{digest}.mp3"
 
 
+def word_tts_text(card):
+    word = str(card[0]).strip()
+    pos = str(card[2]).strip().casefold()
+    # A standalone heteronym needs POS context to select its citation pronunciation.
+    if word.casefold() == "deliberate" and pos.startswith(("adj", "形容詞")):
+        return f"[{word}](/dəlˈɪbəɹət/)"
+    return word
+
+
 def attach_audio_paths(cards):
     return [
-        list(card[:12]) + [audio_relative_path(card[0]), audio_relative_path(card[4])] + list(card[14:])
+        list(card[:12]) + [audio_relative_path(word_tts_text(card)), audio_relative_path(card[4])] + list(card[14:])
         for card in cards
     ]
 
@@ -31,7 +40,7 @@ def attach_audio_paths(cards):
 def clip_texts(cards):
     clips = {}
     for card in cards:
-        for text, relative_path in ((card[0], card[12]), (card[4], card[13])):
+        for text, relative_path in ((word_tts_text(card), card[12]), (card[4], card[13])):
             if relative_path:
                 clips.setdefault(relative_path, str(text).strip())
     return clips

@@ -2,7 +2,7 @@ import tempfile
 import unittest
 from pathlib import Path
 
-from audio_assets import attach_audio_paths, audio_relative_path, ensure_complete, generate_missing
+from audio_assets import attach_audio_paths, audio_relative_path, clip_texts, ensure_complete, generate_missing
 
 
 def card(word, example):
@@ -10,6 +10,19 @@ def card(word, example):
 
 
 class AudioAssetsTest(unittest.TestCase):
+    def test_deliberate_adjective_uses_reduced_ending_without_changing_verb(self):
+        adjective = card("deliberate", "His silence was deliberate.")
+        adjective[2] = "Adjective"
+        verb = card("deliberate", "We need to deliberate before deciding.")
+        verb[2] = "Verb"
+        enriched = attach_audio_paths([adjective, verb])
+        adjective_path, verb_path = enriched[0][12], enriched[1][12]
+        self.assertNotEqual(adjective_path, verb_path)
+        self.assertEqual(audio_relative_path("deliberate"), verb_path)
+        self.assertIn("dəlˈɪbəɹət", clip_texts(enriched)[adjective_path])
+        self.assertEqual("deliberate", clip_texts(enriched)[verb_path])
+        self.assertEqual(enriched, attach_audio_paths(enriched))
+
     def test_paths_are_stable_and_voice_specific(self):
         first = audio_relative_path("Ample time")
         self.assertEqual(first, audio_relative_path("Ample time"))
