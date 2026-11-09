@@ -17,6 +17,7 @@ APP_DIR = Path(__file__).resolve().parent
 SITE_ROOT = APP_DIR.parent
 sys.path.insert(0, str(SITE_ROOT))
 from audio_assets import attach_audio_paths, audio_relative_path, ensure_complete, missing_clips  # noqa: E402
+from app_version import write_app_version  # noqa: E402
 from sentences.translation_audit import approve_reviews, build_request, require_reviewed  # noqa: E402
 
 
@@ -283,7 +284,8 @@ def main(argv=None):
     write_dataset(dataset)
     print(f"Sentence cards: {len(dataset['cards'])}, lessons: {len(lessons)}, revision: {dataset['revision']}")
     if not args.local_only:
-        paths = ["sentences/data.json", "sentences/audio", "sentences/grammar_guides.json", "sentences/lesson_topics.json", "sentences/scenarios.json", "sentences/translation_overrides.json", "sentences/translation_audit.json"]
+        write_app_version(APP_DIR, "sentences")
+        paths = ["sentences/data.json", "sentences/audio", "sentences/grammar_guides.json", "sentences/lesson_topics.json", "sentences/scenarios.json", "sentences/translation_overrides.json", "sentences/translation_audit.json", "sentences/app-version.json"]
         subprocess.run(["git", "add", "--", *paths], cwd=SITE_ROOT, check=True)
         changes = subprocess.run(["git", "diff", "--cached", "--quiet", "--", *paths], cwd=SITE_ROOT)
         if changes.returncode == 1:

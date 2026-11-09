@@ -1,10 +1,11 @@
 const CACHE_PREFIX = 'eddy-flashcard-';
-const CACHE_NAME = 'eddy-flashcard-v5';
+const CACHE_NAME = 'eddy-flashcard-v6';
 const APP_PATH = new URL(self.registration.scope).pathname;
 const SUB_APP_PATHS = ['sentences', 'speaking'].map(name => APP_PATH + name);
 const urlsToCache = [
   './',
   './index.html',
+  './app-updates.js',
   './manifest.json',
   './icon-192-v2.png',
   './icon-512-v2.png',
@@ -21,7 +22,7 @@ self.addEventListener('install', event => {
   );
 });
 
-async function loadAppPage(request) {
+async function loadAppPage(request, fallback = './index.html') {
   try {
     const response = await fetch(request, { cache: 'no-store' });
     if (response.ok) {
@@ -32,7 +33,7 @@ async function loadAppPage(request) {
     return response;
   } catch {
     const cached = await caches.open(CACHE_NAME)
-      .then(async cache => (await cache.match(request)) || (await cache.match('./index.html')))
+      .then(async cache => (await cache.match(request)) || (fallback ? await cache.match(fallback) : null))
       .catch(() => null);
     return cached || new Response('暫時無法連上單字 App。請確認網路後重新整理。', {
       status: 503,
@@ -49,6 +50,14 @@ self.addEventListener('fetch', event => {
   if (url.origin !== self.location.origin || !url.pathname.startsWith(APP_PATH) ||
       SUB_APP_PATHS.some(path => url.pathname === path || url.pathname.startsWith(path + '/'))) return;
 
+  if (url.pathname === APP_PATH + 'app-version.json') {
+    event.respondWith(fetch(new Request(request, { cache: 'no-store' })));
+    return;
+  }
+  if (url.pathname === APP_PATH + 'app-updates.js') {
+    event.respondWith(loadAppPage(request, null));
+    return;
+  }
   const isAudio = url.pathname.includes('/audio/') && url.pathname.endsWith('.mp3');
   if (isAudio) {
     const cacheKey = new Request(url.href);

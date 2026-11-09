@@ -27,6 +27,7 @@ from collections import defaultdict
 
 from audio_assets import attach_audio_paths, ensure_complete, missing_clips
 from personal_vocab import load_personal_cards
+from app_version import write_app_version
 
 for stream in (sys.stdout, sys.stderr):
     if hasattr(stream, "reconfigure"):
@@ -221,7 +222,8 @@ def git_push(cards, date_counts):
     dates  = len(date_counts)
     msg    = f"Sync vocab: {total} words across {dates} class dates"
 
-    paths = ["index.html", "vocab_data.json", "audio", "personal_vocabulary.json"]
+    write_app_version(APP_DIR, "vocabulary")
+    paths = ["index.html", "vocab_data.json", "audio", "personal_vocabulary.json", "app-version.json"]
     subprocess.run(["git", "add", "--", *paths], cwd=APP_DIR, check=True)
     result = subprocess.run(["git", "diff", "--cached", "--quiet", "--", *paths], cwd=APP_DIR)
     if result.returncode == 0:

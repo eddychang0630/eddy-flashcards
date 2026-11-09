@@ -376,7 +376,7 @@
   <!-- Progress -->
   <div id="progress-wrap">
     <div class="progress-row">
-      <span id="prog-label">第 1 張，共 415 張</span>
+      <span id="prog-label">第 1 張，共 585 張</span>
       <span id="prog-pct">1%</span>
     </div>
     <div class="progress-bar-bg"><div class="progress-bar-fill" id="prog-fill" style="width:1%"></div></div>
@@ -389,7 +389,7 @@
     <div id="quiz-scores">
       <div class="score-box green"><div class="s-label">✅ 認識</div><div class="s-num" id="q-know">0</div></div>
       <div class="score-box red">  <div class="s-label">❌ 不熟</div><div class="s-num" id="q-dunno">0</div></div>
-      <div class="score-box">      <div class="s-label">🔀 剩餘</div><div class="s-num" id="q-remain">415</div></div>
+      <div class="score-box">      <div class="s-label">🔀 剩餘</div><div class="s-num" id="q-remain">585</div></div>
     </div>
     <div id="quiz-card-area">
       <div class="flip-wrapper" id="flip-wrapper">
@@ -1541,6 +1541,7 @@ if('serviceWorker' in navigator) {
 
 // ─── Init ─────────────────────────────────────────────────────────────────────
 setDateFilter(activeDate);
+import('./app-updates.js').then(({ installOpenRefresh }) => installOpenRefresh({ storageKey: 'eddy-vocabulary-version' })).catch(() => {});
 </script>
 </body>
 </html>

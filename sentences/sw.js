@@ -1,4 +1,4 @@
-const CACHE = 'eddy-sentences-v2';
+const CACHE = 'eddy-sentences-v3';
 const SHELL = ['./', './index.html', './style.css', './navigation.css', './app.js', './data.json', './manifest.json', './icons/icon-192.png'];
 
 self.addEventListener('install', event => {
@@ -14,6 +14,10 @@ self.addEventListener('fetch', event => {
   if (request.method !== 'GET') return;
   const url = new URL(request.url);
   if (url.origin !== self.location.origin || !url.pathname.startsWith(new URL(self.registration.scope).pathname)) return;
+  if (url.pathname.endsWith('/app-version.json')) {
+    event.respondWith(fetch(new Request(request, { cache: 'no-store' })));
+    return;
+  }
   if (url.pathname.endsWith('.mp3')) {
     event.respondWith(caches.match(request).then(cached => cached || fetch(request).then(response => { if (response.status === 200 && !request.headers.has('range')) caches.open(CACHE).then(cache => cache.put(request, response.clone())); return response; })));
     return;

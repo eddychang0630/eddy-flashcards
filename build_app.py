@@ -994,6 +994,7 @@ if('serviceWorker' in navigator) {{
 
 // ─── Init ─────────────────────────────────────────────────────────────────────
 setDateFilter(activeDate);
+import('./app-updates.js').then(({{ installOpenRefresh }}) => installOpenRefresh({{ storageKey: 'eddy-vocabulary-version' }})).catch(() => {{}});
 </script>
 </body>
 </html>"""

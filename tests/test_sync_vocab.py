@@ -14,12 +14,13 @@ ROOT = Path(__file__).resolve().parents[1]
 
 class SyncVocabularyTest(unittest.TestCase):
     def test_git_push_commits_only_vocabulary_paths(self):
-        with patch.object(sync_vocab.subprocess, "run", side_effect=[
+        with patch.object(sync_vocab, "write_app_version") as release, patch.object(sync_vocab.subprocess, "run", side_effect=[
             SimpleNamespace(returncode=0), SimpleNamespace(returncode=1),
             SimpleNamespace(returncode=0), SimpleNamespace(returncode=0),
         ]) as run:
             sync_vocab.git_push(["word"], {"2026-09-25": 1})
-        paths = ["index.html", "vocab_data.json", "audio", "personal_vocabulary.json"]
+        release.assert_called_once_with(ROOT, "vocabulary")
+        paths = ["index.html", "vocab_data.json", "audio", "personal_vocabulary.json", "app-version.json"]
         self.assertEqual(["git", "diff", "--cached", "--quiet", "--", *paths], run.call_args_list[1].args[0])
         self.assertEqual(["git", "commit", "-m", "Sync vocab: 1 words across 1 class dates", "--", *paths], run.call_args_list[2].args[0])
 

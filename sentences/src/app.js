@@ -1,10 +1,11 @@
 import { createEmptyCard, fsrs, Rating } from 'ts-fsrs';
 import { createIcons, RefreshCw, CalendarCheck, BookOpen, MessagesSquare, Volume2, Eye, Repeat2, RotateCcw, Download, Upload, ChevronLeft, ChevronRight } from 'lucide';
+import { installOpenRefresh } from '../../app-updates.js';
 
 const scheduler = fsrs();
 const icons = { RefreshCw, CalendarCheck, BookOpen, MessagesSquare, Volume2, Eye, Repeat2, RotateCcw, Download, Upload, ChevronLeft, ChevronRight };
 const state = {
-  cards: [], reviews: new Map(), view: 'today', selectedDate: '', selectedCategory: '',
+  cards: [], reviews: new Map(), view: 'lessons', selectedDate: '', selectedCategory: '',
   queue: [], index: 0, revealed: false, speed: 1, loop: false, audio: new Audio(), ratingBusy: false,
 };
 const $ = id => document.getElementById(id);
@@ -25,8 +26,9 @@ function openDatabase() {
 }
 
 let database;
+const pendingWrites = new Set();
 function transaction(mode, action) {
-  return new Promise((resolve, reject) => {
+  const completion = new Promise((resolve, reject) => {
     const tx = database.transaction('reviews', mode);
     const store = tx.objectStore('reviews');
     const request = action(store);
@@ -34,6 +36,11 @@ function transaction(mode, action) {
     tx.onerror = () => reject(tx.error);
     tx.onabort = () => reject(tx.error || new Error('無法儲存複習進度'));
   });
+  if (mode === 'readwrite') {
+    pendingWrites.add(completion);
+    completion.then(() => pendingWrites.delete(completion), () => pendingWrites.delete(completion));
+  }
+  return completion;
 }
 
 function hydrateReview(record) {
@@ -256,7 +263,13 @@ async function initialize() {
     state.selectedDate = [...new Set(state.cards.filter(card => card.type === 'class').map(card => card.date))].sort().at(-1) || '';
     setText('updated-at', `資料更新：${new Date(dataset.updated_at).toLocaleString('zh-TW')}`);
     chooseQueue();
-    if ('serviceWorker' in navigator) navigator.serviceWorker.register('./sw.js', { scope: './' }).catch(() => {});
+    if ('serviceWorker' in navigator) navigator.serviceWorker.register('./sw.js', { scope: './', updateViaCache: 'none' }).catch(() => {});
+    installOpenRefresh({
+      storageKey: 'eddy-sentences-version',
+      beforeReload: async () => {
+        while (pendingWrites.size) await Promise.allSettled([...pendingWrites]);
+      },
+    });
   } catch (error) {
     $('practice-card').hidden = true;
     showMessage(`無法載入句子資料：${error.message}`, true);
