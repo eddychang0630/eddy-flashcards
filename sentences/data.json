@@ -3002,6 +3002,206 @@
       "audio_answer": "audio/1977024472c87449a9d9.mp3"
     },
     {
+      "id": "class-20261112-01",
+      "type": "class",
+      "date": "2026-11-12",
+      "category": "課業、運動習慣與 Airbnb 住宿",
+      "prompt_zh": "上晚間課程時，我喝了兩杯咖啡。",
+      "question_en": "",
+      "answer_en": "During my evening class, I drank two cups of coffee.",
+      "answer_zh": "上晚間課程時，我喝了兩杯咖啡。",
+      "original": "During the class at night, I just drink two cup of coffee.",
+      "timecode": "02:14–02:22",
+      "source": "20261112/english_class_notes.md",
+      "grammar": {
+        "title": "句型重點",
+        "explanation": "回述當晚已發生的事，用 drank。cup 是可數名詞，two 後面用 cups。evening class 是「晚間課程」的自然說法。",
+        "pattern": "During + 活動，主詞 + 過去式 + 數量"
+      },
+      "audio_question": "",
+      "audio_answer": "audio/3694bc91c03673ab54d5.mp3"
+    },
+    {
+      "id": "class-20261112-02",
+      "type": "class",
+      "date": "2026-11-12",
+      "category": "課業、運動習慣與 Airbnb 住宿",
+      "prompt_zh": "那是一門六週的課程，而且真的很難。",
+      "question_en": "",
+      "answer_en": "It was a six-week course, and it was really hard.",
+      "answer_zh": "那是一門六週的課程，而且真的很難。",
+      "original": "It's like six weeks courses and then really, really hard.",
+      "timecode": "03:55–04:01",
+      "source": "20261112/english_class_notes.md",
+      "grammar": {
+        "title": "句型重點",
+        "explanation": "six-week 放在 course 前當複合形容詞，week 用單數。談已結束的暑期課，用 was。",
+        "pattern": "a + 數字－單數時間單位 + 名詞"
+      },
+      "audio_question": "",
+      "audio_answer": "audio/b8072023e5009dbc44c3.mp3"
+    },
+    {
+      "id": "class-20261112-03",
+      "type": "class",
+      "date": "2026-11-12",
+      "category": "課業、運動習慣與 Airbnb 住宿",
+      "prompt_zh": "我大約三週沒喝珍珠奶茶了。",
+      "question_en": "",
+      "answer_en": "I haven't had bubble tea for about three weeks.",
+      "answer_zh": "我大約三週沒喝珍珠奶茶了。",
+      "original": "I haven't drink bubble tea like three weeks.",
+      "timecode": "13:05–13:09",
+      "source": "20261112/english_class_notes.md",
+      "grammar": {
+        "title": "句型重點",
+        "explanation": "從三週前一直到現在沒喝，用現在完成式 haven't had。about 表示約略，for 引出時間長度。",
+        "pattern": "haven't + 過去分詞 + for + 一段時間"
+      },
+      "audio_question": "",
+      "audio_answer": "audio/6319141034fe20031daf.mp3"
+    },
+    {
+      "id": "class-20261112-04",
+      "type": "class",
+      "date": "2026-11-12",
+      "category": "課業、運動習慣與 Airbnb 住宿",
+      "prompt_zh": "我把跑步機的坡度調高。",
+      "question_en": "",
+      "answer_en": "I increase the incline on the treadmill.",
+      "answer_zh": "我把跑步機的坡度調高。",
+      "original": "I adjust the slope to the higher slope.",
+      "timecode": "14:47–14:52",
+      "source": "20261112/english_class_notes.md",
+      "grammar": {
+        "title": "句型重點",
+        "explanation": "說跑步機的坡度設定時常用 incline。increase 已表達調高，因此不必再重複坡度一詞。",
+        "pattern": "increase + the incline + on the treadmill"
+      },
+      "audio_question": "",
+      "audio_answer": "audio/6a96fc9184fedad3e73b.mp3"
+    },
+    {
+      "id": "class-20261112-05",
+      "type": "class",
+      "date": "2026-11-12",
+      "category": "課業、運動習慣與 Airbnb 住宿",
+      "prompt_zh": "你可能沒注意到食物含有多少卡路里。",
+      "question_en": "",
+      "answer_en": "You may not realize how many calories the food contains.",
+      "answer_zh": "你可能沒注意到食物含有多少卡路里。",
+      "original": "You don't really notice how much does the food contains.",
+      "timecode": "20:19–20:27",
+      "source": "20261112/english_class_notes.md",
+      "grammar": {
+        "title": "句型重點",
+        "explanation": "前文在談熱量，因此補出 calories。間接問句採直述語序 the food contains，省去助動詞 does。",
+        "pattern": "realize + how many + 複數名詞 + 主詞 + 動詞"
+      },
+      "audio_question": "",
+      "audio_answer": "audio/d13393067fd0a32aabbd.mp3"
+    },
+    {
+      "id": "class-20261112-06",
+      "type": "class",
+      "date": "2026-11-12",
+      "category": "課業、運動習慣與 Airbnb 住宿",
+      "prompt_zh": "我們可以住在一起，喝一杯。",
+      "question_en": "",
+      "answer_en": "We can stay together and have a drink.",
+      "answer_zh": "我們可以住在一起，喝一杯。",
+      "original": "And then we can live in together and drink together.",
+      "timecode": "26:08–26:12",
+      "source": "20261112/english_class_notes.md",
+      "grammar": {
+        "title": "句型重點",
+        "explanation": "旅行時的短期住宿用 stay；have a drink 是「喝一杯」的常見搭配。一次 together 就能說明是一起活動。",
+        "pattern": "stay together + and + have a drink"
+      },
+      "audio_question": "",
+      "audio_answer": "audio/8afaa7c23148d80536ec.mp3"
+    },
+    {
+      "id": "class-20261112-07",
+      "type": "class",
+      "date": "2026-11-12",
+      "category": "課業、運動習慣與 Airbnb 住宿",
+      "prompt_zh": "為什麼 Airbnb 的房東原本可以要求房客打掃？",
+      "question_en": "",
+      "answer_en": "Why were Airbnb hosts allowed to ask guests to clean up?",
+      "answer_zh": "為什麼 Airbnb 的房東原本可以要求房客打掃？",
+      "original": "But in my view, why Airbnb can ask guests to clean?",
+      "timecode": "27:14–27:22",
+      "source": "20261112/english_class_notes.md",
+      "grammar": {
+        "title": "句型重點",
+        "explanation": "直接問句把 were 移到主詞前。談新規生效前允許的做法，用過去式。要求打掃的是 hosts，因此主詞說明是房東。",
+        "pattern": "Why were + 主詞 + allowed to + 原形動詞？"
+      },
+      "audio_question": "",
+      "audio_answer": "audio/2d0019a117f189ff0c0d.mp3"
+    },
+    {
+      "id": "class-20261112-08",
+      "type": "class",
+      "date": "2026-11-12",
+      "category": "課業、運動習慣與 Airbnb 住宿",
+      "prompt_zh": "我覺得這兩個城市都可以。",
+      "question_en": "",
+      "answer_en": "I think both cities would work.",
+      "answer_zh": "我覺得這兩個城市都可以。",
+      "original": "I think both of that is all good.",
+      "timecode": "43:50–43:53",
+      "source": "20261112/english_class_notes.md",
+      "grammar": {
+        "title": "句型重點",
+        "explanation": "承接台中與台北，用 both cities。would work 表示兩個選項都可行。",
+        "pattern": "both + 複數名詞 + would work"
+      },
+      "audio_question": "",
+      "audio_answer": "audio/db51a4137903d82122b8.mp3"
+    },
+    {
+      "id": "class-20261112-09",
+      "type": "class",
+      "date": "2026-11-12",
+      "category": "課業、運動習慣與 Airbnb 住宿",
+      "prompt_zh": "我去大阪旅行時住在一間 Airbnb。",
+      "question_en": "",
+      "answer_en": "I stayed at an Airbnb on my trip to Osaka.",
+      "answer_zh": "我去大阪旅行時住在一間 Airbnb。",
+      "original": "I stayed the Airbnb because I travel in Osaka.",
+      "timecode": "45:34–45:38",
+      "source": "20261112/english_class_notes.md",
+      "grammar": {
+        "title": "句型重點",
+        "explanation": "stay at 用於住宿地點，an Airbnb 表示一間民宿。on my trip to Osaka 補充已發生的旅行背景。",
+        "pattern": "stayed at + 住宿地點 + on my trip to + 地點"
+      },
+      "audio_question": "",
+      "audio_answer": "audio/d772cc52415ec5ee08ba.mp3"
+    },
+    {
+      "id": "class-20261112-10",
+      "type": "class",
+      "date": "2026-11-12",
+      "category": "課業、運動習慣與 Airbnb 住宿",
+      "prompt_zh": "謝謝你提醒我這件事。",
+      "question_en": "",
+      "answer_en": "Thanks for reminding me about that.",
+      "answer_zh": "謝謝你提醒我這件事。",
+      "original": "Thank you to remind this.",
+      "timecode": "51:28–51:30",
+      "source": "20261112/english_class_notes.md",
+      "grammar": {
+        "title": "句型重點",
+        "explanation": "for 後用動名詞 reminding。me 是被提醒的人，that 承接前面談到的住宿安全。",
+        "pattern": "Thanks for + 動名詞；remind + 人 + about + 事"
+      },
+      "audio_question": "",
+      "audio_answer": "audio/98b26791a6d72878cfc2.mp3"
+    },
+    {
       "id": "scenario-class-clarify",
       "type": "scenario",
       "date": "",
@@ -3382,6 +3582,6 @@
       "audio_answer": "audio/28e1b584397f97d9fef4.mp3"
     }
   ],
-  "revision": "2be51fab550f",
-  "updated_at": "2026-11-05T16:07:41+00:00"
+  "revision": "27e01ea8da7e",
+  "updated_at": "2026-11-12T15:18:24+00:00"
 }

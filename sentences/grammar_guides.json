@@ -611,5 +611,47 @@
       "explanation": "that leaves 表示某種情況造成『只剩下』的結果。into 和 out of 可以並列修飾 roads；into 已是介系詞，不用在前面再加 to。Neihu 為地名，不加 the。",
       "pattern": "That leaves + only a few + plural noun + into and out of + place."
     }
+  ],
+  "20261112": [
+    {
+      "explanation": "回述當晚已發生的事，用 drank。cup 是可數名詞，two 後面用 cups。evening class 是「晚間課程」的自然說法。",
+      "pattern": "During + 活動，主詞 + 過去式 + 數量"
+    },
+    {
+      "explanation": "six-week 放在 course 前當複合形容詞，week 用單數。談已結束的暑期課，用 was。",
+      "pattern": "a + 數字－單數時間單位 + 名詞"
+    },
+    {
+      "explanation": "從三週前一直到現在沒喝，用現在完成式 haven't had。about 表示約略，for 引出時間長度。",
+      "pattern": "haven't + 過去分詞 + for + 一段時間"
+    },
+    {
+      "explanation": "說跑步機的坡度設定時常用 incline。increase 已表達調高，因此不必再重複坡度一詞。",
+      "pattern": "increase + the incline + on the treadmill"
+    },
+    {
+      "explanation": "前文在談熱量，因此補出 calories。間接問句採直述語序 the food contains，省去助動詞 does。",
+      "pattern": "realize + how many + 複數名詞 + 主詞 + 動詞"
+    },
+    {
+      "explanation": "旅行時的短期住宿用 stay；have a drink 是「喝一杯」的常見搭配。一次 together 就能說明是一起活動。",
+      "pattern": "stay together + and + have a drink"
+    },
+    {
+      "explanation": "直接問句把 were 移到主詞前。談新規生效前允許的做法，用過去式。要求打掃的是 hosts，因此主詞說明是房東。",
+      "pattern": "Why were + 主詞 + allowed to + 原形動詞？"
+    },
+    {
+      "explanation": "承接台中與台北，用 both cities。would work 表示兩個選項都可行。",
+      "pattern": "both + 複數名詞 + would work"
+    },
+    {
+      "explanation": "stay at 用於住宿地點，an Airbnb 表示一間民宿。on my trip to Osaka 補充已發生的旅行背景。",
+      "pattern": "stayed at + 住宿地點 + on my trip to + 地點"
+    },
+    {
+      "explanation": "for 後用動名詞 reminding。me 是被提醒的人，that 承接前面談到的住宿安全。",
+      "pattern": "Thanks for + 動名詞；remind + 人 + about + 事"
+    }
   ]
 }
