@@ -28,6 +28,7 @@ from collections import defaultdict
 from audio_assets import attach_audio_paths, ensure_complete, missing_clips
 from personal_vocab import load_personal_cards
 from app_version import write_app_version
+from vocabulary_ipa import add_pronunciations, pronunciation_requests
 
 for stream in (sys.stdout, sys.stderr):
     if hasattr(stream, "reconfigure"):
@@ -88,7 +89,7 @@ def read_vocab(excel_path=DEFAULT_EXCEL_PATH):
 
         card = [
             word_str,           # 0  英文單字
-            "",                 # 1  音標（Excel 無此欄，留空）
+            "",                 # 1  音標（同步時補入）
             clean(pos),         # 2  詞性
             clean(meaning),     # 3  中文意思
             clean(ex_en),       # 4  英文例句
@@ -147,20 +148,35 @@ def generate_date_bar_html(cards):
     return "\n".join(lines)
 
 
+def kokoro_interpreter():
+    interpreter = Path(os.environ.get(
+        "KOKORO_PYTHON",
+        Path.home() / "Desktop/English class 整理重點/.models/kokoro/venv/Scripts/python.exe",
+    ))
+    if not interpreter.is_file():
+        raise FileNotFoundError(f"Kokoro Python not found: {interpreter}. Set KOKORO_PYTHON before sync.")
+    return interpreter
+
+
+def prepare_pronunciations(cards):
+    requests = pronunciation_requests(cards)
+    pronunciations = {}
+    if requests:
+        process = subprocess.run(
+            [str(kokoro_interpreter()), str(APP_DIR / "vocabulary_ipa.py")],
+            cwd=APP_DIR, input=json.dumps(requests, ensure_ascii=False), stdout=subprocess.PIPE,
+            encoding="utf-8", check=True,
+        )
+        ipa = json.loads(process.stdout)
+        pronunciations = dict(zip(requests, ipa, strict=True))
+    add_pronunciations(cards, pronunciations)
+
+
 def prepare_audio(cards):
     cards = attach_audio_paths(cards)
     pending = missing_clips(cards, AUDIO_DIR)
     if pending:
-        kokoro_python = Path(
-            os.environ.get(
-                "KOKORO_PYTHON",
-                Path.home() / "Desktop/English class 整理重點/.models/kokoro/venv/Scripts/python.exe",
-            )
-        )
-        if not kokoro_python.is_file():
-            raise FileNotFoundError(
-                f"Kokoro Python not found: {kokoro_python}. Set KOKORO_PYTHON before sync."
-            )
+        kokoro_python = kokoro_interpreter()
         with tempfile.TemporaryDirectory() as temp_dir:
             cards_file = Path(temp_dir) / "cards.json"
             cards_file.write_text(json.dumps(cards, ensure_ascii=False), encoding="utf-8")
@@ -265,6 +281,7 @@ def main(argv=None):
             raise FileNotFoundError(f"Personal vocabulary database is missing: {PERSONAL_FILE}")
         cards = [list(card[:12]) + ["", "", "class"] for card in cards] + load_personal_cards(PERSONAL_FILE)
         cards = prepare_audio(cards)
+        prepare_pronunciations(cards)
         if update_html(cards):
             update_json(cards)
             if not args.local_only:

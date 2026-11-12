@@ -220,9 +220,17 @@ HTML = f"""<!DOCTYPE html>
     .flip-word-row, .s-word-row, .example-audio-row {{
       display: flex; align-items: center; gap: 8px; min-width: 0;
     }}
+    .word-label {{
+      display: flex; flex: 1; flex-wrap: wrap; align-items: baseline;
+      gap: 2px 8px; min-width: 0;
+    }}
+    .word-phonetic {{
+      font-size: 0.875rem; color: #a5b4fc; font-weight: 500;
+      overflow-wrap: anywhere; min-width: 0;
+    }}
     .flip-word {{
       font-weight: 800; line-height: 1.1; color: var(--text);
-      white-space: nowrap; overflow: hidden; min-width: 0; flex: 1;
+      min-width: 0; overflow-wrap: anywhere;
     }}
     .audio-btn {{
       width: 40px; height: 40px; flex: 0 0 40px; display: grid; place-items: center;
@@ -240,7 +248,6 @@ HTML = f"""<!DOCTYPE html>
       border: 1px solid var(--border); border-radius: 8px; color: var(--text);
     }}
     .audio-status:empty {{ display: none; }}
-    .flip-phonetic {{ font-size: 0.74rem; color: #818cf8; margin-top: 3px; font-family: monospace; }}
     .flip-hint {{ font-size: 0.63rem; color: var(--muted); margin-top: 8px; }}
     .flip-date-tag {{ font-size: 0.58rem; color: var(--muted); margin-top: 4px; }}
 
@@ -279,11 +286,7 @@ HTML = f"""<!DOCTYPE html>
     .s-header {{ padding: 16px 18px 12px; border-bottom: 1px solid var(--border); }}
     .s-word {{
       font-weight: 800; line-height: 1.15; color: var(--text);
-      white-space: nowrap; overflow: hidden; display: block; min-width: 0; flex: 1;
-    }}
-    .s-phonetic {{
-      display: block; font-size: 0.8rem; color: #818cf8;
-      font-family: 'Courier New', monospace; margin-top: 4px; margin-bottom: 10px;
+      min-width: 0; overflow-wrap: anywhere;
     }}
     .s-meta-col {{
       display: flex; flex-direction: column; gap: 8px; margin-top: 6px;
@@ -436,10 +439,12 @@ HTML = f"""<!DOCTYPE html>
           <div class="flip-face flip-front" onclick="doFlip()">
             <div class="flip-badge" id="q-badge">字彙</div>
             <div class="flip-word-row">
-              <div class="flip-word" id="q-word"></div>
+              <div class="word-label">
+                <span class="flip-word" id="q-word"></span>
+                <span class="word-phonetic" id="q-phonetic" hidden></span>
+              </div>
               <button class="audio-btn" id="q-word-audio" type="button" onclick="playCardAudio(event, 'q-word-audio')" aria-label="播放單字發音" title="播放單字發音">▶</button>
             </div>
-            <div class="flip-phonetic" id="q-phonetic"></div>
             <div class="flip-hint">輕觸翻面 👆 翻後左滑不熟 / 右滑認識</div>
             <div class="flip-date-tag" id="q-date-tag"></div>
           </div>
@@ -472,10 +477,12 @@ HTML = f"""<!DOCTYPE html>
       <div class="study-card" id="study-card">
         <div class="s-header">
           <div class="s-word-row">
-            <span class="s-word" id="s-word"></span>
+            <div class="word-label">
+              <span class="s-word" id="s-word"></span>
+              <span class="word-phonetic" id="s-phonetic" hidden></span>
+            </div>
             <button class="audio-btn" id="s-word-audio" type="button" onclick="playCardAudio(event, 's-word-audio')" aria-label="播放單字發音" title="播放單字發音">▶</button>
           </div>
-          <span class="s-phonetic" id="s-phonetic"></span>
           <div class="s-meta-col">
             <span class="s-pos" id="s-pos"></span>
             <span class="s-meaning-inline" id="s-meaning"></span>
@@ -807,7 +814,7 @@ function showQCard() {{
   wordEl.textContent=c[0]; fitWordFont(wordEl,c[0]);
 
   const phonEl=document.getElementById('q-phonetic');
-  phonEl.textContent=c[1]||''; phonEl.style.display=c[1]?'block':'none';
+  phonEl.textContent=c[1]||''; phonEl.hidden=!c[1];
 
   document.getElementById('q-badge').textContent=c[2]||'字彙';
   document.getElementById('q-pos-tag').textContent=c[2]||'';
@@ -871,7 +878,7 @@ function showSCard() {{
   wordEl.textContent=c[0]; fitWordFont(wordEl,c[0]);
 
   const phonEl=document.getElementById('s-phonetic');
-  phonEl.textContent=c[1]||''; phonEl.style.display=c[1]?'block':'none';
+  phonEl.textContent=c[1]||''; phonEl.hidden=!c[1];
 
   const posEl=document.getElementById('s-pos');
   posEl.textContent=c[2]||'';

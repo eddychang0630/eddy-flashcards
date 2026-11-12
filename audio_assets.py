@@ -87,22 +87,27 @@ def _short_path(path):
     return buffer.value.replace("\\", "/")
 
 
-def make_renderer(kokoro_home):
-    kokoro_home = Path(kokoro_home)
-    data_path = kokoro_home / "venv/Lib/site-packages/espeakng_loader/espeak-ng-data"
+def configure_espeak(data_path):
+    data_path = Path(data_path)
     if not data_path.is_dir():
         raise FileNotFoundError(f"eSpeak data not found: {data_path}")
 
-    os.environ["HF_HOME"] = str(kokoro_home / "hf-cache")
-    os.environ["HF_HUB_OFFLINE"] = "1"
     os.environ["ESPEAK_DATA_PATH"] = _short_path(data_path)
-
     import misaki.espeak  # noqa: F401 - initialize bundled eSpeak library
     from phonemizer.backend.espeak.wrapper import EspeakWrapper
+
+    EspeakWrapper.set_data_path(None)
+
+
+def make_renderer(kokoro_home):
+    kokoro_home = Path(kokoro_home)
+    os.environ["HF_HOME"] = str(kokoro_home / "hf-cache")
+    os.environ["HF_HUB_OFFLINE"] = "1"
+    configure_espeak(kokoro_home / "venv/Lib/site-packages/espeakng_loader/espeak-ng-data")
+
     import torch
     from kokoro import KPipeline
 
-    EspeakWrapper.set_data_path(None)
     device = "cuda" if torch.cuda.is_available() else "cpu"
     print(f"Loading Kokoro {VOICE} on {device}", flush=True)
     pipeline = KPipeline(lang_code="a", repo_id="hexgrad/Kokoro-82M", device=device)
