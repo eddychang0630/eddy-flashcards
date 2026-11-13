@@ -10,6 +10,15 @@ def card(word, example):
 
 
 class AudioAssetsTest(unittest.TestCase):
+    def test_ragged_adjective_keeps_both_syllables(self):
+        adjective = card("ragged", "He wore a ragged coat.")
+        adjective[2] = "Adjective"
+        verb = card("ragged", "They ragged him about the mistake.")
+        verb[2] = "Verb"
+        enriched = attach_audio_paths([adjective, verb])
+        self.assertEqual(audio_relative_path("ragged"), enriched[1][12])
+        self.assertIn("ɹˈæɡɪd", clip_texts(enriched)[enriched[0][12]])
+
     def test_deliberate_adjective_uses_reduced_ending_without_changing_verb(self):
         adjective = card("deliberate", "His silence was deliberate.")
         adjective[2] = "Adjective"

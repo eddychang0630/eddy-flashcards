@@ -27,6 +27,8 @@ def word_tts_text(card):
     # A standalone heteronym needs POS context to select its citation pronunciation.
     if word.casefold() == "deliberate" and pos.startswith(("adj", "形容詞")):
         return f"[{word}](/dəlˈɪbəɹət/)"
+    if word.casefold() == "ragged" and pos.startswith(("adj", "形容詞")):
+        return f"[{word}](/ɹˈæɡɪd/)"
     return word
 
 

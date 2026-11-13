@@ -77,7 +77,9 @@ def generate_pronunciations(requests):
     for (word, pos), sounds in zip(requests, phonemes):
         variant = dictionary.get(word.casefold())
         label = re.match(r"[a-z]+", pos.casefold())
-        if isinstance(variant, dict) and label:
+        if word.casefold() == "inland" and label and POS_TAGS.get(label[0]) == "ADV":
+            sounds = "ˈɪnlænd"
+        elif isinstance(variant, dict) and label:
             preferred = variant.get(POS_TAGS.get(label[0]), variant.get("DEFAULT"))
             if preferred:
                 sounds = preferred.translate(MISAKI_TO_IPA)
