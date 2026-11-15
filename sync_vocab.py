@@ -14,6 +14,7 @@
 """
 
 import argparse
+import csv
 import os
 import sys
 
@@ -46,6 +47,7 @@ INDEX_HTML = APP_DIR / "index.html"
 JSON_FILE = APP_DIR / "vocab_data.json"
 AUDIO_DIR = APP_DIR / "audio"
 PERSONAL_FILE = APP_DIR / "personal_vocabulary.json"
+DEFINITIONS_FILE = APP_DIR / "english_definitions.tsv"
 
 # ── 讀取 Excel ────────────────────────────────────────────────────────────────
 def read_vocab(excel_path=DEFAULT_EXCEL_PATH):
@@ -192,6 +194,30 @@ def prepare_audio(cards):
     return cards
 
 
+def add_english_definitions(cards, path=DEFINITIONS_FILE):
+    # Use the Chinese sense as well as the headword, since class and life cards
+    # can teach different meanings of the same word.
+    def key(word, meaning):
+        return " ".join(word.casefold().split()), " ".join(meaning.split())
+
+    definitions = {}
+    with path.open(encoding="utf-8", newline="") as source:
+        for row in csv.DictReader(source, delimiter="\t", quoting=csv.QUOTE_NONE):
+            pair = key(row["word"], row["meaning"])
+            definition = row["definition"].strip()
+            if not definition or pair in definitions:
+                raise ValueError(f"Empty or duplicate English definition: {pair!r}")
+            definitions[pair] = definition
+
+    missing = 0
+    for card in cards:
+        definition = definitions.get(key(card[0], card[3]), "")
+        card[15:16] = [definition]
+        missing += not bool(definition)
+    if missing:
+        print(f"English definitions missing for {missing} card(s). See {path.name}.")
+
+
 def update_json(cards):
     JSON_FILE.write_text(json.dumps(cards, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
 
@@ -239,7 +265,8 @@ def git_push(cards, date_counts):
     msg    = f"Sync vocab: {total} words across {dates} class dates"
 
     write_app_version(APP_DIR, "vocabulary")
-    paths = ["index.html", "vocab_data.json", "audio", "personal_vocabulary.json", "app-version.json"]
+    paths = ["index.html", "vocab_data.json", "audio", "personal_vocabulary.json",
+             DEFINITIONS_FILE.name, "app-version.json"]
     subprocess.run(["git", "add", "--", *paths], cwd=APP_DIR, check=True)
     result = subprocess.run(["git", "diff", "--cached", "--quiet", "--", *paths], cwd=APP_DIR)
     if result.returncode == 0:
@@ -282,6 +309,7 @@ def main(argv=None):
         cards = [list(card[:12]) + ["", "", "class"] for card in cards] + load_personal_cards(PERSONAL_FILE)
         cards = prepare_audio(cards)
         prepare_pronunciations(cards)
+        add_english_definitions(cards)
         if update_html(cards):
             update_json(cards)
             if not args.local_only:

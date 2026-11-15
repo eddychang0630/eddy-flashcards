@@ -13,6 +13,35 @@ ROOT = Path(__file__).resolve().parents[1]
 
 
 class SyncVocabularyTest(unittest.TestCase):
+    def test_definitions_follow_the_card_meaning_and_keep_existing_fields(self):
+        with tempfile.TemporaryDirectory() as temp_dir:
+            path = Path(temp_dir) / "english_definitions.tsv"
+            path.write_text(
+                "word\tmeaning\tdefinition\n"
+                "fast\t禁食\tto go without food\n"
+                "fast\t快速的\tmoving quickly\n"
+                "pay off\t有回報\tto bring a good result after effort\n",
+                encoding="utf-8",
+            )
+            cards = [
+                [word, "", pos, meaning] + [""] * 10 + [category]
+                for word, pos, meaning, category in (
+                    ("Fast", "Verb", "禁食", "life"),
+                    ("fast", "Adjective", "快速的", "class"),
+                    ("pay off", "phrasal verb", "有回報", "class"),
+                    ("fast", "Adverb", "很快地", "life"),
+                )
+            ]
+            originals = [card[:] for card in cards]
+            sync_vocab.add_english_definitions(cards, path)
+            self.assertEqual(originals, [card[:15] for card in cards])
+            self.assertEqual(
+                ["to go without food", "moving quickly", "to bring a good result after effort", ""],
+                [card[15] for card in cards],
+            )
+            sync_vocab.add_english_definitions(cards, path)
+            self.assertTrue(all(len(card) == 16 for card in cards))
+
     def test_git_push_commits_only_vocabulary_paths(self):
         with patch.object(sync_vocab, "write_app_version") as release, patch.object(sync_vocab.subprocess, "run", side_effect=[
             SimpleNamespace(returncode=0), SimpleNamespace(returncode=1),
@@ -20,7 +49,7 @@ class SyncVocabularyTest(unittest.TestCase):
         ]) as run:
             sync_vocab.git_push(["word"], {"2026-09-25": 1})
         release.assert_called_once_with(ROOT, "vocabulary")
-        paths = ["index.html", "vocab_data.json", "audio", "personal_vocabulary.json", "app-version.json"]
+        paths = ["index.html", "vocab_data.json", "audio", "personal_vocabulary.json", "english_definitions.tsv", "app-version.json"]
         self.assertEqual(["git", "diff", "--cached", "--quiet", "--", *paths], run.call_args_list[1].args[0])
         self.assertEqual(["git", "commit", "-m", "Sync vocab: 1 words across 1 class dates", "--", *paths], run.call_args_list[2].args[0])
 

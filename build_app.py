@@ -254,6 +254,11 @@ HTML = f"""<!DOCTYPE html>
     .flip-back-content {{ display: flex; flex-direction: column; gap: 5px; }}
     .flip-pos-tag {{ font-size: 0.62rem; font-weight: 700; color: #818cf8; text-transform: uppercase; }}
     .flip-meaning {{ font-size: 0.92rem; font-weight: 600; line-height: 1.35; color: var(--text); }}
+    .english-definition {{
+      font-size: 0.9rem; line-height: 1.45; color: #c7d2fe;
+      overflow-wrap: anywhere;
+    }}
+    .english-definition:empty {{ display: none; }}
     .flip-ex {{ font-size: 0.7rem; color: var(--muted); font-style: italic; line-height: 1.4; margin-top: 3px; flex: 1; }}
 
     #swipe-hint {{ text-align: center; font-size: 0.64rem; color: var(--muted); padding: 4px 0; flex-shrink: 0; }}
@@ -452,6 +457,7 @@ HTML = f"""<!DOCTYPE html>
             <div class="flip-back-content">
               <div class="flip-pos-tag" id="q-pos-tag"></div>
               <div class="flip-meaning" id="q-meaning"></div>
+              <div class="english-definition" id="q-meaning-en" lang="en"></div>
               <div class="example-audio-row">
                 <div class="flip-ex" id="q-ex"></div>
                 <button class="audio-btn" id="q-example-audio" type="button" onclick="playCardAudio(event, 'q-example-audio')" aria-label="播放例句發音" title="播放例句發音">▶</button>
@@ -486,6 +492,7 @@ HTML = f"""<!DOCTYPE html>
           <div class="s-meta-col">
             <span class="s-pos" id="s-pos"></span>
             <span class="s-meaning-inline" id="s-meaning"></span>
+            <span class="english-definition" id="s-meaning-en" lang="en"></span>
             <span class="s-date-badge" id="s-date-badge">📅 —</span>
           </div>
         </div>
@@ -551,7 +558,7 @@ HTML = f"""<!DOCTYPE html>
 <script>
 // ─── CARDS Data ───────────────────────────────────────────────────────────────
 // Format: [word, phonetic, pos, meaning, enEx, zhEx, synEn, synZh,
-//          antEn, antZh, classDate, wordForms, wordAudio, exampleAudio]
+//          antEn, antZh, classDate, wordForms, wordAudio, exampleAudio, source, definitionEn]
 {CARDS_JS}
 
 // ─── Helpers ──────────────────────────────────────────────────────────────────
@@ -819,6 +826,7 @@ function showQCard() {{
   document.getElementById('q-badge').textContent=c[2]||'字彙';
   document.getElementById('q-pos-tag').textContent=c[2]||'';
   document.getElementById('q-meaning').textContent=c[3]||'';
+  document.getElementById('q-meaning-en').textContent=c[15]||'';
   document.getElementById('q-ex').textContent=c[4]?`"${{c[4]}}"` :'';
   setAudioButton('q-word-audio',c[12]);
   setAudioButton('q-example-audio',c[13]);
@@ -886,6 +894,7 @@ function showSCard() {{
   posEl.style.background=st.bg; posEl.style.color=st.color;
 
   document.getElementById('s-meaning').textContent=c[3]||'';
+  document.getElementById('s-meaning-en').textContent=c[15]||'';
   document.getElementById('s-en').textContent=c[4]?`"${{c[4]}}"` :'';
   setAudioButton('s-word-audio',c[12]);
   setAudioButton('s-example-audio',c[13]);
