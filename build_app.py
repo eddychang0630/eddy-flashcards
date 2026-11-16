@@ -558,7 +558,7 @@ HTML = f"""<!DOCTYPE html>
 <script>
 // ─── CARDS Data ───────────────────────────────────────────────────────────────
 // Format: [word, phonetic, pos, meaning, enEx, zhEx, synEn, synZh,
-//          antEn, antZh, classDate, wordForms, wordAudio, exampleAudio, source, definitionEn]
+//          antEn, antZh, classDate, wordForms, wordAudio, exampleAudio, source, definitionEn, slowWordAudio]
 {CARDS_JS}
 
 // ─── Helpers ──────────────────────────────────────────────────────────────────
@@ -618,6 +618,7 @@ let qDeck=[], qIdx=0, qKnow=0, qDunno=0, qFlipped=false, wrongCards=[];
 let sIdx=0;
 let mode='study';
 let activeAudio=null, activeAudioButton=null, audioErrorTimer=0;
+let pronunciationContext=null, mixedPlayback=null;
 
 // Short pronunciation clips can play alongside music and video.
 try {{
@@ -627,6 +628,16 @@ try {{
 }}
 
 function stopCardAudio() {{
+  if(mixedPlayback) {{
+    const {{controller, source}}=mixedPlayback;
+    mixedPlayback=null;
+    controller.abort();
+    if(source) {{
+      source.onended=null;
+      source.stop();
+      source.disconnect();
+    }}
+  }}
   if(activeAudio) {{
     activeAudio.pause();
     activeAudio.onended=null;
@@ -642,18 +653,58 @@ function stopCardAudio() {{
   }}
 }}
 
-function setAudioButton(id, path) {{
+function setAudioButton(id, path, slowPath) {{
   const button=document.getElementById(id);
   button.dataset.audioPath=path||'';
+  button.dataset.slowAudioPath=slowPath||'';
   button.disabled=!path;
   button.hidden=!path;
 }}
 
-function showAudioError() {{
+function showAudioError(message='音檔載入失敗，請重新整理後再試。') {{
   const status=document.getElementById('audio-status');
-  status.textContent='音檔載入失敗，請重新整理後再試。';
+  status.textContent=message;
   clearTimeout(audioErrorTimer);
   audioErrorTimer=setTimeout(()=>{{status.textContent='';}},3500);
+}}
+
+async function playMixedCardAudio(path) {{
+  const playback={{controller:new AbortController(), source:null}};
+  mixedPlayback=playback;
+  let timer;
+  try {{
+    const Context=window.AudioContext||window.webkitAudioContext;
+    const context=pronunciationContext??=new Context();
+    // The tap must unlock the audio context before we wait for the MP3.
+    const resumed=context.resume();
+    const decoded=fetch(path,{{signal:playback.controller.signal}}).then(async response=>{{
+      if(!response.ok) throw new Error('Missing pronunciation audio');
+      return context.decodeAudioData(await response.arrayBuffer());
+    }});
+    const timeout=new Promise((_,reject)=>{{
+      timer=setTimeout(()=>reject(new Error('Pronunciation startup timed out')),5000);
+    }});
+    const [,buffer]=await Promise.race([Promise.all([resumed,decoded]),timeout]);
+    if(mixedPlayback!==playback) return;
+
+    const source=context.createBufferSource();
+    source.buffer=buffer;
+    source.connect(context.destination);
+    source.onended=()=>{{ if(mixedPlayback===playback) stopCardAudio(); }};
+    source.start();
+    playback.source=source;
+  }} catch {{
+    if(mixedPlayback!==playback) return;
+    stopCardAudio();
+    if(pronunciationContext && pronunciationContext.state!=='running') {{
+      const stalled=pronunciationContext;
+      pronunciationContext=null;
+      stalled.close().catch(()=>{{}});
+    }}
+    showAudioError('發音暫時無法播放，請重新整理或用 Safari 開啟再試。');
+  }} finally {{
+    clearTimeout(timer);
+  }}
 }}
 
 function playCardAudio(event, buttonId) {{
@@ -664,6 +715,16 @@ function playCardAudio(event, buttonId) {{
   if(!path) return;
   if(activeAudioButton===button) {{ stopCardAudio(); return; }}
   stopCardAudio();
+  activeAudioButton=button;
+  button.textContent='■';
+  button.classList.add('playing');
+  button.setAttribute('aria-pressed','true');
+  button.title='停止播放';
+  const usesMixedPronunciation=/iPhone|iPad|iPod/.test(navigator.userAgent||'') ||
+    (navigator.platform==='MacIntel' && navigator.maxTouchPoints>1);
+  if(usesMixedPronunciation) {{
+    return playMixedCardAudio(button.dataset.slowAudioPath||path);
+  }}
   const audio=new Audio(path);
   if(buttonId.endsWith('-word-audio')) {{
     audio.defaultPlaybackRate=0.8;
@@ -671,11 +732,6 @@ function playCardAudio(event, buttonId) {{
     audio.preservesPitch=true;
   }}
   activeAudio=audio;
-  activeAudioButton=button;
-  button.textContent='■';
-  button.classList.add('playing');
-  button.setAttribute('aria-pressed','true');
-  button.title='停止播放';
   audio.onended=()=>{{ if(activeAudio===audio) stopCardAudio(); }};
   audio.onerror=()=>{{ if(activeAudio===audio) {{stopCardAudio();showAudioError();}} }};
   const playing=audio.play();
@@ -840,7 +896,7 @@ function showQCard() {{
   document.getElementById('q-meaning').textContent=c[3]||'';
   document.getElementById('q-meaning-en').textContent=c[15]||'';
   document.getElementById('q-ex').textContent=c[4]?`"${{c[4]}}"` :'';
-  setAudioButton('q-word-audio',c[12]);
+  setAudioButton('q-word-audio',c[12],c[16]);
   setAudioButton('q-example-audio',c[13]);
   document.getElementById('q-date-tag').textContent=cardDateLabel(c);
 
@@ -908,7 +964,7 @@ function showSCard() {{
   document.getElementById('s-meaning').textContent=c[3]||'';
   document.getElementById('s-meaning-en').textContent=c[15]||'';
   document.getElementById('s-en').textContent=c[4]?`"${{c[4]}}"` :'';
-  setAudioButton('s-word-audio',c[12]);
+  setAudioButton('s-word-audio',c[12],c[16]);
   setAudioButton('s-example-audio',c[13]);
   document.getElementById('s-zh').textContent=c[5]?`→ ${{c[5]}}` :'';
 

@@ -25,6 +25,7 @@ import subprocess
 import tempfile
 from pathlib import Path
 from collections import defaultdict
+from concurrent.futures import ThreadPoolExecutor
 
 from audio_assets import attach_audio_paths, ensure_complete, missing_clips
 from personal_vocab import load_personal_cards
@@ -191,6 +192,7 @@ def prepare_audio(cards):
                 check=True,
             )
     ensure_complete(cards, AUDIO_DIR)
+    prepare_slow_word_audio(cards, AUDIO_DIR)
     return cards
 
 
@@ -216,6 +218,40 @@ def add_english_definitions(cards, path=DEFINITIONS_FILE):
         missing += not bool(definition)
     if missing:
         print(f"English definitions missing for {missing} card(s). See {path.name}.")
+
+
+def prepare_slow_word_audio(cards, audio_dir):
+    """Cache pitch-preserving clips for browsers that mix via Web Audio."""
+    word_clips = {card[12] for card in cards if card[12]}
+    slow_paths = {clip: clip.removesuffix(".mp3") + "-slow08.mp3" for clip in word_clips}
+
+    def generate(clip):
+        source = audio_dir / Path(clip).name
+        target = audio_dir / Path(slow_paths[clip]).name
+        if target.is_file() and target.stat().st_size:
+            return False
+        with tempfile.NamedTemporaryFile(dir=audio_dir, suffix=".mp3", delete=False) as file:
+            temporary = Path(file.name)
+        try:
+            subprocess.run(
+                ["ffmpeg", "-hide_banner", "-loglevel", "error", "-y", "-i", str(source),
+                 "-af", "atempo=0.8", "-codec:a", "libmp3lame", "-q:a", "4", str(temporary)],
+                check=True,
+            )
+            if not temporary.stat().st_size:
+                raise RuntimeError(f"Empty slow pronunciation for {clip}")
+            temporary.replace(target)
+        finally:
+            temporary.unlink(missing_ok=True)
+        return True
+
+    with ThreadPoolExecutor(max_workers=6) as pool:
+        generated = sum(pool.map(generate, sorted(word_clips)))
+    for card in cards:
+        if len(card) == 15:
+            card.append("")  # The definition is filled by add_english_definitions().
+        card[16:17] = [slow_paths.get(card[12], "")]
+    print(f"Slow word audio: {len(word_clips)} verified, {generated} generated")
 
 
 def update_json(cards):
