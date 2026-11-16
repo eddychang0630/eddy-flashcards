@@ -3202,6 +3202,206 @@
       "audio_answer": "audio/98b26791a6d72878cfc2.mp3"
     },
     {
+      "id": "class-20261116-01",
+      "type": "class",
+      "date": "2026-11-16",
+      "category": "日常口語、分帳與職場溝通",
+      "prompt_zh": "我今天很累，因為我剛運動完。",
+      "question_en": "",
+      "answer_en": "I'm pretty exhausted today because I just finished my workout.",
+      "answer_zh": "我今天很累，因為我剛運動完。",
+      "original": "I'm quite quite exhausted today because I just done my workout",
+      "timecode": "00:51–01:03",
+      "source": "20261116/english_class_notes.md",
+      "grammar": {
+        "title": "句型重點",
+        "explanation": "回述剛完成的事可用 just finished。exhausted 指非常疲累，pretty exhausted 語氣自然。",
+        "pattern": "because + 主詞 + just + 過去式"
+      },
+      "audio_question": "",
+      "audio_answer": "audio/9f0ee91f4a08cd765a9d.mp3"
+    },
+    {
+      "id": "class-20261116-02",
+      "type": "class",
+      "date": "2026-11-16",
+      "category": "日常口語、分帳與職場溝通",
+      "prompt_zh": "台北現在大約 21 度。",
+      "question_en": "",
+      "answer_en": "It's around 21 degrees in Taipei right now.",
+      "answer_zh": "台北現在大約 21 度。",
+      "original": "Temperature in Taipei is like 21, 21 degree.",
+      "timecode": "02:33–02:40",
+      "source": "20261116/english_class_notes.md",
+      "grammar": {
+        "title": "句型重點",
+        "explanation": "談氣溫可以用 It’s。around 表示大約，21 後用複數 degrees。",
+        "pattern": "It's around + 數字 + degrees + in + 地點"
+      },
+      "audio_question": "",
+      "audio_answer": "audio/976586a7044e011f8a52.mp3"
+    },
+    {
+      "id": "class-20261116-03",
+      "type": "class",
+      "date": "2026-11-16",
+      "category": "日常口語、分帳與職場溝通",
+      "prompt_zh": "我去圖書館讀書和寫作業。",
+      "question_en": "",
+      "answer_en": "I went to the library to study and do my homework.",
+      "answer_zh": "我去圖書館讀書和寫作業。",
+      "original": "I went to library and then I just study and then do my homework.",
+      "timecode": "07:27–07:35",
+      "source": "20261116/english_class_notes.md",
+      "grammar": {
+        "title": "句型重點",
+        "explanation": "the library 指語境中知道是哪一座圖書館。to study and do my homework 表示去那裡的目的。",
+        "pattern": "went to + 地點 + to + 原形動詞"
+      },
+      "audio_question": "",
+      "audio_answer": "audio/e72a096dcaa52dbe4a4b.mp3"
+    },
+    {
+      "id": "class-20261116-04",
+      "type": "class",
+      "date": "2026-11-16",
+      "category": "日常口語、分帳與職場溝通",
+      "prompt_zh": "這週我們得交作業。",
+      "question_en": "",
+      "answer_en": "We need to hand in our homework this week.",
+      "answer_zh": "這週我們得交作業。",
+      "original": "We need to, it's called hand off our homework.",
+      "timecode": "07:39–07:45",
+      "source": "20261116/english_class_notes.md",
+      "grammar": {
+        "title": "句型重點",
+        "explanation": "hand in 指繳交作業。hand off 通常指把工作或責任轉交給別人。",
+        "pattern": "need to + hand in + 作業"
+      },
+      "audio_question": "",
+      "audio_answer": "audio/3f5ecbd3d1b26615f2cf.mp3"
+    },
+    {
+      "id": "class-20261116-05",
+      "type": "class",
+      "date": "2026-11-16",
+      "category": "日常口語、分帳與職場溝通",
+      "prompt_zh": "我在試著更留意自己吃什麼。",
+      "question_en": "",
+      "answer_en": "I'm trying to be more careful about what I eat.",
+      "answer_zh": "我在試著更留意自己吃什麼。",
+      "original": "I trying to choice my food.",
+      "timecode": "11:12–11:16",
+      "source": "20261116/english_class_notes.md",
+      "grammar": {
+        "title": "句型重點",
+        "explanation": "進行式是 I’m trying。原句的 choice 是名詞，動詞是 choose。what I eat 直接把飲食選擇說清楚。",
+        "pattern": "I'm trying to + 原形動詞；be careful about + 名詞或子句"
+      },
+      "audio_question": "",
+      "audio_answer": "audio/c04957247d79d3618675.mp3"
+    },
+    {
+      "id": "class-20261116-06",
+      "type": "class",
+      "date": "2026-11-16",
+      "category": "日常口語、分帳與職場溝通",
+      "prompt_zh": "不過我想我不會有太多時間。",
+      "question_en": "",
+      "answer_en": "But I don't think I'll have much time.",
+      "answer_zh": "不過我想我不會有太多時間。",
+      "original": "But I think I don't really have a time.",
+      "timecode": "15:25–15:29",
+      "source": "20261116/english_class_notes.md",
+      "grammar": {
+        "title": "句型重點",
+        "explanation": "談接下來可用的時間，用 I’ll have。time 表示可支配的時間時是不可數名詞，可搭配 much。",
+        "pattern": "I don't think + 主詞 + will + 原形動詞"
+      },
+      "audio_question": "",
+      "audio_answer": "audio/7c18b6af9d8c8c57f468.mp3"
+    },
+    {
+      "id": "class-20261116-07",
+      "type": "class",
+      "date": "2026-11-16",
+      "category": "日常口語、分帳與職場溝通",
+      "prompt_zh": "不好意思，Chino。我忘了 denies 是什麼意思。",
+      "question_en": "",
+      "answer_en": "Sorry, Chino. I forgot what “denies” means.",
+      "answer_zh": "不好意思，Chino。我忘了 denies 是什麼意思。",
+      "original": "Sorry Chino, I just forgot what is denies.",
+      "timecode": "27:03–27:05",
+      "source": "20261116/english_class_notes.md",
+      "grammar": {
+        "title": "句型重點",
+        "explanation": "what “denies” means 是間接問句，what 後保留直述語序。直接問句則可說 What does “denies” mean?",
+        "pattern": "forget + what + 詞語 + means"
+      },
+      "audio_question": "",
+      "audio_answer": "audio/33ffd9e6f97fe0ab2411.mp3"
+    },
+    {
+      "id": "class-20261116-08",
+      "type": "class",
+      "date": "2026-11-16",
+      "category": "日常口語、分帳與職場溝通",
+      "prompt_zh": "我大概也會這麼做。",
+      "question_en": "",
+      "answer_en": "I'd probably do the same thing.",
+      "answer_zh": "我大概也會這麼做。",
+      "original": "I probably will do the same thing or same action.",
+      "timecode": "29:48–29:55",
+      "source": "20261116/english_class_notes.md",
+      "grammar": {
+        "title": "句型重點",
+        "explanation": "討論假設情境時，I’d 是 I would。the same thing 已能指同一種做法。",
+        "pattern": "I'd probably + 原形動詞"
+      },
+      "audio_question": "",
+      "audio_answer": "audio/b67c8bc2ab3fe4b48c52.mp3"
+    },
+    {
+      "id": "class-20261116-09",
+      "type": "class",
+      "date": "2026-11-16",
+      "category": "日常口語、分帳與職場溝通",
+      "prompt_zh": "所以你把課表寄給老師，但老師還是會漏上那堂課嗎？",
+      "question_en": "",
+      "answer_en": "So you send the teacher a schedule, and they still miss the class?",
+      "answer_zh": "所以你把課表寄給老師，但老師還是會漏上那堂課嗎？",
+      "original": "So do you make a schedule form and then send the teacher and the teacher still missing the class?",
+      "timecode": "41:45–41:59",
+      "source": "20261116/english_class_notes.md",
+      "grammar": {
+        "title": "句型重點",
+        "explanation": "send the teacher a schedule 同時交代收件人與寄送內容。they 可指前面提到的老師，still miss the class 表示即使收到課表，仍可能缺席。",
+        "pattern": "send + 人 + 物；still + 一般現在式"
+      },
+      "audio_question": "",
+      "audio_answer": "audio/e7df8b4b97912b9054f0.mp3"
+    },
+    {
+      "id": "class-20261116-10",
+      "type": "class",
+      "date": "2026-11-16",
+      "category": "日常口語、分帳與職場溝通",
+      "prompt_zh": "他們可能反而把事情弄得更糟，對吧？",
+      "question_en": "",
+      "answer_en": "They might just make things worse, right?",
+      "answer_zh": "他們可能反而把事情弄得更糟，對吧？",
+      "original": "Maybe they do more worse, right?",
+      "timecode": "53:08–53:11",
+      "source": "20261116/english_class_notes.md",
+      "grammar": {
+        "title": "句型重點",
+        "explanation": "worse 本身就是比較級，make things worse 表示使情況惡化。right? 可用來確認對方是否同意。",
+        "pattern": "might + make + 受詞 + 比較級"
+      },
+      "audio_question": "",
+      "audio_answer": "audio/9a006bd98053df4f03f3.mp3"
+    },
+    {
       "id": "scenario-class-clarify",
       "type": "scenario",
       "date": "",
@@ -3582,6 +3782,6 @@
       "audio_answer": "audio/28e1b584397f97d9fef4.mp3"
     }
   ],
-  "revision": "27e01ea8da7e",
-  "updated_at": "2026-11-12T15:18:24+00:00"
+  "revision": "1e6e45883278",
+  "updated_at": "2026-11-16T14:17:20+00:00"
 }

@@ -653,5 +653,47 @@
       "explanation": "for 後用動名詞 reminding。me 是被提醒的人，that 承接前面談到的住宿安全。",
       "pattern": "Thanks for + 動名詞；remind + 人 + about + 事"
     }
+  ],
+  "20261116": [
+    {
+      "pattern": "because + 主詞 + just + 過去式",
+      "explanation": "回述剛完成的事可用 just finished。exhausted 指非常疲累，pretty exhausted 語氣自然。"
+    },
+    {
+      "pattern": "It's around + 數字 + degrees + in + 地點",
+      "explanation": "談氣溫可以用 It’s。around 表示大約，21 後用複數 degrees。"
+    },
+    {
+      "pattern": "went to + 地點 + to + 原形動詞",
+      "explanation": "the library 指語境中知道是哪一座圖書館。to study and do my homework 表示去那裡的目的。"
+    },
+    {
+      "pattern": "need to + hand in + 作業",
+      "explanation": "hand in 指繳交作業。hand off 通常指把工作或責任轉交給別人。"
+    },
+    {
+      "pattern": "I'm trying to + 原形動詞；be careful about + 名詞或子句",
+      "explanation": "進行式是 I’m trying。原句的 choice 是名詞，動詞是 choose。what I eat 直接把飲食選擇說清楚。"
+    },
+    {
+      "pattern": "I don't think + 主詞 + will + 原形動詞",
+      "explanation": "談接下來可用的時間，用 I’ll have。time 表示可支配的時間時是不可數名詞，可搭配 much。"
+    },
+    {
+      "pattern": "forget + what + 詞語 + means",
+      "explanation": "what “denies” means 是間接問句，what 後保留直述語序。直接問句則可說 What does “denies” mean?"
+    },
+    {
+      "pattern": "I'd probably + 原形動詞",
+      "explanation": "討論假設情境時，I’d 是 I would。the same thing 已能指同一種做法。"
+    },
+    {
+      "pattern": "send + 人 + 物；still + 一般現在式",
+      "explanation": "send the teacher a schedule 同時交代收件人與寄送內容。they 可指前面提到的老師，still miss the class 表示即使收到課表，仍可能缺席。"
+    },
+    {
+      "pattern": "might + make + 受詞 + 比較級",
+      "explanation": "worse 本身就是比較級，make things worse 表示使情況惡化。right? 可用來確認對方是否同意。"
+    }
   ]
 }
