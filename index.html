@@ -1214,6 +1214,13 @@ let sIdx=0;
 let mode='study';
 let activeAudio=null, activeAudioButton=null, audioErrorTimer=0;
 
+// Short pronunciation clips can play alongside music and video.
+try {
+  if(navigator.audioSession) navigator.audioSession.type='ambient';
+} catch {
+  // Keep playback available when the browser does not support this setting.
+}
+
 function stopCardAudio() {
   if(activeAudio) {
     activeAudio.pause();
@@ -1253,6 +1260,11 @@ function playCardAudio(event, buttonId) {
   if(activeAudioButton===button) { stopCardAudio(); return; }
   stopCardAudio();
   const audio=new Audio(path);
+  if(buttonId.endsWith('-word-audio')) {
+    audio.defaultPlaybackRate=0.8;
+    audio.playbackRate=0.8;
+    audio.preservesPitch=true;
+  }
   activeAudio=audio;
   activeAudioButton=button;
   button.textContent='■';
