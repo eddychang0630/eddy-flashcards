@@ -80,10 +80,17 @@ test('pronunciations still play when the browser does not allow audio session ch
   assert.equal(blocked.played[0].rate, 0.8);
 });
 
+test('opening the app does not access or write the system audio session', () => {
+  let reads = 0;
+  testPlayer({ userAgent: 'iPhone', get audioSession() { reads++; return { type: 'auto' }; } });
+  assert.equal(reads, 0);
+});
+
 test('iPhone uses Web Audio for both speeds without opening a media element', async () => {
   const activity = [];
   const nodes = [];
   class AudioContext {
+    async close() { activity.push('close'); }
     resume() {
       activity.push('resume');
       return Promise.resolve();
@@ -100,7 +107,8 @@ test('iPhone uses Web Audio for both speeds without opening a media element', as
       return node;
     }
   }
-  const player = testPlayer({ userAgent: 'iPhone', audioSession: { type: 'auto' } }, {
+  const session = { type: 'auto' };
+  const player = testPlayer({ userAgent: 'iPhone', audioSession: session }, {
     window: { AudioContext },
     async fetch(url) {
       activity.push(url);
@@ -113,20 +121,23 @@ test('iPhone uses Web Audio for both speeds without opening a media element', as
   await player.play('s-example-audio');
   nodes[1].onended();
   assert.deepEqual(activity, [
-    'resume', 'word-slow08.mp3', 'start', 'stop',
-    'resume', 'example.mp3', 'start', 'stop',
+    'resume', 'word-slow08.mp3', 'start', 'stop', 'close',
+    'resume', 'example.mp3', 'start', 'stop', 'close',
   ]);
   assert.equal(player.button('s-example-audio')['aria-pressed'], 'false');
   assert.equal(player.played.length, 0);
+  assert.equal(session.type, 'auto');
 });
 
 test('canceled or failed iPhone requests never start regular media playback', async () => {
   let starts = 0;
   let finishFetch;
   let signal;
+  let closed = 0;
   class AudioContext {
     state = 'running';
     async resume() {}
+    async close() { closed++; }
     async decodeAudioData(bytes) { return bytes; }
     createBufferSource() { starts++; throw new Error('Unexpected source'); }
   }
@@ -147,6 +158,7 @@ test('canceled or failed iPhone requests never start regular media playback', as
   finishFetch({ ok: false });
   await failed;
   assert.equal(starts, 0);
+  assert.equal(closed, 2);
   assert.equal(player.played.length, 0);
   assert.equal(player.button('q-word-audio')['aria-pressed'], 'false');
   assert.match(player.button('audio-status').textContent, /Safari/);

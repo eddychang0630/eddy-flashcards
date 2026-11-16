@@ -1213,18 +1213,11 @@ let qDeck=[], qIdx=0, qKnow=0, qDunno=0, qFlipped=false, wrongCards=[];
 let sIdx=0;
 let mode='study';
 let activeAudio=null, activeAudioButton=null, audioErrorTimer=0;
-let pronunciationContext=null, mixedPlayback=null;
-
-// Short pronunciation clips can play alongside music and video.
-try {
-  if(navigator.audioSession) navigator.audioSession.type='ambient';
-} catch {
-  // Keep playback available when the browser does not support this setting.
-}
+let mixedPlayback=null;
 
 function stopCardAudio() {
   if(mixedPlayback) {
-    const {controller, source}=mixedPlayback;
+    const {controller, context, source}=mixedPlayback;
     mixedPlayback=null;
     controller.abort();
     if(source) {
@@ -1232,6 +1225,7 @@ function stopCardAudio() {
       source.stop();
       source.disconnect();
     }
+    context?.close().catch(()=>{});
   }
   if(activeAudio) {
     activeAudio.pause();
@@ -1264,12 +1258,13 @@ function showAudioError(message='音檔載入失敗，請重新整理後再試�
 }
 
 async function playMixedCardAudio(path) {
-  const playback={controller:new AbortController(), source:null};
+  const playback={controller:new AbortController(), context:null, source:null};
   mixedPlayback=playback;
   let timer;
   try {
     const Context=window.AudioContext||window.webkitAudioContext;
-    const context=pronunciationContext??=new Context();
+    // iOS WebKit mixes Web Audio by default. Leave the audio-session type alone.
+    const context=playback.context=new Context();
     // The tap must unlock the audio context before we wait for the MP3.
     const resumed=context.resume();
     const decoded=fetch(path,{signal:playback.controller.signal}).then(async response=>{
@@ -1291,11 +1286,6 @@ async function playMixedCardAudio(path) {
   } catch {
     if(mixedPlayback!==playback) return;
     stopCardAudio();
-    if(pronunciationContext && pronunciationContext.state!=='running') {
-      const stalled=pronunciationContext;
-      pronunciationContext=null;
-      stalled.close().catch(()=>{});
-    }
     showAudioError('發音暫時無法播放，請重新整理或用 Safari 開啟再試。');
   } finally {
     clearTimeout(timer);
@@ -1320,6 +1310,10 @@ function playCardAudio(event, buttonId) {
   if(usesMixedPronunciation) {
     return playMixedCardAudio(button.dataset.slowAudioPath||path);
   }
+  try {
+    const session=navigator.audioSession;
+    if(session && session.type!=='ambient') session.type='ambient';
+  } catch { /* Keep playback available on other browsers. */ }
   const audio=new Audio(path);
   if(buttonId.endsWith('-word-audio')) {
     audio.defaultPlaybackRate=0.8;
@@ -1672,6 +1666,9 @@ if('serviceWorker' in navigator) {
 }
 
 // ─── Init ─────────────────────────────────────────────────────────────────────
+document.addEventListener('visibilitychange',()=>{
+  if(document.hidden && mixedPlayback) stopCardAudio();
+});
 setDateFilter(activeDate);
 import('./app-updates.js').then(({ installOpenRefresh }) => installOpenRefresh({ storageKey: 'eddy-vocabulary-version' })).catch(() => {});
 </script>
