@@ -618,20 +618,8 @@ let qDeck=[], qIdx=0, qKnow=0, qDunno=0, qFlipped=false, wrongCards=[];
 let sIdx=0;
 let mode='study';
 let activeAudio=null, activeAudioButton=null, audioErrorTimer=0;
-let mixedPlayback=null;
 
 function stopCardAudio() {{
-  if(mixedPlayback) {{
-    const {{controller, context, source}}=mixedPlayback;
-    mixedPlayback=null;
-    controller.abort();
-    if(source) {{
-      source.onended=null;
-      source.stop();
-      source.disconnect();
-    }}
-    context?.close().catch(()=>{{}});
-  }}
   if(activeAudio) {{
     activeAudio.pause();
     activeAudio.onended=null;
@@ -662,39 +650,9 @@ function showAudioError(message='音檔載入失敗，請重新整理後再試�
   audioErrorTimer=setTimeout(()=>{{status.textContent='';}},3500);
 }}
 
-async function playMixedCardAudio(path) {{
-  const playback={{controller:new AbortController(), context:null, source:null}};
-  mixedPlayback=playback;
-  let timer;
-  try {{
-    const Context=window.AudioContext||window.webkitAudioContext;
-    // iOS WebKit mixes Web Audio by default. Leave the audio-session type alone.
-    const context=playback.context=new Context();
-    // The tap must unlock the audio context before we wait for the MP3.
-    const resumed=context.resume();
-    const decoded=fetch(path,{{signal:playback.controller.signal}}).then(async response=>{{
-      if(!response.ok) throw new Error('Missing pronunciation audio');
-      return context.decodeAudioData(await response.arrayBuffer());
-    }});
-    const timeout=new Promise((_,reject)=>{{
-      timer=setTimeout(()=>reject(new Error('Pronunciation startup timed out')),5000);
-    }});
-    const [,buffer]=await Promise.race([Promise.all([resumed,decoded]),timeout]);
-    if(mixedPlayback!==playback) return;
-
-    const source=context.createBufferSource();
-    source.buffer=buffer;
-    source.connect(context.destination);
-    source.onended=()=>{{ if(mixedPlayback===playback) stopCardAudio(); }};
-    source.start();
-    playback.source=source;
-  }} catch {{
-    if(mixedPlayback!==playback) return;
-    stopCardAudio();
-    showAudioError('發音暫時無法播放，請重新整理或用 Safari 開啟再試。');
-  }} finally {{
-    clearTimeout(timer);
-  }}
+function isIOSDevice() {{
+  return /iPhone|iPad|iPod/.test(navigator.userAgent||'') ||
+    (navigator.platform==='MacIntel' && navigator.maxTouchPoints>1);
 }}
 
 function playCardAudio(event, buttonId) {{
@@ -710,17 +668,16 @@ function playCardAudio(event, buttonId) {{
   button.classList.add('playing');
   button.setAttribute('aria-pressed','true');
   button.title='停止播放';
-  const usesMixedPronunciation=/iPhone|iPad|iPod/.test(navigator.userAgent||'') ||
-    (navigator.platform==='MacIntel' && navigator.maxTouchPoints>1);
-  if(usesMixedPronunciation) {{
-    return playMixedCardAudio(button.dataset.slowAudioPath||path);
-  }}
+  const isIOS=isIOSDevice();
+  // Request media playback on iOS when the user taps, so Silent mode still allows pronunciation.
+  const playbackType=isIOS?'playback':'ambient';
   try {{
     const session=navigator.audioSession;
-    if(session && session.type!=='ambient') session.type='ambient';
+    if(session && session.type!==playbackType) session.type=playbackType;
   }} catch {{ /* Keep playback available on other browsers. */ }}
-  const audio=new Audio(path);
-  if(buttonId.endsWith('-word-audio')) {{
+  const slowPath=isIOS?button.dataset.slowAudioPath:'';
+  const audio=new Audio(slowPath||path);
+  if(!slowPath && buttonId.endsWith('-word-audio')) {{
     audio.defaultPlaybackRate=0.8;
     audio.playbackRate=0.8;
     audio.preservesPitch=true;
@@ -1072,7 +1029,7 @@ if('serviceWorker' in navigator) {{
 
 // ─── Init ─────────────────────────────────────────────────────────────────────
 document.addEventListener('visibilitychange',()=>{{
-  if(document.hidden && mixedPlayback) stopCardAudio();
+  if(document.hidden && isIOSDevice()) stopCardAudio();
 }});
 setDateFilter(activeDate);
 import('./app-updates.js').then(({{ installOpenRefresh }}) => installOpenRefresh({{ storageKey: 'eddy-vocabulary-version' }})).catch(() => {{}});
