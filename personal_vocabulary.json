@@ -570,5 +570,18 @@
     "antonym_meaning": "—",
     "word_forms": "Verb: speculate, speculated, speculating; Noun: speculation; Adjective: speculative",
     "date": "2026-11-13"
+  },
+  {
+    "word": "suspend",
+    "pos": "Verb",
+    "meaning": "暫停；暫時中止",
+    "example": "The school suspended classes because of the storm.",
+    "translation": "學校因暴風雨而暫停上課。",
+    "synonyms": "pause; put on hold",
+    "synonym_meaning": "暫停；擱置",
+    "antonyms": "resume",
+    "antonym_meaning": "恢復；重新開始",
+    "word_forms": "Noun: suspension（暫停；中止）; Past tense / past participle: suspended; -ing form: suspending",
+    "date": "2026-11-17"
   }
 ]
