@@ -7,7 +7,7 @@
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="default">
   <meta name="apple-mobile-web-app-title" content="句子練習">
-  <meta name="description" content="課堂英語句型與情境問答複習">
+  <meta name="description" content="課堂句子、情境問答與口說句型">
   <link rel="manifest" href="manifest.json">
   <link rel="apple-touch-icon" href="icons/icon-180.png">
   <link rel="icon" type="image/png" href="icons/icon-192.png">
@@ -33,10 +33,12 @@
         <button class="tab" data-view="today" type="button"><i data-lucide="calendar-check"></i><span>今日</span></button>
         <button class="tab active" data-view="lessons" type="button"><i data-lucide="book-open"></i><span>課堂</span></button>
         <button class="tab" data-view="scenarios" type="button"><i data-lucide="messages-square"></i><span>情境</span></button>
+        <button class="tab" data-view="guides" type="button"><i data-lucide="list-tree"></i><span>口說句型</span></button>
       </nav>
 
-      <section class="workspace" aria-label="句子卡練習">
+      <section class="workspace" aria-labelledby="view-title">
         <div class="section-heading"><div><p id="view-kicker" class="kicker">CLASS NOTES</p><h1 id="view-title">課堂句子</h1></div><span id="session-count" class="session-count"></span></div>
+        <div id="speaking-guides" class="speaking-guides" hidden></div>
         <div id="filters" class="filters" hidden></div>
         <div id="message" class="message" hidden></div>
         <article id="practice-card" class="practice-card" hidden>

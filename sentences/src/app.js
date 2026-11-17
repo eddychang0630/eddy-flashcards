@@ -1,9 +1,10 @@
 import { createEmptyCard, fsrs, Rating } from 'ts-fsrs';
-import { createIcons, RefreshCw, CalendarCheck, BookOpen, MessagesSquare, Volume2, Eye, Repeat2, RotateCcw, Download, Upload, ChevronLeft, ChevronRight } from 'lucide';
+import { createIcons, RefreshCw, CalendarCheck, BookOpen, MessagesSquare, ListTree, Volume2, Eye, Repeat2, RotateCcw, Download, Upload, ChevronLeft, ChevronRight } from 'lucide';
 import { installOpenRefresh } from '../../app-updates.js';
+import { renderSpeakingGuides } from './speaking-guide-view.mjs';
 
 const scheduler = fsrs();
-const icons = { RefreshCw, CalendarCheck, BookOpen, MessagesSquare, Volume2, Eye, Repeat2, RotateCcw, Download, Upload, ChevronLeft, ChevronRight };
+const icons = { RefreshCw, CalendarCheck, BookOpen, MessagesSquare, ListTree, Volume2, Eye, Repeat2, RotateCcw, Download, Upload, ChevronLeft, ChevronRight };
 const state = {
   cards: [], reviews: new Map(), view: 'lessons', selectedDate: '', selectedCategory: '',
   queue: [], index: 0, revealed: false, speed: 1, loop: false, audio: new Audio(), ratingBusy: false,
@@ -11,6 +12,7 @@ const state = {
 const $ = id => document.getElementById(id);
 const setText = (id, value) => { $(id).textContent = value; };
 let touchStart = null;
+let playbackSequence = 0;
 
 function refreshIcons() {
   createIcons({ icons, attrs: { 'stroke-width': 1.9 } });
@@ -67,12 +69,14 @@ function dueCards() {
 }
 
 function filteredCards() {
+  if (state.view === 'guides') return [];
   if (state.view === 'today') return dueCards().slice(0, 20);
   if (state.view === 'lessons') return state.cards.filter(card => card.type === 'class' && card.date === state.selectedDate);
   return state.cards.filter(card => card.type === 'scenario' && (!state.selectedCategory || card.category === state.selectedCategory));
 }
 
 function stopAudio() {
+  playbackSequence += 1;
   state.audio.pause();
   state.audio.currentTime = 0;
   document.querySelectorAll('.audio-button').forEach(button => button.classList.remove('playing'));
@@ -136,8 +140,18 @@ function render() {
     tab.classList.toggle('active', tab.dataset.view === state.view);
     tab.setAttribute('aria-current', tab.dataset.view === state.view ? 'page' : 'false');
   });
-  setText('view-kicker', { today: 'DAILY PRACTICE', lessons: 'CLASS NOTES', scenarios: 'REAL-LIFE ENGLISH' }[state.view]);
-  setText('view-title', { today: '今日複習', lessons: '課堂句子', scenarios: '情境問答' }[state.view]);
+  const guides = $('speaking-guides');
+  const showGuides = state.view === 'guides';
+  if (guides) guides.hidden = !showGuides;
+  $('view-kicker').hidden = showGuides;
+  setText('view-kicker', { today: 'DAILY PRACTICE', lessons: 'CLASS NOTES', scenarios: 'REAL-LIFE ENGLISH', guides: '' }[state.view]);
+  setText('view-title', { today: '今日複習', lessons: '課堂句子', scenarios: '情境問答', guides: '口說句型' }[state.view]);
+  if (showGuides) {
+    setText('session-count', '');
+    for (const id of ['filters', 'practice-card', 'message', 'restart']) $(id).hidden = true;
+    if (guides && !guides.firstElementChild) renderSpeakingGuides(guides);
+    return;
+  }
   renderFilters();
 
   const item = state.queue[state.index];
@@ -175,7 +189,7 @@ function render() {
 }
 
 function switchView(view) {
-  if (!['today', 'lessons', 'scenarios'].includes(view)) return;
+  if (!['today', 'lessons', 'scenarios', 'guides'].includes(view)) return;
   state.view = view;
   chooseQueue();
 }
@@ -215,14 +229,15 @@ async function play(kind) {
   const nextUrl = new URL(path, location.href).href;
   if (state.audio.src === nextUrl && !state.audio.paused) { stopAudio(); return; }
   stopAudio();
+  const sequence = playbackSequence;
   state.audio.src = nextUrl;
   state.audio.playbackRate = state.speed;
   state.audio.loop = state.loop;
   try {
     await state.audio.play();
-    button.classList.add('playing');
+    if (sequence === playbackSequence) button.classList.add('playing');
   } catch (error) {
-    showMessage(`音訊無法播放：${error.message}`, true);
+    if (sequence === playbackSequence) showMessage(`音訊無法播放：${error.message}`, true);
   }
 }
 
@@ -284,7 +299,7 @@ async function initialize() {
     });
   } catch (error) {
     $('practice-card').hidden = true;
-    showMessage(`無法載入句子資料：${error.message}`, true);
+    if (state.view !== 'guides') showMessage(`無法載入句子資料：${error.message}`, true);
   }
 }
 

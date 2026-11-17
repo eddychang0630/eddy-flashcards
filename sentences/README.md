@@ -9,6 +9,7 @@ The vocabulary PWA stays at the repository root. The sentence app has its own ma
 - `grammar_guides.json`: the agent must add one reusable pattern per new class sentence and a specific explanation when the note lacks a correction point. Missing guides block sync.
 - `lesson_topics.json`: short topic labels by lesson date.
 - `scenarios.json`: separately curated question/answer practice, not tutor quotations.
+- `src/speaking-guides.mjs`: topics in 口說句型. Add a topic with a unique ID, sections, and shortcuts that point to those section IDs. Rebuild `app.js` and update the sentence app version after editing.
 - `data.json` and `audio/*.mp3`: generated output. Corrected class sentences and both scenario lines use locally rendered Kokoro `am_puck` speech. Original incorrect class wording is never synthesized.
 
 ## Daily sync

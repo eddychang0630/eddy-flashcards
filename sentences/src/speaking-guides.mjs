@@ -1,0 +1,431 @@
+export const speakingGuides = [
+  {
+    id: 'asking-questions',
+    title: '英文問句',
+    introduction: '聊天時先想自己要知道哪一塊，再決定要把哪個字放到最前面。',
+    shortcuts: [
+      { label: '想問人、事、時間或地點', opening: 'What / Where / When…?', section: 'question-words' },
+      { label: '想問多久、多少或多常', opening: 'How long / much / often…?', section: 'how' },
+      { label: '想問對方有沒有做', opening: 'Do / Did / Have / Will…?', section: 'tense' },
+      { label: '想問是誰做的', opening: 'Who called…?', section: 'subject' },
+      { label: '想問為什麼沒做', opening: 'Why didn’t you…?', section: 'negative' },
+      { label: '想問得更自然或客氣', opening: 'Could you tell me…?', section: 'conversation' },
+    ],
+    sections: [
+      {
+        id: 'question-words',
+        title: '疑問詞怎麼選',
+        description: 'What、Where、When、Why、Who、Which、Whose、How',
+        patterns: [
+          {
+            title: 'What｜事物、內容、種類',
+            usage: '不知道答案範圍時用 What。加上 kind of + 名詞可以問種類。',
+            structure: 'What (+ 名詞) + 助動詞或 be + 主詞 + 其餘部分？',
+            examples: [
+              ['What did you do after work?', '你下班後做了什麼？'],
+              ['What kind of music do you listen to?', '你平常聽哪類音樂？'],
+              ['What’s your new job like?', '你的新工作怎麼樣？'],
+            ],
+            mistake: { wrong: 'What you do after work yesterday?', right: 'What did you do after work yesterday?', reason: '問已完成的過去動作，用 did，後面的 do 用原形。' },
+          },
+          {
+            title: 'Where｜地點、方向、來源',
+            usage: '問人在什麼地方、要去哪裡，或從哪裡來。From 有時自然地放在句尾。',
+            structure: 'Where + 助動詞或 be + 主詞 + 其餘部分？',
+            examples: [
+              ['Where are you right now?', '你現在在哪裡？'],
+              ['Where are you heading after class?', '你下課後要去哪裡？'],
+              ['Where did you get that idea from?', '你是從哪裡得到這個點子的？'],
+            ],
+            mistake: { wrong: 'Where you are right now?', right: 'Where are you right now?', reason: '獨立的直接問句裡，are 放在主詞 you 前面。' },
+          },
+          {
+            title: 'When｜何時',
+            usage: '問發生時間或預定時間。要問幾點，可以用 What time。',
+            structure: 'When / What time + 助動詞或 be + 主詞 + 其餘部分？',
+            examples: [
+              ['When did you start learning English?', '你什麼時候開始學英文的？'],
+              ['What time does the meeting start?', '會議幾點開始？'],
+            ],
+            mistake: { wrong: 'When did you started learning English?', right: 'When did you start learning English?', reason: '過去時間已經由 did 表示，後面接 start。' },
+          },
+          {
+            title: 'Why｜原因',
+            usage: '想請對方解釋原因時用 Why。問到比較敏感的事，可以說 What made you…?，把焦點放在促成決定的原因。',
+            structure: 'Why + 助動詞或 be + 主詞 + 其餘部分？',
+            examples: [
+              ['Why are you up so early?', '你怎麼這麼早就起床了？'],
+              ['Why did you switch to the morning class?', '你為什麼換到早上的課？'],
+              ['What made you switch to the morning class?', '是什麼讓你決定換到早上的課？'],
+            ],
+            mistake: { wrong: 'Why you switched classes?', right: 'Why did you switch classes?', reason: '直接問已做的事，在 why 後放 did，再接主詞和動詞原形。' },
+          },
+          {
+            title: 'Who / Whom｜人',
+            usage: '日常聊天問誰，多用 Who。Whom 是較正式的受詞寫法，常見於 With whom…? 之類的書面問句。',
+            structure: 'Who + 動詞…？／Who + 助動詞 + 主詞 + 動詞…？',
+            examples: [
+              ['Who sent this message?', '這則訊息是誰傳的？'],
+              ['Who did you send the message to?', '你把訊息傳給誰了？'],
+            ],
+            mistake: { wrong: 'Who did you sent the message to?', right: 'Who did you send the message to?', reason: 'you 是做動作的人，who 是收到訊息的人。did 後接原形 send。' },
+          },
+          {
+            title: 'Which｜指定範圍中的哪一個',
+            usage: '手上已有幾個選項，或對方知道你指哪一組時，用 Which 選出其中一個。',
+            structure: 'Which (+ 名詞) + 助動詞或 be + 主詞…？／Which + 名詞（作主詞）+ 動詞…？',
+            examples: [
+              ['Which of these two seats do you prefer?', '這兩個位子你比較喜歡哪一個？'],
+              ['Which day works better for you, Monday or Friday?', '星期一和星期五，你哪一天比較方便？'],
+            ],
+            mistake: { wrong: 'Which seat do you prefers?', right: 'Which seat do you prefer?', reason: 'do 後接動詞原形，主詞是 you。' },
+          },
+          {
+            title: 'Whose｜誰的',
+            usage: '問物品或責任屬於誰。Whose 可以單獨使用，也可以放在名詞前。',
+            structure: 'Whose + 名詞 + be + 主詞？／Whose + be + 主詞？',
+            examples: [
+              ['Whose charger is this?', '這是誰的充電器？'],
+              ['Whose is that jacket?', '那件外套是誰的？'],
+              ['Whose turn is it?', '輪到誰了？'],
+            ],
+            mistake: { wrong: 'Who’s charger is this?', right: 'Whose charger is this?', reason: 'Whose 表示「誰的」。Who’s 是 who is 或 who has 的縮寫。' },
+          },
+          {
+            title: 'How｜方法、過程、狀況',
+            usage: '問怎麼做到、過得如何，或事情進行得怎麼樣。How was…? 很適合接續對方提到的活動。',
+            structure: 'How + 助動詞或 be + 主詞 + 其餘部分？',
+            examples: [
+              ['How did you hear about this class?', '你是怎麼知道這堂課的？'],
+              ['How was your interview?', '你面試得怎麼樣？'],
+              ['How’s your project going?', '你的專案進行得怎麼樣？'],
+            ],
+            mistake: { wrong: 'How did you heard about this class?', right: 'How did you hear about this class?', reason: 'did 帶出過去時間，主動詞用 hear。' },
+          },
+        ],
+      },
+      {
+        id: 'how',
+        title: 'How 的常見搭配',
+        description: '數量、價錢、時間長度、頻率、距離和程度',
+        patterns: [
+          {
+            title: 'How many / How much｜數量、價錢',
+            usage: '可數的東西用 how many + 複數名詞。水、時間等不可數名詞用 how much。How much 也可以直接問價錢。',
+            structure: 'How many + 複數名詞…？／How much (+ 不可數名詞)…？',
+            examples: [
+              ['How many people are coming tonight?', '今晚有幾個人會來？'],
+              ['How much time do we have?', '我們還有多少時間？'],
+              ['How much does this cost?', '這個多少錢？'],
+            ],
+            mistake: { wrong: 'How many time do we have?', right: 'How much time do we have?', reason: '表示時間長度的 time 是不可數名詞。How many times 表示「幾次」。' },
+          },
+          {
+            title: 'How long / How soon｜多久、還要多久',
+            usage: 'How long 問持續多長。How soon 問距離開始或完成還要等多久。',
+            structure: 'How long / How soon + 助動詞或 be + 主詞 + 其餘部分？',
+            examples: [
+              ['How long does the class last?', '這堂課會上多久？'],
+              ['How soon can you get here?', '你最快多久能到這裡？'],
+              ['How long have you lived here?', '你住在這裡多久了？'],
+            ],
+            mistake: { wrong: 'How long does the class lasts?', right: 'How long does the class last?', reason: 'does 已配合 the class，後面的 last 用原形。' },
+          },
+          {
+            title: 'How often｜頻率',
+            usage: '問一件事多久發生一次。可用 twice a week、every day、once in a while 等回答。',
+            structure: 'How often + 助動詞 + 主詞 + 動詞？',
+            examples: [
+              ['How often do you speak English outside class?', '你在課堂以外多常講英文？'],
+              ['How often does she work from home?', '她多常在家工作？'],
+            ],
+            mistake: { wrong: 'How often she works from home?', right: 'How often does she work from home?', reason: '問第三人稱的現在習慣時，用 does + 主詞 + 原形。' },
+          },
+          {
+            title: 'How + 形容詞或副詞｜程度',
+            usage: 'far 問距離，old 問年齡，early 或 late 問時間早晚，也能用 well 問做得如何。',
+            structure: 'How + 形容詞或副詞 + 助動詞或 be + 主詞 + 其餘部分？',
+            examples: [
+              ['How far is it from here to the station?', '從這裡到車站有多遠？'],
+              ['How old is your dog?', '你的狗幾歲了？'],
+              ['How late is the store open?', '這家店開到多晚？'],
+            ],
+            mistake: { wrong: 'How far it is to the station?', right: 'How far is it to the station?', reason: '直接問距離時，how far 整組放在最前面，再接 is it。' },
+          },
+        ],
+      },
+      {
+        id: 'tense',
+        title: '助動詞與時態',
+        description: '問是不是、有沒有、正在做、做過了，還是接下來會做',
+        patterns: [
+          {
+            title: 'Am / Is / Are / Was / Were｜身分、狀態、地點',
+            usage: '句子用 be 描述狀態、地點或身分，就把適合主詞和時間的 be 放到主詞前。',
+            structure: '(疑問詞) + be + 主詞 + 名詞、形容詞或地點？',
+            examples: [
+              ['Are you free after class?', '你下課後有空嗎？'],
+              ['Was the restaurant busy last night?', '那家餐廳昨晚很忙嗎？'],
+            ],
+            mistake: { wrong: 'Do you free after class?', right: 'Are you free after class?', reason: 'free 在這裡是形容詞，搭配 be 動詞。' },
+          },
+          {
+            title: 'Do / Does / Did｜習慣與過去的動作',
+            usage: '一般動詞的現在簡單式用 do 或 does，過去簡單式用 did。Does 搭配 he、she、it 或單數名詞。',
+            structure: '(疑問詞) + do / does / did + 主詞 + 動詞原形？',
+            examples: [
+              ['Do you take the train to work?', '你平常搭火車上班嗎？'],
+              ['Does your sister take the train to work?', '你姊姊平常搭火車上班嗎？'],
+              ['Did you take the train yesterday?', '你昨天搭火車了嗎？'],
+            ],
+            mistake: { wrong: 'Did you took the train yesterday?', right: 'Did you take the train yesterday?', reason: 'did 表示過去，took 要換成動詞原形 take。' },
+          },
+          {
+            title: 'Be + V-ing｜正在做、當時在做、安排好了',
+            usage: '現在進行用 am/is/are，過去某刻正在做用 was/were。已排好的未來行程也常用現在進行式。',
+            structure: '(疑問詞) + am / is / are / was / were + 主詞 + V-ing？',
+            examples: [
+              ['What are you doing right now?', '你現在正在做什麼？'],
+              ['What were you doing when I called?', '我打電話給你時，你正在做什麼？'],
+              ['Are you meeting Sam tomorrow?', '你明天有約 Sam 見面嗎？'],
+            ],
+            mistake: { wrong: 'What do you doing right now?', right: 'What are you doing right now?', reason: '進行式需要 be + V-ing，所以用 are you doing。' },
+          },
+          {
+            title: 'Have / Has / Had + p.p.｜經驗、結果、先後',
+            usage: 'Have/has 問從過去到現在的經驗或結果。Had 問某個過去時間點之前的事。問明確的已結束時間，日常通常用 Did。',
+            structure: '(疑問詞) + have / has / had + 主詞 + 過去分詞（p.p.）？',
+            examples: [
+              ['Have you ever tried making bread?', '你有試過自己做麵包嗎？'],
+              ['Has Nina sent the file yet?', 'Nina 把檔案寄出去了嗎？'],
+              ['Had you met Nina before the workshop?', '你在工作坊以前見過 Nina 嗎？'],
+              ['Did Nina send the file yesterday?', 'Nina 昨天有寄出檔案嗎？'],
+            ],
+            mistake: { wrong: 'Have you ever ate here?', right: 'Have you ever eaten here?', reason: 'have 後接過去分詞 eaten。ate 是過去式。' },
+          },
+          {
+            title: 'Have / Had been + V-ing｜一路做了多久',
+            usage: '想強調動作一路持續，問到現在用 have/has been，問到過去某一刻用 had been。',
+            structure: 'How long + have / has / had + 主詞 + been + V-ing？',
+            examples: [
+              ['How long have you been studying English?', '你學英文學多久了？'],
+              ['How long had you been waiting when they finally called?', '他們終於打來時，你已經等多久了？'],
+            ],
+            mistake: { wrong: 'How long have you studying English?', right: 'How long have you been studying English?', reason: '完成進行式由 have + been + V-ing 組成。' },
+          },
+          {
+            title: 'Will / Be going to｜將來、打算、安排',
+            usage: 'Will 常用來問未來、意願或預測。Be going to 常問已有的打算。已約好人或時間也常用 be + V-ing。',
+            structure: '(疑問詞) + will + 主詞 + 動詞原形？／(疑問詞) + be + 主詞 + going to + 動詞原形？',
+            examples: [
+              ['Will you be home by seven?', '你七點前會到家嗎？'],
+              ['What are you going to do this weekend?', '你這個週末打算做什麼？'],
+              ['Are you having dinner with them on Friday?', '你週五有約他們吃晚餐嗎？'],
+            ],
+            mistake: { wrong: 'Do you will be home by seven?', right: 'Will you be home by seven?', reason: 'will 本身可以放在主詞前問問題。' },
+          },
+          {
+            title: 'Will be / Will have｜未來的某刻或期限',
+            usage: '想問未來某個時間正在做什麼，用 will be + V-ing。想問期限到了是否已完成，用 will have + p.p.。要問到那時累計多久，才用較少見的 will have been + V-ing。',
+            structure: 'Will + 主詞 + be + V-ing／have + p.p.／have been + V-ing？',
+            examples: [
+              ['What will you be doing at eight?', '你八點的時候會在做什麼？'],
+              ['Will you have finished the slides by Friday?', '到星期五時，你會已經做完投影片嗎？'],
+              ['How long will you have been working here by July?', '到七月時，你在這裡就工作多久了？'],
+            ],
+            mistake: { wrong: 'Will you have finish the slides by Friday?', right: 'Will you have finished the slides by Friday?', reason: '未來完成式仍然用 have + 過去分詞 finished。' },
+          },
+          {
+            title: 'Can / Could / Would / Should / May / Might / Must｜語氣',
+            usage: 'Can 問能力或許可，Could 常用於客氣請求，Would 問意願或假設，Should 問建議。May 用於較正式的許可，Might 問可能性，Must 問義務，日常也常問 Do I have to…?。',
+            structure: '(疑問詞) + 情態助動詞 + 主詞 + 動詞原形？',
+            examples: [
+              ['Can you hear me clearly?', '你聽得清楚嗎？'],
+              ['Could you say that again?', '你可以再說一次嗎？'],
+              ['What would you do in my situation?', '如果你是我，你會怎麼做？'],
+              ['Should we leave a little earlier?', '我們要不要早一點出發？'],
+              ['May I ask a quick question?', '我可以簡單問個問題嗎？'],
+              ['Might there be another explanation?', '有沒有可能還有別的解釋？'],
+              ['Must we book in advance?', '我們一定要事先預約嗎？'],
+            ],
+            mistake: { wrong: 'Could you to say that again?', right: 'Could you say that again?', reason: 'could 等情態助動詞後面接原形，這裡直接用 say。' },
+          },
+          {
+            title: 'Have to / Need to / Want to｜需要、必須、想要',
+            usage: '問現在需不需要或想不想做時，用 Do/Does + 主詞 + have/need/want to。Have 在問「擁有」時也是一般動詞。',
+            structure: '(疑問詞) + do / does / did + 主詞 + have / need / want (+ to + 原形)？',
+            examples: [
+              ['Do I have to bring my ID?', '我一定要帶證件嗎？'],
+              ['Does she need to be there in person?', '她需要親自到場嗎？'],
+              ['Do you have a minute?', '你有空一下嗎？'],
+            ],
+            mistake: { wrong: 'Does she needs to be there?', right: 'Does she need to be there?', reason: '用 does 承擔第三人稱變化，need 維持原形。' },
+          },
+          {
+            title: '被動問句｜東西被怎麼處理',
+            usage: '想問物品或結果時，常用 be + 過去分詞。問到目前是否已處理，可以用 Have/Has + 主詞 + been + p.p.。',
+            structure: '(疑問詞) + be + 主詞 + p.p.？／Have / Has + 主詞 + been + p.p.？',
+            examples: [
+              ['Where was this picture taken?', '這張照片是在哪裡拍的？'],
+              ['Has the package been delivered yet?', '包裹已經送到了嗎？'],
+            ],
+            mistake: { wrong: 'Where was taken this picture?', right: 'Where was this picture taken?', reason: '被動問句在 was 後接主詞 this picture，再接 taken。' },
+          },
+        ],
+      },
+      {
+        id: 'subject',
+        title: '問主詞還是受詞',
+        description: 'Who called you? 和 Who did you call? 的差別',
+        patterns: [
+          {
+            title: '問主詞｜誰做的？什麼發生了？',
+            usage: '把未知的主詞直接換成 who、what、which + 名詞，照原句的動詞形式往下接。肯定問句用一般動詞時通常省去 do/does/did。',
+            structure: 'Who / What + 動詞…？／Which + 名詞（作主詞）+ 動詞…？',
+            examples: [
+              ['Who called you last night?', '昨晚是誰打電話給你的？'],
+              ['What happened after class?', '下課後發生了什麼事？'],
+              ['Which bus goes to the airport?', '哪一班公車會到機場？'],
+            ],
+            mistake: { wrong: 'Who did called you last night?', right: 'Who called you last night?', reason: '要問的是打電話的人，who 本身就是主詞，接過去式 called。' },
+          },
+          {
+            title: '問受詞｜你對誰做？你做了什麼？',
+            usage: '做動作的人已經知道，例如 you。把要問的人或東西放句首，再接助動詞、主詞和動詞。',
+            structure: 'Who / What + 助動詞 + 主詞 + 動詞…？',
+            examples: [
+              ['Who did you call last night?', '你昨晚打給誰了？'],
+              ['What are you reading?', '你在讀什麼？'],
+            ],
+            mistake: { wrong: 'Who you called last night?', right: 'Who did you call last night?', reason: 'you 是主詞，who 是受詞。用 did + you + call。' },
+          },
+          {
+            title: '主詞問句也保留原有助動詞',
+            usage: '問誰正在做、誰會做、什麼已改變時，保留進行式或完成式的助動詞。否定的簡單式問句可用 doesn’t 或 didn’t。',
+            structure: 'Who / What + is / has / will / doesn’t / didn’t + 其餘部分？',
+            examples: [
+              ['Who is coming to dinner?', '誰會來吃晚餐？'],
+              ['What has changed since Monday?', '從星期一到現在有什麼改變？'],
+              ['Who didn’t get the message?', '誰沒有收到訊息？'],
+            ],
+            mistake: { wrong: 'Who does is coming to dinner?', right: 'Who is coming to dinner?', reason: 'is 是進行式已有的助動詞，who 當主詞時直接接 is coming。' },
+          },
+        ],
+      },
+      {
+        id: 'negative',
+        title: '否定問句與短答',
+        description: 'Didn’t you…?、Why didn’t…?，以及 Yes / No 怎麼回',
+        patterns: [
+          {
+            title: '否定開頭｜確認、意外、以為對方會做',
+            usage: '口語常把 not 和助動詞縮在一起，再放到主詞前。正式的完整寫法把 not 放在主詞後面。',
+            structure: '(疑問詞) + 助動詞縮寫（如 didn’t）+ 主詞…？／(疑問詞) + 助動詞 + 主詞 + not…？',
+            examples: [
+              ['Didn’t you get my message?', '你沒收到我的訊息嗎？'],
+              ['Isn’t the store open today?', '這家店今天不是有開嗎？'],
+              ['Haven’t you finished it yet?', '你還沒做完嗎？'],
+              ['Why did you not reply to the email?', '你為什麼沒有回覆這封電子郵件？'],
+            ],
+            mistake: { wrong: 'Why didn’t you replied?', right: 'Why didn’t you reply?', reason: 'didn’t 帶出過去和否定，後面的動詞用原形。' },
+          },
+          {
+            title: 'Yes / No｜照事情有沒有發生回答',
+            usage: '回答英文否定問句時，Yes 對應肯定的事實，No 對應否定的事實。短答沿用對方的助動詞。',
+            structure: 'Yes, 主詞 + 助動詞。／No, 主詞 + 否定助動詞。',
+            examples: [
+              ['Didn’t you call her? — Yes, I did.', '你沒打給她嗎？——有，我打了。'],
+              ['Didn’t you call her? — No, I didn’t.', '你沒打給她嗎？——沒有，我沒打。'],
+              ['Aren’t you free on Friday? — No, I’m not.', '你星期五不是有空嗎？——我沒空。'],
+            ],
+            mistake: { wrong: 'No, I did.', right: 'Yes, I did.', reason: '如果事實是「有打電話」，用 Yes, I did。' },
+          },
+          {
+            title: 'Why didn’t…? / Why don’t we…?｜追問與提議',
+            usage: 'Why didn’t…? 問過去沒做的原因，語氣重時可能像責問。Why don’t we…? 常用來提議一起做某事。',
+            structure: 'Why didn’t + 主詞 + 原形…？／Why don’t we + 原形…？',
+            examples: [
+              ['Why didn’t you join the call?', '你怎麼沒有加入通話？'],
+              ['Why don’t we take a short break?', '要不要一起休息一下？'],
+              ['Did something come up?', '是臨時有事嗎？'],
+            ],
+            mistake: { wrong: 'Why don’t we taking a break?', right: 'Why don’t we take a break?', reason: '用 don’t we 提議時，後面接動詞原形 take。' },
+          },
+        ],
+      },
+      {
+        id: 'conversation',
+        title: '聊天時更自然的問法',
+        description: '間接問句、選擇題、確認、禮貌請求和口語接話',
+        patterns: [
+          {
+            title: '間接問句｜Could you tell me…?',
+            usage: '先用 Could you tell me 或 Do you know 開口，再放真正想問的內容。裡面那段維持主詞在動詞前的順序。原問題是「是否」時，用 if 或 whether 連接。',
+            structure: 'Could you tell me / Do you know + 疑問詞或 if / whether + 主詞 + 動詞…？',
+            examples: [
+              ['Could you tell me where the restroom is?', '可以告訴我洗手間在哪裡嗎？'],
+              ['Do you know what time the class starts?', '你知道課幾點開始嗎？'],
+              ['Do you know if the store is still open?', '你知道那家店還有沒有開嗎？'],
+            ],
+            mistake: { wrong: 'Could you tell me where is the restroom?', right: 'Could you tell me where the restroom is?', reason: '疑問語序在 Could you。裡面的部分用 where the restroom is。' },
+          },
+          {
+            title: '選擇問句｜A or B?',
+            usage: '直接把選項講出來，對方就能選。問飲料、時間和行程時特別實用。',
+            structure: '助動詞或 be + 主詞 + 其餘部分 + A or B？',
+            examples: [
+              ['Would you like coffee or tea?', '你想喝咖啡還是茶？'],
+              ['Are we meeting here or at the station?', '我們在這裡見面，還是在車站？'],
+            ],
+            mistake: { wrong: 'Are we meeting here or the station?', right: 'Are we meeting here or at the station?', reason: 'here 本身表示地點。問「在車站」用 at the station。' },
+          },
+          {
+            title: '附加問句｜在句尾確認「對吧？」',
+            usage: '常見的確認語氣是肯定句接否定尾巴、否定句接肯定尾巴。尾巴用原句的助動詞和代名詞。想快速確認，也可以用 right?。',
+            structure: '陳述句 + 逗號 + 助動詞（正負互換）+ 代名詞？',
+            examples: [
+              ['You’re joining us later, aren’t you?', '你晚一點會跟我們會合，對吧？'],
+              ['You didn’t see my message, did you?', '你沒看到我的訊息，對吧？'],
+              ['The class starts at nine, right?', '課是九點開始，對吧？'],
+            ],
+            mistake: { wrong: 'You’re joining us later, don’t you?', right: 'You’re joining us later, aren’t you?', reason: '原句用了 are，確認用的尾巴接 aren’t you。' },
+          },
+          {
+            title: '禮貌請求、邀請與許可',
+            usage: '請人幫忙用 Could you…?。邀請可用 Would you like to…?。Would you mind 後面可接 V-ing，也可用 if I + 過去式客氣地問許可。',
+            structure: 'Could you + 原形？／Would you like to + 原形？／Would you mind + V-ing / if I + 過去式？',
+            examples: [
+              ['Could you speak a little more slowly?', '可以請你講慢一點嗎？'],
+              ['Would you like to grab lunch after class?', '下課後想一起吃午餐嗎？'],
+              ['Would you mind if I sat here?', '你介意我坐這裡嗎？'],
+              ['Would you mind sending me the link?', '可以麻煩你把連結傳給我嗎？'],
+            ],
+            mistake: { wrong: 'Would you mind to send me the link?', right: 'Would you mind sending me the link?', reason: '用 Would you mind 請人做事時，動詞接 V-ing。' },
+          },
+          {
+            title: 'How come｜口語的「怎麼會？」',
+            usage: 'How come 用來對情況感到好奇或意外。後面的部分維持陳述句順序。',
+            structure: 'How come + 主詞 + 動詞…？',
+            examples: [
+              ['How come you left so early?', '你怎麼那麼早就走了？'],
+              ['How come the train is late again?', '火車怎麼又誤點了？'],
+            ],
+            mistake: { wrong: 'How come did you leave so early?', right: 'How come you left so early?', reason: 'How come 後直接用 you left。用 why 則可以問 Why did you leave so early?' },
+          },
+          {
+            title: '短問句與追問｜讓對話接得下去',
+            usage: '上下文清楚時，可以省略重複的主詞或動詞。聽到新消息可以用 Really? 表示意外，用 How so? 請對方再說一點。',
+            structure: '(Are you) ready?／For how long?／What about + 人或話題？',
+            examples: [
+              ['Ready to go?', '準備好要走了嗎？'],
+              ['I’m staying in Taipei. — For how long?', '我會待在台北。——要待多久？'],
+              ['I usually work from home. — What about your team?', '我通常在家工作。——那你的團隊呢？'],
+              ['I think it’s a good thing. — How so?', '我覺得這是好事。——怎麼說？'],
+            ],
+            mistake: { wrong: 'What about to meet on Friday?', right: 'What about meeting on Friday?', reason: 'What about 可以接名詞或 V-ing，用來提議做某件事時接 meeting。' },
+          },
+        ],
+      },
+    ],
+  },
+];
